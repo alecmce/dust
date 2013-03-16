@@ -1,0 +1,35 @@
+default:
+  title: title
+  version: 0.0.1
+  company: alecmce
+  package: alecmce.dust.build
+  debug: false
+  src: example/src
+  main: Main
+  output: output
+  bin: example/bin
+  haxe: 2
+  width: 800
+  height: 600
+  fps: 60
+  background: ffffff
+  libs: nme minject
+  assets: example/assets
+  orientation: portrait
+  resizable: false
+  ndll:
+  icon: example/icon.svg
+
+testing:
+  src: example/test
+  libs: munit
+
+webos:
+  width: 200
+  fullscreen: true
+
+ios:
+  fullscreen: true
+
+android:
+  fullscreen: true

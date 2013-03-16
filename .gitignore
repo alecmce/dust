@@ -1,0 +1,12 @@
+*.iml
+.idea
+
+build/zip/*
+build/example/bin/*
+
+.munit
+test.hxml
+
+bin/*
+
+assets/*.ttf.hash
