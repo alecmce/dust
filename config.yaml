@@ -1,35 +1,35 @@
 default:
-  title: title
+  title: dust
   version: 0.0.1
   company: alecmce
-  package: alecmce.dust.build
+  package: alecmce.dust
   debug: false
-  src: example/src
+  src: src
   main: Main
-  output: output
-  bin: example/bin
+  output: dust
+  bin: bin
   haxe: 2
   width: 800
   height: 600
   fps: 60
   background: ffffff
   libs: nme minject
-  assets: example/assets
+  assets: assets
   orientation: portrait
   resizable: false
   ndll:
-  icon: example/icon.svg
+  icon: assets/icon.svg
 
 testing:
-  test: example/test
-  output: example/bin/test/bin
-  report: example/bin/test/report
-  src: example/src
-  browser: firefox
+  test: test
+  output: bin/test/bin
+  report: bin/test/report
+  src: src
   resources: nil
   templates: nil
   coverage: nil
   coverage_ignored: nil
+  browser: firefox
 
 webos:
   width: 200

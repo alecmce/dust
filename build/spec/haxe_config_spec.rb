@@ -44,4 +44,8 @@ describe 'config is populated from target yaml' do
     subject.testing.should be_an_instance_of(MunitConfig)
   end
 
+  it 'populates test configuration' do
+    subject.testing.browser.should == 'firefox'
+  end
+
 end

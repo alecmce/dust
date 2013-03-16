@@ -2,7 +2,7 @@
 
 class MunitConfig
   attr_accessor :version, :test, :bin, :report, :src,
-                :resources, :templates, :coverage, :ignored
+                :browser, :resources, :templates, :coverage, :ignored
 
   def initialize(data)
     @data = data
@@ -12,6 +12,7 @@ class MunitConfig
     @report = data['report']
     @src = data['src']
 
+    @browser = get_optional 'browser'
     @resources = get_optional 'resources'
     @templates = get_optional 'templates'
     @coverage = get_optional 'coverage'
@@ -19,11 +20,11 @@ class MunitConfig
   end
 
   def get_optional(key)
-    is_defined key ? @data[key] : nil
+    is_defined?(key) ? @data[key] : nil
   end
 
-  def is_defined(key)
-    @data.has_key? key && @data[key] != 'nil'
+  def is_defined?(key)
+    @data.has_key?(key) && @data[key] != 'nil'
   end
 
   def get_binding

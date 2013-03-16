@@ -8,19 +8,20 @@ class HaxeConfig
   def initialize(path)
     @path = path
     @data = YAML.load_file path
-    @contexts = Array.new
     define_contexts
+    define_testing
     default
   end
 
   def define_contexts
+    @contexts = Array.new
     @data.each_key do |context|
-      if context == 'testing'
-        @testing = MunitConfig.new(@data[context])
-      else
-        @contexts << context
-      end
+      @contexts << context unless context == 'testing'
     end
+  end
+
+  def define_testing
+    @testing = MunitConfig.new(@data['testing'])
   end
 
   def default

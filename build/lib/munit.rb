@@ -4,10 +4,8 @@ require 'fileutils'
 
 class Munit
 
-  HXML_TEMPLATE_FILE = File.expand_path(File.join(File.dirname(__FILE__), '..', 'assets', 'test.hxml.erb'))
-  HXML_TARGET_FILE = 'test.hxml'
-
-  TEMPLATE_FILE = File.expand_path(File.join(File.dirname(__FILE__), '..', 'assets', 'munit.erb'))
+  ASSETS_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..', 'assets'))
+  TEMPLATE_FILE = File.join(ASSETS_DIR, 'munit.erb')
   TARGET_FILE = '.munit'
 
   def initialize(config)
@@ -19,10 +17,14 @@ class Munit
   end
 
   def configure
-    write_munit unless is_configured?
+    unless is_configured?
+      write_munit
+      create_test_hxml
+      copy_test_files
+    end
   end
 
-    def write_munit
+  def write_munit
       result = ERB.new(File.read(TEMPLATE_FILE)).result(@config.testing.get_binding)
       File.open(target_file, 'w') do |file|
         file.write result
@@ -33,10 +35,31 @@ class Munit
         File.join Dir.pwd, TARGET_FILE
       end
 
+    def create_test_hxml
+      file = File.join Dir.pwd, 'test.hxml'
+      FileUtils.touch file
+    end
+
+    def copy_test_files
+      dir = File.join Dir.pwd, @config.testing.test
+      FileUtils.cp File.join(ASSETS_DIR, 'TestMain.hx'), dir
+      FileUtils.cp File.join(ASSETS_DIR, 'TestSuite.hx'), dir
+    end
+
   def clear
     FileUtils.rm target_file if is_configured?
   end
 
+  def test(types)
+    params = types.map { |type| "-#{type}" }
+    command = "haxelib run munit test #{params.join(' ')} #{browser_flag}"
+    puts command
+    `#{command}`
+  end
+
+    def browser_flag
+      @config.testing.browser.nil? ? '' : "-browser #{@config.testing.browser}"
+    end
 
 end
 

@@ -10,6 +10,7 @@ build/.temp
 test.hxml
 
 report/*
+test-runner/*
 
 bin/*
 
