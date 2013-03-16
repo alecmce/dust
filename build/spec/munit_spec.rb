@@ -8,25 +8,28 @@ require 'rspec'
 
 describe 'Unit-test runner' do
 
+  def root
+    File.expand_path(File.join(File.dirname(__FILE__), '..'))
+  end
+
   subject do
-    file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example','config.yaml'))
+    file = File.join(root, 'example', 'config.yaml')
     config = HaxeConfig.new file
     Munit.new(config)
   end
 
-  it 'can determine that munit is not configured' do
-    subject.is_configured?.should be_false
+  it 'creates output directories if needed' do
+    dir = File.join(root, 'example', 'bin', 'test', 'bin')
+    subject.ensure_directories
+    File.exists?(dir).should be_true
   end
 
-  it 'can configure munit' do
-    subject.configure
-    subject.is_configured?.should be_true
+  it 'adds a browser flag when browser is configured' do
+    subject.browser_flag.should == '-browser firefox'
   end
 
-  it 'can clear configuration' do
-    subject.configure
-    subject.clear
-    subject.is_configured?.should be_false
+  it 'adds a coverage flag when coverage config is not nil' do
+    subject.coverage_flag.should == '-coverage'
   end
 
 end

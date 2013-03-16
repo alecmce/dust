@@ -28,4 +28,9 @@ describe 'munit config is configured from hash' do
     subject.get_optional('aston').should == 'villa'
   end
 
+  it 'reads the version from haxelib version' do
+    subject = MunitConfig.new({})
+    subject.version.should == '2.0.0'
+  end
+
 end

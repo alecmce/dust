@@ -22,14 +22,14 @@ default:
 
 testing:
   test: test
-  output: bin/test/bin
-  report: bin/test/report
+  bin: 'bin/test/bin'
+  report: 'bin/test/report'
   src: src
+  browser: firefox
   resources: nil
   templates: nil
   coverage: nil
   coverage_ignored: nil
-  browser: firefox
 
 webos:
   width: 200

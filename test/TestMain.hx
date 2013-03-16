@@ -1,5 +1,3 @@
-package;
-
 import massive.munit.client.PrintClient;
 import massive.munit.client.RichPrintClient;
 import massive.munit.client.HTTPClient;
@@ -11,6 +9,10 @@ import massive.munit.TestRunner;
 import js.Lib;
 #end
 
+/**
+ * Auto generated Test Application.
+ * Refer to munit command line tool for more information (haxelib run munit)
+ */
 class TestMain
 {
 	static function main(){	new TestMain(); }
@@ -36,6 +38,10 @@ class TestMain
 		runner.run(suites);
 	}
 
+	/*
+		updates the background color and closes the current browser
+		for flash and html targets (useful for continous integration servers)
+	*/
 	function completionHandler(successful:Bool):Void
 	{
 		try
@@ -48,6 +54,7 @@ class TestMain
 				Sys.exit(0);
 			#end
 		}
+		// if run from outside browser can get error which we can ignore
 		catch (e:Dynamic)
 		{
 		}

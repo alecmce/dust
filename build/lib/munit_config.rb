@@ -6,7 +6,7 @@ class MunitConfig
 
   def initialize(data)
     @data = data
-    @version = data['version']
+    @version = get_version
     @test = data['test']
     @bin = data['bin']
     @report = data['report']
@@ -19,13 +19,17 @@ class MunitConfig
     @ignored = get_optional 'ignored'
   end
 
-  def get_optional(key)
-    is_defined?(key) ? @data[key] : nil
-  end
+    def get_version
+      `haxelib run munit`.split(/\n/).first.scan(/^.+Version ([0-9.]+)$/)[0][0]
+    end
 
-  def is_defined?(key)
-    @data.has_key?(key) && @data[key] != 'nil'
-  end
+    def get_optional(key)
+      is_defined?(key) ? @data[key] : nil
+    end
+
+    def is_defined?(key)
+      @data.has_key?(key) && @data[key] != 'nil'
+    end
 
   def get_binding
     binding

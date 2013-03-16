@@ -14,8 +14,22 @@ task :default do
   puts 'hello, rake'
 end
 
+task :clean do
+  munit.clean
+end
+
 task :test do
-  munit.clear
-  munit.configure
-  munit.test %w(as3 js)
+  munit.test %w(as3 js cpp)
+end
+
+task :test_as3 do
+  munit.test %w(as3)
+end
+
+task :test_js do
+  munit.test %w(js)
+end
+
+task :test_cpp do
+  munit.test %w(cpp)
 end

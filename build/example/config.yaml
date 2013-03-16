@@ -22,7 +22,7 @@ default:
 
 testing:
   test: example/test
-  output: example/bin/test/bin
+  bin: example/bin/test/bin
   report: example/bin/test/report
   src: example/src
   browser: firefox
