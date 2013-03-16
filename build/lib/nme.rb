@@ -10,8 +10,9 @@ class Nme
   TARGET_FILE = 'build.nmml'
 
   def initialize(config)
-    @config = HaxeConfig.new config
+    @config = config
     @nmml = Nmml.new(@config)
+    @haxelib = Haxelib.new
   end
 
   def publish target
@@ -22,21 +23,24 @@ class Nme
   end
 
   def make_command target
-    "haxelib run nme test #{target_file} #{target}"
+    list = Array.new
+    list << "haxelib run nme update #{target_hxml_file} #{target}"
+    list << "haxelib run nme build #{target_hxml_file} #{target}"
+    list.join(' && ')
   end
 
   def write_nmml
     result = ERB.new(File.read(TEMPLATE_FILE)).result(@config.get_binding)
-    File.open(target_file, 'w') do |file|
+    File.open(target_hxml_file, 'w') do |file|
       file.write result
     end
   end
 
   def delete_nmml
-    FileUtils.rm target_file
+    FileUtils.rm target_hxml_file
   end
 
-  def target_file
+  def target_hxml_file
     File.join Dir.pwd, TARGET_FILE
   end
 

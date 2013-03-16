@@ -3,5 +3,12 @@ package;
 class Main
 {
     public static function main()
-        trace("hello, world.")
+    {
+        new Main();
+    }
+
+    public function new()
+    {
+        trace("hello, world.");
+    }
 }

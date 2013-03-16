@@ -10,7 +10,7 @@ describe 'config is populated from target yaml' do
 
   subject do
     file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example','config.yaml'))
-    HaxeConfig.new(file)
+    HaxeConfig.new file
   end
 
   it 'defines contexts based on the top-level configurations' do
@@ -38,6 +38,10 @@ describe 'config is populated from target yaml' do
     subject.set_context('webos')
     subject.set_context('ios')
     subject.width.should == 800
+  end
+
+  it 'defines test configuration' do
+    subject.testing.should be_an_instance_of(MunitConfig)
   end
 
 end

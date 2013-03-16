@@ -16,7 +16,7 @@ class Haxelib
     end
   end
 
-  def dependency(name)
+  def require_lib(name)
     unless libraries.has_key? name
       install name
     end

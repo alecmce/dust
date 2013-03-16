@@ -21,8 +21,14 @@ default:
   icon: example/icon.svg
 
 testing:
-  src: example/test
-  libs: munit
+  test: example/test
+  output: example/bin/test/bin
+  report: example/bin/test/report
+  src: example/src
+  resources: nil
+  templates: nil
+  coverage: nil
+  coverage_ignored: nil
 
 webos:
   width: 200

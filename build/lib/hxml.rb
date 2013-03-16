@@ -4,7 +4,7 @@ class Hxml
   attr_reader :config
 
   def initialize(config)
-    @config = HaxeConfig.new config
+    @config = config
   end
 
   def publish_flash

@@ -4,9 +4,12 @@
 build/zip/*
 build/example/bin/*
 build/build.nmml
+build/.temp
 
 .munit
 test.hxml
+
+report/*
 
 bin/*
 

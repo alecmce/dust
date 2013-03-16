@@ -20,16 +20,16 @@ class Nmml
 
   def make
     result = ERB.new(File.read(TEMPLATE_FILE)).result(@config.get_binding)
-    File.open(target_file, 'w') do |file|
+    File.open(target_hxml_file, 'w') do |file|
       file.write result
     end
   end
 
   def delete
-    FileUtils.rm target_file
+    FileUtils.rm target_hxml_file
   end
 
-  def target_file
+  def target_hxml_file
     File.join Dir.pwd, TARGET_FILE
   end
 

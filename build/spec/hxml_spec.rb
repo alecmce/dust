@@ -9,18 +9,22 @@ require 'fileutils'
 
 describe 'can produce hxml commands' do
 
+  def dir
+    File.join(File.dirname(File.dirname(__FILE__)), subject.config.bin)
+  end
+
   subject do
     file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example', 'config.yaml'))
-    Hxml.new(file)
+    config = HaxeConfig.new file
+    Hxml.new(config)
   end
 
   before(:each) do
-    @@dir = File.join(File.dirname(File.dirname(__FILE__)), subject.config.bin)
-    FileUtils.mkdir_p @@dir unless File.exists? @@dir
+    FileUtils.mkdir_p dir unless File.exists? dir
   end
 
   after(:each) do
-    FileUtils.rm_rf(@@dir) if File.exists? @@dir
+    FileUtils.rm_rf(dir) if File.exists? dir
   end
 
   it 'exposes the config' do
@@ -38,7 +42,7 @@ describe 'can produce hxml commands' do
   end
 
   it 'can publish flash target' do
-    file = File.join(@@dir, "output.swf")
+    file = File.join(dir, "output.swf")
     subject.publish_flash
     puts "#{file}"
     File.exists?(file).should be_true

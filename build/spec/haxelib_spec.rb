@@ -9,7 +9,7 @@ require 'rspec'
 describe 'haxelib allows requirements to be defined in rake task' do
 
   subject do
-    Haxelib.new()
+    Haxelib.new
   end
 
   context 'can require a library' do

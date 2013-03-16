@@ -1,0 +1,10 @@
+version=<%=version%>
+src=<%=test%>
+bin=<%=bin%>
+report=<%report%>
+hxml=test.hxml
+classPaths=<%=src%>
+<%if !resources.nil?%>resources=<%=resources%><%end%>
+<%if !templates.nil?%>templates=<%=templates%><%end%>
+<%if !coverage.nil?%>coveragePackages=<%=coverage%><%end%>
+<%if !ignored.nil?%>coverageIgnoredClasses=<%=ignored%><%end%>

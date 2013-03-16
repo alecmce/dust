@@ -3,7 +3,7 @@
 require 'yaml'
 
 class HaxeConfig
-  attr_reader :data, :contexts
+  attr_reader :data, :contexts, :testing
 
   def initialize(path)
     @path = path
@@ -15,7 +15,11 @@ class HaxeConfig
 
   def define_contexts
     @data.each_key do |context|
-      @contexts << context unless context.to_s == 'testing'
+      if context == 'testing'
+        @testing = MunitConfig.new(@data[context])
+      else
+        @contexts << context
+      end
     end
   end
 
