@@ -3,6 +3,7 @@
 
 build/zip/*
 build/example/bin/*
+build/build.nmml
 
 .munit
 test.hxml

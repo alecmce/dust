@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'erb'
 require 'fileutils'
 
@@ -24,7 +26,7 @@ class Nmml
   end
 
   def delete
-    #FileUtils.rm target_file
+    FileUtils.rm target_file
   end
 
   def target_file

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-Dir.glob('lib/*.rb').each do |rb|
-  require "#{rb}"
+Dir[File.join(File.dirname(__FILE__), '..', 'lib/*.rb')].each do |file|
+  require File.basename(file, File.extname(file))
 end
 
 require 'rspec'

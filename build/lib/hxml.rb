@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 class Hxml
   attr_reader :config
 

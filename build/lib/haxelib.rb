@@ -1,8 +1,10 @@
-class Haxelib
+#!/usr/bin/env ruby
 
-  require 'open-uri'
-  require 'net/http'
-  require 'fileutils'
+require 'open-uri'
+require 'net/http'
+require 'fileutils'
+
+class Haxelib
 
   HAXELIB_URL = 'http://lib.haxe.org/files/'
 

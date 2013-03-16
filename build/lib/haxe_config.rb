@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'yaml'
+
 class HaxeConfig
   attr_reader :data, :contexts
 
