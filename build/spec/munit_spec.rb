@@ -29,6 +29,7 @@ describe 'Unit-test runner' do
   end
 
   it 'adds a coverage flag when coverage config is not nil' do
+    subject.config.coverage = 'eg'
     subject.coverage_flag.should == '-coverage'
   end
 

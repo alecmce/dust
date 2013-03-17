@@ -9,7 +9,10 @@ require 'rspec'
 describe 'haxelib allows requirements to be defined in rake task' do
 
   subject do
-    Haxelib.new
+    file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example', 'config.yaml'))
+    config = HaxeConfig.new file
+    haxe = Haxe.new config
+    Haxelib.new haxe
   end
 
   context 'can require a library' do

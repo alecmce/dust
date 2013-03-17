@@ -16,7 +16,10 @@ describe 'can build nme builds' do
   subject do
     file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example', 'config.yaml'))
     config = HaxeConfig.new file
-    Nme.new(config)
+    haxe = Haxe.new config
+    nmml = Nmml.new config
+    haxelib = Haxelib.new haxe
+    Nme.new config, haxe, nmml, haxelib
   end
 
   before(:each) do
@@ -34,8 +37,8 @@ describe 'can build nme builds' do
   end
 
   it 'can build html5 from nmml' do
-    file = File.join(dir, 'html5', 'bin', 'output.js')
-    subject.publish 'html5'
+    file = File.join(dir, 'js', 'bin', 'output.js')
+    subject.publish 'js'
     File.exists?(file).should be_true
   end
 

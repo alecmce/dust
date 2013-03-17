@@ -3,20 +3,29 @@
 require 'yaml'
 
 class HaxeConfig
-  attr_reader :data, :contexts, :testing
+  attr_reader :haxe_version, :data, :contexts, :testing
 
   def initialize(path)
     @path = path
-    @data = YAML.load_file path
+    parse
+  end
+
+  def parse
+    @data = YAML.load_file @path
+    define_haxe_version
     define_contexts
     define_testing
     default
   end
 
+  def define_haxe_version
+    @haxe_version = @data['haxe']
+  end
+
   def define_contexts
     @contexts = Array.new
     @data.each_key do |context|
-      @contexts << context unless context == 'testing'
+      @contexts << context unless context == 'testing' or context == 'haxe'
     end
   end
 

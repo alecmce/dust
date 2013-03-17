@@ -3,14 +3,16 @@
 require 'fileutils'
 
 class Munit
+  attr_reader :config
 
-  def initialize(config)
+  def initialize(config, haxe)
     @config = config.testing
+    @haxe = haxe
   end
 
   def test(types)
     ensure_directories
-    execute_command types
+    execute types
   end
 
     def ensure_directories
@@ -22,19 +24,13 @@ class Munit
         FileUtils.mkdir_p path unless File.directory? path
       end
 
-    def execute_command(types)
-      command = make_command types
-      puts command
-      puts `#{command}`
-    end
-
-    def make_command(types)
+    def execute(types)
       buffer = []
-      buffer << 'haxelib run munit test'
+      buffer << 'run munit test'
       buffer << types.map { |type| "-#{type}" }
       buffer << browser_flag
       buffer << coverage_flag
-      buffer.join(' ')
+      @haxe.lib(buffer.join(' '))
     end
 
     def browser_flag

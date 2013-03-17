@@ -10,7 +10,8 @@ class Haxelib
 
   @@remote_cache = nil
 
-  def initialize
+  def initialize(haxe)
+    @haxe = haxe
     if @@remote_cache.nil?
       @@remote_cache = remote_versions
     end
@@ -38,37 +39,33 @@ class Haxelib
     "#{HAXELIB_URL}#{name}-#{@@remote_cache[name]}.zip"
   end
 
-  def get_zip(name)
-    file = get_zip_target name
-    unless File.exists? file
-      download_zip name, file
+    def zip_path
+      File.join(@haxe.haxe_bin, 'zip')
     end
-    file
-  end
-
-  def get_zip_target(name)
-    parent = File.expand_path(File.dirname(File.dirname(__FILE__)))
-    directory = File.join(parent, "zip")
-    unless File.directory? directory
-      FileUtils.mkdir_p directory
-    end
-    File.join(directory, "#{name}.zip")
-  end
-
-  def download_zip(name, file)
-    File.open(file, "wb") do |write_file|
-      open(install_url name) do |read_file|
-        write_file.write(read_file.read)
-      end
-    end
-  end
 
   def install_library(name)
-    `haxelib test #{get_zip name}`
+    file = get_zip_target name
+    download_zip name, file unless File.exists? file
+    @haxe.lib("test #{file}")
   end
 
+    def get_zip_target(name)
+      directory = zip_path
+      FileUtils.mkdir_p directory unless File.exists? directory
+      File.join(directory, "#{name}.zip")
+    end
+
+    def download_zip(name, file)
+      File.open(file, "wb") do |write_file|
+        open(install_url name) do |read_file|
+          write_file.write(read_file.read)
+        end
+      end
+    end
+
   def libraries
-    Hash[`haxelib list`.scan(/(.+?)\: \[(.+?)\]/)]
+    list = @haxe.lib('list')
+    Hash[list.scan(/(.+?)\: \[(.+?)\]/)]
   end
 
   def remote_versions

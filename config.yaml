@@ -1,3 +1,5 @@
+haxe: 2
+
 default:
   title: dust
   version: 0.0.1
@@ -8,7 +10,6 @@ default:
   main: Main
   output: dust
   bin: bin
-  haxe: 2
   width: 800
   height: 600
   fps: 60

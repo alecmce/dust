@@ -9,10 +9,11 @@ class Nme
   TEMPLATE_FILE = File.expand_path(File.join(File.dirname(__FILE__), '..', 'assets', 'template.nmml.erb'))
   TARGET_FILE = 'build.nmml'
 
-  def initialize(config)
+  def initialize(config, haxe, nmml, haxelib)
     @config = config
-    @nmml = Nmml.new(@config)
-    @haxelib = Haxelib.new
+    @haxe = haxe
+    @nmml = nmml
+    @haxelib = haxelib
   end
 
   def publish target
