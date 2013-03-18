@@ -1,5 +1,6 @@
 package dust.entities.impl;
 
+import dust.entities.api.EntityList;
 import dust.entities.api.Entity;
 import dust.lists.SimpleList;
 import dust.lists.LinkedListItem;

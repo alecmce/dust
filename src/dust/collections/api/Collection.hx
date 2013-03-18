@@ -2,7 +2,7 @@ package dust.collections.api;
 
 import dust.components.Bitfield;
 import dust.entities.api.Entity;
-import dust.entities.impl.EntityList;
+import dust.entities.api.EntityList;
 import dust.entities.impl.SimpleEntityList;
 import dust.lists.LinkedList;
 import dust.lists.LinkedListItem;

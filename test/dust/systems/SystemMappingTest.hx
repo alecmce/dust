@@ -1,5 +1,6 @@
 package dust.systems;
 
+import dust.entities.impl.PooledEntities;
 import dust.collections.api.Collection;
 import dust.collections.control.CollectionSubscriber;
 import dust.collections.control.CollectionMap;
@@ -55,7 +56,7 @@ class SystemMappingTest
             var map = new CollectionMap();
             map.injector = injector;
             map.bitfieldFactory = new BitfieldFactory();
-            map.entities = new Entities(map.bitfieldFactory);
+            map.entities = new PooledEntities(map.bitfieldFactory);
             map.collectionList = new CollectionList();
             map.subscriber = new CollectionSubscriber();
             return map;

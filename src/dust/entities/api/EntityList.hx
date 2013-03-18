@@ -1,4 +1,4 @@
-package dust.entities.impl;
+package dust.entities.api;
 
 import dust.entities.api.Entity;
 

@@ -1,5 +1,6 @@
 package dust.entities;
 
+import dust.entities.impl.PooledEntities;
 import dust.components.BitfieldFactory;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
@@ -12,17 +13,12 @@ class EntitiesTest
     @Before public function before()
     {
         bitfieldFactory = new BitfieldFactory();
-        entities = new Entities(bitfieldFactory);
+        entities = new PooledEntities(bitfieldFactory);
     }
 
     @Test public function canRequireEntity()
     {
         Assert.isType(entities.require(), Entity);
-    }
-
-    @Test public function canPopulatePoolOfEntities()
-    {
-        entities.populate(10);
     }
 
     @Test public function releasedEntitiesArePooledForReuse()

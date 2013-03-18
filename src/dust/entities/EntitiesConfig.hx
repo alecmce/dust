@@ -1,5 +1,6 @@
 package dust.entities;
 
+import dust.entities.impl.PooledEntities;
 import dust.context.UnconfigConfig;
 import dust.entities.EntitiesConfig;
 import dust.app.SignalMapConfig;
@@ -20,7 +21,7 @@ class EntitiesConfig implements UnconfigConfig
     public function configure()
     {
         injector.mapSingleton(BitfieldFactory);
-        injector.mapSingleton(Entities);
+        injector.mapSingletonOf(Entities, PooledEntities);
     }
 
     public function unconfigure()

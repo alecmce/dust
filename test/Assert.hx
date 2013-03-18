@@ -1,8 +1,7 @@
 package ;
 
-import dust.collections.api.Collection;
-import haxe.PosInfos;
 import dust.geom.Position;
+import haxe.PosInfos;
 
 class Assert
 {
@@ -54,11 +53,14 @@ class Assert
             fail("position " + position + " does not equal (" + x + "," + y + ")");
     }
 
-    public static function collectionCountEquals(collection:Collection, count:Int)
+    public static function listCountEquals(iterator:Iterator<Dynamic>, count:Int)
     {
         var n = 0;
-        for (entity in collection)
+        while (iterator.hasNext())
+        {
             ++n;
+            iterator.next();
+        }
 
         areEqual(count, n);
     }

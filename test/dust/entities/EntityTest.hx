@@ -1,5 +1,6 @@
 package dust.entities;
 
+import dust.entities.impl.PooledEntities;
 import dust.components.MockComponentB;
 import dust.components.MockComponentA;
 import dust.components.BitfieldFactory;
@@ -20,7 +21,7 @@ class EntityTest
 	@Before public function before()
     {
         bitfieldFactory = new BitfieldFactory();
-        entities = new Entities(bitfieldFactory);
+        entities = new PooledEntities(bitfieldFactory);
         entity = entities.require();
     }
 

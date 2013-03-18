@@ -8,7 +8,7 @@ import dust.components.Bitfield;
 import dust.components.Component;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
-import dust.entities.impl.EntityList;
+import dust.entities.api.EntityList;
 import dust.entities.impl.SimpleEntityList;
 import dust.entities.impl.SortedEntityList;
 import dust.lists.LinkedList;
