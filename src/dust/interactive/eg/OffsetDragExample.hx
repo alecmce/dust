@@ -15,7 +15,7 @@ import dust.context.Config;
 import dust.context.DependentConfig;
 import dust.entities.api.Entities;
 import dust.interactive.data.Draggable;
-import dust.position.data.Position;
+import dust.geom.Position;
 
 import nme.display.Graphics;
 

@@ -4,7 +4,7 @@ import dust.entities.api.Entity;
 import dust.camera.data.Camera;
 import dust.canvas.data.Paint;
 import dust.canvas.data.Painter;
-import dust.position.data.Position;
+import dust.geom.Position;
 import nme.display.Graphics;
 
 class DrawSquarePainter extends Painter

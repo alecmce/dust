@@ -15,7 +15,7 @@ import dust.entities.api.Entities;
 import dust.entities.EntitiesConfig;
 import dust.math.MathConfig;
 import dust.math.Random;
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.systems.impl.Systems;
 import dust.systems.System;
 import dust.systems.SystemsConfig;

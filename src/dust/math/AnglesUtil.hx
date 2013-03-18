@@ -1,6 +1,6 @@
 package dust.math;
 
-import dust.position.data.Position;
+import dust.geom.Position;
 
 class AnglesUtil
 {

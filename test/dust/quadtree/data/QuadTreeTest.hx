@@ -1,6 +1,6 @@
 package dust.quadtree.data;
 
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.math.Random;
 import dust.context.Context;
 import dust.collections.api.Collection;
@@ -8,7 +8,7 @@ import dust.entities.api.Entities;
 import dust.entities.api.Entity;
 import dust.entities.EntitiesConfig;
 import dust.collections.control.CollectionMap;
-import dust.position.data.Position;
+import dust.geom.Position;
 
 import minject.Injector;
 import nme.display.Sprite;

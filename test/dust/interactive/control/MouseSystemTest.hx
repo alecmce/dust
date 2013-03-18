@@ -1,6 +1,6 @@
 package dust.interactive.control;
 
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.interactive.data.ClickFocus;
 import dust.camera.CameraConfig;
 import dust.components.Component;

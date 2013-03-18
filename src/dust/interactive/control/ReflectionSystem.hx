@@ -1,7 +1,7 @@
 package dust.interactive.control;
 
 import dust.interactive.data.Reflection;
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.collections.api.Collection;
 import dust.entities.api.Entity;
 import dust.interactive.data.Draggable;

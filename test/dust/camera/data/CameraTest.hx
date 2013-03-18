@@ -1,6 +1,6 @@
 package dust.camera.data;
 
-import dust.position.data.Position;
+import dust.geom.Position;
 
 class CameraTest
 {

@@ -3,7 +3,7 @@ package dust.interactive.config;
 import dust.interactive.data.Draggable;
 import dust.entities.api.Entity;
 import dust.interactive.data.Reflection;
-import dust.position.data.Position;
+import dust.geom.Position;
 
 class ReflectionDecorator
 {

@@ -2,7 +2,7 @@ package dust.interactive.control;
 
 import dust.interactive.data.Clickable;
 import dust.camera.data.Camera;
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.systems.System;
 import dust.components.Component;
 import dust.interactive.data.MouseInteractive;

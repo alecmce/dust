@@ -3,7 +3,7 @@ package dust.ui;
 import dust.ui.systems.UIViewRootManager;
 import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.ui.api.UIView;
 import dust.ui.systems.UpdateUISystem;
 import dust.systems.SystemsConfig;

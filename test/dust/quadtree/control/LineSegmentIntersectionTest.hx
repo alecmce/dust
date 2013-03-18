@@ -1,6 +1,6 @@
 package dust.quadtree.control;
 
-import dust.position.data.Position;
+import dust.geom.Position;
 
 class LineSegmentIntersectionTest
 {

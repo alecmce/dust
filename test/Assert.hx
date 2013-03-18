@@ -2,7 +2,7 @@ package ;
 
 import dust.collections.api.Collection;
 import haxe.PosInfos;
-import dust.position.data.Position;
+import dust.geom.Position;
 
 class Assert
 {

@@ -13,7 +13,7 @@ import dust.interactive.data.Reflection;
 import dust.interactive.control.ReflectionSystem;
 import dust.interactive.control.OffsetSystem;
 import dust.interactive.data.Offsets;
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.interactive.control.DragSystem;
 import dust.camera.CameraConfig;
 import dust.canvas.CanvasConfig;

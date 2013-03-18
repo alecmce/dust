@@ -1,7 +1,7 @@
 package dust.interactive.data;
 
 import dust.components.Component;
-import dust.position.data.Position;
+import dust.geom.Position;
 
 class Reflection extends Component
 {

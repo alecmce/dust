@@ -1,7 +1,7 @@
 package dust.quadtree.ui;
 
 import dust.camera.data.Camera;
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.quadtree.data.QuadTreeRange;
 import dust.camera.data.Camera;
 import dust.entities.api.Entity;

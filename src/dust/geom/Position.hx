@@ -1,4 +1,4 @@
-package dust.position.data;
+package dust.geom;
 
 import dust.components.Component;
 

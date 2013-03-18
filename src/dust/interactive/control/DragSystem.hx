@@ -8,7 +8,7 @@ import dust.interactive.data.Draggable;
 import dust.interactive.data.DragFocus;
 import dust.interactive.data.ClickFocus;
 import dust.interactive.data.MouseInteractive;
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.systems.System;
 
 import nme.display.DisplayObjectContainer;

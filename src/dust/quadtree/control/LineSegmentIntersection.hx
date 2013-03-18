@@ -1,7 +1,7 @@
 package dust.quadtree.control;
 
 import dust.console.ui.ConsoleOutput;
-import dust.position.data.Position;
+import dust.geom.Position;
 
 class LineSegmentIntersection
 {

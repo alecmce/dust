@@ -1,6 +1,6 @@
 package dust.interactive.data;
 
-import dust.position.data.Position;
+import dust.geom.Position;
 import dust.components.Component;
 
 class Offsets extends Component
