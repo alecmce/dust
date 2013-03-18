@@ -29,7 +29,7 @@ class SystemsConfig implements DependentConfig
 {
     @inject public var context:Context;
     @inject public var injector:Injector;
-    @inject public var signalMap:SignalMap;
+    @inject public var signals:SignalMap;
 
     public function dependencies():Array<Class<Config>>
         return [SignalMapConfig, CollectionsConfig]
@@ -42,20 +42,21 @@ class SystemsConfig implements DependentConfig
         injector.mapSingleton(Systems);
         injector.mapSingleton(UpdateCollectionsSystem);
 
-        var loop:SystemsLoop = injector.getInstance(SystemsLoop);
-        loop.add(injector.getInstance(UpdateCollectionsSystem));
-
-        var systems:Systems = injector.getInstance(Systems);
-        signalMap.mapVoid(StartSystemsSignal, systems.start);
-        signalMap.mapVoid(StopSystemsSignal, systems.stop);
-
-        context.started.bind(onStarted);
-        context.stopped.bind(onStopped);
+        configureSystems();
     }
 
-        function onStarted()
-            injector.getInstance(Systems).start()
+        function configureSystems()
+        {
+            var systems:Systems = injector.getInstance(Systems);
 
-        function onStopped()
-            injector.getInstance(Systems).stop()
+            systems
+                .map(UpdateCollectionsSystem)
+                .withName("UpdateCollections");
+
+            signals.mapVoid(StartSystemsSignal, systems.start);
+            signals.mapVoid(StopSystemsSignal, systems.stop);
+
+            context.started.bind(systems.start);
+            context.stopped.bind(systems.stop);
+        }
 }
