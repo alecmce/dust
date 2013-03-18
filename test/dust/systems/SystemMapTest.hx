@@ -1,13 +1,12 @@
 package dust.systems;
 
+import dust.collections.data.CollectionList;
 import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemMapping;
 import dust.components.BitfieldFactory;
-import dust.entities.impl.CollectionMap;
+import dust.collections.control.CollectionMap;
 import dust.entities.api.Entities;
-import dust.entities.impl.CollectionConnector;
 
-import massive.munit.Assert;
 import minject.Injector;
 
 class SystemMapTest
@@ -25,10 +24,12 @@ class SystemMapTest
 
         function makeCollectionMap():CollectionMap
         {
-            var bitfieldFactory = new BitfieldFactory();
-            var collectionConnector = new CollectionConnector();
-            var entities = new Entities(collectionConnector, bitfieldFactory);
-            return new CollectionMap(injector, collectionConnector, bitfieldFactory, entities);
+            var map = new CollectionMap();
+            map.injector = injector;
+            map.bitfieldFactory = new BitfieldFactory();
+            map.entities = new Entities(map.bitfieldFactory);
+            map.collectionList = new CollectionList();
+            return map;
         }
 
     @Test public function mappingATypeReturnsASystemMapping()

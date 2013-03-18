@@ -1,6 +1,5 @@
 package dust.camera.data;
 
-import massive.munit.Assert;
 import dust.position.data.Position;
 
 class CameraTest

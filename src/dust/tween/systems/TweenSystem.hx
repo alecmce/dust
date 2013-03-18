@@ -3,7 +3,7 @@ package dust.tween.systems;
 import dust.tween.data.Tween;
 import dust.entities.api.Entity;
 import dust.systems.System;
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 
 class TweenSystem implements System
 {

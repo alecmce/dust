@@ -1,7 +1,6 @@
 package dust.quadtree.control;
 
 import dust.position.data.Position;
-import massive.munit.Assert;
 
 class LineSegmentIntersectionTest
 {

@@ -1,7 +1,6 @@
 package dust.ui.components;
 
 import dust.ui.components.Color;
-import massive.munit.Assert;
 
 class ColorTest
 {

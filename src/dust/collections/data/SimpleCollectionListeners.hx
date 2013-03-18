@@ -1,6 +1,6 @@
-package dust.entities.impl;
+package dust.collections.data;
 
-import dust.entities.api.CollectionListeners;
+import dust.collections.api.CollectionListeners;
 import dust.entities.api.Entity;
 
 class SimpleCollectionListeners implements CollectionListeners

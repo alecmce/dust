@@ -1,6 +1,5 @@
 package dust.commands;
 
-import massive.munit.Assert;
 import minject.Injector;
 import dust.signals.SignalMap;
 import dust.signals.SignalVoid;

@@ -1,31 +1,32 @@
 package dust.systems;
 
-import dust.systems.impl.SystemMap;
+import dust.collections.api.Collection;
+import dust.collections.control.CollectionSubscriber;
+import dust.collections.control.CollectionMap;
+import dust.collections.data.CollectionList;
+import dust.components.BitfieldFactory;
+import dust.components.Component;
+import dust.components.MockComponentA;
+import dust.context.Context;
 import dust.position.data.Position;
-import dust.systems.SystemMappingTest.MockNamedCollectionSystem;
-import dust.systems.SystemMappingTest.MockNamedCollectionSystem;
 import dust.systems.impl.SystemsList;
 import dust.systems.impl.SystemMapping;
-import dust.systems.impl.TimedSystem;
+import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemsLoop;
+import dust.systems.impl.TimedSystem;
 import dust.systems.System;
-import dust.components.BitfieldFactory;
-import dust.entities.impl.CollectionConnector;
-import dust.entities.impl.CollectionMap;
-import dust.entities.api.Collection;
-import dust.components.Component;
+import dust.systems.SystemMappingTest.MockNamedCollectionSystem;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
-import dust.components.MockComponentA;
 
-import massive.munit.Assert;
 import minject.Injector;
-
-import massive.munit.Assert;
+import nme.display.Sprite;
 
 class SystemMappingTest
 {
     var injector:Injector;
+    var context:Context;
+
     var collectionMap:CollectionMap;
     var list:SystemsList;
     var loop:TestSystemsLoop;
@@ -39,18 +40,25 @@ class SystemMappingTest
 
     @Before public function before()
     {
-        injector = new Injector();
-        collectionMap = makeCollectionMap();
-        list = new SystemsList();
+        var injector = new Injector();
+        context = new Context(injector)
+            .configure(SystemsConfig)
+            .start(new Sprite());
+
+        collectionMap = injector.getInstance(CollectionMap);
+        list = injector.getInstance(SystemsList);
         loop = new TestSystemsLoop(list);
     }
 
         function makeCollectionMap():CollectionMap
         {
-            var bitfieldFactory = new BitfieldFactory();
-            var collectionConnector = new CollectionConnector();
-            var entities = new Entities(collectionConnector, bitfieldFactory);
-            return new CollectionMap(injector, collectionConnector, bitfieldFactory, entities);
+            var map = new CollectionMap();
+            map.injector = injector;
+            map.bitfieldFactory = new BitfieldFactory();
+            map.entities = new Entities(map.bitfieldFactory);
+            map.collectionList = new CollectionList();
+            map.subscriber = new CollectionSubscriber();
+            return map;
         }
 
         function makeSystemMapping(system:Class<System>):SystemMapping

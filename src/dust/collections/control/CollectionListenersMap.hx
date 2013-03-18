@@ -1,6 +1,7 @@
-package dust.entities.impl;
+package dust.collections.control;
 
-import dust.entities.api.CollectionListeners;
+import dust.collections.data.SimpleCollectionListeners;
+import dust.collections.api.CollectionListeners;
 import minject.Injector;
 
 class CollectionListenersMap

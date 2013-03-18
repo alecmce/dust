@@ -7,8 +7,8 @@ import dust.systems.System;
 import dust.components.Component;
 import dust.interactive.data.MouseInteractive;
 import dust.interactive.data.Draggable;
-import dust.entities.api.Collection;
-import dust.entities.api.CollectionListeners;
+import dust.collections.api.Collection;
+import dust.collections.api.CollectionListeners;
 import dust.entities.api.Entity;
 
 import nme.display.DisplayObjectContainer;
@@ -33,16 +33,13 @@ class ClickSystem implements System
     }
 
     public function start()
-    {
-        root.addEventListener(MouseEvent.CLICK, onClick);
-    }
+        root.addEventListener(MouseEvent.CLICK, onClick)
 
-        function onClick(_) isClick = true
+        function onClick(_)
+            isClick = true
 
     public function stop()
-    {
-        root.removeEventListener(MouseEvent.CLICK, onClick);
-    }
+        root.removeEventListener(MouseEvent.CLICK, onClick)
 
     public function iterate(deltaTime:Float)
     {

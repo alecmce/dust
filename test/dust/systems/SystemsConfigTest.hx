@@ -5,7 +5,6 @@ import dust.context.Context;
 import dust.systems.impl.Systems;
 
 import minject.Injector;
-import massive.munit.Assert;
 import nme.display.Sprite;
 
 class SystemsConfigTest

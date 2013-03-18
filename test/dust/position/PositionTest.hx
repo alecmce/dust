@@ -1,7 +1,5 @@
 package dust.position;
 
-import massive.munit.Assert;
-import massive.munit.Assert;
 import dust.position.data.Position;
 
 class PositionTest

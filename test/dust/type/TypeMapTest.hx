@@ -3,7 +3,6 @@ package dust.type;
 import nme.geom.Point;
 import nme.display.Sprite;
 
-import massive.munit.Assert;
 
 class MacroExampleA { public function new() {} }
 class MacroExampleB { public function new() {} }

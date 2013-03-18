@@ -1,7 +1,7 @@
 package dust.systems.impl;
 
 import dust.systems.System;
-import dust.entities.impl.CollectionMap;
+import dust.collections.control.CollectionMap;
 
 class Systems
 {

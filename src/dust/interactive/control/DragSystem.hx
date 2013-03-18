@@ -2,7 +2,7 @@ package dust.interactive.control;
 
 import nme.events.MouseEvent;
 import dust.camera.data.Camera;
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 import dust.entities.api.Entity;
 import dust.interactive.data.Draggable;
 import dust.interactive.data.DragFocus;

@@ -8,15 +8,8 @@ class SimpleList<T> extends LinkedList<T>
         return new SimpleList<T>()
 
     public function new()
-    {
-        super();
-        itemProvider = makeItem;
-    }
+        super(makeItem)
 
     inline function makeItem(data:T):LinkedListItem<T>
-    {
-        var item = new LinkedListItem();
-        item.data = data;
-        return item;
-    }
+        return new LinkedListItem(data)
 }

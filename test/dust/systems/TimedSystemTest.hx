@@ -2,7 +2,6 @@ package dust.systems;
 
 import dust.systems.impl.TimedSystem;
 
-import massive.munit.Assert;
 
 class TimedSystemTest
 {

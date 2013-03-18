@@ -1,5 +1,9 @@
 package;
 
+import nme.display.Sprite;
+import dust.canvas.PrioritizedPaintersConfig;
+import dust.context.Context;
+import minject.Injector;
 class Main
 {
     public static function main()
@@ -7,8 +11,13 @@ class Main
         new Main();
     }
 
+    var injector:Injector;
+    var context:Context;
+
     public function new()
     {
-        trace("Hello, world.");
+        context = new Context(injector = new Injector())
+            .configure(PrioritizedPaintersConfig)
+            .start(new Sprite());
     }
 }

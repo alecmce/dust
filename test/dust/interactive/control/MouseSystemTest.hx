@@ -5,7 +5,7 @@ import dust.interactive.data.ClickFocus;
 import dust.camera.CameraConfig;
 import dust.components.Component;
 import dust.context.Context;
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 import dust.entities.api.Entities;
 import dust.entities.api.Entity;
 import dust.entities.EntitiesConfig;
@@ -15,7 +15,6 @@ import dust.systems.impl.Systems;
 import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemMap;
 
-import massive.munit.Assert;
 import minject.Injector;
 import nme.display.DisplayObjectContainer;
 import nme.display.Sprite;

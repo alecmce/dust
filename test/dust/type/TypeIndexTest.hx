@@ -1,6 +1,5 @@
 package dust.type;
 
-import massive.munit.Assert;
 
 class TypeIndexTest
 {

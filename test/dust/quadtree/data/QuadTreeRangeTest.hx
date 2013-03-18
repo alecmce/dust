@@ -2,7 +2,6 @@ package dust.quadtree.data;
 
 import dust.position.data.Position;
 import dust.position.data.Position;
-import massive.munit.Assert;
 
 class QuadTreeRangeTest
 {

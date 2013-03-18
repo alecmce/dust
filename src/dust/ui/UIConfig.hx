@@ -1,7 +1,7 @@
 package dust.ui;
 
 import dust.ui.systems.UIViewRootManager;
-import dust.entities.impl.CollectionMap;
+import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
 import dust.position.data.Position;
 import dust.ui.api.UIView;

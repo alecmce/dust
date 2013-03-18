@@ -1,23 +1,15 @@
 package dust.lists;
 
-import massive.munit.Assert;
 
 class LinkedListTest
 {
     var list:LinkedList<Data>;
 
     @Before public function before()
-    {
-        list = new LinkedList<Data>();
-        list.itemProvider = itemProvider;
-    }
+        list = new LinkedList<Data>(itemProvider)
 
         function itemProvider(data:Data):LinkedListItem<Data>
-        {
-            var item = new LinkedListItem<Data>();
-            item.data = data;
-            return item;
-        }
+            return new LinkedListItem<Data>(data)
 
     function dataIsIteratedOver(data:Data):Bool
     {

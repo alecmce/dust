@@ -3,18 +3,14 @@ package dust.components;
 import dust.components.Component;
 import dust.components.BitfieldFactory;
 import dust.components.Bitfield;
-import dust.entities.impl.CollectionConnector;
 import dust.components.Bitfield.ZeroBitfieldDimensionError;
-import massive.munit.Assert;
 
 class BitfieldFactoryTest
 {
-    public var connector:CollectionConnector;
     public var factory:BitfieldFactory;
 
     @Before public function before()
     {
-        connector = new CollectionConnector();
         factory = new BitfieldFactory();
         factory.dimension = 1;
     }

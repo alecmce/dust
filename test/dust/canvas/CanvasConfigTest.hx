@@ -2,7 +2,6 @@ package dust.canvas;
 
 import dust.camera.data.Camera;
 import minject.Injector;
-import massive.munit.Assert;
 import nme.display.Graphics;
 import nme.display.Sprite;
 import dust.context.Context;

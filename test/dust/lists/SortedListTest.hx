@@ -2,7 +2,6 @@ package dust.lists;
 
 import dust.lists.LinkedList;
 import dust.lists.SortedList;
-import massive.munit.Assert;
 
 class SortedListTest
 {

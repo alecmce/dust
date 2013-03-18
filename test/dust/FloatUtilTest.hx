@@ -1,6 +1,5 @@
 package dust;
 
-import massive.munit.Assert;
 
 using dust.FloatUtil;
 

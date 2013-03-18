@@ -1,7 +1,6 @@
 package dust.signals;
 
 import dust.lists.MockData;
-import massive.munit.Assert;
 import dust.signals.SignalVoid;
 import dust.signals.Signal;
 import minject.Injector;

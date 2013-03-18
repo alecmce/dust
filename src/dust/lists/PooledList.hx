@@ -10,9 +10,8 @@ class PooledList<T> extends LinkedList<T>
 
     public function new()
     {
-        super();
         pool = new Pool<LinkedListItem<T>>(makeLinkedListItem);
-        itemProvider = make;
+        super(make);
     }
 
         function makeLinkedListItem():LinkedListItem<T>

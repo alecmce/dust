@@ -19,7 +19,7 @@ import dust.camera.CameraConfig;
 import dust.canvas.CanvasConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.impl.CollectionMap;
+import dust.collections.control.CollectionMap;
 import dust.interactive.data.MouseInteractive;
 import dust.interactive.control.ClickSystem;
 import dust.interactive.data.Draggable;

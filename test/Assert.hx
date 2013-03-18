@@ -1,11 +1,14 @@
 package ;
 
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 import haxe.PosInfos;
 import dust.position.data.Position;
 
 class Assert
 {
+    static function addAssertion()
+        massive.munit.Assert.assertionCount++
+
     public static function fail(message:String, ?info:PosInfos)
         massive.munit.Assert.fail(message, info)
 
@@ -42,7 +45,7 @@ class Assert
     public static function areSame(expected:Dynamic, actual:Dynamic, ?info:PosInfos)
         massive.munit.Assert.areSame(expected, actual, info)
 
-    public static function areNotSame(expected:Dynamic, actual:Dynamic, ?info:PosInfos):Void
+    public static function areNotSame(expected:Dynamic, actual:Dynamic, ?info:PosInfos)
         massive.munit.Assert.areNotSame(expected, actual, info)
 
     public static function positionEquals(position:Position, x:Float, y:Float)
@@ -58,5 +61,34 @@ class Assert
             ++n;
 
         areEqual(count, n);
+    }
+
+    public static function arraysAreEqual(expected:Array<Dynamic>, actual:Array<Dynamic>, ?info:PosInfos)
+    {
+        var areEqual = actual.length == expected.length;
+
+        if (areEqual)
+            for (i in 0...actual.length)
+                areEqual = areEqual && actual[i] == expected[i];
+
+        areEqual ? addAssertion() : Assert.fail("Value [" + actual +"] was not equal to expected value [" + expected + "]", info);
+    }
+
+    public static function listIncludes(iterator:Iterator<Dynamic>, actual:Dynamic, ?info:PosInfos)
+    {
+        var isIncluded = false;
+        while (iterator.hasNext())
+            isIncluded = iterator.next() == actual || isIncluded;
+
+        isIncluded ? addAssertion() : fail("expected " + actual + " in list, but was not found");
+    }
+
+    public static function listExcludes(iterator:Iterator<Dynamic>, actual:Dynamic, ?info:PosInfos)
+    {
+        var isIncluded = false;
+        while (iterator.hasNext())
+            isIncluded = iterator.next() == actual || isIncluded;
+
+        isIncluded ? fail(actual + " was included in list, but should not be") : addAssertion();
     }
 }

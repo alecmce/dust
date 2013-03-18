@@ -1,6 +1,5 @@
 package dust.components;
 
-import massive.munit.Assert;
 import dust.lists.SimpleList;
 import dust.lists.LinkedList;
 

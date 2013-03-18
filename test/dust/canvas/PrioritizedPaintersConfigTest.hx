@@ -5,7 +5,6 @@ import dust.canvas.control.PrioritizedPaintersSystem;
 import dust.context.Context;
 import dust.systems.impl.Systems;
 
-import massive.munit.Assert;
 import nme.display.DisplayObjectContainer;
 import nme.display.Sprite;
 

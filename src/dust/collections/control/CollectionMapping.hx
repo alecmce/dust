@@ -1,10 +1,8 @@
-package dust.entities.impl;
+package dust.collections.control;
 
-import dust.entities.impl.CollectionSort;
-import dust.entities.api.Collection;
-import dust.entities.impl.CollectionConnector;
-import dust.entities.api.CollectionListeners;
-import dust.entities.impl.CollectionListenersMap;
+import dust.collections.data.CollectionList;
+import dust.collections.api.Collection;
+import dust.collections.api.CollectionListeners;
 import dust.commands.Command;
 import dust.components.Bitfield;
 import dust.components.Component;
@@ -24,22 +22,22 @@ class CollectionMapping
 
     var injector:Injector;
     var bitfield:Bitfield;
-    var entities:Entities;
-    var collectionConnector:CollectionConnector;
+    var collectionList:CollectionList;
+    var subscriber:CollectionSubscriber;
     var listenersMap:CollectionListenersMap;
 
     var instance:Collection;
     var components:Array<Class<Component>>;
     var sorter:Entity->Entity->Int;
 
-    public function new(parent:Injector, bitfield:Bitfield, entities:Entities, collectionConnector:CollectionConnector)
+    public function new(parent:Injector, bitfield:Bitfield, collectionList:CollectionList, subscriber:CollectionSubscriber)
     {
         injector = new Injector();
         injector.parentInjector = parent;
 
         this.bitfield = bitfield;
-        this.entities = entities;
-        this.collectionConnector = collectionConnector;
+        this.collectionList = collectionList;
+        this.subscriber = subscriber;
         this.listenersMap = new CollectionListenersMap(injector);
 
         injector.mapValue(CollectionListenersMap, listenersMap);
@@ -73,36 +71,30 @@ class CollectionMapping
         function makeAndPopulateCollection():Collection
         {
             var collection = makeCollection();
-            collectionConnector.addCollection(collection);
+            collectionList.append(collection);
             populateCollection(collection);
             return collection;
         }
 
             function makeCollection():Collection
             {
-                var list = makeList();
+                var inner = makeLinkedList();
+                var list = makeList(inner);
                 var listeners = listenersMap.make();
                 return new Collection(bitfield, list, listeners.onEntityAdded, listeners.onEntityRemoved);
             }
 
-                function makeList():EntityList
+                function makeLinkedList():LinkedList<Entity>
+                    return new SimpleList<Entity>()
+
+                function makeList(list:LinkedList<Entity>):EntityList
                 {
-                    var list = makeLinkedList();
                     return if (sorter != null)
                         new SortedEntityList(list, sorter);
                     else
                         new SimpleEntityList(list);
                 }
 
-                    function makeLinkedList():LinkedList<Entity>
-                    {
-                        return new SimpleList<Entity>();
-                    }
-
         function populateCollection(collection:Collection)
-        {
-            var collectionOnAdded = collection.add;
-            for (entity in entities)
-                collectionOnAdded(entity);
-        }
+            subscriber.updateCollection(collection)
 }

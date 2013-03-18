@@ -3,12 +3,10 @@ package dust.context;
 import dust.context.DependentConfig;
 import dust.context.Context;
 import dust.context.Config;
-import massive.munit.Assert;
 import nme.display.DisplayObjectContainer;
 import nme.display.Sprite;
 import minject.Injector;
 
-import massive.munit.Assert;
 
 class ContextTest
 {

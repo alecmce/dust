@@ -3,20 +3,16 @@ package dust.entities;
 import dust.components.BitfieldFactory;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
-import dust.entities.impl.CollectionConnector;
-import massive.munit.Assert;
 
 class EntitiesTest
 {
-    var connector:CollectionConnector;
     var bitfieldFactory:BitfieldFactory;
     var entities:Entities;
 
     @Before public function before()
     {
         bitfieldFactory = new BitfieldFactory();
-        connector = new CollectionConnector();
-        entities = new Entities(connector, bitfieldFactory);
+        entities = new Entities(bitfieldFactory);
     }
 
     @Test public function canRequireEntity()
@@ -32,7 +28,7 @@ class EntitiesTest
     @Test public function releasedEntitiesArePooledForReuse()
     {
         var first = entities.require();
-        first.dispose();
+        entities.release(first);
         var second = entities.require();
         Assert.areSame(first, second);
     }

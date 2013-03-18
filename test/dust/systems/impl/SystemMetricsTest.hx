@@ -1,9 +1,7 @@
 package dust.systems.impl;
 
-import massive.munit.Assert;
 import dust.stats.RollingMean;
 
-import massive.munit.Assert;
 
 class SystemMetricsTest
 {

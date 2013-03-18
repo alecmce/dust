@@ -7,7 +7,7 @@ import dust.canvas.control.PrioritizedPaintersSystem;
 import dust.canvas.data.PrioritizedPainter;
 import dust.context.DependentConfig;
 import dust.context.Config;
-import dust.entities.impl.CollectionMap;
+import dust.collections.control.CollectionMap;
 import dust.entities.api.Entity;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
@@ -27,9 +27,7 @@ class PrioritizedPaintersConfig implements DependentConfig
     var canvas:Sprite;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [CanvasConfig, SystemsConfig, CameraConfig];
-    }
+        return [CanvasConfig, SystemsConfig, CameraConfig]
 
     public function configure()
     {

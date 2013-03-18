@@ -9,7 +9,7 @@ import dust.canvas.PrioritizedPaintersConfig;
 import dust.components.Component;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
 import dust.entities.EntitiesConfig;

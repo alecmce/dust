@@ -1,4 +1,4 @@
-package dust.entities.api;
+package dust.collections.api;
 
 import dust.components.Bitfield;
 import dust.entities.api.Entity;
@@ -30,29 +30,26 @@ class Collection
         this.onRemoved = onRemoved;
     }
 
-    public function add(entity:Entity)
+    inline public function has(entity:Entity):Bool
+        return list.has(entity)
+
+    inline public function meetsRequirements(entity:Entity):Bool
+        return entity.satisfies(bitfield)
+
+    inline public function add(entity:Entity)
     {
-        if (!list.has(entity) && entity.satisfies(bitfield))
-        {
-            list.add(entity);
-            onAdded(entity);
-        }
+        list.add(entity);
+        onAdded(entity);
     }
 
-    public function remove(entity:Entity)
+    inline public function remove(entity:Entity)
     {
-        if (list.has(entity) && !entity.satisfies(bitfield))
-        {
-            list.remove(entity);
-            onRemoved(entity);
-        }
+        list.remove(entity);
+        onRemoved(entity);
     }
 
     inline public function iterator():Iterator<Entity>
         return list.iterator()
-
-    inline public function requirements():Iterator<Int>
-        return bitfield.iterator()
 
     public function toString():String
         return "[Collection " + id + " (" + bitfield.toString() + ")]"

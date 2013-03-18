@@ -1,7 +1,6 @@
 package dust.app;
 
 import dust.signals.SignalMap;
-import massive.munit.Assert;
 import minject.Injector;
 import dust.context.Config;
 import nme.display.Sprite;

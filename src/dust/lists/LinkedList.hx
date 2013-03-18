@@ -9,7 +9,8 @@ class LinkedList<T>
     public var tail:LinkedListItem<T>;
     public var itemProvider:T->LinkedListItem<T>;
 
-    public function new() {}
+    public function new(itemProvider:T->LinkedListItem<T>)
+        this.itemProvider = itemProvider
 
     inline public function append(data:T)
         appendItem(itemProvider(data))

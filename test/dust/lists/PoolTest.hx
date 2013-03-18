@@ -1,7 +1,6 @@
 package dust.lists;
 
 import dust.lists.Pool;
-import massive.munit.Assert;
 import massive.munit.async.AsyncFactory;
 
 class PoolTest

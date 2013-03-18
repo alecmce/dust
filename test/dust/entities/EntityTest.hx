@@ -6,25 +6,21 @@ import dust.components.BitfieldFactory;
 import dust.entities.api.Entities;
 import dust.lists.Pool;
 import dust.components.Component;
-import dust.entities.impl.CollectionConnector;
 import dust.components.Bitfield;
 import dust.entities.api.Entity;
-import massive.munit.Assert;
 import massive.munit.async.AsyncFactory;
 
 class EntityTest
 {
-    var connector:CollectionConnector;
     var bitfieldFactory:BitfieldFactory;
 
     var entities:Entities;
     var entity:Entity;
 
 	@Before public function before()
-	{
-        connector = new CollectionConnector();
+    {
         bitfieldFactory = new BitfieldFactory();
-        entities = new Entities(connector, bitfieldFactory);
+        entities = new Entities(bitfieldFactory);
         entity = entities.require();
     }
 
@@ -73,10 +69,36 @@ class EntityTest
 		Assert.isNull(entity.get(MockComponentB));
 	}
 
-    @Test public function disposeRemovesAllComponents()
+    @Test public function hasReportsFalseAfterRemove()
+    {
+        var component = new MockComponentA();
+        entity.add(component);
+        entity.remove(MockComponentA);
+        Assert.isFalse(entity.has(MockComponentA));
+    }
+
+    @Test public function componentIsAvailableAfterRemove()
+    {
+        var component = new MockComponentA();
+        entity.add(component);
+        entity.remove(MockComponentA);
+        Assert.areSame(component, entity.get(MockComponentA));
+    }
+
+    @Test public function removedComponentIsUnavailableAfterUpdate()
+    {
+        var component = new MockComponentA();
+        entity.add(component);
+        entity.remove(MockComponentA);
+        entity.update();
+        Assert.isNull(entity.get(Component));
+    }
+
+    @Test public function disposeAndUpdateRemovesAllComponents()
     {
         entity.add(new MockComponentA());
         entity.dispose();
+        entity.update();
         Assert.isFalse(entity.has(MockComponentA));
     }
 

@@ -2,7 +2,6 @@ package dust.lists;
 
 import dust.lists.MockData;
 import dust.lists.LinkedList;
-import massive.munit.Assert;
 
 class SimpleListTest
 {

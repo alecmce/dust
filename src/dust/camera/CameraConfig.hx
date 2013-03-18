@@ -1,5 +1,6 @@
 package dust.camera;
 
+import dust.collections.CollectionsConfig;
 import dust.camera.config.CameraDecorator;
 import dust.entities.EntitiesConfig;
 import dust.entities.api.Entities;
@@ -19,9 +20,7 @@ class CameraConfig implements DependentConfig
     var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [EntitiesConfig];
-    }
+        return [CollectionsConfig]
 
     public function configure()
     {

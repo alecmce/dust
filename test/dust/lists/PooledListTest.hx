@@ -1,7 +1,6 @@
 package dust.lists;
 
 import dust.lists.PooledList;
-import massive.munit.Assert;
 
 class PooledListTest
 {

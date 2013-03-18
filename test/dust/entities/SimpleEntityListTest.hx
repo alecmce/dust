@@ -1,6 +1,6 @@
 package dust.entities;
 
-import massive.munit.Assert;
+import dust.components.BitfieldFactory;
 import dust.entities.api.Entities;
 import dust.entities.api.Entity;
 import dust.lists.SimpleList;
@@ -13,7 +13,8 @@ class SimpleEntityListTest
 
     @Before public function before()
     {
-        entities = Entities.make();
+        var factory = new BitfieldFactory();
+        entities = new Entities(factory);
         list = new SimpleEntityList(new SimpleList<Entity>());
     }
 

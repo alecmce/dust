@@ -2,8 +2,8 @@ package dust.ui.systems;
 
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.api.Collection;
-import dust.entities.api.CollectionListeners;
+import dust.collections.api.Collection;
+import dust.collections.api.CollectionListeners;
 import dust.entities.api.Entity;
 import dust.ui.api.UIView;
 

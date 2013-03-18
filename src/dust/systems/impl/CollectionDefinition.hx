@@ -1,7 +1,7 @@
 package dust.systems.impl;
 
 import dust.components.Component;
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 
 class CollectionDefinition
 {

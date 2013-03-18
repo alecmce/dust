@@ -2,13 +2,12 @@ package dust.quadtree.data;
 
 import dust.position.data.Position;
 import dust.math.Random;
-import massive.munit.Assert;
 import dust.context.Context;
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 import dust.entities.api.Entities;
 import dust.entities.api.Entity;
 import dust.entities.EntitiesConfig;
-import dust.entities.impl.CollectionMap;
+import dust.collections.control.CollectionMap;
 import dust.position.data.Position;
 
 import minject.Injector;

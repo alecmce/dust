@@ -1,6 +1,5 @@
 package dust.app;
 
-import massive.munit.Assert;
 import minject.Injector;
 import dust.context.Config;
 import dust.commands.CommandMap;

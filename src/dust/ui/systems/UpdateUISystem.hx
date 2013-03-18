@@ -7,7 +7,7 @@ import dust.ui.api.HAlign;
 import dust.position.data.Position;
 import dust.ui.api.UIView;
 import dust.entities.api.Entity;
-import dust.entities.api.Collection;
+import dust.collections.api.Collection;
 import dust.systems.System;
 
 class UpdateUISystem implements System

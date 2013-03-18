@@ -1,7 +1,6 @@
 package dust.components;
 
 import dust.components.Bitfield;
-import massive.munit.Assert;
 import massive.munit.async.AsyncFactory;
 
 class BitfieldTest

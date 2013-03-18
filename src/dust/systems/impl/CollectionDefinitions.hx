@@ -1,7 +1,7 @@
 package dust.systems.impl;
 
-import dust.entities.api.Collection;
-import dust.entities.impl.CollectionMap;
+import dust.collections.api.Collection;
+import dust.collections.control.CollectionMap;
 import minject.Injector;
 import dust.components.Component;
 

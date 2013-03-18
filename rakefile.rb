@@ -24,11 +24,22 @@ task :clean do
   munit.clean
 end
 
-task :test => :requirements do
-  puts munit.test %w(as3 js)
-  #puts munit.test %w(as3 js cpp)
-end
+namespace :test do
 
-task :test_cpp => :requirements do
-  puts munit.test %w(cpp)
+  task :all => :requirements do
+    puts munit.test %w(as3 js cpp)
+  end
+
+  task :as3 => :requirements do
+    puts munit.test %w(as3)
+  end
+
+  task :js => :requirements do
+    puts munit.test %w(js)
+  end
+
+  task :cpp => :requirements do
+    puts munit.test %w(cpp)
+  end
+
 end

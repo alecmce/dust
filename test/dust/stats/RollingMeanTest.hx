@@ -1,6 +1,5 @@
 package dust.stats;
 
-import massive.munit.Assert;
 class RollingMeanTest
 {
     var mean:RollingMean;

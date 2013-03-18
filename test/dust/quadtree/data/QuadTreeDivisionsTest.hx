@@ -1,7 +1,6 @@
 package dust.quadtree.data;
 
 import dust.position.data.Position;
-import massive.munit.Assert;
 import dust.position.data.Position;
 import dust.math.Random;
 

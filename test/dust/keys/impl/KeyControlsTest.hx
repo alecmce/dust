@@ -1,6 +1,5 @@
 package dust.keys.impl;
 
-import massive.munit.Assert;
 import dust.lists.SimpleList;
 
 class KeyControlsTest
