@@ -70,7 +70,7 @@ class Haxelib
 
   def remote_versions
     open(HAXELIB_URL) do |io|
-      Hash[io.read.scan(/\<a href="(.+?)\-([0-9,.]+)\.zip">.+\<\/a\>/)]
+      Array[io.read.scan(/\<a href="(.+?)\-([0-9,.]+)\.zip">.+\<\/a\>/)]
     end
   end
 

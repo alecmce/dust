@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+
+Dir[File.join(File.dirname(__FILE__), '..', 'lib/*.rb')].each do |file|
+  require File.basename(file, File.extname(file))
+end
+
+require 'rspec'
+
+describe 'models a haxelib library item' do
+
+  it 'should detect whether a library is installed' do
+    subject = HaxeLibraryItem.new 'made_up'
+    subject.installed?.should be_false
+  end
+
+  it 'detects whether a library is available' do
+    subject = HaxeLibraryItem.new 'random'
+    subject.available?.should be_true
+  end
+
+  it 'detects whether a library is not installed' do
+    subject = HaxeLibraryItem.new 'random'
+    subject.installed?.should be_false
+  end
+
+  it 'installs a library' do
+    subject = HaxeLibraryItem.new 'random'
+    subject.install
+    subject.installed?.should be_true
+  end
+
+  it 'removes the library' do
+    subject = HaxeLibraryItem.new 'random'
+    subject.install
+    subject.remove
+    subject.installed?.should be_false
+  end
+
+  it 'reports current version of installed library' do
+    subject = HaxeLibraryItem.new 'munit'
+    subject.current_version.should_not be_nil
+  end
+
+  it 'reports current version as nil if library not installed' do
+    subject = HaxeLibraryItem.new 'made_up'
+    subject.current_version.should be_nil
+  end
+
+  it 'allows library version to be swapped' do
+    subject = HaxeLibraryItem.new 'munit'
+    current = subject.current_version
+    target = current == '2.0.0' ? '0.9.6' : '2.0.0'
+    subject.set_version target
+    subject.current_version.should == target
+    subject.set_version current
+  end
+
+end

@@ -32,7 +32,7 @@ describe 'can produce hxml commands' do
     subject.config.should be_a_kind_of HaxeConfig
   end
 
-  it 'can publish flash target' do
+  it 'publishes flash target' do
     file = File.join(dir, 'output.swf')
     subject.compile_flash
     File.exists?(file).should be_true

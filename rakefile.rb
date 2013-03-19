@@ -12,11 +12,7 @@ haxe = Haxe.new config
 munit = Munit.new config, haxe
 nmml = Nmml.new config
 
-task :requirements do
-  puts haxe.configuration_report unless haxe.is_configured?
-end
-
-task :default => :requirements do
+task :default do
   puts 'hello, rake'
 end
 
@@ -26,20 +22,24 @@ end
 
 namespace :test do
 
-  task :all => :requirements do
+  task :all do
     puts munit.test %w(as3 js cpp)
   end
 
-  task :as3 => :requirements do
+  task :as3 do
     puts munit.test %w(as3)
   end
 
-  task :js => :requirements do
+  task :js do
     puts munit.test %w(js)
   end
 
-  task :cpp => :requirements do
+  task :cpp do
     puts munit.test %w(cpp)
+  end
+
+  test :build do
+    puts `cd build; bundle exec rspec --fail-fast`
   end
 
 end
