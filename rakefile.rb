@@ -8,9 +8,8 @@ end
 
 path = File.join(HOME, 'config.yaml')
 config = HaxeConfig.new path
-haxe = Haxe.new config
-munit = Munit.new config, haxe
-nmml = Nmml.new config
+haxelib = HaxeLibrary.new
+munit = Munit.new config, haxelib
 
 task :default do
   puts 'hello, rake'
@@ -38,8 +37,8 @@ namespace :test do
     puts munit.test %w(cpp)
   end
 
-  test :build do
-    puts `cd build; bundle exec rspec --fail-fast`
+  task :build do
+    puts `(cd build && bundle exec rspec --fail-fast)`
   end
 
 end

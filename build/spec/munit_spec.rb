@@ -15,7 +15,7 @@ describe 'Unit-test runner' do
   subject do
     file = File.join(root, 'example', 'config.yaml')
     config = HaxeConfig.new file
-    Munit.new(config)
+    Munit.new(config, HaxeLibrary.new)
   end
 
   it 'creates output directories if needed' do

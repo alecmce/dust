@@ -7,19 +7,16 @@ end
 require 'rspec'
 require 'fileutils'
 
-describe 'can build nme builds' do
-
-  def dir
-    File.join(File.dirname(File.dirname(__FILE__)), subject.config.bin)
-  end
+describe 'can produce hxml commands' do
 
   subject do
     file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example', 'config.yaml'))
     config = HaxeConfig.new file
-    haxe = Haxe.new config
-    nmml = Nmml.new config
-    haxelib = Haxelib.new haxe
-    Nme.new config, haxe, nmml, haxelib
+    Hxml.new config
+  end
+
+  def dir
+    File.join(File.dirname(File.dirname(__FILE__)), subject.config.bin)
   end
 
   before(:each) do
@@ -30,15 +27,13 @@ describe 'can build nme builds' do
     FileUtils.rm_rf(dir) if File.exists? dir
   end
 
-  it 'can build flash from nmml' do
-    file = File.join(dir, 'flash', 'bin', 'output.swf')
-    subject.publish 'flash'
-    File.exists?(file).should be_true
+  it 'exposes the config' do
+    subject.config.should be_a_kind_of HaxeConfig
   end
 
-  it 'can build html5 from nmml' do
-    file = File.join(dir, 'js', 'bin', 'output.js')
-    subject.publish 'js'
+  it 'publishes flash target' do
+    file = File.join(dir, 'output.swf')
+    subject.flash
     File.exists?(file).should be_true
   end
 

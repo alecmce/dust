@@ -9,7 +9,7 @@ class HaxeLibraryItem
   end
 
   def info
-    `haxelib info #{@name}`
+    `haxelib info #{@name}`.chomp
   end
 
   def available?
@@ -21,11 +21,17 @@ class HaxeLibraryItem
   end
 
   def install(version = '')
-    `haxelib install #{@name} #{version}` unless installed?
+    command = "haxelib install #{@name} #{version}"
+    `#{command}` unless installed?
   end
 
   def remove
-    `haxelib remove #{@name}`
+    command = "haxelib remove #{@name}"
+    `#{command}`
+  end
+
+  def most_recent_version
+    @versions.sort.last
   end
 
   def current_version
@@ -33,9 +39,12 @@ class HaxeLibraryItem
   end
 
   def set_version(version)
-    command = "haxelib set #{@name} #{version}"
-    if `#{command}` == "Library #{@name} version #{version} is not installed"
-      install version
+   command = "haxelib set #{@name} #{version}"
+    result = `#{command}`.chomp
+    failure = "Library #{@name} version #{version} is not installed"
+    if result == failure
+      install = "haxelib install #{@name} #{version}"
+      `#{install}`
       `#{command}`
     end
   end

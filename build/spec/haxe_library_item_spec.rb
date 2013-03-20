@@ -13,14 +13,19 @@ describe 'models a haxelib library item' do
     subject.installed?.should be_false
   end
 
+  it 'detects whether a library is not installed' do
+    subject = HaxeLibraryItem.new 'made_up'
+    subject.installed?.should be_false
+  end
+
   it 'detects whether a library is available' do
     subject = HaxeLibraryItem.new 'random'
     subject.available?.should be_true
   end
 
-  it 'detects whether a library is not installed' do
-    subject = HaxeLibraryItem.new 'random'
-    subject.installed?.should be_false
+  it 'detects whether a library is unavailable' do
+    subject = HaxeLibraryItem.new 'made_up'
+    subject.available?.should be_false
   end
 
   it 'installs a library' do
@@ -38,6 +43,7 @@ describe 'models a haxelib library item' do
 
   it 'reports current version of installed library' do
     subject = HaxeLibraryItem.new 'munit'
+    subject.install
     subject.current_version.should_not be_nil
   end
 
@@ -53,6 +59,11 @@ describe 'models a haxelib library item' do
     subject.set_version target
     subject.current_version.should == target
     subject.set_version current
+  end
+
+  it 'returns most up-to-date version for a library' do
+    subject = HaxeLibraryItem.new 'munit', ['0.9.6', '2.0.0', '0.1.0.0']
+    subject.most_recent_version.should == '2.0.0'
   end
 
 end

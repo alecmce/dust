@@ -13,11 +13,11 @@ describe 'creates library items' do
   end
 
   it 'creates item for each remote haxelib library' do
-    subject.items['munit'].should be_an_instance_of HaxeLibraryItem
+    subject.library('munit').should be_an_instance_of HaxeLibraryItem
   end
 
   it 'versions each item' do
-    subject.items['munit'].versions.should include '2.0.0'
+    subject.library('munit').versions.should include '2.0.0'
   end
 
 end
