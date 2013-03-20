@@ -1,7 +1,7 @@
 package dust.quadtree.data;
 
 import dust.quadtree.data.QuadTreeRange;
-import dust.geom.Position;
+import dust.geom.data.Position;
 
 class QuadTreeDivisions<T> implements QuadTreeNode<T>
 {

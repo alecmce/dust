@@ -7,7 +7,7 @@ import dust.type.TypeIndex;
 import dust.ui.api.UIView;
 import dust.entities.api.Entity;
 import dust.ui.api.Alignment;
-import dust.geom.Position;
+import dust.geom.data.Position;
 import dust.ui.api.VAlign;
 import dust.ui.api.HAlign;
 import dust.systems.ui.SystemMetricsView;

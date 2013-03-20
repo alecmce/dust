@@ -15,12 +15,15 @@ default:
   height: 600
   fps: 60
   background: ffffff
-  libs: nme minject
+  libs: nme jeash minject
   assets: example/assets
   orientation: portrait
   resizable: false
   ndll:
   icon: example/icon.svg
+
+flash:
+  version: 11.4
 
 testing:
   test: example/test

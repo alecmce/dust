@@ -2,7 +2,7 @@ package dust.camera.data;
 
 import nme.display.DisplayObject;
 import dust.components.Component;
-import dust.geom.Position;
+import dust.geom.data.Position;
 
 class Camera extends Component
 {

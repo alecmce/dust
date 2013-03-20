@@ -1,4 +1,4 @@
-package dust.geom;
+package dust.geom.data;
 
 import dust.components.Component;
 

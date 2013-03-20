@@ -1,6 +1,6 @@
 package dust.quadtree.data;
 
-import dust.geom.Position;
+import dust.geom.data.Position;
 
 class QuadTreeData<T>
 {

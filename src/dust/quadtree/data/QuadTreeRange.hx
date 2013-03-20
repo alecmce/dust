@@ -1,7 +1,7 @@
 package dust.quadtree.data;
 
 import dust.components.Component;
-import dust.geom.Position;
+import dust.geom.data.Position;
 
 class QuadTreeRange extends Component
 {

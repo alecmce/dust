@@ -2,7 +2,7 @@ package dust.interactive.control;
 
 import dust.interactive.data.Offsets;
 import dust.interactive.data.Reflection;
-import dust.geom.Position;
+import dust.geom.data.Position;
 import dust.collections.api.Collection;
 import dust.entities.api.Entity;
 import dust.interactive.data.Draggable;

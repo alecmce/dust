@@ -11,11 +11,8 @@ import dust.context.Config;
 
 class MainMenuConfig implements DependentConfig
 {
-    @inject
-    public var injector:Injector;
-
-    @inject
-    public var signalMap:SignalMap;
+    @inject public var injector:Injector;
+    @inject public var signalMap:SignalMap;
 
     var menu:MainMenu;
 

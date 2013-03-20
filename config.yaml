@@ -7,19 +7,22 @@ default:
   package: alecmce.dust
   debug: false
   src: src
-  main: Main
+  main: DustExamples
   output: dust
   bin: bin
   width: 800
   height: 600
   fps: 60
-  background: ffffff
-  libs: nme minject
+  background: 000000
+  libs: nme jeash minject
   assets: assets
   orientation: portrait
   resizable: false
   ndll:
   icon: assets/icon.svg
+
+flash:
+  version: 11.4
 
 testing:
   test: test

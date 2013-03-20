@@ -1,6 +1,4 @@
-package dust.geom;
-
-import dust.geom.Position;
+package dust.geom.data;
 
 class Circle
 {

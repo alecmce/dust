@@ -10,6 +10,7 @@ path = File.join(HOME, 'config.yaml')
 config = HaxeConfig.new path
 haxelib = HaxeLibrary.new
 munit = Munit.new config, haxelib
+haxe = Haxe.new config, haxelib
 
 task :default do
   puts 'hello, rake'
@@ -39,6 +40,27 @@ namespace :test do
 
   task :build do
     puts `(cd build && bundle exec rspec --fail-fast)`
+  end
+
+end
+
+namespace :make do
+
+  task :flash do
+    haxe.flash
+  end
+
+  task :html5 do
+    haxe.html5
+  end
+
+end
+
+namespace :run do
+
+  task :flash => :'make:flash' do
+    target = File.join(config.bin, "#{config.output}.swf")
+    `open #{target}`
   end
 
 end

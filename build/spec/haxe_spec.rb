@@ -12,7 +12,8 @@ describe 'can produce hxml commands' do
   subject do
     file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example', 'config.yaml'))
     config = HaxeConfig.new file
-    Hxml.new config
+    haxelib = HaxeLibrary.new
+    Haxe.new config, haxelib
   end
 
   def dir

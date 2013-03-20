@@ -4,7 +4,7 @@ import nme.geom.Rectangle;
 import dust.ui.api.Alignment;
 import dust.ui.api.VAlign;
 import dust.ui.api.HAlign;
-import dust.geom.Position;
+import dust.geom.data.Position;
 import dust.ui.api.UIView;
 import dust.entities.api.Entity;
 import dust.collections.api.Collection;

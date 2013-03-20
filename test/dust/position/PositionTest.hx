@@ -1,6 +1,6 @@
 package dust.position;
 
-import dust.geom.Position;
+import dust.geom.data.Position;
 
 class PositionTest
 {

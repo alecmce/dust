@@ -1,7 +1,7 @@
 package dust.quadtree.data;
 
-import dust.geom.Position;
-import dust.geom.Position;
+import dust.geom.data.Position;
+import dust.geom.data.Position;
 
 class QuadTreeRangeTest
 {

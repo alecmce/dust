@@ -1,5 +1,8 @@
 package dust.quadtree.eg;
 
+import dust.geom.ui.CrossPositionPainter;
+import dust.geom.systems.MovingPositionsSystem;
+import dust.geom.data.Delta;
 import dust.type.TypeIndex;
 import dust.systems.impl.SystemMetrics;
 import dust.camera.data.Camera;
@@ -15,7 +18,7 @@ import dust.entities.api.Entities;
 import dust.entities.EntitiesConfig;
 import dust.math.MathConfig;
 import dust.math.Random;
-import dust.geom.Position;
+import dust.geom.data.Position;
 import dust.systems.impl.Systems;
 import dust.systems.System;
 import dust.systems.SystemsConfig;
@@ -23,11 +26,12 @@ import dust.systems.SystemMetricsConfig;
 import dust.quadtree.data.QuadTree;
 import dust.quadtree.data.QuadTreeRange;
 import dust.quadtree.ui.QuadTreePainter;
+import dust.quadtree.systems.UpdateQuadTreesSystem;
 
 class QuadTreeVisualizationExample implements DependentConfig
 {
     inline public static var COUNT = 200;
-    inline public static var EXTENT = 400;
+    inline public static var EXTENT = 280;
     inline public static var DELTA = 1;
 
     @inject public var entities:Entities;
@@ -49,7 +53,7 @@ class QuadTreeVisualizationExample implements DependentConfig
 
         systems
             .map(MovingPositionsSystem)
-            .toCollection([Position, MovingPositionDelta])
+            .toCollection([Position, Delta])
             .withName("MovingPositions");
 
         systems
@@ -93,7 +97,7 @@ class QuadTreeVisualizationExample implements DependentConfig
 
             var dx = random.floatInRange(-DELTA, DELTA);
             var dy = random.floatInRange(-DELTA, DELTA);
-            var delta = new MovingPositionDelta(dx, dy);
+            var delta = new Delta(dx, dy);
 
             var entity = entities.require();
             entity.add(position);

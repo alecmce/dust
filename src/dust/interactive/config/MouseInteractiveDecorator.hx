@@ -1,7 +1,7 @@
 package dust.interactive.config;
 
 import dust.interactive.data.MouseInteractive;
-import dust.geom.Position;
+import dust.geom.data.Position;
 import dust.interactive.data.Offsets;
 import dust.entities.api.Entity;
 import dust.entities.api.Entity;

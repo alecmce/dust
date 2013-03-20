@@ -1,4 +1,4 @@
-package dust.camera.eg;
+package dust.camera.systems;
 
 import dust.camera.data.Camera;
 import dust.collections.api.Collection;

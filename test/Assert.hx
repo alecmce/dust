@@ -1,6 +1,6 @@
 package ;
 
-import dust.geom.Position;
+import dust.geom.data.Position;
 import haxe.PosInfos;
 
 class Assert

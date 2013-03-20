@@ -1,5 +1,6 @@
 package dust.systems.ui;
 
+import nme.text.Font;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
 import dust.ui.components.Label;

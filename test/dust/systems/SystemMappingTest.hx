@@ -9,7 +9,7 @@ import dust.components.BitfieldFactory;
 import dust.components.Component;
 import dust.components.MockComponentA;
 import dust.context.Context;
-import dust.geom.Position;
+import dust.geom.data.Position;
 import dust.systems.impl.SystemsList;
 import dust.systems.impl.SystemMapping;
 import dust.systems.impl.SystemMap;

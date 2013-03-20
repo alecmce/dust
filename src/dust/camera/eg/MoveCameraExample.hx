@@ -1,5 +1,6 @@
 package dust.camera.eg;
 
+import dust.camera.systems.KeysMoveCameraSystem;
 import dust.camera.CameraConfig;
 import dust.keys.KeysConfig;
 import dust.context.Config;

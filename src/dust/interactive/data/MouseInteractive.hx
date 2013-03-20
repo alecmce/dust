@@ -1,6 +1,6 @@
 package dust.interactive.data;
 
-import dust.geom.Position;
+import dust.geom.data.Position;
 import dust.components.Component;
 import dust.entities.api.Entity;
 

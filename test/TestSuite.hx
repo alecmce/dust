@@ -82,7 +82,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.camera.CameraConfigTest);
 		add(dust.camera.config.CameraDecoratorTest);
 		add(dust.camera.data.CameraTest);
-		add(dust.camera.eg.KeysMoveCameraSystemTest);
+		add(dust.camera.systems.KeysMoveCameraSystemTest);
 		add(dust.camera.eg.MoveCameraExampleTest);
 		add(dust.canvas.CanvasConfigTest);
 		add(dust.canvas.control.PrioritizedPaintersSystemTest);
