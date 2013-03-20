@@ -32,9 +32,9 @@ class Haxe
     end
 
   def html5
-    @config.set_config('html5')
+    @config.set_context('html5')
     verify_dependencies
-    compile 'js', 'html5'
+    compile 'js', 'js'
   end
 
   def compile(target, path, params = nil)

@@ -30,7 +30,7 @@ namespace :test do
     puts munit.test %w(as3)
   end
 
-  task :js do
+  task :html5 do
     puts munit.test %w(js)
   end
 
@@ -59,8 +59,11 @@ end
 namespace :run do
 
   task :flash => :'make:flash' do
-    target = File.join(config.bin, "#{config.output}.swf")
-    `open #{target}`
+    `open #{File.join(config.bin, "#{config.output}.swf")}`
+  end
+
+  task :html5 => :'make:html5' do
+
   end
 
 end
