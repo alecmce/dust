@@ -49,6 +49,10 @@ end
 
 namespace :make do
 
+  task :gem do
+    gem build './rbhaxe.gemspec'
+  end
+
   task :flash do
     haxe.flash
   end

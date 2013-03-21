@@ -26,11 +26,11 @@ class Haxe
   end
 
     def flash_parameters
-      width = get_config('width')
-      height = get_config('height')
-      fps = get_config('fps')
-      background = get_config('background')
-      version = get_config('version')
+      width = @config.get('flash', 'width')
+      height = @config.get('flash', 'height')
+      fps = @config.get('flash', 'fps')
+      background = @config.get('flash', 'background')
+      version = @config.get('flash', 'version')
 
       buffer = Array.new
       buffer << "-swf-header #{width}:#{height}:#{fps}:#{background}"
@@ -51,16 +51,12 @@ class Haxe
 
   private
 
-    def get_config(key)
-      @config.get('flash', key)
-    end
-
     def compile_command(target, path, params = nil)
-      src = get_config('src')
+      src = @config.get(target, 'src')
       libs = @config.libs('default', target)
-      main = get_config('main')
-      bin = get_config('bin')
-      output = get_config('output')
+      main = @config.get(target, 'main')
+      bin = @config.get(target, 'bin')
+      output = @config.get(target, 'output')
 
       buffer = Array.new
       buffer << "-cp #{src}"

@@ -4,7 +4,7 @@
 -cp <%= get('testing', 'src') %>
 -lib munit
 <% libs('flash').each do |library| %>-lib <%= library %>
-<% end%>-swf-version 9
+<% end%>-swf-version get('flash', 'version')
 -swf <%= get('testing', 'bin') %>/as3_test.swf
 
 --next
