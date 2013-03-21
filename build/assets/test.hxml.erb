@@ -2,9 +2,9 @@
 -main TestMain
 -cp <%= get('flash', 'src') %>
 -cp <%= get('testing', 'src') %>
-<% libs('flash').each do |library| %>
--lib <%= library %><% end%>
--swf-version 9
+-lib munit
+<% libs('flash').each do |library| %>-lib <%= library %>
+<% end%>-swf-version 9
 -swf <%= get('testing', 'bin') %>/as3_test.swf
 
 --next
@@ -13,9 +13,9 @@
 -main TestMain
 -cp <%= get('html5', 'src') %>
 -cp <%= get('testing', 'src') %>
-<% libs('html5').each do |library| %>
--lib <%= library %><% end %>
--js <%= get('testing', 'bin') %>/js_test.js
+-lib munit
+<% libs('js').each do |library| %>-lib <%= library %>
+<% end %>-js <%= get('testing', 'bin') %>/js_test.js
 
 --next
 
@@ -23,9 +23,9 @@
 -main TestMain
 -cp <%= get('cpp', 'src') %>
 -cp <%= get('testing', 'src') %>
-<% libs('html5').each do |library| %>
--lib <%= library %><% end %>
-#-D HXCPP_M64
+-lib munit
+<% libs('html5').each do |library| %>-lib <%= library %>
+<% end %>#-D HXCPP_M64
 -cpp <%= get('testing', 'bin') %>/cpp_test
 
 --next
@@ -34,6 +34,6 @@
 -main TestMain
 -cp <%= get('neko', 'src') %>
 -cp <%= get('testing', 'src') %>
-<% libs('neko').each do |library| %>
--lib <%= library %><% end %>
--neko <%= get('testing', 'bin') %>/neko_test.n
+-lib munit
+<% libs('neko').each do |library| %>-lib <%= library %>
+<% end %>-neko <%= get('testing', 'bin') %>/neko_test.n

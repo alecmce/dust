@@ -24,17 +24,16 @@ default:
 flash:
   version: 11.4
 
-html5:
+js:
   libs: jeash
 
 cpp:
   libs: hxcpp
 
 testing:
-  test: test
   bin: 'bin/test/bin'
   report: 'bin/test/report'
-  src: src
+  src: test
   browser: firefox
   resources: nil
   templates: nil

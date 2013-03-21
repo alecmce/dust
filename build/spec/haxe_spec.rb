@@ -30,12 +30,13 @@ describe 'can produce hxml commands' do
   end
 
   after(:each) do
-    FileUtils.rm_rf(dir) if File.exists? dir
+    #FileUtils.rm_rf(dir) if File.exists? dir
   end
 
   it 'publishes flash target' do
     file = File.join(dir, 'output.swf')
-    subject.flash
+    puts subject.flash
+    puts file
     File.exists?(file).should be_true
   end
 

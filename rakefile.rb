@@ -9,9 +9,9 @@ end
 file = File.join(HOME, 'config.yaml')
 data = YAML.load_file file
 config = HaxeConfig.new data
-haxelib = HaxeLibrary.new
-munit = Munit.new HOME, config, haxelib
-haxe = Haxe.new HOME, config, haxelib
+library = HaxeLibrary.new
+munit = Munit.new HOME, config, library
+haxe = Haxe.new HOME, config, library
 
 task :default do
   puts 'hello, rake'
@@ -28,7 +28,9 @@ namespace :test do
   end
 
   task :as3 do
+    puts "<task"
     puts munit.test %w(as3)
+    puts "task>"
   end
 
   task :html5 do

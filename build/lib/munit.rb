@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'fileutils'
+require 'erb'
 
 class Munit
   attr_reader :config
@@ -22,7 +23,7 @@ class Munit
     end
 
   def test(types)
-    ensure_dependencies(types)
+    verify_dependencies(types)
     execute types
   end
 
@@ -30,10 +31,14 @@ class Munit
         FileUtils.mkdir_p path unless File.directory? path
       end
 
-    def ensure_dependencies(types)
+    def verify_dependencies(types)
       @config.libs(*types).each do |name|
-        library = @haxelib.library name
-        library.install unless library.nil? or library.installed?
+        thread = Thread.new do
+          puts "verify #{types} dependency -> '#{name}'"
+          library = @haxelib.library name
+          library.install unless library.nil? or library.installed?
+        end
+        thread.join
       end
     end
 
@@ -42,7 +47,9 @@ class Munit
       buffer << types.map { |type| "-#{type}" }
       buffer << browser_flag
       buffer << coverage_flag
-      `haxelib #{buffer.join(' ')}`
+      command = "haxelib #{buffer.flatten.join(' ').chomp}"
+      puts command
+      `#{command}`
     end
 
       def browser_flag
@@ -56,19 +63,23 @@ class Munit
       end
 
   def is_configured?
-    File.exists? expand('.munit')
+    config_file = expand '.munit'
+    hxml_file = expand HXML_TARGET
+    File.exists? config_file and File.exists? hxml_file
   end
 
   def configure_munit
-    `(cd #{@root} && #{configure_command})`
+    command = "(cd #{@root} && #{configure_command})"
+    puts command
+    `#{command}`
     write_test_hxml_template
   end
 
     def configure_command
+      src = @config.get('default','src')
       test = @config.get('testing', 'src')
       bin = @config.get('testing','bin')
       report = @config.get('testing','report')
-      src = @config.get('testing','src')
       resources = @config.get('testing','resources')
       coverage = @config.get('testing','coverage')
       ignored = @config.get('testing','ignored')
@@ -97,7 +108,7 @@ class Munit
 
     def templates_dir
       templates = @config.get('testing','templates')
-      templates.nil? ? expand('..', 'assets/munit/') : templates
+      templates.nil? ? 'build/assets/munit/' : templates
     end
 
       def expand(*dir)

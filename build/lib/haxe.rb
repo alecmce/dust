@@ -4,22 +4,24 @@ class Haxe
   attr_reader :config
 
   def initialize(root, config, haxelib)
-    @root = root
+    @root = File.expand_path root
     @config = config
     @haxelib = haxelib
   end
 
-  def verify_libs(target)
+  def verify_dependencies(target)
     @config.libs('default', target).each do |name|
       thread = Thread.new do
-        @haxelib.library(name).install
+        puts "verify #{types} dependency -> '#{name}'"
+        library = @haxelib.library name
+        library.install unless library.nil? or library.installed?
       end
       thread.join
     end
   end
 
   def flash
-    verify_libs 'flash'
+    verify_dependencies 'flash'
     compile 'swf', 'swf', flash_parameters
   end
 
@@ -37,13 +39,14 @@ class Haxe
     end
 
   def html5
-    verify_libs 'html5'
+    verify_dependencies 'html5'
     compile 'js', 'js'
   end
 
   def compile(target, path, params = nil)
-    command = compile_command target, path, params
-    `cd #{@root} && #{command}`
+    command = "(cd #{@root} && #{compile_command(target, path, params)})"
+    puts command
+    `#{command}`
   end
 
   private

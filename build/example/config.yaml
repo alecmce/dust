@@ -24,7 +24,7 @@ default:
 flash:
   version: 11.4
 
-html5:
+js:
   libs: jeash
 
 cpp:
