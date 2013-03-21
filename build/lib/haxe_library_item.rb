@@ -8,20 +8,29 @@ class HaxeLibraryItem
     @versions = versions
   end
 
-  def info
-    `haxelib info #{@name}`.chomp
+  def is_blocked_by_proxy
+    info.include? 'Failed to connect on localhost'
   end
 
-  def available?
-    info != "No such Project : #{@name}"
+  def info
+    `haxelib info #{@name}`.chomp
   end
 
   def installed?
     `haxelib list`.include? @name
   end
 
-  def install(version = '')
-    command = "haxelib install #{@name} #{version}"
+  def install(version = nil)
+    if (is_blocked_by_proxy)
+      workaround = HaxeFirewallWorkaround.new(self, version)
+      workaround.install if workaround.can_install?
+    else
+      install_using_haxelib(version)
+    end
+  end
+
+  def install_using_haxelib(version = nil)
+    command = "haxelib install #{@name} #{version.nil? ? '' : version}"
     `#{command}` unless installed?
   end
 
@@ -43,8 +52,7 @@ class HaxeLibraryItem
     result = `#{command}`.chomp
     failure = "Library #{@name} version #{version} is not installed"
     if result == failure
-      install = "haxelib install #{@name} #{version}"
-      `#{install}`
+      install version
       `#{command}`
     end
   end

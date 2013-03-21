@@ -3,60 +3,36 @@
 require 'yaml'
 
 class HaxeConfig
-  attr_reader :haxe_version, :data, :contexts, :testing
+  attr_reader :data
 
-  def initialize(path)
-    @path = path
-    parse
+  def initialize(data)
+    @data = data
   end
 
-  def parse
-    @data = YAML.load_file @path
-    define_haxe_version
-    define_contexts
-    define_testing
-    default
+  def haxe
+    @data['haxe']
   end
 
-  def define_haxe_version
-    @haxe_version = @data['haxe']
+  def get(category, key)
+    data = get_category category, key
+    data.nil? || data[key] == 'nil' ? nil : data[key]
   end
 
-  def define_contexts
-    @contexts = Array.new
-    @data.each_key do |context|
-      @contexts << context unless context == 'testing' or context == 'haxe'
-    end
-  end
-
-  def define_testing
-    @testing = MunitConfig.new(@data['testing'])
-  end
-
-  def default
-    apply_context 'default'
-  end
-
-  def set_context(name)
-    default unless name == 'default'
-    apply_context name if @data.has_key? name
-  end
-
-    def apply_context context
-      define_value('get_context', context)
-      @data[context].each do |key, value|
-        define_value key, value
+    def get_category(category, key)
+      if @data[category].nil? || @data[category][key].nil?
+        @data['default']
+      else
+        @data[category]
       end
     end
 
-      def define_value(key, value)
-        self.class.send(:define_method, key) do
-          value
-        end
-      end
-
-  def has?(context)
-    @contexts.include? context
+  def libs(*args)
+    list = Array.new
+    args.each do |arg|
+      data = get(arg, 'libs')
+      list << data.split(' ') unless data.nil?
+    end
+    list.flatten.uniq
   end
 
   def get_binding
@@ -64,4 +40,3 @@ class HaxeConfig
   end
 
 end
-

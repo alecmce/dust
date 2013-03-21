@@ -18,31 +18,21 @@ describe 'models a haxelib library item' do
     subject.installed?.should be_false
   end
 
-  it 'detects whether a library is available' do
-    subject = HaxeLibraryItem.new 'random'
-    subject.available?.should be_true
-  end
-
-  it 'detects whether a library is unavailable' do
-    subject = HaxeLibraryItem.new 'made_up'
-    subject.available?.should be_false
-  end
-
   it 'installs a library' do
-    subject = HaxeLibraryItem.new 'random'
+    subject = HaxeLibrary.new().library('random')
     subject.install
     subject.installed?.should be_true
   end
 
   it 'removes the library' do
-    subject = HaxeLibraryItem.new 'random'
+    subject = HaxeLibrary.new().library('random')
     subject.install
     subject.remove
     subject.installed?.should be_false
   end
 
   it 'reports current version of installed library' do
-    subject = HaxeLibraryItem.new 'munit'
+    subject = HaxeLibraryItem.new 'munit', %w(0.9.6 2.0.0)
     subject.install
     subject.current_version.should_not be_nil
   end

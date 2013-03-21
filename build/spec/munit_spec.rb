@@ -14,8 +14,8 @@ describe 'Unit-test runner' do
 
   subject do
     file = File.join(root, 'example', 'config.yaml')
-    config = HaxeConfig.new file
-    Munit.new(config, HaxeLibrary.new)
+    data = YAML.load_file file
+    Munit.new(HaxeConfig.new(data), HaxeLibrary.new)
   end
 
   it 'creates output directories if needed' do
@@ -26,11 +26,6 @@ describe 'Unit-test runner' do
 
   it 'adds a browser flag when browser is configured' do
     subject.browser_flag.should == '-browser firefox'
-  end
-
-  it 'adds a coverage flag when coverage config is not nil' do
-    subject.config.coverage = 'eg'
-    subject.coverage_flag.should == '-coverage'
   end
 
 end

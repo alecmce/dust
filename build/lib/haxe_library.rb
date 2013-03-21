@@ -18,6 +18,10 @@ class HaxeLibrary
     @@items[name]
   end
 
+  def available?(name)
+    not library(name).nil?
+  end
+
   private
 
   def make_items

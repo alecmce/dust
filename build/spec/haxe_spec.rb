@@ -11,13 +11,14 @@ describe 'can produce hxml commands' do
 
   subject do
     file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example', 'config.yaml'))
-    config = HaxeConfig.new file
+    data = YAML.load_file file
+    config = HaxeConfig.new data
     haxelib = HaxeLibrary.new
     Haxe.new config, haxelib
   end
 
   def dir
-    File.join(File.dirname(File.dirname(__FILE__)), subject.config.bin)
+    File.join(File.dirname(File.dirname(__FILE__)), subject.config.get('default', 'bin'))
   end
 
   before(:each) do
@@ -26,10 +27,6 @@ describe 'can produce hxml commands' do
 
   after(:each) do
     FileUtils.rm_rf(dir) if File.exists? dir
-  end
-
-  it 'exposes the config' do
-    subject.config.should be_a_kind_of HaxeConfig
   end
 
   it 'publishes flash target' do

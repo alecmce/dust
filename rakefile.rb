@@ -6,8 +6,9 @@ Dir[File.join(HOME, 'build/lib/*.rb')].each do |file|
   require file.chomp(File.extname(file))
 end
 
-path = File.join(HOME, 'config.yaml')
-config = HaxeConfig.new path
+file = File.join(HOME, 'config.yaml')
+data = YAML.load_file file
+config = HaxeConfig.new data
 haxelib = HaxeLibrary.new
 munit = Munit.new config, haxelib
 haxe = Haxe.new config, haxelib
@@ -22,7 +23,7 @@ end
 
 namespace :test do
 
-  task :all do
+  task :all => :build do
     puts munit.test %w(as3 js cpp)
   end
 

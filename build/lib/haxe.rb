@@ -6,11 +6,10 @@ class Haxe
   def initialize(config, haxelib)
     @config = config
     @haxelib = haxelib
-    @libs = @config.libs.split(' ')
   end
 
-  def verify_dependencies
-    @libs.each do |name|
+  def verify_libs(target)
+    @config.libs('default', target).each do |name|
       thread = Thread.new do
         @haxelib.library(name).install
       end
@@ -19,21 +18,25 @@ class Haxe
   end
 
   def flash
-    @config.set_context('flash')
-    verify_dependencies
-    compile 'swf', 'swf', flash_dependencies
+    verify_libs 'flash'
+    compile 'swf', 'swf', flash_parameters
   end
 
-    def flash_dependencies
+    def flash_parameters
+      width = get_config('width')
+      height = get_config('height')
+      fps = get_config('fps')
+      background = get_config('background')
+      version = get_config('version')
+
       buffer = Array.new
-      buffer << "-swf-header #{@config.width}:#{@config.height}:#{@config.fps}:#{@config.background}"
-      buffer << "-swf-version #{@config.version}"
+      buffer << "-swf-header #{width}:#{height}:#{fps}:#{background}"
+      buffer << "-swf-version #{version}"
       buffer.join(' ')
     end
 
   def html5
-    @config.set_context('html5')
-    verify_dependencies
+    verify_libs 'html5'
     compile 'js', 'js'
   end
 
@@ -44,15 +47,25 @@ class Haxe
 
   private
 
+    def get_config(key)
+      @config.get('flash', key)
+    end
+
     def compile_command(target, path, params = nil)
+      src = get_config('src')
+      libs = @config.libs('default', target)
+      main = get_config('main')
+      bin = get_config('bin')
+      output = get_config('output')
+
       buffer = Array.new
-      buffer << "-cp #{@config.src}"
-      @libs.each do |lib|
+      buffer << "-cp #{src}"
+      libs.each do |lib|
         buffer << "-lib #{lib}"
       end
-      buffer << "-main #{@config.main}.hx"
-      buffer << "-#{target} #{@config.bin}/#{@config.output}.#{path}"
-      buffer << '-D haxe3' if @config.haxe_version == 3
+      buffer << "-main #{main}.hx"
+      buffer << "-#{target} #{bin}/#{output}.#{path}"
+      buffer << '-D haxe3' if @config.haxe == 3
       buffer << params unless params.nil?
       "haxe #{buffer.flatten.join(' ')}"
     end

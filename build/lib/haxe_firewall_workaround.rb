@@ -7,18 +7,26 @@ require 'fileutils'
 class HaxeFirewallWorkaround
   attr_reader :name, :library, :version
 
-  HAXELIB_URL = 'http://lib.haxe.org/files/'
-
   def initialize(library, version = nil)
     @library = library
     @name = library.name
     @version = version.nil? ? library.most_recent_version : version
   end
 
+  def can_install?
+    not @version.nil?
+  end
+
   def install
-    local = local_path
-    download(remote_path, local) unless File.exists? local
-    `haxelib test #{local}`
+    if (@version.nil?)
+      raise "Missing version in HaxeFirewallWorkaround for library #{@name}"
+    else
+      local = local_path
+      download(remote_path, local) unless File.exists? local
+      command = "yes | haxelib test #{local}"
+      result = `#{command}`
+      result.include? "Current version is now #{@version} Done"
+    end
   end
 
     def download(remote, local)
@@ -30,11 +38,11 @@ class HaxeFirewallWorkaround
     end
 
       def remote_path
-        "#{HAXELIB_URL}#{@name}-#{version.gsub('.',',')}.zip"
+        "#{HaxeLibrary::HAXELIB_URL}#{@name}-#{version.gsub('.',',')}.zip"
       end
 
       def local_path
-        File.join(zip_directory, "#{@name}.zip")
+        File.join(zip_directory, "#{@name}-#{@version}.zip")
       end
 
         def zip_directory

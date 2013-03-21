@@ -1,0 +1,48 @@
+<% set_context('flash') %>
+# Flash 9+
+-main TestMain
+-cp <%= testing.src %>
+-cp <%= testing.test %>
+-lib munit
+<% libraries.each do |library| %>
+-lib <%= library %>
+<% end %>
+-swf-version 9
+-swf <%=bin%>/as3_test.swf
+
+--next
+
+#Flash 8
+-main TestMain
+-cp <%= src %>
+-cp <%= test %>
+-lib munit
+<% libraries.each do |library| %>
+    -lib <%= library %>
+<% end %>
+-swf-version 8
+-swf <%=bin%>/as2_test.swf
+
+--next
+
+# JavaScript
+-main TestMain
+-cp <%= src %>
+-cp <%= test %>
+-lib munit
+<% libraries.each do |library| %>
+    -lib <%= library %>
+<% end %>
+-js <%= bin %>/js_test.js
+
+--next
+
+# Neko
+-main TestMain
+-cp <%= src %>
+-cp <%= test %>
+-lib munit
+<% libraries.each do |library| %>
+    -lib <%= library %>
+<% end %>
+-neko bin/neko_test.n
