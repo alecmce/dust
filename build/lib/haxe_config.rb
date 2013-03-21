@@ -15,7 +15,7 @@ class HaxeConfig
 
   def get(category, key)
     data = get_category category, key
-    data.nil? || data[key] == 'nil' ? nil : data[key]
+    get_value_from_category data, key
   end
 
     def get_category(category, key)
@@ -26,8 +26,13 @@ class HaxeConfig
       end
     end
 
+    def get_value_from_category(data, key)
+      data.nil? || data[key] == 'nil' ? nil : data[key]
+    end
+
   def libs(*args)
     list = Array.new
+    list << get('default', 'libs').split(' ')
     args.each do |arg|
       data = get(arg, 'libs')
       list << data.split(' ') unless data.nil?

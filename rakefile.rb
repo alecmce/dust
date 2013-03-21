@@ -10,8 +10,8 @@ file = File.join(HOME, 'config.yaml')
 data = YAML.load_file file
 config = HaxeConfig.new data
 haxelib = HaxeLibrary.new
-munit = Munit.new config, haxelib
-haxe = Haxe.new config, haxelib
+munit = Munit.new HOME, config, haxelib
+haxe = Haxe.new HOME, config, haxelib
 
 task :default do
   puts 'hello, rake'

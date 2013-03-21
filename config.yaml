@@ -14,7 +14,7 @@ default:
   height: 600
   fps: 60
   background: 000000
-  libs: nme jeash minject
+  libs: nme minject
   assets: assets
   orientation: portrait
   resizable: false
@@ -23,6 +23,12 @@ default:
 
 flash:
   version: 11.4
+
+html5:
+  libs: jeash
+
+cpp:
+  libs: hxcpp
 
 testing:
   test: test

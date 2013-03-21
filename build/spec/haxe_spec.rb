@@ -9,16 +9,20 @@ require 'fileutils'
 
 describe 'can produce hxml commands' do
 
+  def root
+    File.expand_path(File.join(File.dirname(__FILE__), '..', 'example'))
+  end
+
   subject do
-    file = File.expand_path(File.join(File.dirname(__FILE__), '..', 'example', 'config.yaml'))
+    file = File.join root, 'config.yaml'
     data = YAML.load_file file
     config = HaxeConfig.new data
     haxelib = HaxeLibrary.new
-    Haxe.new config, haxelib
+    Haxe.new root, config, haxelib
   end
 
   def dir
-    File.join(File.dirname(File.dirname(__FILE__)), subject.config.get('default', 'bin'))
+    File.join(File.dirname(File.dirname(__FILE__)), 'example', subject.config.get('default', 'bin'))
   end
 
   before(:each) do

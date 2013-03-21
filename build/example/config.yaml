@@ -6,33 +6,37 @@ default:
   company: alecmce
   package: alecmce.dust.build
   debug: false
-  src: example/src
+  src: src
   main: Main
   output: output
-  bin: example/bin
-  haxe: 2
+  bin: bin
   width: 800
   height: 600
   fps: 60
   background: ffffff
-  libs: nme jeash minject
-  assets: example/assets
+  libs: nme minject
+  assets: assets
   orientation: portrait
   resizable: false
   ndll:
-  icon: example/icon.svg
+  icon: icon.svg
 
 flash:
   version: 11.4
 
+html5:
+  libs: jeash
+
+cpp:
+  libs: hxcpp
+
 testing:
-  test: example/test
-  bin: example/bin/test/bin
-  report: example/bin/test/report
-  src: example/src
+  src: test
+  bin: bin/test/bin
+  report: bin/test/report
   browser: firefox
   resources: nil
-  templates: nil
+  templates: assets/munit
   coverage: nil
   coverage_ignored: nil
 

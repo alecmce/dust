@@ -5,27 +5,29 @@ Dir[File.join(File.dirname(__FILE__), '..', 'lib/*.rb')].each do |file|
 end
 
 require 'rspec'
+require 'fileutils'
 
 describe 'Unit-test runner' do
 
   def root
-    File.expand_path(File.join(File.dirname(__FILE__), '..'))
+    File.expand_path(File.join(File.dirname(__FILE__), '..', 'example'))
   end
 
   subject do
-    file = File.join(root, 'example', 'config.yaml')
+    file = File.join(root, 'config.yaml')
     data = YAML.load_file file
-    Munit.new(HaxeConfig.new(data), HaxeLibrary.new)
-  end
-
-  it 'creates output directories if needed' do
-    dir = File.join(root, 'example', 'bin', 'test', 'bin')
-    subject.ensure_directories
-    File.exists?(dir).should be_true
+    Munit.new(root, HaxeConfig.new(data), HaxeLibrary.new)
   end
 
   it 'adds a browser flag when browser is configured' do
     subject.browser_flag.should == '-browser firefox'
+  end
+
+  it 'configures .munit if not already configured' do
+    munit_config = File.join(root, '.munit')
+    FileUtils.rm munit_config if File.exists? munit_config
+    subject.configure_munit
+    File.exists?(munit_config).should be_true
   end
 
 end

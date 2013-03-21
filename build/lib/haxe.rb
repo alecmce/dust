@@ -3,7 +3,8 @@
 class Haxe
   attr_reader :config
 
-  def initialize(config, haxelib)
+  def initialize(root, config, haxelib)
+    @root = root
     @config = config
     @haxelib = haxelib
   end
@@ -42,7 +43,7 @@ class Haxe
 
   def compile(target, path, params = nil)
     command = compile_command target, path, params
-    `#{command}`
+    `cd #{@root} && #{command}`
   end
 
   private
