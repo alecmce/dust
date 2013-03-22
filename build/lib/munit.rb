@@ -99,7 +99,7 @@ class Munit
       File.open(TEMPLATE_HXML) do |template|
         erb = ERB.new template.read
         File.open(hxml, 'w') do |output|
-          output.make_nmml erb.result(@config.get_binding)
+          output.write erb.result(@config.get_binding)
         end
       end
     end
