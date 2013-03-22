@@ -14,7 +14,6 @@ class Munit
     @config = config
     @haxelib = haxelib
     require_munit
-    reconfigure unless is_configured?
   end
 
     def require_munit
@@ -23,6 +22,7 @@ class Munit
     end
 
   def test(types)
+    reconfigure unless is_configured?
     verify_dependencies(types)
     execute types
   end

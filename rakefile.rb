@@ -13,10 +13,6 @@ library = HaxeLibrary.new
 munit = Munit.new HOME, config, library
 haxe = Haxe.new HOME, config, library
 
-task :default do
-  puts 'hello, rake'
-end
-
 task :clean do
   munit.clean
 end

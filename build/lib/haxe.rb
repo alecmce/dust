@@ -66,8 +66,8 @@ class Haxe
       buffer << "-main #{main}.hx"
       buffer << "-#{target} #{bin}/#{output}.#{path}"
       buffer << '-D haxe3' if @config.haxe == 3
-      buffer << '--debug' if @config.get(target, 'debug')
       buffer << '-D HXCPP_M64' unless @config.get(target, '64bit').nil?
+      buffer << '-debug' if @config.get(target, 'debug')
       buffer << params unless params.nil?
       "haxe #{buffer.flatten.join(' ')}"
     end

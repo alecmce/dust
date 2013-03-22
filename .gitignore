@@ -16,6 +16,7 @@ test.hxml
 report/*
 test-runner/*
 
+out/*
 bin/*
 
 assets/*.ttf.hash
