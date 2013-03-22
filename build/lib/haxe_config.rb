@@ -35,11 +35,10 @@ class HaxeConfig
       data.nil? || data[key] == 'nil' ? nil : data[key]
     end
 
-  def libs(*args)
+  def get_list(categories, key)
     list = Array.new
-    list << get('default', 'libs').split(' ')
-    args.each do |arg|
-      data = get(arg, 'libs')
+    ([categories] << 'default').flatten.each do |category|
+      data = get(category, key)
       list << data.split(' ') unless data.nil?
     end
     list.flatten.uniq

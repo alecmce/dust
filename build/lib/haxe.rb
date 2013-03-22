@@ -10,7 +10,7 @@ class Haxe
   end
 
   def verify_dependencies(target)
-    @config.libs(target).each do |name|
+    @config.get_list(target, 'libs').each do |name|
       thread = Thread.new do
         puts "verify #{target} dependency -> '#{name}'"
         library = @haxelib.library name
@@ -53,7 +53,7 @@ class Haxe
 
     def compile_command(target, path, params = nil)
       src = @config.get(target, 'src')
-      libs = @config.libs('default', target)
+      libs = @config.get_list(target, 'libs')
       main = @config.get(target, 'main')
       bin = @config.get(target, 'bin')
       output = @config.get(target, 'output')

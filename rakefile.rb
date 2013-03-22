@@ -1,39 +1,33 @@
 #!/usr/bin/env ruby
 
 HOME = File.dirname(__FILE__)
-
 Dir[File.join(HOME, 'build/lib/*.rb')].each do |file|
   require file.chomp(File.extname(file))
 end
 
-file = File.join(HOME, 'config.yaml')
-data = YAML.load_file file
-config = HaxeConfig.new data
-library = HaxeLibrary.new
-munit = Munit.new HOME, config, library
-haxe = Haxe.new HOME, config, library
+dust = Dust.new HOME, 'config.yaml'
 
 task :clean do
-  munit.clean
+  dust.munit.clean
 end
 
 namespace :test do
 
-  task :reconfigure do
-    puts munit.reconfigure
+  task :reset do
+    puts dust.reset_tests
   end
 
   task :all => :build do
-    puts munit.test %w(as3 js)
+    puts dust.test %w(as3 js)
     #puts munit.test %w(as3 js cpp)
   end
 
   task :as3 do
-    puts munit.test %w(as3)
+    puts dust.test %w(as3)
   end
 
   task :html5 do
-    puts munit.test %w(js)
+    puts dust.test %w(js)
   end
 
   task :cpp do
@@ -54,11 +48,15 @@ namespace :make do
   end
 
   task :flash do
-    haxe.flash
+    dust.make 'flash'
   end
 
   task :html5 do
-    haxe.html5
+    dust.make 'html5'
+  end
+
+  task :ios do
+    dust.make 'ios'
   end
 
 end
@@ -66,11 +64,23 @@ end
 namespace :run do
 
   task :flash => :'make:flash' do
-    `open #{File.join(config.get('flash', 'bin'), "#{config.get('flash', 'output')}.swf")}`
+    dust.run 'flash'
   end
 
   task :html5 => :'make:html5' do
 
+  end
+
+  task :ios => :'make:ios' do
+    dust.run 'ios-simulator'
+  end
+
+  task :iphone_simulator => :'make:ios' do
+    dust.run 'iphone_simulator'
+  end
+
+  task :ipad_simulator => :'make:ios' do
+    dust.run 'ipad_simulator'
   end
 
 end

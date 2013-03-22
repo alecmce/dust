@@ -32,7 +32,7 @@ class Munit
       end
 
     def verify_dependencies(types)
-      @config.libs(*types).each do |name|
+      @config.get_list(types, 'libs').each do |name|
         thread = Thread.new do
           puts "verify #{types} dependency -> '#{name}'"
           library = @haxelib.library name
@@ -99,7 +99,7 @@ class Munit
       File.open(TEMPLATE_HXML) do |template|
         erb = ERB.new template.read
         File.open(hxml, 'w') do |output|
-          output.write erb.result(@config.get_binding)
+          output.make_nmml erb.result(@config.get_binding)
         end
       end
     end

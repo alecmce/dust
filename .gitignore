@@ -2,6 +2,7 @@
 Gemfile.lock
 
 *.iml
+*.nmml
 .idea
 .temp
 

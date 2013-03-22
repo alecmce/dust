@@ -3,7 +3,7 @@
 -cp <%= get('flash', 'src') %>
 -cp <%= get('testing', 'src') %>
 -lib munit
-<% libs('flash').each do |library| %>-lib <%= library %>
+<% get_list('flash', 'libs').each do |library| %>-lib <%= library %>
 <% end%>-swf-version <%= get('flash', 'version') %>
 -swf <%= get('testing', 'bin') %>/as3_test.swf
 
@@ -14,7 +14,7 @@
 -cp <%= get('html5', 'src') %>
 -cp <%= get('testing', 'src') %>
 -lib munit
-<% libs('js').each do |library| %>-lib <%= library %>
+<% get_list('js', 'libs').each do |library| %>-lib <%= library %>
 <% end %>-js <%= get('testing', 'bin') %>/js_test.js
 
 --next
@@ -24,7 +24,7 @@
 -cp <%= get('cpp', 'src') %>
 -cp <%= get('testing', 'src') %>
 -lib munit
-<% libs('html5').each do |library| %>-lib <%= library %>
+<% get_list('html5', 'libs').each do |library| %>-lib <%= library %>
 <% end %><%= '-D HXCPP_M64' unless get('cpp', '64bit').nil? %>
 -cpp <%= get('testing', 'bin') %>/cpp_test
 
@@ -35,5 +35,5 @@
 -cp <%= get('neko', 'src') %>
 -cp <%= get('testing', 'src') %>
 -lib munit
-<% libs('neko').each do |library| %>-lib <%= library %>
+<% get_list('neko', 'libs').each do |library| %>-lib <%= library %>
 <% end %>-neko <%= get('testing', 'bin') %>/neko_test.n
