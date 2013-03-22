@@ -14,7 +14,7 @@ class Munit
     @config = config
     @haxelib = haxelib
     require_munit
-    configure_munit unless is_configured?
+    reconfigure unless is_configured?
   end
 
     def require_munit
@@ -46,7 +46,8 @@ class Munit
       buffer = ['run munit test']
       buffer << types.map { |type| "-#{type}" }
       buffer << browser_flag
-      buffer << coverage_flag
+      buffer << '-coverage' if @config.get_flag('testing', 'coverage')
+      buffer << '--debug' if @config.get_flag('testing', 'debug')
       command = "haxelib #{buffer.flatten.join(' ').chomp}"
       puts command
       `#{command}`
@@ -57,18 +58,13 @@ class Munit
         browser.nil? ? '' : "-browser #{browser}"
       end
 
-      def coverage_flag
-        coverage = @config.get('testing', 'coverage')
-        coverage.nil? ? '' : '-coverage'
-      end
-
   def is_configured?
     config_file = expand '.munit'
     hxml_file = expand HXML_TARGET
     File.exists? config_file and File.exists? hxml_file
   end
 
-  def configure_munit
+  def reconfigure
     command = "(cd #{@root} && #{configure_command})"
     puts command
     `#{command}`
@@ -98,9 +94,11 @@ class Munit
     end
 
     def write_test_hxml_template
+      hxml = expand HXML_TARGET
+      FileUtils.rm hxml if File.exists? hxml
       File.open(TEMPLATE_HXML) do |template|
         erb = ERB.new template.read
-        File.open(expand(HXML_TARGET), 'w') do |output|
+        File.open(hxml, 'w') do |output|
           output.write erb.result(@config.get_binding)
         end
       end

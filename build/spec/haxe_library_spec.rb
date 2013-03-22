@@ -16,6 +16,10 @@ describe 'creates library items' do
     subject.library('munit').should be_an_instance_of HaxeLibraryItem
   end
 
+  it 'creates an item for made-up libraries' do
+    subject.library('made_up').should be_an_instance_of HaxeLibraryItem
+  end
+
   it 'versions each item' do
     subject.library('munit').versions.should include '2.0.0'
   end

@@ -15,11 +15,12 @@ class HaxeLibrary
   end
 
   def library(name)
-    @@items[name]
+    @@items[name] ||= HaxeLibraryItem.new(name)
   end
 
   def available?(name)
-    not library(name).nil?
+    item = library(name)
+    not (item.current_version.nil? or item.versions.empty?)
   end
 
   private

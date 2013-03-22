@@ -26,7 +26,7 @@ describe 'Unit-test runner' do
   it 'configures .munit if not already configured' do
     munit_config = File.join(root, '.munit')
     FileUtils.rm munit_config if File.exists? munit_config
-    subject.configure_munit
+    subject.reconfigure
     File.exists?(munit_config).should be_true
   end
 

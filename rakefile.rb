@@ -23,14 +23,17 @@ end
 
 namespace :test do
 
+  task :reconfigure do
+    puts munit.reconfigure
+  end
+
   task :all => :build do
-    puts munit.test %w(as3 js cpp)
+    puts munit.test %w(as3 js)
+    #puts munit.test %w(as3 js cpp)
   end
 
   task :as3 do
-    puts "<task"
     puts munit.test %w(as3)
-    puts "task>"
   end
 
   task :html5 do
@@ -38,7 +41,8 @@ namespace :test do
   end
 
   task :cpp do
-    puts munit.test %w(cpp)
+    puts 'munit does not fully support hxcpp yet'
+    #puts munit.test %w(cpp)
   end
 
   task :build do
@@ -66,7 +70,7 @@ end
 namespace :run do
 
   task :flash => :'make:flash' do
-    `open #{File.join(config.bin, "#{config.output}.swf")}`
+    `open #{File.join(config.get('flash', 'bin'), "#{config.get('flash', 'output')}.swf")}`
   end
 
   task :html5 => :'make:html5' do

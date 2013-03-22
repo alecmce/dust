@@ -18,6 +18,11 @@ class HaxeConfig
     get_value_from_category data, key
   end
 
+  def get_flag(category, key)
+    data = get(category, key)
+    not (data.nil? or data =~ false)
+  end
+
     def get_category(category, key)
       if @data[category].nil? || @data[category][key].nil?
         @data['default']

@@ -5,7 +5,7 @@ default:
   version: 0.0.1
   company: alecmce
   package: alecmce.dust
-  debug: false
+  debug: true
   src: src
   main: DustExamples
   output: dust
@@ -29,6 +29,7 @@ js:
 
 cpp:
   libs: hxcpp
+  64bit: true
 
 testing:
   bin: 'bin/test/bin'

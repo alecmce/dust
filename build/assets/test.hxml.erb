@@ -4,7 +4,7 @@
 -cp <%= get('testing', 'src') %>
 -lib munit
 <% libs('flash').each do |library| %>-lib <%= library %>
-<% end%>-swf-version get('flash', 'version')
+<% end%>-swf-version <%= get('flash', 'version') %>
 -swf <%= get('testing', 'bin') %>/as3_test.swf
 
 --next
@@ -25,7 +25,7 @@
 -cp <%= get('testing', 'src') %>
 -lib munit
 <% libs('html5').each do |library| %>-lib <%= library %>
-<% end %>#-D HXCPP_M64
+<% end %><%= '-D HXCPP_M64' unless get('cpp', '64bit').nil? %>
 -cpp <%= get('testing', 'bin') %>/cpp_test
 
 --next
