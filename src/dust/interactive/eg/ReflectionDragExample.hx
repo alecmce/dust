@@ -1,7 +1,7 @@
 package dust.interactive.eg;
 
-import dust.interactive.config.ReflectionDecorator;
-import dust.interactive.config.OffsetDecorator;
+import dust.interactive.control.ReflectionDecorator;
+import dust.interactive.control.OffsetDecorator;
 import dust.interactive.data.Reflection;
 import dust.interactive.data.Offsets;
 import dust.entities.api.Entity;

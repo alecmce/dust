@@ -1,4 +1,4 @@
-package dust.interactive.control;
+package dust.interactive.systems;
 
 import dust.interactive.data.Offsets;
 import dust.interactive.data.Reflection;
@@ -38,6 +38,7 @@ class OffsetSystem implements System
             var dy = position.y - current.y;
             current.setTo(position);
 
+            trace(offsets.offsets);
             for (offset in offsets.offsets)
                 offset.offset(dx, dy);
         }

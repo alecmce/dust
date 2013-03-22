@@ -1,4 +1,4 @@
-package dust.interactive.config;
+package dust.interactive.control;
 
 import dust.interactive.data.MouseInteractive;
 import dust.interactive.data.Draggable;

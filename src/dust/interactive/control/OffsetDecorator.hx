@@ -1,4 +1,4 @@
-package dust.interactive.config;
+package dust.interactive.control;
 
 import dust.interactive.data.Draggable;
 import dust.geom.data.Position;
@@ -8,8 +8,7 @@ import dust.entities.api.Entity;
 
 class OffsetDecorator
 {
-    @inject
-    public var draggableDecorator:DraggableDecorator;
+    @inject public var draggableDecorator:DraggableDecorator;
 
     public function apply(master:Entity, entity:Entity)
     {

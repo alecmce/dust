@@ -1,21 +1,21 @@
 package dust.interactive.eg;
 
-import dust.interactive.config.OffsetDecorator;
-import dust.interactive.data.Offsets;
-import dust.entities.api.Entity;
-import dust.interactive.data.MouseInteractive;
-import dust.canvas.data.PrioritizedPainter;
-import dust.canvas.PrioritizedPaintersConfig;
-import dust.canvas.data.Paint;
-import dust.entities.EntitiesConfig;
 import dust.camera.data.Camera;
+import dust.canvas.data.PrioritizedPainter;
+import dust.canvas.data.Paint;
 import dust.canvas.data.Paint;
 import dust.canvas.data.Painter;
+import dust.canvas.PrioritizedPaintersConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
+import dust.entities.api.Entity;
 import dust.entities.api.Entities;
-import dust.interactive.data.Draggable;
+import dust.entities.EntitiesConfig;
 import dust.geom.data.Position;
+import dust.interactive.control.OffsetDecorator;
+import dust.interactive.data.Draggable;
+import dust.interactive.data.MouseInteractive;
+import dust.interactive.data.Offsets;
 
 import nme.display.Graphics;
 

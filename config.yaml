@@ -1,15 +1,19 @@
 haxe: 3
 
 default:
+
   title: dust
+  description: a haxe entity-system
+  package: alecmce.dust
   version: 0.0.1
   company: alecmce
-  package: alecmce.dust
-  debug: true
-  src: src
+
   main: DustExamples
   output: dust
   bin: bin
+  preloader: nil
+
+  src: src
   width: 800
   height: 600
   fps: 60
@@ -20,9 +24,10 @@ default:
   resizable: false
   ndll:
   icon: assets/icon.svg
+  debug: true
 
 flash:
-  version: 11.4
+  swf_version: 11.4
 
 js:
   libs: jeash

@@ -30,11 +30,11 @@ class Haxe
       height = @config.get('flash', 'height')
       fps = @config.get('flash', 'fps')
       background = @config.get('flash', 'background')
-      version = @config.get('flash', 'version')
+      swf_version = @config.get('flash', 'swf_version')
 
       buffer = Array.new
       buffer << "-swf-header #{width}:#{height}:#{fps}:#{background}"
-      buffer << "-swf-version #{version}"
+      buffer << "-swf-version #{swf_version}"
       buffer.join(' ')
     end
 

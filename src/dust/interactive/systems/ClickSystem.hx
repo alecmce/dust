@@ -1,4 +1,4 @@
-package dust.interactive.control;
+package dust.interactive.systems;
 
 import dust.interactive.data.Clickable;
 import dust.camera.data.Camera;

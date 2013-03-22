@@ -1,4 +1,4 @@
-package dust.interactive.control;
+package dust.interactive.systems;
 
 import nme.events.MouseEvent;
 import dust.camera.data.Camera;
@@ -17,17 +17,10 @@ import nme.display.Stage;
 
 class DragSystem implements System
 {
-    @inject
-    public var root:DisplayObjectContainer;
-
-    @inject
-    public var collection:Collection;
-
-    @inject
-    public var dragFocus:DragFocus;
-
-    @inject
-    public var camera:Camera;
+    @inject public var root:DisplayObjectContainer;
+    @inject public var collection:Collection;
+    @inject public var dragFocus:DragFocus;
+    @inject public var camera:Camera;
 
     var screen:Position;
     var world:Position;
@@ -63,7 +56,7 @@ class DragSystem implements System
     {
         if (isDrag || isJustDown)
         {
-            translatePosition();
+            updateWorldPosition();
             if (isDrag)
                 updateDrag(isDown);
             else if (isJustDown)
@@ -71,7 +64,7 @@ class DragSystem implements System
         }
     }
 
-        inline function translatePosition()
+        inline function updateWorldPosition()
         {
             screen.set(root.mouseX, root.mouseY);
             camera.toWorld(screen, world);
@@ -89,6 +82,7 @@ class DragSystem implements System
 
             inline function endDrag()
             {
+                trace("endDrag");
                 focus.remove(DragFocus);
                 focus = null;
                 isDrag = false;
