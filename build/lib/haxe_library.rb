@@ -18,6 +18,10 @@ class HaxeLibrary
     @@items[name] ||= HaxeLibraryItem.new(name)
   end
 
+  def offline?
+    @offline == true
+  end
+
   def available?(name)
     item = library(name)
     not (item.current_version.nil? or item.versions.empty?)
@@ -43,8 +47,13 @@ class HaxeLibrary
     end
 
       def library_list
-        open(HAXELIB_URL) do |io|
-          Array[io.read.scan(/\<a href="(.+?)\-([0-9,.]+)\.zip">.+\<\/a\>/)].first
+        begin
+          open(HAXELIB_URL) do |io|
+            Array[io.read.scan(/\<a href="(.+?)\-([0-9,.]+)\.zip">.+\<\/a\>/)].first
+          end
+        rescue Exception
+          @offline = true
+          []
         end
       end
 

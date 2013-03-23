@@ -1,4 +1,4 @@
-package dust.interactive.control;
+package dust.interactive.systems;
 
 import dust.geom.data.Position;
 import dust.interactive.data.ClickFocus;

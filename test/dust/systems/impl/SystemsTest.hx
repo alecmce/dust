@@ -1,4 +1,4 @@
-package dust.systems;
+package dust.systems.impl;
 
 import dust.entities.impl.PooledEntities;
 import dust.collections.data.CollectionList;
@@ -7,7 +7,7 @@ import dust.systems.impl.SystemsLoop;
 import dust.systems.impl.SystemMap;
 import dust.systems.impl.Systems;
 import dust.systems.System;
-import dust.systems.SystemsTest.TrackStartSystem;
+import SystemsTest.TrackStartSystem;
 import dust.collections.control.CollectionMap;
 import dust.entities.api.Entities;
 import dust.components.BitfieldFactory;

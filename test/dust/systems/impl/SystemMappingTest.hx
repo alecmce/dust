@@ -1,4 +1,4 @@
-package dust.systems;
+package dust.systems.impl;
 
 import dust.entities.impl.PooledEntities;
 import dust.collections.api.Collection;
@@ -16,7 +16,7 @@ import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemsLoop;
 import dust.systems.impl.TimedSystem;
 import dust.systems.System;
-import dust.systems.SystemMappingTest.MockNamedCollectionSystem;
+import SystemMappingTest.MockNamedCollectionSystem;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
 

@@ -1,4 +1,4 @@
-package dust.systems;
+package dust.systems.impl;
 
 import dust.systems.System;
 
