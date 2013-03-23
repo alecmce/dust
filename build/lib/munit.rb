@@ -47,7 +47,8 @@ class Munit
       buffer << types.map { |type| "-#{type}" }
       buffer << browser_flag
       buffer << '-coverage' if @config.get_flag('testing', 'coverage')
-      buffer << '--debug' if @config.get_flag('testing', 'debug')
+      buffer << '-debug' if @config.get_flag('testing', 'debug')
+      buffer << '--no-inline' if @config.get_flag('testing', 'disable_inline')
       command = "haxelib #{buffer.flatten.join(' ').chomp}"
       puts command
       `#{command}`

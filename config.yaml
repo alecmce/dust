@@ -1,18 +1,15 @@
 haxe: 3
 
 default:
-
   title: dust
   description: a haxe entity-system
   package: alecmce.dust
   version: 0.0.1
   company: alecmce
-
   main: DustExamples
   output: dust
   bin: bin
   preloader: nil
-
   src: src
   width: 800
   height: 600
@@ -24,7 +21,6 @@ default:
   resizable: false
   ndll:
   icon: assets/icon.svg
-  debug: true
 
 flash:
   swf_version: 11.4
@@ -45,6 +41,7 @@ testing:
   templates: nil
   coverage: nil
   coverage_ignored: nil
+  disable_inline: true
 
 webos:
   width: 200
