@@ -65,8 +65,10 @@ class ContextConfigs
 
     public function unconfigure()
     {
-        for (instance in instances)
+        var count = instances.length;
+        for (i in 0...count)
         {
+            var instance = instances[count - i - 1];
             if (Std.is(instance, UnconfigConfig))
                 cast (instance, UnconfigConfig).unconfigure();
         }

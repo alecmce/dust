@@ -1,16 +1,15 @@
 package dust.entities;
 
-import dust.entities.impl.PooledEntities;
-import dust.context.UnconfigConfig;
-import dust.entities.EntitiesConfig;
 import dust.app.SignalMapConfig;
-import dust.context.Context;
 import dust.commands.CommandMap;
-import dust.context.DependentConfig;
-import dust.context.Config;
-import dust.entities.api.Entities;
 import dust.components.BitfieldFactory;
+import dust.context.Config;
+import dust.context.Context;
+import dust.context.DependentConfig;
+import dust.context.UnconfigConfig;
 import dust.entities.api.Entities;
+import dust.entities.EntitiesConfig;
+import dust.entities.impl.PooledEntities;
 
 import minject.Injector;
 
@@ -28,6 +27,6 @@ class EntitiesConfig implements UnconfigConfig
     {
         var entities:Entities = injector.getInstance(Entities);
         for (entity in entities)
-            entities.release(entity);
+            entity.dispose();
     }
 }

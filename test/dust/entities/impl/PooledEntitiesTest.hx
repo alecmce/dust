@@ -1,11 +1,12 @@
-package dust.entities;
+package dust.entities.impl;
 
+import dust.components.MockComponentA;
 import dust.entities.impl.PooledEntities;
 import dust.components.BitfieldFactory;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
 
-class EntitiesTest
+class PooledEntitiesTest
 {
     var bitfieldFactory:BitfieldFactory;
     var entities:Entities;
@@ -37,5 +38,12 @@ class EntitiesTest
             isMatch = isMatch || entity == required;
 
         Assert.isTrue(isMatch);
+    }
+
+    @Test public function aReleasedEntityIsMarkedDirty()
+    {
+        var entity:PooledEntity = cast entities.require();
+        entities.release(entity);
+        Assert.isTrue(entity.isChanged);
     }
 }

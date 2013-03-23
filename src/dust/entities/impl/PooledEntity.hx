@@ -72,6 +72,7 @@ class PooledEntity implements Entity
     inline public function removeAll()
     {
         bitfield.reset();
+        isChanged = true;
         for (componentID in components.keys())
             deleted.push(componentID);
     }

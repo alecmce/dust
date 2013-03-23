@@ -1,4 +1,4 @@
-package dust.entities;
+package dust.entities.impl;
 
 import dust.entities.impl.PooledEntities;
 import dust.components.MockComponentB;
@@ -11,7 +11,7 @@ import dust.components.Bitfield;
 import dust.entities.api.Entity;
 import massive.munit.async.AsyncFactory;
 
-class EntityTest
+class PooledEntityTest
 {
     var bitfieldFactory:BitfieldFactory;
 

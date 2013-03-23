@@ -63,4 +63,12 @@ class CollectionSubscriberTest
         removeComponentFromEntityAndUpdate();
         Assert.listExcludes(collection.iterator(), entity);
     }
+
+    @Test public function afterEntityRemoveAllCollectionsAreUpdated()
+    {
+        addComponentToEntityAndUpdate();
+        entity.removeAll();
+        subscriber.updateEntity(entity);
+        Assert.listExcludes(collection.iterator(), entity);
+    }
 }

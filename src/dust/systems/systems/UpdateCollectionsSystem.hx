@@ -13,7 +13,9 @@ class UpdateCollectionsSystem implements System
     @inject public var subscriber:CollectionSubscriber;
 
     public function start() {}
-    public function stop() {}
+    
+    public function stop()
+        iterate(0)
 
     public function iterate(deltaTime:Float)
     {

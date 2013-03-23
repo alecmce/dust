@@ -39,7 +39,6 @@ class PooledEntities implements Entities
 
     public function release(entity:Entity)
     {
-        entity.removeAll();
         pool.release(entity);
         list.remove(entity);
     }

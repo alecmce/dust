@@ -48,7 +48,6 @@ class SystemsConfig implements DependentConfig
         function configureSystems()
         {
             var systems:Systems = injector.getInstance(Systems);
-
             systems
                 .map(UpdateCollectionsSystem)
                 .withName("UpdateCollections");
