@@ -141,6 +141,16 @@ class PooledEntityTest
         entity.add(instance, BaseComponent);
         entity.dispose();
     }
+
+    @Test public function afterUpdateRemovedComponentsAreNotAvailable()
+    {
+        var instance = new BaseComponent();
+        entity.add(instance);
+        entity.remove(BaseComponent);
+        entity.update();
+
+        Assert.isNull(entity.get(BaseComponent));
+    }
 }
 
 class BaseComponent extends Component

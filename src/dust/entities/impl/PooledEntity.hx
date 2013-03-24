@@ -57,6 +57,7 @@ class PooledEntity implements Entity
             inline function markComponentAsRemoved(componentID:Int)
             {
                 bitfield.set(componentID, false);
+                deleted.push(componentID);
                 isChanged = true;
             }
 
