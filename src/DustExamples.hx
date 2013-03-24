@@ -1,5 +1,6 @@
 package;
 
+import dust.text.eg.BitmapTextExample;
 import dust.console.ConsoleConfig;
 import dust.context.Config;
 import dust.interactive.eg.ReflectionDragExample;
@@ -32,6 +33,7 @@ class DustExamples
             .add("1", "Drag Example", DragExample)
             .add("2", "OffsetDrag Example", OffsetDragExample)
             .add("3", "ReflectionDrag Example", ReflectionDragExample)
+            .add("4", "BitmapText Example", BitmapTextExample)
             .add("5", "QuadTreeVisualization Example", QuadTreeVisualizationExample);
 
         mainMenu.reset.bind(onReset);
