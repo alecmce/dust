@@ -1,5 +1,6 @@
 package dust.entities.impl;
 
+import dust.interactive.data.Offsets;
 import dust.entities.api.Entity;
 import dust.components.Bitfield;
 import dust.components.Component;
@@ -29,7 +30,7 @@ class PooledEntity implements Entity
     inline public function add(component:Component, ?asType:Class<Component> = null):Bool
 	{
         var componentID = asType == null ? component.componentID : (cast asType).ID;
-		var isNewComponent = !components.exists(componentID);
+		var isNewComponent = !bitfield.get(componentID);
 		if (isNewComponent)
 		    addComponent(componentID, component);
 		return isNewComponent;

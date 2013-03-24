@@ -1,5 +1,6 @@
 package dust.collections.control;
 
+import dust.components.MockComponentB;
 import dust.entities.api.Entity;
 import dust.collections.api.Collection;
 import dust.components.MockComponentA;
@@ -70,5 +71,30 @@ class CollectionSubscriberTest
         entity.removeAll();
         subscriber.updateEntity(entity);
         Assert.listExcludes(collection.iterator(), entity);
+    }
+
+    @Test public function canSubscribeUnsubscribeAndResubscribeToACollection()
+    {
+        addComponentToEntityAndUpdate();
+        removeComponentFromEntityAndUpdate();
+        addComponentToEntityAndUpdate();
+        Assert.listIncludes(collection.iterator(), entity);
+    }
+
+    @Test public function partialSatisfactionDoesNotMeanSubscription()
+    {
+        collection = collections.map([MockComponentA, MockComponentB]).getCollection();
+        entity.add(new MockComponentB());
+        Assert.listExcludes(collection.iterator(), entity);
+    }
+
+    @Test public function resubscribeWorksWithPartialCollectionSatisfaction()
+    {
+        collection = collections.map([MockComponentA, MockComponentB]).getCollection();
+        entity.add(new MockComponentB());
+        addComponentToEntityAndUpdate();
+        removeComponentFromEntityAndUpdate();
+        addComponentToEntityAndUpdate();
+        Assert.listIncludes(collection.iterator(), entity);
     }
 }

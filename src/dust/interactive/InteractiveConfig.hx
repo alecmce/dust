@@ -31,19 +31,12 @@ import minject.Injector;
 
 class InteractiveConfig implements DependentConfig
 {
-    @inject
-    public var injector:Injector;
-
-    @inject
-    public var collections:CollectionMap;
-
-    @inject
-    public var systems:Systems;
+    @inject public var injector:Injector;
+    @inject public var collections:CollectionMap;
+    @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [CanvasConfig, SystemsConfig, CameraConfig];
-    }
+        return [CanvasConfig, SystemsConfig, CameraConfig]
 
     public function configure()
     {

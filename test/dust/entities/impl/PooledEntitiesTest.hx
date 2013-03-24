@@ -39,11 +39,4 @@ class PooledEntitiesTest
 
         Assert.isTrue(isMatch);
     }
-
-    @Test public function aReleasedEntityIsMarkedDirty()
-    {
-        var entity:PooledEntity = cast entities.require();
-        entities.release(entity);
-        Assert.isTrue(entity.isChanged);
-    }
 }

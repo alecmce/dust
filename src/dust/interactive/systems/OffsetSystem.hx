@@ -38,7 +38,6 @@ class OffsetSystem implements System
             var dy = position.y - current.y;
             current.setTo(position);
 
-            trace(offsets.offsets);
             for (offset in offsets.offsets)
                 offset.offset(dx, dy);
         }

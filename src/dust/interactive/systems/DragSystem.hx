@@ -82,7 +82,6 @@ class DragSystem implements System
 
             inline function endDrag()
             {
-                trace("endDrag");
                 focus.remove(DragFocus);
                 focus = null;
                 isDrag = false;
