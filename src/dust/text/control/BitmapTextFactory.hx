@@ -20,9 +20,8 @@ class BitmapTextFactory
     {
         var chars = makeChars(font, label);
         var bitmapData = makeBitmapData(chars.bounds);
-        for (char in chars.list)
-            char.drawTo(bitmapData);
-
+        if (bitmapData != null)
+            populateBitmapData(chars.list, bitmapData);
         return bitmapData;
     }
 
@@ -59,7 +58,16 @@ class BitmapTextFactory
         {
             var width = Std.int(bounds.width);
             var height = Std.int(bounds.height);
-            return new BitmapData(width, height, true, 0);
+            return if (width > 0 && height > 0)
+                new BitmapData(width, height, true, 0);
+            else
+                null;
+        }
+
+        function populateBitmapData(chars:Array<BitmapTextChar>, bitmapData:BitmapData)
+        {
+            for (char in chars)
+                char.drawTo(bitmapData);
         }
 }
 

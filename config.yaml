@@ -37,7 +37,7 @@ testing:
   report: 'bin/test/report'
   src: test
   browser: firefox
-  resources: nil
+  resources: assets
   templates: nil
   coverage: nil
   coverage_ignored: nil

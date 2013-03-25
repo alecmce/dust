@@ -1,5 +1,6 @@
 package dust.text.eg;
 
+import dust.text.control.BitmapFonts;
 import dust.graphics.data.Painter;
 import dust.graphics.data.BitmapPainter;
 import dust.camera.data.Camera;
@@ -19,22 +20,22 @@ import dust.context.DependentConfig;
 
 class BitmapFontExample implements DependentConfig
 {
+    static var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
     @inject public var entities:Entities;
-    @inject public var fontFactory:BitmapFontFactory;
+    @inject public var fonts:BitmapFonts;
     @inject public var bitmapFactory:BitmapTextFactory;
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig, BitmapTextConfig, PaintersConfig]
+        return [CameraConfig, Michroma24WhiteFontConfig, PaintersConfig]
 
     public function configure()
     {
-        var fontDefinition = Assets.getText('assets/michroma-24-white.fnt');
-        var fontBitmap = Assets.getBitmapData('assets/michroma-24-white.png');
-        var font = fontFactory.make(fontDefinition, [fontBitmap]);
-
         var x = -200;
         var y = -100;
+
+        var font = fonts.get(Michroma24WhiteFontConfig.MICHROMA_24_WHITE);
 
         var list = makeCharCodes();
         for (n in list)
@@ -56,16 +57,11 @@ class BitmapFontExample implements DependentConfig
         }
     }
 
-        function makeCharCodes():Array<Int>
-        {
-            var a = 'a'.charCodeAt(0);
-            var z = 'z'.charCodeAt(0);
-            var A = 'A'.charCodeAt(0);
-            var Z = 'Z'.charCodeAt(0);
-
-            var list = new Array<Int>();
-            for (n in a...z) list.push(n);
-            for (n in A...Z) list.push(n);
-            return list;
-        }
+    function makeCharCodes():Array<Int>
+    {
+        var codes = new Array<Int>();
+        for (i in 0...chars.length)
+            codes.push(chars.charCodeAt(i));
+        return codes;
+    }
 }

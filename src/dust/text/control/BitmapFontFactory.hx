@@ -56,7 +56,7 @@ class BitmapFontFactory
 
     function applyInfo(font:BitmapFont, data:Hash<Dynamic>)
     {
-        font.font = data.get('face');
+        font.name = data.get('face');
         font.size = data.get('size');
         font.bold = data.get('bold') != 0;
         font.italic = data.get('italic') != 0;

@@ -1,5 +1,6 @@
 package dust.text.eg;
 
+import dust.text.control.BitmapFonts;
 import dust.graphics.data.Painter;
 import dust.graphics.data.NoScaleBitmapPainter;
 import dust.camera.data.Camera;
@@ -22,18 +23,16 @@ class NoScaleBitmapFontExample implements DependentConfig
     static var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
     @inject public var entities:Entities;
-    @inject public var fontFactory:BitmapFontFactory;
+    @inject public var fonts:BitmapFonts;
     @inject public var bitmapFactory:BitmapTextFactory;
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig, BitmapTextConfig, PaintersConfig]
+        return [CameraConfig, Michroma24WhiteFontConfig, PaintersConfig]
 
     public function configure()
     {
-        var fontDefinition = Assets.getText('assets/michroma-24-white.fnt');
-        var fontBitmap = Assets.getBitmapData('assets/michroma-24-white.png');
-        var font = fontFactory.make(fontDefinition, [fontBitmap]);
+        var font = fonts.get(Michroma24WhiteFontConfig.MICHROMA_24_WHITE);
 
         var x = -200;
         var y = -100;

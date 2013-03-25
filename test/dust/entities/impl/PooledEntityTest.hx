@@ -124,21 +124,21 @@ class PooledEntityTest
 
     @Test public function canSpecifyToAddAsBaseclass()
     {
-        entity.add(new ExtendedComponent(), BaseComponent);
+        entity.addAsType(new ExtendedComponent(), BaseComponent);
         Assert.isTrue(entity.has(BaseComponent));
     }
 
     @Test public function canReferenceElementAddedAsBaseClassViaBaseClass()
     {
         var instance = new ExtendedComponent();
-        entity.add(instance, BaseComponent);
+        entity.addAsType(instance, BaseComponent);
         Assert.areSame(instance, entity.get(BaseComponent));
     }
 
     @Test public function disposeRemovesBaseClassedElement()
     {
         var instance = new ExtendedComponent();
-        entity.add(instance, BaseComponent);
+        entity.addAsType(instance, BaseComponent);
         entity.dispose();
     }
 

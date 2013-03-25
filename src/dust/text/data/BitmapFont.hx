@@ -2,7 +2,7 @@ package dust.text.data;
 
 class BitmapFont
 {
-    public var font:String;
+    public var name:String;
     public var size:Int;
     public var bold:Bool;
     public var italic:Bool;

@@ -12,7 +12,8 @@ class Context
     public var started(default, null):SignalVoid;
     public var stopped(default, null):SignalVoid;
 
-    var injector:Injector;
+    public var injector:Injector;
+
     var configs:ContextConfigs;
 
     public function new(injector:Injector)

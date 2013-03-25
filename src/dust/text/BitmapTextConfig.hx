@@ -1,5 +1,6 @@
 package dust.text;
 
+import dust.text.control.BitmapFonts;
 import dust.text.control.BitmapTextFactory;
 import dust.text.control.BitmapFontFactory;
 import dust.text.control.BitmapFontCharFactory;
@@ -16,5 +17,6 @@ class BitmapTextConfig implements Config
         injector.mapSingleton(BitmapFontCharFactory);
         injector.mapSingleton(BitmapFontFactory);
         injector.mapSingleton(BitmapTextFactory);
+        injector.mapSingleton(BitmapFonts);
     }
 }
