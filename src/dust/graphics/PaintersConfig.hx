@@ -1,24 +1,24 @@
-package dust.canvas;
+package dust.graphics;
 
+import dust.graphics.data.Painter;
 import dust.camera.CameraConfig;
 import dust.camera.data.Camera;
-import dust.canvas.CanvasConfig;
-import dust.canvas.control.PrioritizedPaintersSystem;
-import dust.canvas.data.PrioritizedPainter;
+import dust.graphics.GraphicsConfig;
+import dust.graphics.control.PainterSystem;
 import dust.context.DependentConfig;
 import dust.context.Config;
 import dust.collections.control.CollectionMap;
 import dust.entities.api.Entity;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
-import dust.canvas.data.Paint;
+import dust.graphics.data.Paint;
 
 import minject.Injector;
 import nme.display.Graphics;
 import nme.display.Sprite;
 import nme.display.DisplayObjectContainer;
 
-class PrioritizedPaintersConfig implements DependentConfig
+class PaintersConfig implements DependentConfig
 {
     @inject public var injector:Injector;
     @inject public var systems:Systems;
@@ -27,17 +27,17 @@ class PrioritizedPaintersConfig implements DependentConfig
     var canvas:Sprite;
 
     public function dependencies():Array<Class<Config>>
-        return [CanvasConfig, SystemsConfig, CameraConfig]
+        return [GraphicsConfig, SystemsConfig, CameraConfig]
 
     public function configure()
     {
         systems
-            .map(PrioritizedPaintersSystem)
-            .toCollection([Camera, PrioritizedPainter])
+            .map(PainterSystem)
+            .toCollection([Camera, Painter])
             .withSorter(sorter)
-            .withName("PrioritizedPainters");
+            .withName("Painters");
     }
 
         function sorter(a:Entity, b:Entity):Int
-            return a.get(PrioritizedPainter).priority - b.get(PrioritizedPainter).priority
+            return a.get(Painter).priority - b.get(Painter).priority
 }

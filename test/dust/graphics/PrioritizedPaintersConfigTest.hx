@@ -1,7 +1,7 @@
-package dust.canvas;
+package dust.graphics;
 
 import minject.Injector;
-import dust.canvas.control.PrioritizedPaintersSystem;
+import dust.graphics.control.PainterSystem;
 import dust.context.Context;
 import dust.systems.impl.Systems;
 
@@ -19,13 +19,13 @@ class PrioritizedPaintersConfigTest
         root = new Sprite();
         injector = new Injector();
         context = new Context(injector)
-            .configure(PrioritizedPaintersConfig)
+            .configure(PaintersConfig)
             .start(root);
     }
 
     @Test public function graphicsIsInjected()
     {
         var systems:Systems = injector.getInstance(Systems);
-        Assert.isTrue(systems.hasMapping(PrioritizedPaintersSystem));
+        Assert.isTrue(systems.hasMapping(PainterSystem));
     }
 }

@@ -2,9 +2,9 @@ package dust.geom.ui;
 
 import dust.camera.data.Camera;
 import dust.entities.api.Entity;
-import dust.canvas.data.Painter;
+import dust.graphics.data.Painter;
 import dust.geom.data.Position;
-import dust.canvas.data.Paint;
+import dust.graphics.data.Paint;
 
 import nme.display.Graphics;
 

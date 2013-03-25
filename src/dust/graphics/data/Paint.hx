@@ -1,4 +1,4 @@
-package dust.canvas.data;
+package dust.graphics.data;
 
 import dust.camera.data.Camera;
 import dust.components.Component;

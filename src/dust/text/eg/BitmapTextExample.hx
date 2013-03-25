@@ -1,11 +1,11 @@
 package dust.text.eg;
 
-import dust.canvas.data.BitmapPainter;
-import dust.canvas.data.NoScaleBitmapPainter;
+import dust.graphics.data.Painter;
+import dust.graphics.data.BitmapPainter;
+import dust.graphics.data.NoScaleBitmapPainter;
 import dust.camera.data.Camera;
 import dust.camera.CameraConfig;
 import dust.camera.CameraConfig;
-import dust.canvas.data.PrioritizedPainter;
 import dust.math.MathConfig;
 import nme.display.Bitmap;
 import dust.text.control.BitmapTextFactory;
@@ -14,7 +14,7 @@ import dust.text.control.BitmapFontFactory;
 import dust.geom.data.Position;
 import dust.entities.api.Entities;
 import dust.text.BitmapTextConfig;
-import dust.canvas.PrioritizedPaintersConfig;
+import dust.graphics.PaintersConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
 
@@ -26,7 +26,7 @@ class BitmapTextExample implements DependentConfig
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig, MathConfig, BitmapTextConfig, PrioritizedPaintersConfig]
+        return [CameraConfig, MathConfig, BitmapTextConfig, PaintersConfig]
 
     public function configure()
     {
@@ -35,11 +35,10 @@ class BitmapTextExample implements DependentConfig
         var font = fontFactory.make(fontDefinition, [fontBitmap]);
         var bitmap = bitmapFactory.make(font, "Hello World!");
         var painter = new BitmapPainter(bitmap);
-        var priority = new PrioritizedPainter(painter, 1);
 
         var entity = entities.require();
         entity.add(new Position(0, 0));
-        entity.add(priority);
+        entity.addAsType(painter, Painter);
         entity.add(camera);
     }
 }

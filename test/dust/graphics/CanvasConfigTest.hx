@@ -1,4 +1,4 @@
-package dust.canvas;
+package dust.graphics;
 
 import dust.camera.data.Camera;
 import minject.Injector;
@@ -19,7 +19,7 @@ class CanvasConfigTest
         root = new Sprite();
         injector = new Injector();
         context = new Context(injector)
-            .configure(CanvasConfig)
+            .configure(GraphicsConfig)
             .start(root);
     }
 

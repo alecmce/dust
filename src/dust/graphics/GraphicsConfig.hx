@@ -1,4 +1,4 @@
-package dust.canvas;
+package dust.graphics;
 
 import dust.camera.CameraConfig;
 import dust.context.DependentConfig;
@@ -11,7 +11,7 @@ import nme.display.Graphics;
 import nme.display.DisplayObjectContainer;
 import nme.display.Sprite;
 
-class CanvasConfig implements DependentConfig
+class GraphicsConfig implements DependentConfig
 {
     @inject public var context:Context;
     @inject public var injector:Injector;

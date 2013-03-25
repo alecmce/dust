@@ -59,7 +59,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeSystemMetricsViewEntity()
         {
             var entity = entities.require();
-            entity.add(new SystemMetricsView(metrics, OUTPUT_PRECISION), UIView);
+            entity.addAsType(new SystemMetricsView(metrics, OUTPUT_PRECISION), UIView);
             entity.add(new Alignment(HAlign.LEFT, VAlign.BOTTOM));
             entity.add(new Position(0, stage().stageHeight));
             return entity;
@@ -68,7 +68,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeFrameRateViewEntity()
         {
             var entity = entities.require();
-            entity.add(new FrameRateView(), UIView);
+            entity.addAsType(new FrameRateView(), UIView);
             entity.add(new Alignment(HAlign.RIGHT, VAlign.TOP));
             entity.add(new Position(stage().stageWidth, 0));
             return entity;

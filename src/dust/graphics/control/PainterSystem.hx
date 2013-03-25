@@ -1,8 +1,7 @@
-package dust.canvas.control;
+package dust.graphics.control;
 
 import dust.camera.data.Camera;
-import dust.canvas.data.Painter;
-import dust.canvas.data.PrioritizedPainter;
+import dust.graphics.data.Painter;
 import dust.collections.api.Collection;
 import dust.lists.Pool;
 import dust.lists.SortedList;
@@ -10,7 +9,7 @@ import dust.systems.System;
 
 import nme.display.Graphics;
 
-class PrioritizedPaintersSystem implements System
+class PainterSystem implements System
 {
     inline static var MAX = 0x3FFFFFFF;
 
@@ -26,7 +25,7 @@ class PrioritizedPaintersSystem implements System
         graphics.clear();
         for (entity in collection)
         {
-            var painter:PrioritizedPainter = entity.get(PrioritizedPainter);
+            var painter:Painter = entity.get(Painter);
             painter.draw(entity, graphics);
         }
     }

@@ -3,10 +3,10 @@ package dust.quadtree.ui;
 import dust.geom.data.Position;
 import dust.camera.data.Camera;
 import dust.quadtree.data.QuadTreeRange;
-import dust.canvas.data.Paint;
+import dust.graphics.data.Paint;
 import nme.display.Graphics;
 import dust.entities.api.Entity;
-import dust.canvas.data.Painter;
+import dust.graphics.data.Painter;
 
 class QuadTreeRangePainter extends Painter
 {

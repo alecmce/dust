@@ -5,8 +5,8 @@ import dust.geom.data.Position;
 import dust.quadtree.data.QuadTreeRange;
 import dust.camera.data.Camera;
 import dust.entities.api.Entity;
-import dust.canvas.data.Paint;
-import dust.canvas.data.Painter;
+import dust.graphics.data.Paint;
+import dust.graphics.data.Painter;
 import dust.quadtree.data.QuadTree;
 
 import nme.display.Graphics;

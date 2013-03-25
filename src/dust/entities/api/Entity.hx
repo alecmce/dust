@@ -9,7 +9,8 @@ interface Entity
     var isChanged:Bool;
     var isReleased:Bool;
 
-    function add(component:Component, ?asType:Class<Component> = null):Bool;
+    function add(component:Component):Bool;
+    function addAsType(component:Component, asType:Class<Component>):Bool;
     function remove<T>(type:Class<T>):Bool;
     function satisfies(bitfield:Bitfield):Bool;
     function dispose():Void;

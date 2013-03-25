@@ -1,9 +1,9 @@
 package dust.text.eg;
 
-import dust.canvas.data.NoScaleBitmapPainter;
+import dust.graphics.data.Painter;
+import dust.graphics.data.NoScaleBitmapPainter;
 import dust.camera.data.Camera;
 import dust.camera.CameraConfig;
-import dust.canvas.data.PrioritizedPainter;
 import dust.math.Random;
 import dust.math.MathConfig;
 import nme.display.Bitmap;
@@ -13,7 +13,7 @@ import dust.text.control.BitmapFontFactory;
 import dust.geom.data.Position;
 import dust.entities.api.Entities;
 import dust.text.BitmapTextConfig;
-import dust.canvas.PrioritizedPaintersConfig;
+import dust.graphics.PaintersConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
 
@@ -27,7 +27,7 @@ class NoScaleBitmapFontExample implements DependentConfig
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig, BitmapTextConfig, PrioritizedPaintersConfig]
+        return [CameraConfig, BitmapTextConfig, PaintersConfig]
 
     public function configure()
     {
@@ -46,7 +46,7 @@ class NoScaleBitmapFontExample implements DependentConfig
 
             var entity = entities.require();
             entity.add(new Position(x, y));
-            entity.add(new PrioritizedPainter(painter, 1));
+            entity.addAsType(painter, Painter);
             entity.add(camera);
 
             x += 50;
