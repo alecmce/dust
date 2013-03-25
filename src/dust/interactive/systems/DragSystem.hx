@@ -39,17 +39,22 @@ class DragSystem implements System
 
     public function start()
     {
-        root.addEventListener(MouseEvent.MOUSE_DOWN, onDown);
-        nme.Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, onUp);
+        var stage = nme.Lib.current.stage;
+        stage.addEventListener(MouseEvent.MOUSE_DOWN, onDown);
+        stage.addEventListener(MouseEvent.MOUSE_UP, onUp);
     }
 
-    function onDown(_) isJustDown = true
-    function onUp(_) isDown = false
+    function onDown(_)
+        isJustDown = true
+
+    function onUp(_)
+        isDown = false
 
     public function stop()
     {
-        root.removeEventListener(MouseEvent.MOUSE_DOWN, onDown);
-        nme.Lib.current.stage.removeEventListener(MouseEvent.MOUSE_UP, onUp);
+        var stage = nme.Lib.current.stage;
+        stage.removeEventListener(MouseEvent.MOUSE_DOWN, onDown);
+        stage.removeEventListener(MouseEvent.MOUSE_UP, onUp);
     }
 
     public function iterate(deltaTime:Float)
