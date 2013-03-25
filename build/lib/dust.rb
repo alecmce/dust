@@ -31,7 +31,7 @@ class Dust
   def make(target)
     case target
       when 'flash'
-        haxe.flash
+        nme.make 'flash'
       when 'html5'
         haxe.html5
       when 'ios'
@@ -44,7 +44,7 @@ class Dust
   def run(target)
     case target
       when 'flash'
-        run_flash
+        nme.run 'flash'
       when 'html5'
         puts 'TODO running html5 target not implemented yet!'
       when 'ios'
@@ -70,12 +70,6 @@ class Dust
 
     def nme
       @nme ||= Nme.new @root, config, library
-    end
-
-    def run_flash
-      bin = config.get('flash', 'bin')
-      output = config.get('flash', 'output')
-      `open #{File.join(bin, "#{output}.swf")}`
     end
 
 end

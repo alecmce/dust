@@ -17,7 +17,9 @@ namespace :test do
     puts dust.reset_tests
   end
 
-  task :all => :build do
+  task :all => [:build, :clients]
+
+  task :clients do
     puts dust.test %w(as3 js)
     #puts munit.test %w(as3 js cpp)
   end

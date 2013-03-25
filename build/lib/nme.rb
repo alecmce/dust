@@ -24,12 +24,12 @@ class Nme
 
   def test(target, flags)
     command = "nme test #{target}.nmml #{target} #{flags}"
-    `#{command}`
+    execute command
   end
 
-  def run(target, flags)
-    command = "nme run #{target}.nmml #{target} #{flags}"
-    `#{command}`
+  def run(target, flags = nil)
+    command = "nme run #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+    execute command
   end
 
   def write_nmml
@@ -107,6 +107,11 @@ class Nme
 
     def list_of(key)
       @config.get_list(@target, key)
+    end
+
+    def execute(command)
+      $stdout.write "SYSTEM #{command}\n"
+      $stdout.write `#{command}`
     end
 
 end
