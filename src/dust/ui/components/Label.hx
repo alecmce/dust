@@ -10,7 +10,6 @@ import nme.text.TextFormatAlign;
 
 class Label extends Sprite
 {
-    var font:Font;
     var textFormat:TextFormat;
     var textField:TextField;
 
@@ -18,7 +17,6 @@ class Label extends Sprite
     {
         super();
 
-        font = Assets.getFont("assets/Michroma.ttf");
         mouseEnabled = false;
         mouseChildren = false;
         makeLabel(label);
@@ -26,23 +24,17 @@ class Label extends Sprite
 
         function makeLabel(text:String)
         {
-            textFormat = new TextFormat(getFontName(), 15, 0xFFFFFF);
+            textFormat = new TextFormat('_sans', 15, 0xFFFFFF);
             textField = new TextField();
             textField.defaultTextFormat = textFormat;
             textField.selectable = false;
-            textField.embedFonts = font != null;
+            textField.embedFonts = false;
             textField.text = text;
             textField.autoSize = TextFieldAutoSize.LEFT;
             textField.width = 250;
             textField.height = 30;
             addChild(textField);
         }
-
-            function getFontName():String
-                return isFontEmbedded() ? font.fontName : "_sans"
-
-                function isFontEmbedded():Bool
-                    return font != null
 
     public function setLabel(label:String)
     {

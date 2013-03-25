@@ -41,6 +41,11 @@ class Random
         return array[int(array.length)];
     }
 
+    inline public function color():Int
+    {
+        return (int(0xFF) << 16) | (int(0xFF) << 8) | int(0xFF);
+    }
+
     inline function next():Int
     {
         var value = seed;

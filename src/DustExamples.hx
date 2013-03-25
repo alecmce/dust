@@ -1,5 +1,7 @@
 package;
 
+import dust.text.eg.NoScaleBitmapFontExample;
+import dust.text.eg.BitmapFontExample;
 import dust.text.eg.BitmapTextExample;
 import dust.console.ConsoleConfig;
 import dust.context.Config;
@@ -33,8 +35,10 @@ class DustExamples
             .add("1", "Drag Example", DragExample)
             .add("2", "OffsetDrag Example", OffsetDragExample)
             .add("3", "ReflectionDrag Example", ReflectionDragExample)
-            .add("4", "BitmapText Example", BitmapTextExample)
-            .add("5", "QuadTreeVisualization Example", QuadTreeVisualizationExample);
+            .add("4", "NoScaleBitmapFont Example", NoScaleBitmapFontExample)
+            .add("5", "BitmapFont Example", BitmapFontExample)
+            .add("6", "BitmapText Example", BitmapTextExample)
+            .add("7", "QuadTreeVisualization Example", QuadTreeVisualizationExample);
 
         mainMenu.reset.bind(onReset);
         mainMenu.selected.bind(onSelection);

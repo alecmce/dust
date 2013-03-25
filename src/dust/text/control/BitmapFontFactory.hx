@@ -69,7 +69,10 @@ class BitmapFontFactory
     }
 
     function addChar(font:BitmapFont, data:Hash<Dynamic>, sources:Array<BitmapData>)
-        font.addChar(charFactory.make(data, sources))
+    {
+        var char = charFactory.make(data, sources);
+        font.addChar(char);
+    }
 
     function addKerning(font:BitmapFont, data:Hash<Dynamic>)
     {

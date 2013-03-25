@@ -13,21 +13,14 @@ import nme.display.Sprite;
 
 class CanvasConfig implements DependentConfig
 {
-    @inject
-    public var context:Context;
-
-    @inject
-    public var injector:Injector;
-
-    @inject
-    public var root:DisplayObjectContainer;
+    @inject public var context:Context;
+    @inject public var injector:Injector;
+    @inject public var root:DisplayObjectContainer;
 
     var canvas:Sprite;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [CameraConfig];
-    }
+        return [CameraConfig]
 
     public function configure()
     {

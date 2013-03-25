@@ -9,23 +9,25 @@ class BitmapFontCharFactory
 {
     private var origin:Point;
     private var rect:Rectangle;
+    private var pixel:BitmapData;
 
     public function new()
     {
         origin = new Point();
         rect = new Rectangle();
+        pixel = new BitmapData(1, 1, true, 0);
     }
 
     public function make(hash:Hash<Dynamic>, sources:Array<BitmapData>):BitmapFontChar
     {
         var page = hash.get('page');
         var source = sources[page];
-
         var char:BitmapFontChar = new BitmapFontChar();
+        char.id = hash.get('id');
         char.data = makeData(hash, source);
         char.dx = hash.get('xoffset');
         char.dy = hash.get('yoffset');
-        char.xAdvance = hash.get('xadvance');
+        char.advance = hash.get('xadvance');
         return char;
     }
 
@@ -48,13 +50,19 @@ class BitmapFontCharFactory
         {
             var width = hash.get('width');
             var height = hash.get('height');
-            var data = new BitmapData(width, height, true, 0);
 
-            rect.x = hash.get('x');
-            rect.y = hash.get('y');
+            if (width == 0 || height == 0)
+                return pixel;
+
+            var x = hash.get('x');
+            var y = hash.get('y');
+
+            var data = new BitmapData(width, height, true, 0);
+            rect.x = x;
+            rect.y = y;
             rect.width = width;
             rect.height = height;
-            data.copyPixels(source, rect, origin, null, null, false);
+            data.copyPixels(source, rect, origin, null, null, true);
             return data;
         }
 }

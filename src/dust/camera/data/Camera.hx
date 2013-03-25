@@ -1,5 +1,6 @@
 package dust.camera.data;
 
+import nme.geom.Matrix;
 import nme.display.DisplayObject;
 import dust.components.Component;
 import dust.geom.data.Position;
@@ -46,6 +47,15 @@ class Camera extends Component
     {
         object.x = screenCenterX + (world.x - worldX) * scalar;
         object.y = screenCenterY + (world.y - worldY) * scalar;
+    }
+
+    inline public function toScreenMatrix(world:Position, matrix:Matrix, offsetX:Float = 0, offsetY:Float = 0):Matrix
+    {
+        matrix.identity();
+        matrix.scale(scalar, scalar);
+        matrix.tx = screenCenterX + (world.x - offsetX - worldX) * scalar;
+        matrix.ty = screenCenterY + (world.y - offsetY - worldY) * scalar;
+        return matrix;
     }
 
     inline public function toWorld(screen:Position, world:Position):Position
