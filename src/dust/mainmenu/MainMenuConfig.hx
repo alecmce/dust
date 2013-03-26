@@ -1,5 +1,6 @@
 package dust.mainmenu;
 
+import nme.display.DisplayObjectContainer;
 import dust.text.Helvetica10WhiteFontConfig;
 import dust.mainmenu.control.MainMenuButtonFactory;
 import dust.graphics.data.Paint;
@@ -20,6 +21,7 @@ class MainMenuConfig implements DependentConfig
     @inject public var injector:Injector;
     @inject public var signalMap:SignalMap;
     @inject public var fonts:BitmapFonts;
+    @inject public var root:DisplayObjectContainer;
 
     public function dependencies():Array<Class<Config>>
         return [SignalMapConfig, Helvetica10WhiteFontConfig]
@@ -29,6 +31,8 @@ class MainMenuConfig implements DependentConfig
         injector.mapValue(MainMenuButtonConfig, makeConfig());
         injector.mapSingleton(MainMenuButtonFactory);
         injector.mapSingleton(MainMenu);
+
+        root.addChild(injector.getInstance(MainMenu));
     }
 
         function makeConfig():MainMenuButtonConfig
@@ -38,6 +42,6 @@ class MainMenuConfig implements DependentConfig
                 .setFill(0x1E90FF)
                 .setLine(1, 0xFFFFFF);
 
-            return new MainMenuButtonConfig(font, paint, 80, 20);
+            return new MainMenuButtonConfig(font, paint, 160, 40, 10);
         }
 }

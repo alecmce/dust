@@ -36,8 +36,9 @@ class MainMenuButtonFactory
 
         function paintBackground(buttonConfig:MainMenuButtonConfig, graphics:Graphics)
         {
-            var size = buttonConfig.size;
-            graphics.drawRect(-size * 0.5, -size * 0.5, size, size);
+            var width = buttonConfig.width;
+            var height = buttonConfig.height;
+            graphics.drawRect(-width * 0.5, -height * 0.5, width, height);
         }
 
         function makeLabel(name:String):Bitmap

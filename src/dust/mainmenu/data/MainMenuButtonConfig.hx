@@ -11,28 +11,29 @@ class MainMenuButtonConfig
 {
     public var font:BitmapFont;
     public var paint:Paint;
-    public var size:Int;
+    public var width:Int;
+    public var height:Int;
     public var padding:Int;
 
-    public function new(font:BitmapFont, paint:Paint, size:Int, padding:Int)
+    public function new(font:BitmapFont, paint:Paint, width:Int, height:Int, padding:Int)
     {
         this.font = font;
         this.paint = paint;
-        this.size = size;
+        this.width = width;
+        this.height = height;
         this.padding = padding;
     }
 
     public function setPosition(sprite:Sprite, index:Int)
     {
-        var c = columns();
-        var column = index % c;
-        var row = Std.int(index / c);
-        var offset = padding + size * 0.5;
+        var r = rows();
+        var row = index % r;
+        var column = Std.int(index / r);
 
-        sprite.x = offset + (size + padding) * column;
-        sprite.y = offset + (size + padding) * row;
+        sprite.x = padding + width * 0.5 + (width + padding) * column;
+        sprite.y = padding + height * 0.5 + (height + padding) * row;
     }
 
-    public function columns():Int
-        return Std.int((nme.Lib.current.stage.stageWidth - padding) / (size + padding))
+    public function rows():Int
+        return Std.int((nme.Lib.current.stage.stageHeight - padding) / (height + padding))
 }

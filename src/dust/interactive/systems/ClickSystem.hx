@@ -35,7 +35,7 @@ class ClickSystem implements System
     public function start()
     {
         var stage = nme.Lib.current.stage;
-        stage.addEventListener(MouseEvent.CLICK, onClick)
+        stage.addEventListener(MouseEvent.CLICK, onClick);
     }
 
         function onClick(_)
@@ -44,7 +44,7 @@ class ClickSystem implements System
     public function stop()
     {
         var stage = nme.Lib.current.stage;
-        stage.removeEventListener(MouseEvent.CLICK, onClick)
+        stage.removeEventListener(MouseEvent.CLICK, onClick);
     }
 
     public function iterate(deltaTime:Float)
