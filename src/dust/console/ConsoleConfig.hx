@@ -1,7 +1,8 @@
 package dust.console;
 
-import dust.app.CommandMapConfig;
-import dust.app.SignalMapConfig;
+import dust.app.AppConfig;
+import dust.commands.CommandMapConfig;
+import dust.signals.SignalMapConfig;
 import dust.commands.CommandMap;
 import dust.context.Context;
 import dust.console.control.MapConsoleMethodsCommand;
@@ -10,8 +11,8 @@ import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleOutput;
 import dust.console.ui.ConsoleInput;
 import dust.console.control.DefaultConsoleListeners;
-import dust.console.control.HideConfigSignal;
-import dust.console.control.ShowConfigSignal;
+import dust.console.control.HideConsoleSignal;
+import dust.console.control.ShowConsoleSignal;
 import dust.console.impl.Console;
 import dust.console.impl.ConsoleMap;
 import dust.context.DependentConfig;
@@ -40,7 +41,7 @@ class ConsoleConfig implements DependentConfig, implements UnconfigConfig
     var listeners:DefaultConsoleListeners;
 
     public function dependencies():Array<Class<Config>>
-        return [SignalMapConfig, CommandMapConfig]
+        return [AppConfig, SignalMapConfig, CommandMapConfig]
 
     public function configure()
     {
@@ -64,8 +65,8 @@ class ConsoleConfig implements DependentConfig, implements UnconfigConfig
         function mapSignals()
         {
             console = injector.getInstance(Console);
-            signalMap.mapVoid(ShowConfigSignal, console.enable);
-            signalMap.mapVoid(HideConfigSignal, console.disable);
+            signalMap.mapVoid(ShowConsoleSignal, console.enable);
+            signalMap.mapVoid(HideConsoleSignal, console.disable);
         }
 
         function mapCommands()
@@ -89,8 +90,8 @@ class ConsoleConfig implements DependentConfig, implements UnconfigConfig
         console.disable();
         listeners.disable();
 
-        signalMap.unmapVoid(ShowConfigSignal, console.enable);
-        signalMap.unmapVoid(HideConfigSignal, console.disable);
+        signalMap.unmapVoid(ShowConsoleSignal, console.enable);
+        signalMap.unmapVoid(HideConsoleSignal, console.disable);
         injector.unmap(ConsoleMap);
         injector.unmap(Console);
     }

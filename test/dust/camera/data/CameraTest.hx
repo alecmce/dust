@@ -14,8 +14,8 @@ class CameraTest
     @Before public function before()
     {
         var stage = nme.Lib.current.stage;
-        screenCenterX = Std.int(stage.stageWidth * 0.5);
-        screenCenterY = Std.int(stage.stageHeight * 0.5);
+        screenCenterX = Std.int(400);
+        screenCenterY = Std.int(300);
 
         camera = new Camera(screenCenterX, screenCenterY);
         world = new Position();

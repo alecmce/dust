@@ -1,34 +1,35 @@
 package dust.console.impl;
 
+import nme.display.Sprite;
+import minject.Injector;
+import dust.context.Context;
 import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleInput;
 import dust.console.ui.ConsoleOutput;
 
 class ConsoleTest
 {
-    var map:ConsoleMap;
-    var format:ConsoleFormat;
-    var input:ConsoleInput;
-    var output:ConsoleOutput;
-    var subject:Console;
+    var output:Console;
 
     @Before public function before()
     {
-        map = new ConsoleMap();
-        format = new ConsoleFormat();
-        input = new ConsoleInput(format);
-        output = new ConsoleOutput(format);
-        subject = new Console(map, input, output);
+        var injector = new Injector();
+
+        var context = new Context(injector)
+            .configure(ConsoleConfig)
+            .start(new Sprite());
+
+        output = injector.getInstance(Console);
     }
 
     @Test public function canEnableConsole()
     {
-        subject.enable();
+        output.enable();
     }
 
     @Test public function canDisableConsole()
     {
-        subject.enable();
-        subject.disable();
+        output.enable();
+        output.disable();
     }
 }

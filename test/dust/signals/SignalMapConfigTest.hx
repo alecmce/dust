@@ -1,5 +1,6 @@
-package dust.app;
+package dust.signals;
 
+import dust.signals.SignalMapConfig;
 import dust.signals.SignalMap;
 import minject.Injector;
 import dust.context.Config;

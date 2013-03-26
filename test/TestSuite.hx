@@ -1,7 +1,5 @@
 import massive.munit.TestSuite;
 
-import dust.app.CommandMapConfigTest;
-import dust.app.SignalMapConfigTest;
 import dust.ArrayUtilTest;
 import dust.camera.CameraConfigTest;
 import dust.camera.config.CameraDecoratorTest;
@@ -12,6 +10,7 @@ import dust.collections.api.CollectionTest;
 import dust.collections.CollectionsConfigTest;
 import dust.collections.control.CollectionMapTest;
 import dust.collections.control.CollectionSubscriberTest;
+import dust.commands.CommandMapConfigTest;
 import dust.commands.CommandMapTest;
 import dust.components.BitfieldFactoryTest;
 import dust.components.BitfieldListenersTest;
@@ -49,6 +48,7 @@ import dust.quadtree.data.QuadTreeAtomTest;
 import dust.quadtree.data.QuadTreeDivisionsTest;
 import dust.quadtree.data.QuadTreeRangeTest;
 import dust.quadtree.data.QuadTreeTest;
+import dust.signals.SignalMapConfigTest;
 import dust.signals.SignalMapTest;
 import dust.stats.RollingMeanTest;
 import dust.systems.impl.SystemMappingTest;
@@ -80,8 +80,6 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-		add(dust.app.CommandMapConfigTest);
-		add(dust.app.SignalMapConfigTest);
 		add(dust.ArrayUtilTest);
 		add(dust.camera.CameraConfigTest);
 		add(dust.camera.config.CameraDecoratorTest);
@@ -92,6 +90,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.collections.CollectionsConfigTest);
 		add(dust.collections.control.CollectionMapTest);
 		add(dust.collections.control.CollectionSubscriberTest);
+		add(dust.commands.CommandMapConfigTest);
 		add(dust.commands.CommandMapTest);
 		add(dust.components.BitfieldFactoryTest);
 		add(dust.components.BitfieldListenersTest);
@@ -129,6 +128,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.quadtree.data.QuadTreeDivisionsTest);
 		add(dust.quadtree.data.QuadTreeRangeTest);
 		add(dust.quadtree.data.QuadTreeTest);
+		add(dust.signals.SignalMapConfigTest);
 		add(dust.signals.SignalMapTest);
 		add(dust.stats.RollingMeanTest);
 		add(dust.systems.impl.SystemMappingTest);

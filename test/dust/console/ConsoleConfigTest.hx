@@ -1,8 +1,8 @@
 package dust.console;
 
-import dust.console.control.HideConfigSignal;
+import dust.console.control.HideConsoleSignal;
 import dust.console.impl.Console;
-import dust.console.control.ShowConfigSignal;
+import dust.console.control.ShowConsoleSignal;
 import dust.console.impl.ConsoleMap;
 import minject.Injector;
 import nme.display.Sprite;
@@ -32,14 +32,14 @@ class ConsoleConfigTest
 
     @Test public function canEnableConsoleViaSignal()
     {
-        injector.getInstance(ShowConfigSignal).dispatch();
+        injector.getInstance(ShowConsoleSignal).dispatch();
         Assert.isTrue(injector.getInstance(Console).isEnabled);
     }
 
     @Test public function canDisableConsoleViaSignal()
     {
-        injector.getInstance(ShowConfigSignal).dispatch();
-        injector.getInstance(HideConfigSignal).dispatch();
+        injector.getInstance(ShowConsoleSignal).dispatch();
+        injector.getInstance(HideConsoleSignal).dispatch();
         Assert.isFalse(injector.getInstance(Console).isEnabled);
     }
 }

@@ -1,4 +1,4 @@
-package dust.app;
+package dust.signals;
 
 import dust.context.Config;
 import dust.signals.SignalMap;

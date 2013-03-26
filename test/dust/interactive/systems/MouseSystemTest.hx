@@ -69,8 +69,8 @@ class MouseSystemTest
         function startSystemsAndClick()
         {
             systems.start();
-            root.dispatchEvent(new MouseEvent(MouseEvent.CLICK, false, false, 20, 20));
             systems.update();
+            root.dispatchEvent(new MouseEvent(MouseEvent.CLICK, false, false, 20, 20));
         }
 
     @After

@@ -1,5 +1,8 @@
 package dust.console.impl;
 
+import dust.context.Context;
+import nme.display.Sprite;
+import minject.Injector;
 import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleOutput;
 import nme.text.TextFormat;
@@ -10,8 +13,13 @@ class ConsoleOutputTest
 
     @Before public function before()
     {
-        var format = new ConsoleFormat();
-        subject = new ConsoleOutput(format);
+        var injector = new Injector();
+
+        var context = new Context(injector)
+            .configure(ConsoleConfig)
+            .start(new Sprite());
+
+        subject = injector.getInstance(ConsoleOutput);
     }
 
     @Test public function writeAppendsText()

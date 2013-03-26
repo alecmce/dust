@@ -1,5 +1,7 @@
 package dust.camera;
 
+import dust.app.data.AppData;
+import dust.app.AppConfig;
 import dust.collections.CollectionsConfig;
 import dust.camera.config.CameraDecorator;
 import dust.entities.EntitiesConfig;
@@ -13,6 +15,7 @@ import minject.Injector;
 class CameraConfig implements DependentConfig
 {
     @inject public var injector:Injector;
+    @inject public var app:AppData;
     @inject public var entities:Entities;
 
     var screenCenterX:Int;
@@ -20,7 +23,7 @@ class CameraConfig implements DependentConfig
     var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CollectionsConfig]
+        return [AppConfig, CollectionsConfig]
 
     public function configure()
     {
@@ -35,8 +38,8 @@ class CameraConfig implements DependentConfig
         function makeCamera():Camera
         {
             var stage = nme.Lib.current.stage;
-            screenCenterX = Std.int(stage.stageWidth * 0.5);
-            screenCenterY = Std.int(stage.stageHeight * 0.5);
+            screenCenterX = Std.int(app.deviceWidth * 0.5);
+            screenCenterY = Std.int(app.deviceHeight * 0.5);
 
             return new Camera(screenCenterX, screenCenterY);
         }

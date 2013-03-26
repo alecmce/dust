@@ -1,5 +1,6 @@
 package dust.console.ui;
 
+import dust.app.data.AppData;
 import nme.display.Shape;
 import nme.display.Sprite;
 import nme.display.BlendMode;
@@ -17,37 +18,31 @@ class ConsoleOutput extends Sprite
     var previous:Int;
 
     @inject
-    public function new(format:ConsoleFormat)
+    public function new(app:AppData, format:ConsoleFormat)
     {
         super();
         this.lines = new Array<String>();
         this.format = format;
-        this.background = makeBackground();
-        this.textfield = makeTextfield();
+        this.background = makeBackground(app);
+        this.textfield = makeTextfield(app);
         this.previous = 0;
     }
 
-    function makeBackground():Shape
+    function makeBackground(app:AppData):Shape
     {
-        var width = nme.Lib.current.stage.stageWidth;
-        var height = nme.Lib.current.stage.stageHeight;
-
         var shape = new Shape();
         shape.graphics.beginFill(0x006600, 0.8);
-        shape.graphics.drawRect(0, 0, width, height);
+        shape.graphics.drawRect(0, 0, app.deviceWidth, app.deviceHeight);
         shape.graphics.endFill();
         addChild(shape);
         return shape;
     }
 
-    function makeTextfield():TextField
+    function makeTextfield(app:AppData):TextField
     {
-        var width = nme.Lib.current.stage.stageWidth;
-        var height = nme.Lib.current.stage.stageHeight;
-
         var textfield = new TextField();
-        textfield.width = width;
-        textfield.height = height - 20;
+        textfield.width = app.deviceWidth;
+        textfield.height = app.deviceHeight - 20;
         textfield.background = false;
         textfield.defaultTextFormat = format;
         textfield.multiline = true;

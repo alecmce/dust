@@ -1,5 +1,8 @@
 package dust.console.impl;
 
+import nme.display.Sprite;
+import dust.context.Context;
+import minject.Injector;
 import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleInput;
 import nme.events.KeyboardEvent;
@@ -12,8 +15,13 @@ class ConsoleInputTest
 
     @Before public function before()
     {
-        var format = new ConsoleFormat();
-        input = new ConsoleInput(format);
+        var injector = new Injector();
+
+        var context = new Context(injector)
+            .configure(ConsoleConfig)
+            .start(new Sprite());
+
+        input = injector.getInstance(ConsoleInput);
     }
 
     @Test public function canEnable()

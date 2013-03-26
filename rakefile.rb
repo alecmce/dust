@@ -20,8 +20,7 @@ namespace :test do
   task :all => [:build, :clients]
 
   task :clients do
-    puts dust.test %w(as3 js)
-    #puts munit.test %w(as3 js cpp)
+    puts dust.test %w(as3 js) #%w(as3 js cpp)
   end
 
   task :as3 do
@@ -57,8 +56,20 @@ namespace :make do
     dust.make 'html5'
   end
 
-  task :ios do
-    dust.make 'ios'
+  task :iphone do
+    dust.make 'iphone'
+  end
+
+  task :iphone_simulator do
+    dust.make 'iphone_simulator'
+  end
+
+  task :ipad do
+    dust.make 'ipad'
+  end
+
+  task :ipad_simulator do
+    dust.make 'ipad_simulator'
   end
 
 end
@@ -73,15 +84,19 @@ namespace :run do
 
   end
 
-  task :ios => :'make:ios' do
-    dust.run 'ios-simulator'
+  task :iphone => :'make:iphone' do
+    dust.run 'ipad'
   end
 
-  task :iphone_simulator => :'make:ios' do
+  task :iphone_simulator => :'make:iphone_simulator' do
     dust.run 'iphone_simulator'
   end
 
-  task :ipad_simulator => :'make:ios' do
+  task :ipad => :'make:ipad' do
+    dust.run 'ipad'
+  end
+
+  task :ipad_simulator => :'make:ipad_simulator' do
     dust.run 'ipad_simulator'
   end
 

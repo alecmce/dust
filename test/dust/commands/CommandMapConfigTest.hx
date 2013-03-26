@@ -1,5 +1,6 @@
-package dust.app;
+package dust.commands;
 
+import dust.commands.CommandMapConfig;
 import minject.Injector;
 import dust.context.Config;
 import dust.commands.CommandMap;

@@ -17,13 +17,14 @@ class Nme
     hash
   end
 
-  def make(target)
+  def make(target, flags = nil)
     @target = target
     write_nmml
+    test target, flags
   end
 
   def test(target, flags)
-    command = "nme test #{target}.nmml #{target} #{flags}"
+    command = "nme build #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
     execute command
   end
 

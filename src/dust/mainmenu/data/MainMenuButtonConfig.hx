@@ -1,5 +1,6 @@
 package dust.mainmenu.data;
 
+import dust.app.data.AppData;
 import nme.display.Graphics;
 import nme.display.Sprite;
 import dust.geom.data.Position;
@@ -15,8 +16,12 @@ class MainMenuButtonConfig
     public var height:Int;
     public var padding:Int;
 
-    public function new(font:BitmapFont, paint:Paint, width:Int, height:Int, padding:Int)
+    var app:AppData;
+
+    public function new(app:AppData, font:BitmapFont, paint:Paint, width:Int, height:Int, padding:Int)
     {
+        this.app = app;
+
         this.font = font;
         this.paint = paint;
         this.width = width;
@@ -35,5 +40,5 @@ class MainMenuButtonConfig
     }
 
     public function rows():Int
-        return Std.int((nme.Lib.current.stage.stageHeight - padding) / (height + padding))
+        return Std.int((app.deviceHeight - padding) / (height + padding))
 }

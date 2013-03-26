@@ -1,6 +1,6 @@
 package dust.entities;
 
-import dust.app.SignalMapConfig;
+import dust.signals.SignalMapConfig;
 import dust.commands.CommandMap;
 import dust.components.BitfieldFactory;
 import dust.context.Config;

@@ -34,8 +34,14 @@ class Dust
         nme.make 'flash'
       when 'html5'
         haxe.html5
-      when 'ios'
+      when 'iphone'
         nme.make 'ios'
+      when 'iphone_simulator'
+        nme.make 'ios', '-simulator'
+      when 'ipad'
+        nme.make 'ios', '-ipad'
+      when 'ipad_simulator'
+        nme.make 'ios', '-ipad -simulator'
       else
         puts "dust unable to make #{target} - unsupported target"
     end
@@ -47,8 +53,8 @@ class Dust
         nme.run 'flash'
       when 'html5'
         puts 'TODO running html5 target not implemented yet!'
-      when 'ios'
-        nme.run 'ios'
+      when 'ipad'
+        nme.run 'ios', '-ipad'
       when 'iphone_simulator'
         nme.run 'ios', '-simulator'
       when 'ipad_simulator'

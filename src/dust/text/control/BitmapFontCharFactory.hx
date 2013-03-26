@@ -51,7 +51,7 @@ class BitmapFontCharFactory
             var width = hash.get('width');
             var height = hash.get('height');
 
-            if (width == 0 || height == 0)
+            if (width <= 0 || height <= 0)
                 return pixel;
 
             var x = hash.get('x');
