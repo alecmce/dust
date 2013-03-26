@@ -32,7 +32,7 @@ class ConsoleOutput extends Sprite
     {
         var shape = new Shape();
         shape.graphics.beginFill(0x006600, 0.8);
-        shape.graphics.drawRect(0, 0, app.deviceWidth, app.deviceHeight);
+        shape.graphics.drawRect(0, 0, app.stageWidth, app.stageHeight);
         shape.graphics.endFill();
         addChild(shape);
         return shape;
@@ -41,8 +41,8 @@ class ConsoleOutput extends Sprite
     function makeTextfield(app:AppData):TextField
     {
         var textfield = new TextField();
-        textfield.width = app.deviceWidth;
-        textfield.height = app.deviceHeight - 20;
+        textfield.width = app.stageWidth;
+        textfield.height = app.stageHeight - 20;
         textfield.background = false;
         textfield.defaultTextFormat = format;
         textfield.multiline = true;

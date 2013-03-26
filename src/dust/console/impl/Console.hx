@@ -34,6 +34,11 @@ class Console extends Sprite
         input.command.bind(onCommand);
     }
 
+    public function write(value:String, ?color:Int = 0xFFFFFF)
+    {
+        output.write(value, color);
+    }
+
     public function enable()
     {
         if (!isEnabled)

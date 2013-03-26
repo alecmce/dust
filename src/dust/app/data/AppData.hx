@@ -2,9 +2,9 @@ package dust.app.data;
 
 class AppData
 {
-    public var deviceWidth:Int;
-    public var deviceHeight:Int;
-    public var isMultiTouch:Bool;
+    public var stageWidth:Int;
+    public var stageHeight:Int;
+    public var target:AppTarget;
     public var hasGestures:Bool;
     public var supportedGestures:Array<String>;
 

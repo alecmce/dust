@@ -1,5 +1,6 @@
 package dust.camera;
 
+import dust.app.data.AppTarget;
 import dust.app.data.AppData;
 import dust.app.AppConfig;
 import dust.collections.CollectionsConfig;
@@ -37,10 +38,15 @@ class CameraConfig implements DependentConfig
 
         function makeCamera():Camera
         {
-            var stage = nme.Lib.current.stage;
-            screenCenterX = Std.int(app.deviceWidth * 0.5);
-            screenCenterY = Std.int(app.deviceHeight * 0.5);
+            screenCenterX = Std.int(app.stageWidth * 0.5);
+            screenCenterY = Std.int(app.stageHeight * 0.5);
 
-            return new Camera(screenCenterX, screenCenterY);
+            return switch (app.target)
+            {
+                case AppTarget.IPAD_RETINA:
+                    new Camera(screenCenterX, screenCenterY, 2);
+                default:
+                    new Camera(screenCenterX, screenCenterY, 1);
+            }
         }
 }

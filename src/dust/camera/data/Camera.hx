@@ -14,13 +14,14 @@ class Camera extends Component
     public var worldY:Float;
     public var scalar:Float;
 
-    public function new(screenCenterX:Int, screenCenterY:Int)
+    public function new(screenCenterX:Int, screenCenterY:Int, scalar:Float = 1)
     {
         this.screenCenterX = screenCenterX;
         this.screenCenterY = screenCenterY;
+        this.scalar = scalar;
+
         worldX = 0;
         worldY = 0;
-        scalar = 1;
     }
 
     public function set(worldX:Float, worldY:Float)

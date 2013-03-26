@@ -1,9 +1,10 @@
 package dust.mainmenu;
 
+import dust.app.data.AppTarget;
 import nme.display.DisplayObjectContainer;
 import dust.app.data.AppData;
 import dust.app.AppConfig;
-import dust.text.Helvetica10WhiteFontConfig;
+import dust.text.HelveticaSmallWhiteFontConfig;
 import dust.mainmenu.control.MainMenuButtonFactory;
 import dust.graphics.data.Paint;
 import dust.text.Michroma24WhiteFontConfig;
@@ -27,7 +28,7 @@ class MainMenuConfig implements DependentConfig
     @inject public var root:DisplayObjectContainer;
 
     public function dependencies():Array<Class<Config>>
-        return [AppConfig, SignalMapConfig, Helvetica10WhiteFontConfig]
+        return [AppConfig, SignalMapConfig, HelveticaSmallWhiteFontConfig]
 
     public function configure()
     {
@@ -40,11 +41,17 @@ class MainMenuConfig implements DependentConfig
 
         function makeConfig():MainMenuButtonConfig
         {
-            var font = fonts.get(Helvetica10WhiteFontConfig.HELVETICA_10_WHITE);
+            var font = fonts.get(HelveticaSmallWhiteFontConfig.FONT);
             var paint = new Paint()
                 .setFill(0x1E90FF)
                 .setLine(1, 0xFFFFFF);
 
-            return new MainMenuButtonConfig(app, font, paint, 160, 40, 20);
+            return switch (app.target)
+            {
+                case AppTarget.IPAD_RETINA:
+                    new MainMenuButtonConfig(app, font, paint, 320, 80, 40);
+                default:
+                    new MainMenuButtonConfig(app, font, paint, 160, 40, 20);
+            }
         }
 }

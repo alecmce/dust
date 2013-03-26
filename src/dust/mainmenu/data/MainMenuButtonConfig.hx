@@ -40,5 +40,5 @@ class MainMenuButtonConfig
     }
 
     public function rows():Int
-        return Std.int((app.deviceHeight - padding) / (height + padding))
+        return Std.int((app.stageHeight - padding) / (height + padding))
 }

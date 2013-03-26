@@ -29,8 +29,8 @@ class ConsoleInput extends Sprite
         function makeInput(app:AppData)
         {
             var input = new TextField();
-            input.y = app.deviceHeight - 20;
-            input.width = app.deviceWidth;
+            input.y = app.stageHeight - 20;
+            input.width = app.stageWidth;
             input.height = 20;
             input.background = true;
             input.backgroundColor = 0x006600;
