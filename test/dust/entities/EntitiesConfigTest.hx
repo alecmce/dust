@@ -15,10 +15,10 @@ class EntitiesConfigTest
 
     @Before public function before()
     {
-        injector = new Injector();
-        context = new Context(injector)
+        context = new Context()
             .configure(EntitiesConfig)
             .start(new Sprite());
+        injector = context.injector;
     }
 
     @Test public function entitiesIsInjected()

@@ -17,8 +17,8 @@ class ContextTest
     @Before public function before()
     {
         root = new Sprite();
-        injector = new Injector();
-        context = new Context(injector);
+        context = new Context();
+        injector = context.injector;
     }
 
     @After

@@ -15,8 +15,7 @@ class CameraConfigTest
 {
     @Test public function canBeConfigured()
     {
-        var injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(CameraConfig)
             .start(new Sprite());
     }

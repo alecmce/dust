@@ -20,11 +20,11 @@ class CollectionsConfigTest
 
     @Before public function before()
     {
-        injector = new Injector();
-        context = new Context(injector)
+        context = new Context()
             .configure(CollectionsConfig)
             .start(new Sprite());
 
+        injector = context.injector;
         map = injector.getInstance(CollectionMap);
         list = injector.getInstance(CollectionList);
     }

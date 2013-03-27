@@ -21,14 +21,13 @@ class CollectionSubscriberTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(CollectionsConfig)
             .start(new Sprite());
 
-        entities = injector.getInstance(Entities);
-        collections = injector.getInstance(CollectionMap);
-        subscriber = injector.getInstance(CollectionSubscriber);
+        entities = context.injector.getInstance(Entities);
+        collections = context.injector.getInstance(CollectionMap);
+        subscriber = context.injector.getInstance(CollectionSubscriber);
 
         entity = entities.require();
         collection = collections.map([MockComponentA]).getCollection();

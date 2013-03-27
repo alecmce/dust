@@ -6,13 +6,17 @@ using Lambda;
 class ContextConfigs
 {
     var injector:Injector;
+    var parent:ContextConfigs;
+
     var pending:Array<Class<Config>>;
     var configured:Array<Class<Config>>;
     var instances:Array<Config>;
 
-    public function new(injector:Injector)
+    public function new(injector:Injector, parent:ContextConfigs = null)
     {
         this.injector = injector;
+        this.parent = parent;
+
         pending = new Array<Class<Config>>();
         configured = new Array<Class<Config>>();
         instances = new Array<Config>();
@@ -37,7 +41,8 @@ class ContextConfigs
 
             function isAlreadyConfigured(config:Class<Config>):Bool
             {
-                return configured.has(config);
+                return configured.has(config) ||
+                       (parent != null && parent.configured.has(config));
             }
 
             function createInstanceAndConfigure(config:Class<Config>)

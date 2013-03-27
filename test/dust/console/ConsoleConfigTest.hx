@@ -14,10 +14,10 @@ class ConsoleConfigTest
 
     @Before public function before()
     {
-        injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(ConsoleConfig)
             .start(new Sprite());
+        injector = context.injector;
     }
 
     @Test public function consoleMapIsInjected()

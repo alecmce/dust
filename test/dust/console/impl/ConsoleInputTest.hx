@@ -15,13 +15,11 @@ class ConsoleInputTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-
-        var context = new Context(injector)
+        var context = new Context()
             .configure(ConsoleConfig)
             .start(new Sprite());
 
-        input = injector.getInstance(ConsoleInput);
+        input = context.injector.getInstance(ConsoleInput);
     }
 
     @Test public function canEnable()

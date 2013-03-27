@@ -44,12 +44,12 @@ class MouseSystemTest
 
         function configureDependencies()
         {
-            injector = new Injector();
-            context = new Context(injector)
+            context = new Context()
                 .configure(EntitiesConfig)
                 .configure(SystemsConfig)
                 .configure(CameraConfig)
                 .start(root = new Sprite());
+            injector = context.injector;
         }
 
         function mapSystem()

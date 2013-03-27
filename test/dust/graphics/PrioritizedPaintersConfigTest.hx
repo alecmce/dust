@@ -17,10 +17,10 @@ class PrioritizedPaintersConfigTest
     @Before public function before()
     {
         root = new Sprite();
-        injector = new Injector();
-        context = new Context(injector)
+        context = new Context()
             .configure(PaintersConfig)
             .start(root);
+        injector = context.injector;
     }
 
     @Test public function graphicsIsInjected()

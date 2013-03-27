@@ -15,13 +15,12 @@ class BitmapTextFactoryTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(BitmapTextConfig)
             .start(new Sprite());
 
-        fontFactory = injector.getInstance(BitmapFontFactory);
-        textFactory = injector.getInstance(BitmapTextFactory);
+        fontFactory = context.injector.getInstance(BitmapFontFactory);
+        textFactory = context.injector.getInstance(BitmapTextFactory);
     }
 
     @Before public function makesTextfieldProperly()

@@ -13,9 +13,10 @@ class MainMenuConfigTest
 
     function configure()
     {
-        context = new Context(injector = new Injector())
+        context = new Context()
             .configure(MainMenuConfig)
             .start(new Sprite());
+        injector = context.injector;
     }
 
     @Test public function configuresWithoutErrors()

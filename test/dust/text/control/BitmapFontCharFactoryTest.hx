@@ -15,12 +15,11 @@ class BitmapFontCharFactoryTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(BitmapTextConfig)
             .start(new Sprite());
 
-        factory = injector.getInstance(BitmapFontCharFactory);
+        factory = context.injector.getInstance(BitmapFontCharFactory);
     }
 
     function makeSourceData()

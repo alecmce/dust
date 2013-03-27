@@ -23,13 +23,12 @@ class CollectionMapTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(CollectionsConfig)
             .start(new Sprite());
 
-        entities = injector.getInstance(Entities);
-        collectionMap = injector.getInstance(CollectionMap);
+        entities = context.injector.getInstance(Entities);
+        collectionMap = context.injector.getInstance(CollectionMap);
     }
 
     @Test public function mapReturnsConfig()

@@ -12,12 +12,11 @@ class UpdateCollectionsSystemTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(SystemsConfig)
             .start(new Sprite());
 
-        systems = injector.getInstance(Systems);
-        system = injector.getInstance(UpdateCollectionsSystem);
+        systems = context.injector.getInstance(Systems);
+        system = context.injector.getInstance(UpdateCollectionsSystem);
     }
 }

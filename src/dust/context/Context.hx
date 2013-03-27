@@ -12,14 +12,14 @@ class Context
     public var started(default, null):SignalVoid;
     public var stopped(default, null):SignalVoid;
 
-    public var injector:Injector;
+    public var injector(default, null):Injector;
 
     var configs:ContextConfigs;
 
-    public function new(injector:Injector)
+    public function new(parent:Context = null)
     {
-        this.injector = injector;
-        configs = new ContextConfigs(injector);
+        injector = new Injector(parent != null ? parent.injector : null);
+        configs = new ContextConfigs(injector, parent != null ? parent.configs : null);
         started = new SignalVoid();
         stopped = new SignalVoid();
         mapDefaultInjections();

@@ -41,13 +41,12 @@ class SystemMappingTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-        context = new Context(injector)
+        context = new Context()
             .configure(SystemsConfig)
             .start(new Sprite());
 
-        collectionMap = injector.getInstance(CollectionMap);
-        list = injector.getInstance(SystemsList);
+        collectionMap = context.injector.getInstance(CollectionMap);
+        list = context.injector.getInstance(SystemsList);
         loop = new TestSystemsLoop(list);
     }
 

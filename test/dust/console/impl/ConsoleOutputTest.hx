@@ -13,13 +13,11 @@ class ConsoleOutputTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-
-        var context = new Context(injector)
+        var context = new Context()
             .configure(ConsoleConfig)
             .start(new Sprite());
 
-        subject = injector.getInstance(ConsoleOutput);
+        subject = context.injector.getInstance(ConsoleOutput);
     }
 
     @Test public function writeAppendsText()

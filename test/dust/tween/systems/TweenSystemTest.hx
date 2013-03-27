@@ -21,13 +21,12 @@ class TweenSystemTest
 
     @Before public function before()
     {
-        var injector = new Injector();
-        var context = new Context(injector)
+        var context = new Context()
             .configure(TweenConfig)
             .start(new Sprite());
 
-        systems = injector.getInstance(SystemsList);
-        entity = injector.getInstance(Entities).require();
+        systems = context.injector.getInstance(SystemsList);
+        entity = context.injector.getInstance(Entities).require();
     }
 
     @Test public function pulseSystemModifiesEntityPulses()

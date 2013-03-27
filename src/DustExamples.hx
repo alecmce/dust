@@ -31,10 +31,10 @@ import nme.text.TextFormat;
 class DustExamples implements DependentConfig
 {
     static var app:Context;
+
     public static function main()
     {
-        var injector = new Injector();
-        app = new Context(injector)
+        app = new Context()
             .configure(DustExamples)
             .start(new Sprite());
     }

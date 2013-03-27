@@ -18,10 +18,10 @@ class KeysConfigTest
     @Before public function before()
     {
         root = new Sprite();
-        injector = new Injector();
-        context = new Context(injector)
+        context = new Context()
             .configure(KeysConfig)
             .start(root);
+        injector = context.injector;
     }
 
     @After
