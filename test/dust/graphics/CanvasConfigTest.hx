@@ -1,7 +1,7 @@
 package dust.graphics;
 
 import dust.camera.data.Camera;
-import minject.Injector;
+import dust.Injector;
 import nme.display.Graphics;
 import nme.display.Sprite;
 import dust.context.Context;

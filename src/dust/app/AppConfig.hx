@@ -4,7 +4,7 @@ import dust.app.data.AppTarget;
 import nme.Vector;
 import nme.ui.Multitouch;
 import dust.app.data.AppData;
-import minject.Injector;
+import dust.Injector;
 import dust.context.Config;
 
 class AppConfig implements Config

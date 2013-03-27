@@ -5,7 +5,7 @@ import dust.collections.control.CollectionSubscriber;
 import dust.collections.data.CollectionList;
 import dust.collections.control.CollectionMap;
 import dust.context.Context;
-import minject.Injector;
+import dust.Injector;
 import dust.context.Config;
 import dust.context.DependentConfig;
 import dust.entities.EntitiesConfig;

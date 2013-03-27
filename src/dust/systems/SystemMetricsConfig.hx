@@ -19,7 +19,7 @@ import dust.ui.UIConfig;
 import dust.context.DependentConfig;
 import dust.context.Config;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Stage;
 
 class SystemMetricsConfig implements DependentConfig

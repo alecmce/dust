@@ -2,7 +2,7 @@ package dust.systems;
 
 import nme.display.Sprite;
 import dust.context.Context;
-import minject.Injector;
+import dust.Injector;
 
 class SystemMetricsConfigTest
 {

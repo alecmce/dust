@@ -6,7 +6,7 @@ import dust.context.Context;
 import dust.systems.impl.Systems;
 import dust.keys.impl.KeyControls;
 import nme.display.Sprite;
-import minject.Injector;
+import dust.Injector;
 import nme.display.DisplayObjectContainer;
 
 class KeysConfigTest

@@ -1,5 +1,6 @@
 package;
 
+import dust.Injector;
 import dust.ui.eg.UIExample;
 import dust.context.DependentConfig;
 import dust.mainmenu.MainMenuConfig;
@@ -16,7 +17,6 @@ import dust.interactive.eg.DragExample;
 import dust.mainmenu.MainMenu;
 import dust.context.Context;
 
-import minject.Injector;
 import nme.Assets;
 import nme.display.DisplayObjectContainer;
 import nme.display.MovieClip;
@@ -74,10 +74,7 @@ class DustExamples implements DependentConfig
 
         function onSelection(config:Class<Config>)
         {
-            var injector = new Injector();
-            injector.parentInjector = parent;
-
-            module = new Context(injector)
+            module = new Context(new Injector(parent))
                 .configure(MoveCameraExample)
                 .configure(ConsoleConfig)
                 .configure(config)

@@ -6,7 +6,7 @@ import nme.display.BitmapData;
 import dust.context.Context;
 
 import nme.display.Sprite;
-import minject.Injector;
+import dust.Injector;
 
 class BitmapFontCharFactoryTest
 {

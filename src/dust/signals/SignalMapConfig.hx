@@ -3,7 +3,7 @@ package dust.signals;
 import dust.context.Config;
 import dust.signals.SignalMap;
 
-import minject.Injector;
+import dust.Injector;
 
 class SignalMapConfig implements Config
 {

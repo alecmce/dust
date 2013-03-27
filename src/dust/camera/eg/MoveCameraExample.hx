@@ -8,7 +8,7 @@ import dust.systems.impl.Systems;
 import dust.camera.data.Camera;
 import dust.context.DependentConfig;
 
-import minject.Injector;
+import dust.Injector;
 
 class MoveCameraExample implements DependentConfig
 {

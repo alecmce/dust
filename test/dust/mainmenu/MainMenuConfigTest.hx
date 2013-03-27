@@ -3,7 +3,7 @@ package dust.mainmenu;
 import nme.display.BitmapData;
 import nme.Assets;
 import dust.context.Context;
-import minject.Injector;
+import dust.Injector;
 import nme.display.Sprite;
 
 class MainMenuConfigTest

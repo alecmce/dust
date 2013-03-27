@@ -1,6 +1,6 @@
 package dust.signals;
 
-import minject.Injector;
+import dust.Injector;
 
 class SignalMap
 {

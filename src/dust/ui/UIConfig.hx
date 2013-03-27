@@ -12,7 +12,7 @@ import dust.systems.impl.Systems;
 import dust.context.DependentConfig;
 import dust.context.Config;
 
-import minject.Injector;
+import dust.Injector;
 
 class UIConfig implements DependentConfig
 {

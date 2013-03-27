@@ -15,7 +15,7 @@ import dust.systems.impl.Systems;
 import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemMap;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.DisplayObjectContainer;
 import nme.display.Sprite;
 import nme.events.MouseEvent;

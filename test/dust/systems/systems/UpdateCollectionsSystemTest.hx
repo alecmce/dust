@@ -3,7 +3,7 @@ package dust.systems.systems;
 import dust.systems.impl.Systems;
 import nme.display.Sprite;
 import dust.context.Context;
-import minject.Injector;
+import dust.Injector;
 
 class UpdateCollectionsSystemTest
 {

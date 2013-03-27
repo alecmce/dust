@@ -1,6 +1,6 @@
 package dust.context;
 
-import minject.Injector;
+import dust.Injector;
 using Lambda;
 
 class ContextConfigs

@@ -6,7 +6,7 @@ import dust.entities.api.Entity;
 import dust.collections.api.Collection;
 import dust.components.Component;
 
-import minject.Injector;
+import dust.Injector;
 
 class SystemMapping
 {
@@ -26,17 +26,10 @@ class SystemMapping
 
     public function new(parent:Injector, collectionMap:CollectionMap, type:Class<System>)
     {
-        injector = makeInjector(parent);
+        injector = new Injector(parent);
         this.collections = new CollectionDefinitions(injector, collectionMap);
         this.type = type;
     }
-
-        function makeInjector(parent:Injector):Injector
-        {
-            var injector = new Injector();
-            injector.parentInjector = parent;
-            return injector;
-        }
 
     public function isType(type:Class<System>):Bool
     {

@@ -4,7 +4,7 @@ import dust.console.control.HideConsoleSignal;
 import dust.console.impl.Console;
 import dust.console.control.ShowConsoleSignal;
 import dust.console.impl.ConsoleMap;
-import minject.Injector;
+import dust.Injector;
 import nme.display.Sprite;
 import dust.context.Context;
 

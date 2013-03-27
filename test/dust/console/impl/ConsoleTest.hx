@@ -1,7 +1,7 @@
 package dust.console.impl;
 
 import nme.display.Sprite;
-import minject.Injector;
+import dust.Injector;
 import dust.context.Context;
 import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleInput;

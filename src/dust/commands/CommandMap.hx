@@ -3,7 +3,7 @@ package dust.commands;
 import dust.signals.SignalVoid;
 import dust.signals.Signal;
 import dust.signals.SignalMap;
-import minject.Injector;
+import dust.Injector;
 
 class CommandMap
 {

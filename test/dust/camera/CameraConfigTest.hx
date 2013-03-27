@@ -9,7 +9,7 @@ import dust.camera.data.Camera;
 import dust.context.Config;
 import dust.context.DependentConfig;
 
-import minject.Injector;
+import dust.Injector;
 
 class CameraConfigTest
 {

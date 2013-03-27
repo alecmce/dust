@@ -3,7 +3,7 @@ package dust.signals;
 import dust.lists.MockData;
 import dust.signals.SignalVoid;
 import dust.signals.Signal;
-import minject.Injector;
+import dust.Injector;
 
 class SignalMapTest
 {

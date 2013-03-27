@@ -4,7 +4,7 @@ import dust.systems.System;
 import dust.collections.control.CollectionMap;
 import dust.lists.SimpleList;
 
-import minject.Injector;
+import dust.Injector;
 
 class SystemMap
 {

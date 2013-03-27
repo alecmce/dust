@@ -9,7 +9,7 @@ import dust.systems.impl.SystemsList;
 import dust.systems.impl.SystemsLoop;
 import dust.tween.TweenConfig;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Sprite;
 
 class TweenSystemTest

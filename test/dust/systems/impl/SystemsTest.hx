@@ -11,7 +11,7 @@ import SystemsTest.TrackStartSystem;
 import dust.collections.control.CollectionMap;
 import dust.entities.api.Entities;
 import dust.components.BitfieldFactory;
-import minject.Injector;
+import dust.Injector;
 
 class SystemsTest
 {

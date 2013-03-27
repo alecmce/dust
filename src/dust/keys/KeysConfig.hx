@@ -7,7 +7,7 @@ import dust.lists.SimpleList;
 import dust.keys.impl.KeyControls;
 import dust.keys.impl.KeyControllerSystem;
 import dust.systems.impl.Systems;
-import minject.Injector;
+import dust.Injector;
 import dust.systems.SystemsConfig;
 import dust.context.DependentConfig;
 import dust.context.Config;

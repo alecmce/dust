@@ -12,7 +12,7 @@ import dust.components.MockComponentB;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
 
-import minject.Injector;
+import dust.Injector;
 
 using Lambda;
 

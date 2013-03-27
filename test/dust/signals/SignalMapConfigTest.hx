@@ -2,7 +2,7 @@ package dust.signals;
 
 import dust.signals.SignalMapConfig;
 import dust.signals.SignalMap;
-import minject.Injector;
+import dust.Injector;
 import dust.context.Config;
 import nme.display.Sprite;
 import dust.context.Context;

@@ -6,7 +6,7 @@ import dust.text.control.BitmapFontFactory;
 import dust.text.control.BitmapFontCharFactory;
 import dust.context.Config;
 
-import minject.Injector;
+import dust.Injector;
 
 class BitmapTextConfig implements Config
 {

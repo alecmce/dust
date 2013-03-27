@@ -4,7 +4,7 @@ import nme.display.Sprite;
 import nme.display.DisplayObjectContainer;
 import dust.context.Context;
 
-import minject.Injector;
+import dust.Injector;
 
 class InteractiveConfigTest
 {

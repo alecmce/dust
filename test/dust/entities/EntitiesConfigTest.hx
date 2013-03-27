@@ -1,6 +1,6 @@
 package dust.entities;
 
-import minject.Injector;
+import dust.Injector;
 import dust.entities.EntitiesConfig;
 import dust.context.Context;
 import dust.collections.control.CollectionMap;

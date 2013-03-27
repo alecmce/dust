@@ -7,7 +7,7 @@ import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
 import dust.context.Context;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Sprite;
 
 class CollectionsConfigTest

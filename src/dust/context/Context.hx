@@ -3,7 +3,7 @@ package dust.context;
 import dust.signals.SignalVoid;
 import nme.display.Stage;
 import dust.signals.Signal;
-import minject.Injector;
+import dust.Injector;
 
 import nme.display.DisplayObjectContainer;
 

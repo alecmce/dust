@@ -4,7 +4,7 @@ import dust.systems.SystemsConfig;
 import dust.context.Context;
 import dust.systems.impl.Systems;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Sprite;
 
 class SystemsConfigTest

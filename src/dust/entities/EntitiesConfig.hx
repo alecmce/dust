@@ -11,7 +11,7 @@ import dust.entities.api.Entities;
 import dust.entities.EntitiesConfig;
 import dust.entities.impl.PooledEntities;
 
-import minject.Injector;
+import dust.Injector;
 
 class EntitiesConfig implements UnconfigConfig
 {

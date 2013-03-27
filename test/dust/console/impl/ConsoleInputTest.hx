@@ -2,7 +2,7 @@ package dust.console.impl;
 
 import nme.display.Sprite;
 import dust.context.Context;
-import minject.Injector;
+import dust.Injector;
 import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleInput;
 import nme.events.KeyboardEvent;

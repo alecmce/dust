@@ -3,7 +3,7 @@ package dust.math;
 import dust.math.trig.HighPrecisionFastTrig;
 import dust.math.trig.LowPrecisionFastTrig;
 import dust.math.trig.Trig;
-import minject.Injector;
+import dust.Injector;
 
 import dust.context.Config;
 

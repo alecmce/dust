@@ -2,7 +2,7 @@ package dust.context;
 
 import dust.context.DependentConfig;
 import dust.context.UnconfigConfig;
-import minject.Injector;
+import dust.Injector;
 
 class ContextConfigsTest
 {

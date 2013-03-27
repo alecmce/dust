@@ -1,6 +1,6 @@
 package dust.commands;
 
-import minject.Injector;
+import dust.Injector;
 
 class CommandDelegate<T>
 {

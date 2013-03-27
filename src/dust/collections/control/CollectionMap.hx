@@ -2,7 +2,7 @@ package dust.collections.control;
 
 import dust.collections.data.CollectionList;
 import dust.collections.api.Collection;
-import minject.Injector;
+import dust.Injector;
 import dust.components.Component;
 import dust.components.BitfieldFactory;
 import dust.entities.impl.SimpleEntityList;

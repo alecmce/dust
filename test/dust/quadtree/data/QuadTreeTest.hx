@@ -10,7 +10,7 @@ import dust.entities.EntitiesConfig;
 import dust.collections.control.CollectionMap;
 import dust.geom.data.Position;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Sprite;
 
 class QuadTreeTest

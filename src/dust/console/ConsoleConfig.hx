@@ -20,7 +20,7 @@ import dust.context.Config;
 import dust.context.UnconfigConfig;
 import dust.signals.SignalMap;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Stage;
 import nme.events.KeyboardEvent;
 import nme.text.TextFormat;

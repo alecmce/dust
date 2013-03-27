@@ -7,7 +7,7 @@ import dust.components.MockComponentA;
 import dust.entities.api.Entities;
 import nme.display.Sprite;
 import dust.context.Context;
-import minject.Injector;
+import dust.Injector;
 import dust.collections.data.CollectionList;
 
 class CollectionSubscriberTest

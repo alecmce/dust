@@ -14,7 +14,7 @@ import dust.entities.impl.SortedEntityList;
 import dust.lists.LinkedList;
 import dust.lists.SimpleList;
 
-import minject.Injector;
+import dust.Injector;
 
 class CollectionMapping
 {
@@ -32,8 +32,7 @@ class CollectionMapping
 
     public function new(parent:Injector, bitfield:Bitfield, collectionList:CollectionList, subscriber:CollectionSubscriber)
     {
-        injector = new Injector();
-        injector.parentInjector = parent;
+        injector = new Injector(parent);
 
         this.bitfield = bitfield;
         this.collectionList = collectionList;

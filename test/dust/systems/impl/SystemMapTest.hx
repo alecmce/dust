@@ -8,7 +8,7 @@ import dust.components.BitfieldFactory;
 import dust.collections.control.CollectionMap;
 import dust.entities.api.Entities;
 
-import minject.Injector;
+import dust.Injector;
 
 class SystemMapTest
 {

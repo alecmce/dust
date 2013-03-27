@@ -27,7 +27,7 @@ import dust.interactive.data.ClickFocus;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
 
-import minject.Injector;
+import dust.Injector;
 
 class InteractiveConfig implements DependentConfig
 {

@@ -5,7 +5,7 @@ import dust.context.Context;
 import dust.context.Config;
 import nme.display.DisplayObjectContainer;
 import nme.display.Sprite;
-import minject.Injector;
+import dust.Injector;
 
 
 class ContextTest

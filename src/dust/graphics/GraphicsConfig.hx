@@ -6,7 +6,7 @@ import dust.camera.data.Camera;
 import dust.context.Context;
 import dust.context.Config;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Graphics;
 import nme.display.DisplayObjectContainer;
 import nme.display.Sprite;

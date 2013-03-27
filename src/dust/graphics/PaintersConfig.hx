@@ -13,7 +13,7 @@ import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
 import dust.graphics.data.Paint;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.Graphics;
 import nme.display.Sprite;
 import nme.display.DisplayObjectContainer;

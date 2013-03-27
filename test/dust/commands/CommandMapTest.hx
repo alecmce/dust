@@ -1,10 +1,10 @@
 package dust.commands;
 
-import minject.Injector;
+import dust.Injector;
 import dust.signals.SignalMap;
 import dust.signals.SignalVoid;
 import dust.signals.Signal;
-import minject.Injector;
+import dust.Injector;
 
 class CommandMapTest
 {

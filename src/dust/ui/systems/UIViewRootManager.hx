@@ -7,7 +7,7 @@ import dust.context.DependentConfig;
 import dust.entities.api.Entity;
 import dust.ui.data.UIView;
 
-import minject.Injector;
+import dust.Injector;
 import nme.display.DisplayObjectContainer;
 
 class UIViewRootManager implements CollectionListeners

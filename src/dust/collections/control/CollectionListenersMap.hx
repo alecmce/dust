@@ -2,7 +2,7 @@ package dust.collections.control;
 
 import dust.collections.data.SimpleCollectionListeners;
 import dust.collections.api.CollectionListeners;
-import minject.Injector;
+import dust.Injector;
 
 class CollectionListenersMap
 {

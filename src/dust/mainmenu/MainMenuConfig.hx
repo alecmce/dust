@@ -14,7 +14,7 @@ import dust.mainmenu.data.MainMenuButtonConfig;
 import dust.text.BitmapTextConfig;
 import dust.signals.SignalMap;
 import dust.mainmenu.MainMenu;
-import minject.Injector;
+import dust.Injector;
 import dust.signals.SignalMapConfig;
 import dust.context.DependentConfig;
 import dust.context.Config;

@@ -1,7 +1,7 @@
 package dust.commands;
 
 import dust.commands.CommandMapConfig;
-import minject.Injector;
+import dust.Injector;
 import dust.context.Config;
 import dust.commands.CommandMap;
 import nme.display.Sprite;
