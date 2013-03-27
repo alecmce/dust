@@ -24,9 +24,6 @@ class PainterSystem implements System
     {
         graphics.clear();
         for (entity in collection)
-        {
-            var painter:Painter = entity.get(Painter);
-            painter.draw(entity, graphics);
-        }
+            entity.get(Painter).draw(entity, graphics);
     }
 }

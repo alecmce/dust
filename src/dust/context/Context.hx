@@ -29,8 +29,7 @@ class Context
         {
             injector.mapValue(Context, this);
             injector.mapValue(Stage, nme.Lib.current.stage);
-            if (!injector.hasMapping(Injector))
-                injector.mapValue(Injector, injector);
+            injector.mapValue(Injector, injector);
         }
 
     public function configure(config:Class<Config>):Context
