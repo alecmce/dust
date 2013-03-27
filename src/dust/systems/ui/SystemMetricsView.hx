@@ -5,7 +5,7 @@ import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
 import dust.systems.impl.SystemsList;
 import dust.type.TypeIndex;
-import dust.ui.api.UIView;
+import dust.ui.data.UIView;
 import dust.ui.components.Label;
 import dust.ui.components.VerticalList;
 

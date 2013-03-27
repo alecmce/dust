@@ -1,5 +1,6 @@
 package;
 
+import dust.ui.eg.UIExample;
 import dust.context.DependentConfig;
 import dust.mainmenu.MainMenuConfig;
 import dust.text.eg.NoScaleBitmapFontExample;
@@ -55,7 +56,8 @@ class DustExamples implements DependentConfig
             .add("BitmapFont 1", NoScaleBitmapFontExample)
             .add("BitmapFont 2", BitmapFontExample)
             .add("BitmapText", BitmapTextExample)
-            .add("QuadTree", QuadTreeVisualizationExample);
+            .add("QuadTree", QuadTreeVisualizationExample)
+            .add("UI", UIExample);
 
         nme.Lib.current.stage.addChild(mainMenu);
         mainMenu.reset.bind(onReset);

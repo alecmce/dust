@@ -1,11 +1,11 @@
 package dust.ui.systems;
 
 import nme.geom.Rectangle;
-import dust.ui.api.Alignment;
-import dust.ui.api.VAlign;
-import dust.ui.api.HAlign;
+import dust.ui.data.Alignment;
+import dust.ui.data.VAlign;
+import dust.ui.data.HAlign;
 import dust.geom.data.Position;
-import dust.ui.api.UIView;
+import dust.ui.data.UIView;
 import dust.entities.api.Entity;
 import dust.collections.api.Collection;
 import dust.systems.System;

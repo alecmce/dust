@@ -1,11 +1,11 @@
 package dust.ui.systems;
 
-import dust.context.Config;
-import dust.context.DependentConfig;
 import dust.collections.api.Collection;
 import dust.collections.api.CollectionListeners;
+import dust.context.Config;
+import dust.context.DependentConfig;
 import dust.entities.api.Entity;
-import dust.ui.api.UIView;
+import dust.ui.data.UIView;
 
 import minject.Injector;
 import nme.display.DisplayObjectContainer;

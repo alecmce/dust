@@ -1,4 +1,4 @@
-package dust.ui.components;
+package dust.ui.data;
 
 class Color
 {

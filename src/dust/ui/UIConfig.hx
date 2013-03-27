@@ -1,10 +1,11 @@
 package dust.ui;
 
+import dust.ui.components.ComponentConfig;
 import dust.ui.systems.UIViewRootManager;
 import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
 import dust.geom.data.Position;
-import dust.ui.api.UIView;
+import dust.ui.data.UIView;
 import dust.ui.systems.UpdateUISystem;
 import dust.systems.SystemsConfig;
 import dust.systems.impl.Systems;
@@ -26,6 +27,8 @@ class UIConfig implements DependentConfig
 
     public function configure()
     {
+        injector.mapSingleton(ComponentConfig);
+
         collections
             .map([UIView, Position])
             .toListeners(UIViewRootManager);

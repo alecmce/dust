@@ -1,4 +1,4 @@
-package dust.ui.api;
+package dust.ui.data;
 
 import nme.display.Sprite;
 import nme.geom.Rectangle;

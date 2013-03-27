@@ -1,6 +1,6 @@
 package dust.ui.components;
 
-import dust.ui.components.Color;
+import dust.ui.data.Color;
 
 class ColorTest
 {

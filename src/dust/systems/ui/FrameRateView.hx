@@ -4,7 +4,7 @@ import nme.text.Font;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
 import dust.ui.components.Label;
-import dust.ui.api.UIView;
+import dust.ui.data.UIView;
 
 import haxe.Timer;
 

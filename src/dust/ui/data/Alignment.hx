@@ -1,8 +1,6 @@
-package dust.ui.api;
+package dust.ui.data;
 
 import dust.components.Component;
-import dust.ui.api.HAlign;
-import dust.ui.api.VAlign;
 
 class Alignment extends Component
 {
