@@ -1,4 +1,4 @@
-package ;
+package;
 
 import dust.geom.data.Position;
 import haxe.PosInfos;
