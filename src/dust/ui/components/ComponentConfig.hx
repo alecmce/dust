@@ -1,4 +1,5 @@
 package dust.ui.components;
+
 class ComponentConfig
 {
 
@@ -11,7 +12,7 @@ class ComponentConfig
     {
         sliderWidth = 200;
         sliderHeight = 20;
-        sliderBackgroundColor = 0x666666;
-        sliderHandleColor = 0xCCCCCC;
+        sliderBackgroundColor = 0x333333;
+        sliderHandleColor = 0x666666;
     }
 }

@@ -18,8 +18,8 @@ class VerticalList extends Sprite
     {
         super();
         this.items = new Array<DisplayObject>();
-        setItems(items);
         this.padding = padding;
+        setItems(items);
     }
 
     public function clearItems()
@@ -48,7 +48,7 @@ class VerticalList extends Sprite
         {
             var tailRect = tail.getRect(this);
             var itemRect = item.getRect(item);
-            item.y = tailRect.bottom - itemRect.top;
+            item.y = padding + tailRect.bottom - itemRect.top;
         }
 
     public function removeItem(item:DisplayObject)

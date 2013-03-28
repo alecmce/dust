@@ -59,7 +59,7 @@ class Slider extends Sprite
         _height = height;
 
         graphics.clear();
-        graphics.beginFill(config.sliderHandleColor);
+        graphics.beginFill(config.sliderBackgroundColor);
         graphics.drawRect(-_width * 0.5, -_height * 0.5, _width, _height);
         graphics.endFill();
 

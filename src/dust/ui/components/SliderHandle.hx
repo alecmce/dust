@@ -26,7 +26,7 @@ class SliderHandle extends Sprite
         function redraw()
         {
             graphics.clear();
-            graphics.beginFill(config.sliderBackgroundColor);
+            graphics.beginFill(config.sliderHandleColor);
             graphics.drawRect(-size * 0.5, -size * 0.5, size, size);
             graphics.endFill();
         }
