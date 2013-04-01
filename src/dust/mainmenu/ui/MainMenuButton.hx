@@ -1,5 +1,6 @@
 package dust.mainmenu.ui;
 
+import nme.events.TouchEvent;
 import nme.events.MouseEvent;
 import nme.display.Sprite;
 import nme.display.DisplayObject;
@@ -23,7 +24,7 @@ class MainMenuButton extends Sprite
     public function enable()
         addEventListener(MouseEvent.CLICK, onClick)
 
-        function onClick(event:MouseEvent)
+        function onClick(_)
             trigger.dispatch(config)
 
     public function disable()

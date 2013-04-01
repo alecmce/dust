@@ -51,10 +51,10 @@ class ChildContextTest
         Assert.areSame(parentRoot.parent, childRoot.parent);
     }
 
-    @Test public function childRootIsAboveParentRoot()
+    @Test public function childRootIsBelowParentRoot()
     {
         var parent = parentRoot.parent;
-        Assert.isTrue(parent.getChildIndex(childRoot) > parent.getChildIndex(parentRoot));
+        Assert.isTrue(parent.getChildIndex(childRoot) < parent.getChildIndex(parentRoot));
     }
 }
 

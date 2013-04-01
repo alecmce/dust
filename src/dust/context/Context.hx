@@ -42,7 +42,7 @@ class Context
     {
         injector.mapValue(DisplayObjectContainer, root);
         configs.configure();
-        nme.Lib.current.addChild(root);
+        nme.Lib.current.addChildAt(root, 0);
         started.dispatch();
         return this;
     }

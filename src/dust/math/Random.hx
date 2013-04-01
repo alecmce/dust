@@ -1,23 +1,27 @@
 package dust.math;
 
 import Array;
+
 class Random
 {
+    inline static var MODULUS = 2147483647;
+    inline static var MULTIPLIER = 16807;
+
     public var seed:Int;
 
     public function new(seed:Int = 0)
     {
-        this.seed = seed == 0 ? Std.int(Math.random() * 2147483647) : seed;
+        this.seed = seed == 0 ? Std.int(Math.random() * MODULUS) : seed;
     }
 
     inline public function bool(chance:Float = 0.5):Bool
     {
-        return next() < chance * 2147483647;
+        return next() < chance * MODULUS;
     }
 
     inline public function int(range:Int):Int
     {
-        return next() % range;
+        return Std.int(float(range));
     }
 
     inline public function intInRange(min:Int, max:Int):Int
@@ -27,8 +31,7 @@ class Random
 
     inline public function float(range:Float = 1.0):Float
     {
-        var value = range * (next() / 2147483647);
-        return range * (next() / 2147483647);
+        return range * (next() / MODULUS);
     }
 
     inline public function floatInRange(min:Float, max:Float):Float
@@ -49,9 +52,9 @@ class Random
     inline function next():Int
     {
         var value = seed;
-        seed = (seed * 16807) % 2147483647;
+        seed = (seed * MULTIPLIER) % MODULUS;
         if (seed < 0)
-            seed += 2147483647;
+            seed += MODULUS;
         return value;
     }
 }

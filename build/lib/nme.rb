@@ -23,8 +23,17 @@ class Nme
     test target, flags
   end
 
+  def clean(target)
+    command = "nme clean #{target}"
+  end
+
   def test(target, flags)
     command = "nme build #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+    execute command
+  end
+
+  def update(target, flags = nil)
+    command = "nme update #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
     execute command
   end
 

@@ -1,5 +1,6 @@
 package dust.mainmenu;
 
+import nme.display.DisplayObjectContainer;
 import dust.mainmenu.ui.MainMenuButton;
 import nme.events.MouseEvent;
 import nme.display.Sprite;
@@ -19,6 +20,7 @@ class MainMenu extends Sprite
     public var selected(default, null):Signal<Class<Config>>;
 
     var factory:MainMenuButtonFactory;
+
     var buttons:Sprite;
     var back:MainMenuButton;
     var list:Array<MainMenuButton>;
@@ -31,6 +33,7 @@ class MainMenu extends Sprite
         reset = new SignalVoid();
 
         this.factory = factory;
+
         buttons = new Sprite();
         back = factory.make('back', 0, null);
         back.trigger.bind(onBack);

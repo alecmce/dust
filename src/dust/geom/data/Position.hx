@@ -73,6 +73,12 @@ class Position extends Component
         y += center.y;
     }
 
+    public function sum():Float
+        return x + y
+
+    public function dif():Float
+        return x - y
+
     public function toString():String
         return "[Position x=" + x + ", y=" + y + ", angle=" + rotation + "]"
 }

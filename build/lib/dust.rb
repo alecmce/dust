@@ -28,6 +28,15 @@ class Dust
     munit.test target
   end
 
+  def clean(target)
+    case target
+      when 'tests'
+        munit.clean
+      when 'ios'
+        nme.clean 'ios'
+    end
+  end
+
   def make(target)
     case target
       when 'flash'
@@ -44,6 +53,19 @@ class Dust
         nme.make 'ios', '-ipad -simulator'
       else
         puts "dust unable to make #{target} - unsupported target"
+    end
+  end
+
+  def update(target)
+    case target
+      when 'ipad'
+        nme.update 'ios', '-ipad'
+      when 'iphone_simulator'
+        nme.update 'ios', '-simulator'
+      when 'ipad_simulator'
+        nme.update 'ios', '-simulator -ipad'
+      else
+        puts "dust unable to update #{target} - don't know what to do!"
     end
   end
 

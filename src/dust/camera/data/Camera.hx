@@ -30,6 +30,12 @@ class Camera extends Component
         this.worldY = worldY;
     }
 
+    public function offset(worldDX:Float, worldDY:Float)
+    {
+        worldX += worldDX;
+        worldY += worldDY;
+    }
+
     inline public function xyToScreen(x:Float, y:Float, screen:Position):Position
     {
         screen.x = screenCenterX + (x - worldX) * scalar;
