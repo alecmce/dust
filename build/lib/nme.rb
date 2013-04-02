@@ -37,6 +37,11 @@ class Nme
     execute command
   end
 
+  def build(target, flags = nil)
+    command = "nme build #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+    execute command
+  end
+
   def run(target, flags = nil)
     command = "nme run #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
     execute command

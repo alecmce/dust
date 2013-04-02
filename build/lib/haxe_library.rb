@@ -3,10 +3,12 @@
 require 'open-uri'
 require 'net/http'
 require 'fileutils'
+require 'yaml'
 
 class HaxeLibrary
 
   HAXELIB_URL = 'http://lib.haxe.org/files/'
+  HAXELIB_CACHE = '.haxelib_cache'
 
   @@items = nil
 
@@ -38,13 +40,37 @@ class HaxeLibrary
   end
 
     def library_versions
-      hash = Hash.new
-      library_list.each do |key, value|
-        value = value.gsub(',','.')
-        hash.has_key?(key) ? hash[key] << value : hash[key] = [value]
-      end
-      hash
+      have_cached_library ? library_versions_from_cache : library_versions_from_live
     end
+
+      def have_cached_library
+        file = File.join(Dir.pwd, HAXELIB_CACHE)
+        File.exists?(file) && was_cached_today(file)
+      end
+
+        def was_cached_today(file)
+          Time.now - File.mtime(file) < 24 * 60 * 60
+        end
+
+      def library_versions_from_cache
+        YAML::load_file File.join(Dir.pwd, HAXELIB_CACHE)
+      end
+
+      def library_versions_from_live
+        hash = Hash.new
+        library_list.each do |key, value|
+          value = value.gsub(',','.')
+          hash.has_key?(key) ? hash[key] << value : hash[key] = [value]
+        end
+        write_hash_to_cache hash
+        hash
+      end
+
+        def write_hash_to_cache(hash)
+          File.open(File.join(Dir.pwd, HAXELIB_CACHE), 'w') do |file|
+            file.write hash.to_yaml
+          end
+        end
 
       def library_list
         begin

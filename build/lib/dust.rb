@@ -37,20 +37,23 @@ class Dust
     end
   end
 
-  def make(target)
+  def make(target, flags = [])
     case target
       when 'flash'
-        nme.make 'flash'
-      when 'html5'
+        nme.make 'flash', flags
+      when 'html5', flags
         haxe.html5
-      when 'iphone'
-        nme.make 'ios'
+      when 'iphone', flags
+        nme.make 'ios', flags
       when 'iphone_simulator'
-        nme.make 'ios', '-simulator'
+        flags << '-simulator'
+        nme.make 'ios', flags
       when 'ipad'
-        nme.make 'ios', '-ipad'
+        flags << '-ipad'
+        nme.make 'ios', flags
       when 'ipad_simulator'
-        nme.make 'ios', '-ipad -simulator'
+        flags << '-ipad -simulator'
+        nme.make 'ios', flags
       else
         puts "dust unable to make #{target} - unsupported target"
     end
@@ -64,6 +67,19 @@ class Dust
         nme.update 'ios', '-simulator'
       when 'ipad_simulator'
         nme.update 'ios', '-simulator -ipad'
+      else
+        puts "dust unable to update #{target} - don't know what to do!"
+    end
+  end
+
+  def build(target)
+    case target
+      when 'ipad'
+        nme.build 'ios', '-ipad'
+      when 'iphone_simulator'
+        nme.build 'ios', '-simulator'
+      when 'ipad_simulator'
+        nme.build 'ios', '-simulator -ipad'
       else
         puts "dust unable to update #{target} - don't know what to do!"
     end

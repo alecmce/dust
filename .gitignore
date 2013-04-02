@@ -12,6 +12,7 @@ build/build.nmml
 build/.temp
 
 .munit
+.haxelib_cache
 test.hxml
 
 report/*
