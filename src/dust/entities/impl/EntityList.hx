@@ -1,15 +1,15 @@
 package dust.entities.impl;
 
-import dust.entities.api.EntityList;
+import dust.entities.impl.EntityList;
 import dust.entities.api.Entity;
 import dust.lists.SimpleList;
 import dust.lists.LinkedListItem;
 import dust.lists.LinkedList;
 
-class SimpleEntityList implements EntityList
+class EntityList
 {
-    var list:LinkedList<Entity>;
-    var hash:IntHash<LinkedListItem<Entity>>;
+    public var list:LinkedList<Entity>;
+    public var hash:IntHash<LinkedListItem<Entity>>;
 
     public function new(list:LinkedList<Entity>)
     {

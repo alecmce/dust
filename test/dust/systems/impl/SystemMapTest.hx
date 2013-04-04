@@ -14,13 +14,14 @@ class SystemMapTest
 {
     var injector:Injector;
     var collectionMap:CollectionMap;
+    var collectionSorts:CollectionSorts;
     var systemMap:SystemMap;
 
     @Before public function before()
     {
         injector = new Injector();
         collectionMap = makeCollectionMap();
-        systemMap = new SystemMap(injector, collectionMap);
+        systemMap = new SystemMap(injector, collectionMap, collectionSorts);
     }
 
         function makeCollectionMap():CollectionMap

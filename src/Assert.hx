@@ -73,7 +73,7 @@ class Assert
             for (i in 0...actual.length)
                 areEqual = areEqual && actual[i] == expected[i];
 
-        areEqual ? addAssertion() : Assert.fail("Value [" + actual +"] was not equal to expected value [" + expected + "]", info);
+        areEqual ? addAssertion() : Assert.fail("Value " + actual +" was not equal to expected value " + expected, info);
     }
 
     public static function listIncludes(iterator:Iterator<Dynamic>, actual:Dynamic, ?info:PosInfos)

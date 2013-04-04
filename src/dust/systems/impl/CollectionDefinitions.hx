@@ -1,5 +1,7 @@
 package dust.systems.impl;
 
+import dust.collections.control.CollectionMapping;
+import dust.entities.api.Entity;
 import dust.collections.api.Collection;
 import dust.collections.control.CollectionMap;
 import dust.Injector;
@@ -9,19 +11,21 @@ class CollectionDefinitions
 {
     var injector:Injector;
     var collectionMap:CollectionMap;
+    var sortedCollections:CollectionSorts;
 
     var list:Array<CollectionDefinition>;
 
-    public function new(injector:Injector, collectionMap:CollectionMap)
+    public function new(injector:Injector, collectionMap:CollectionMap, sortedCollections:CollectionSorts)
     {
         this.injector = injector;
         this.collectionMap = collectionMap;
+        this.sortedCollections = sortedCollections;
 
         list = new Array<CollectionDefinition>();
     }
 
-    public function add(components:Array<Class<Component>>, name:String = "")
-        list.push(new CollectionDefinition(components, name))
+    public function add(components:Array<Class<Component>>, sorter:Entity->Entity->Int, name:String = "")
+        list.push(new CollectionDefinition(components, sorter, name))
 
     public function map()
     {
@@ -33,8 +37,15 @@ class CollectionDefinitions
         {
             var config = collectionMap.map(definition.components);
             definition.collection = config.getCollection();
+            configureSort(definition.collection, definition.sorter);
             injector.mapValue(Collection, definition.collection, definition.name);
         }
+
+            function configureSort(collection:Collection, sorter:Entity->Entity->Int)
+            {
+                if (sorter != null)
+                    sortedCollections.add(new CollectionSort(untyped collection.list.list, sorter));
+            }
 
     public function unmap()
     {

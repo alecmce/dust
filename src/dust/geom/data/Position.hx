@@ -73,10 +73,10 @@ class Position extends Component
         y += center.y;
     }
 
-    public function sum():Float
+    inline public function sum():Float
         return x + y
 
-    public function dif():Float
+    inline public function dif():Float
         return x - y
 
     public function toString():String

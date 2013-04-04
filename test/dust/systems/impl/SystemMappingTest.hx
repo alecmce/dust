@@ -29,6 +29,8 @@ class SystemMappingTest
     var context:Context;
 
     var collectionMap:CollectionMap;
+    var collectionSorts:CollectionSorts;
+
     var list:SystemsList;
     var loop:TestSystemsLoop;
     var mapping:SystemMapping;
@@ -46,6 +48,8 @@ class SystemMappingTest
             .start(new Sprite());
 
         collectionMap = context.injector.getInstance(CollectionMap);
+        collectionSorts = context.injector.getInstance(CollectionSorts);
+
         list = context.injector.getInstance(SystemsList);
         loop = new TestSystemsLoop(list);
     }
@@ -62,7 +66,7 @@ class SystemMappingTest
         }
 
         function makeSystemMapping(system:Class<System>):SystemMapping
-            return new SystemMapping(injector, collectionMap, system)
+            return new SystemMapping(injector, collectionMap, collectionSorts, system)
 
     @Test public function canApplySystemMappingToSystemList()
     {
@@ -88,20 +92,6 @@ class SystemMappingTest
         var system:MockCollectionSystem = cast loop.addedSystem;
         Assert.isType(system.collection, Collection);
     }
-
-    @Test public function withSortedCollectionDefinesSortedCollectionInjectedIntoSystem()
-    {
-        mapping = makeSystemMapping(MockCollectionSystem);
-        mapping.toCollection([SortableComponent]);
-        mapping.withSorter(sortMethod);
-        mapping.apply(loop);
-
-        var system:MockCollectionSystem = cast loop.addedSystem;
-        Assert.isType(system.collection, Collection);
-    }
-
-        function sortMethod(a:Entity, b:Entity):Int
-            return a.get(SortableComponent).priority - b.get(SortableComponent).priority
 
     @Test public function canNameCollectionMapping()
     {

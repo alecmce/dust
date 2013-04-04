@@ -10,15 +10,17 @@ class SystemMap
 {
     var injector:Injector;
     var collectionMap:CollectionMap;
+    var collectionSorts:CollectionSorts;
     var mappings:SimpleList<SystemMapping>;
 
     var metrics:SystemMetrics;
 
     @inject
-    public function new(injector:Injector, collectionMap:CollectionMap)
+    public function new(injector:Injector, collectionMap:CollectionMap, collectionSorts:CollectionSorts)
     {
         this.injector = injector;
         this.collectionMap = collectionMap;
+        this.collectionSorts = collectionSorts;
         mappings = new SimpleList<SystemMapping>();
     }
 
@@ -59,7 +61,7 @@ class SystemMap
 
         function makeMapping(type:Class<System>):SystemMapping
         {
-            var mapping = new SystemMapping(injector, collectionMap, type);
+            var mapping = new SystemMapping(injector, collectionMap, collectionSorts, type);
             if (metrics != null)
                 mapping.withMetrics(metrics);
 

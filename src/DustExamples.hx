@@ -1,5 +1,6 @@
 package;
 
+import dust.systems.eg.FastInsertionSortAlgorithmExample;
 import dust.Injector;
 import dust.ui.eg.UIExample;
 import dust.context.DependentConfig;
@@ -39,7 +40,8 @@ class DustExamples implements DependentConfig
             .start(new Sprite());
     }
 
-    @inject public var parent:Injector;
+    @inject public var parent:Context;
+    @inject public var root:DisplayObjectContainer;
     @inject public var mainMenu:MainMenu;
 
     var module:Context;
@@ -57,9 +59,10 @@ class DustExamples implements DependentConfig
             .add("BitmapFont 2", BitmapFontExample)
             .add("BitmapText", BitmapTextExample)
             .add("QuadTree", QuadTreeVisualizationExample)
-            .add("UI", UIExample);
+            .add("UI", UIExample)
+            .add("FastInsertionSort", FastInsertionSortAlgorithmExample);
 
-        nme.Lib.current.stage.addChild(mainMenu);
+        root.addChild(mainMenu);
         mainMenu.reset.bind(onReset);
         mainMenu.selected.bind(onSelection);
         mainMenu.enable();
@@ -74,7 +77,7 @@ class DustExamples implements DependentConfig
 
         function onSelection(config:Class<Config>)
         {
-            module = new Context(new Injector(parent))
+            module = new Context(parent)
                 .configure(MoveCameraExample)
                 .configure(ConsoleConfig)
                 .configure(config)

@@ -2,8 +2,7 @@ package dust.collections.api;
 
 import dust.components.Bitfield;
 import dust.entities.api.Entity;
-import dust.entities.api.EntityList;
-import dust.entities.impl.SimpleEntityList;
+import dust.entities.impl.EntityList;
 import dust.lists.LinkedList;
 import dust.lists.LinkedListItem;
 import dust.lists.PooledList;
@@ -16,7 +15,7 @@ class Collection
     public var id(default, null):Int;
 
     public var bitfield:Bitfield;
-    var list:EntityList;
+    public var list:EntityList;
     var onAdded:Entity->Void;
     var onRemoved:Entity->Void;
 

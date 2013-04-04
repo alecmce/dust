@@ -33,8 +33,7 @@ class PaintersConfig implements DependentConfig
     {
         systems
             .map(PainterSystem)
-            .toCollection([Camera, Painter])
-            .withSorter(sorter)
+            .toCollection([Camera, Painter], sorter)
             .withName("Painters");
     }
 

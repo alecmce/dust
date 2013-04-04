@@ -17,13 +17,15 @@ class SystemsTest
 {
     var injector:Injector;
     var collectionMap:CollectionMap;
+    var collectionSorts:CollectionSorts;
     var systems:Systems;
 
     @Before public function before()
     {
         injector = new Injector();
         collectionMap = makeCollectionMap();
-        var systemMap = new SystemMap(injector, collectionMap);
+        collectionSorts = new CollectionSorts();
+        var systemMap = new SystemMap(injector, collectionMap, collectionSorts);
         var list = new SystemsList();
         var loop = new SystemsLoop(list);
         systems = new Systems(systemMap, loop);

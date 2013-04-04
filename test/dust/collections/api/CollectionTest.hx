@@ -12,7 +12,7 @@ import dust.entities.api.Entity;
 import dust.entities.api.Entities;
 import dust.collections.api.Collection;
 import dust.lists.SimpleList;
-import dust.entities.impl.SimpleEntityList;
+import dust.entities.impl.EntityList;
 
 using Lambda;
 
@@ -24,7 +24,7 @@ class CollectionTest
     var entities:Entities;
 
     var collectionBitfield:Bitfield;
-    var list:SimpleEntityList;
+    var list:EntityList;
     var added:Entity;
     var removed:Entity;
     var collection:Collection;
@@ -38,7 +38,7 @@ class CollectionTest
         entities = new PooledEntities(bitfieldFactory);
 
         collectionBitfield = bitfieldFactory.makeEmpty();
-        list = new SimpleEntityList(new SimpleList<Entity>());
+        list = new EntityList(new SimpleList<Entity>());
         collection = new Collection(collectionBitfield, list, onEntityAdded, onEntityRemoved);
 
         entityBitfield = bitfieldFactory.makeEmpty();

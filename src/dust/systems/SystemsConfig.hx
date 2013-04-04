@@ -1,5 +1,7 @@
 package dust.systems;
 
+import dust.systems.systems.SortCollectionsSystem;
+import dust.systems.impl.CollectionSorts;
 import dust.systems.systems.UpdateCollectionsSystem;
 import dust.collections.CollectionsConfig;
 import dust.systems.impl.SystemsList;
@@ -36,21 +38,25 @@ class SystemsConfig implements DependentConfig
 
     public function configure()
     {
+        injector.mapSingleton(CollectionSorts);
         injector.mapSingleton(SystemMap);
         injector.mapSingleton(SystemsLoop);
         injector.mapSingleton(SystemsList);
         injector.mapSingleton(Systems);
         injector.mapSingleton(UpdateCollectionsSystem);
 
-        configureSystems();
+        configureSystems(injector.getInstance(Systems));
     }
 
-        function configureSystems()
+        function configureSystems(systems:Systems)
         {
-            var systems:Systems = injector.getInstance(Systems);
             systems
                 .map(UpdateCollectionsSystem)
-                .withName("UpdateCollections");
+                .withName("Update Collections");
+
+            systems
+                .map(SortCollectionsSystem)
+                .withName("Sort Collections");
 
             signals.mapVoid(StartSystemsSignal, systems.start);
             signals.mapVoid(StopSystemsSignal, systems.stop);

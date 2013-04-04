@@ -8,9 +8,7 @@ import dust.components.Bitfield;
 import dust.components.Component;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
-import dust.entities.api.EntityList;
-import dust.entities.impl.SimpleEntityList;
-import dust.entities.impl.SortedEntityList;
+import dust.entities.impl.EntityList;
 import dust.lists.LinkedList;
 import dust.lists.SimpleList;
 
@@ -20,7 +18,7 @@ class CollectionMapping
 {
     function emptyMethod(entity:Entity) {}
 
-    var injector:Injector;
+    public var injector:Injector;
     var bitfield:Bitfield;
     var collectionList:CollectionList;
     var subscriber:CollectionSubscriber;
@@ -28,7 +26,6 @@ class CollectionMapping
 
     var instance:Collection;
     var components:Array<Class<Component>>;
-    var sorter:Entity->Entity->Int;
 
     public function new(parent:Injector, bitfield:Bitfield, collectionList:CollectionList, subscriber:CollectionSubscriber)
     {
@@ -45,12 +42,6 @@ class CollectionMapping
     public function setComponents(components:Array<Class<Component>>):CollectionMapping
     {
         this.components = components;
-        return this;
-    }
-
-    public function setSorter(sorter:Entity->Entity->Int):CollectionMapping
-    {
-        this.sorter = sorter;
         return this;
     }
 
@@ -77,22 +68,10 @@ class CollectionMapping
 
             function makeCollection():Collection
             {
-                var inner = makeLinkedList();
-                var list = makeList(inner);
+                var list = new EntityList(new SimpleList<Entity>());
                 var listeners = listenersMap.make();
                 return new Collection(bitfield, list, listeners.onEntityAdded, listeners.onEntityRemoved);
             }
-
-                function makeLinkedList():LinkedList<Entity>
-                    return new SimpleList<Entity>()
-
-                function makeList(list:LinkedList<Entity>):EntityList
-                {
-                    return if (sorter != null)
-                        new SortedEntityList(list, sorter);
-                    else
-                        new SimpleEntityList(list);
-                }
 
         function populateCollection(collection:Collection)
             subscriber.updateCollection(collection)

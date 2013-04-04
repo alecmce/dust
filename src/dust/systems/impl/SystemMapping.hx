@@ -1,5 +1,6 @@
 package dust.systems.impl;
 
+import dust.systems.impl.CollectionSorts;
 import dust.systems.System;
 import dust.collections.control.CollectionMap;
 import dust.entities.api.Entity;
@@ -24,10 +25,10 @@ class SystemMapping
     var name:String;
     var metrics:SystemMetrics;
 
-    public function new(parent:Injector, collectionMap:CollectionMap, type:Class<System>)
+    public function new(parent:Injector, collectionMap:CollectionMap, collectionSorts:CollectionSorts, type:Class<System>)
     {
         injector = new Injector(parent);
-        this.collections = new CollectionDefinitions(injector, collectionMap);
+        this.collections = new CollectionDefinitions(injector, collectionMap, collectionSorts);
         this.type = type;
     }
 
@@ -36,21 +37,15 @@ class SystemMapping
         return this.type == type;
     }
 
-    public function toCollection(components:Array<Class<Component>>, ?name:String = ""):SystemMapping
+    public function toCollection(components:Array<Class<Component>>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
     {
-        collections.add(components, name);
+        collections.add(components, sorter, name);
         return this;
     }
 
     public function withName(name:String):SystemMapping
     {
         this.name = name;
-        return this;
-    }
-
-    public function withSorter(sorter:Entity->Entity->Int):SystemMapping
-    {
-        this.sorter = sorter;
         return this;
     }
 
