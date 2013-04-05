@@ -2,7 +2,7 @@ package dust.mainmenu;
 
 import dust.app.data.AppTarget;
 import nme.display.DisplayObjectContainer;
-import dust.app.data.AppData;
+import dust.app.data.App;
 import dust.app.AppConfig;
 import dust.text.SmallWhiteHelveticaFontConfig;
 import dust.mainmenu.control.MainMenuButtonFactory;
@@ -21,7 +21,7 @@ import dust.context.Config;
 
 class MainMenuConfig implements DependentConfig
 {
-    @inject public var app:AppData;
+    @inject public var app:App;
     @inject public var injector:Injector;
     @inject public var signalMap:SignalMap;
     @inject public var fonts:BitmapFonts;

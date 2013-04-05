@@ -1,6 +1,6 @@
 package dust.mainmenu.data;
 
-import dust.app.data.AppData;
+import dust.app.data.App;
 import nme.display.Graphics;
 import nme.display.Sprite;
 import dust.geom.data.Position;
@@ -16,9 +16,9 @@ class MainMenuButtonConfig
     public var height:Int;
     public var padding:Int;
 
-    var app:AppData;
+    var app:App;
 
-    public function new(app:AppData, font:BitmapFont, paint:Paint, width:Int, height:Int, padding:Int)
+    public function new(app:App, font:BitmapFont, paint:Paint, width:Int, height:Int, padding:Int)
     {
         this.app = app;
 

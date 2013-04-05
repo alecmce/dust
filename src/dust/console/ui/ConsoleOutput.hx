@@ -1,6 +1,6 @@
 package dust.console.ui;
 
-import dust.app.data.AppData;
+import dust.app.data.App;
 import nme.display.Shape;
 import nme.display.Sprite;
 import nme.display.BlendMode;
@@ -18,7 +18,7 @@ class ConsoleOutput extends Sprite
     var previous:Int;
 
     @inject
-    public function new(app:AppData, format:ConsoleFormat)
+    public function new(app:App, format:ConsoleFormat)
     {
         super();
         this.lines = new Array<String>();
@@ -28,7 +28,7 @@ class ConsoleOutput extends Sprite
         this.previous = 0;
     }
 
-    function makeBackground(app:AppData):Shape
+    function makeBackground(app:App):Shape
     {
         var shape = new Shape();
         shape.graphics.beginFill(0x006600, 0.8);
@@ -38,7 +38,7 @@ class ConsoleOutput extends Sprite
         return shape;
     }
 
-    function makeTextfield(app:AppData):TextField
+    function makeTextfield(app:App):TextField
     {
         var textfield = new TextField();
         textfield.width = app.stageWidth;

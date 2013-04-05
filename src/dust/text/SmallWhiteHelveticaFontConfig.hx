@@ -1,7 +1,7 @@
 package dust.text;
 
 import dust.app.data.AppTarget;
-import dust.app.data.AppData;
+import dust.app.data.App;
 import dust.app.AppConfig;
 import nme.errors.Error;
 import nme.display.BitmapData;
@@ -19,7 +19,7 @@ class SmallWhiteHelveticaFontConfig implements DependentConfig
     static var FONT_10 = 'helvetica-10-white';
     static var FONT_20 = 'helvetica-20-white';
 
-    @inject public var app:AppData;
+    @inject public var app:App;
     @inject public var factory:BitmapFontFactory;
     @inject public var fonts:BitmapFonts;
 

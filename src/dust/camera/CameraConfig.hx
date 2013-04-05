@@ -1,7 +1,7 @@
 package dust.camera;
 
 import dust.app.data.AppTarget;
-import dust.app.data.AppData;
+import dust.app.data.App;
 import dust.app.AppConfig;
 import dust.collections.CollectionsConfig;
 import dust.camera.config.CameraDecorator;
@@ -16,7 +16,7 @@ import dust.Injector;
 class CameraConfig implements DependentConfig
 {
     @inject public var injector:Injector;
-    @inject public var app:AppData;
+    @inject public var app:App;
     @inject public var entities:Entities;
 
     var screenCenterX:Int;

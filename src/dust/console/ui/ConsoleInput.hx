@@ -1,6 +1,6 @@
 package dust.console.ui;
 
-import dust.app.data.AppData;
+import dust.app.data.App;
 import nme.display.BlendMode;
 import dust.signals.Signal;
 
@@ -18,7 +18,7 @@ class ConsoleInput extends Sprite
     var input:TextField;
 
     @inject
-    public function new(app:AppData, format:ConsoleFormat)
+    public function new(app:App, format:ConsoleFormat)
     {
         super();
         this.format = format;
@@ -26,7 +26,7 @@ class ConsoleInput extends Sprite
         command = new Signal<String>();
     }
 
-        function makeInput(app:AppData)
+        function makeInput(app:App)
         {
             var input = new TextField();
             input.y = app.stageHeight - 20;

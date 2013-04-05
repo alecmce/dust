@@ -4,7 +4,7 @@ import nme.ui.MultitouchInputMode;
 import dust.app.data.AppTarget;
 import nme.Vector;
 import nme.ui.Multitouch;
-import dust.app.data.AppData;
+import dust.app.data.App;
 import dust.Injector;
 import dust.context.Config;
 
@@ -12,22 +12,22 @@ class AppConfig implements Config
 {
     @inject public var injector:Injector;
 
-    var app:AppData;
+    var app:App;
 
     public function configure()
     {
         app = makeApp();
-        injector.mapValue(AppData, app);
+        injector.mapValue(App, app);
         Multitouch.inputMode = getInputMode();
     }
 
-        function makeApp():AppData
+        function makeApp():App
         {
             var width = nme.Lib.current.stage.stageWidth;
             var height = nme.Lib.current.stage.stageHeight;
             var isMultiTouch = nme.ui.Multitouch.supportsTouchEvents;
 
-            var app = new AppData();
+            var app = new App();
             app.stageWidth = Std.int(width);
             app.stageHeight = Std.int(height);
             app.target = getTarget(width, height, isMultiTouch);

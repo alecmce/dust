@@ -2,9 +2,9 @@ package dust.mainmenu.control;
 
 import nme.events.MouseEvent;
 import nme.events.TouchEvent;
-import dust.app.data.AppData;
-import dust.text.data.BitmapTextData;
+import dust.app.data.App;
 import dust.context.Config;
+import dust.text.data.BitmapTextData;
 import dust.mainmenu.ui.MainMenuButton;
 import dust.text.control.BitmapTextFactory;
 import dust.mainmenu.data.MainMenuButtonConfig;
@@ -16,7 +16,7 @@ import nme.display.Sprite;
 
 class MainMenuButtonFactory
 {
-    @inject public var app:AppData;
+    @inject public var app:App;
     @inject public var textFactory:BitmapTextFactory;
     @inject public var buttonConfig:MainMenuButtonConfig;
 
