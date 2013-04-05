@@ -17,4 +17,7 @@ class SlowTrig implements Trig
 
     inline public function getCosine():Float
         return Math.cos(angle)
+
+    inline public function setDirection(dx:Float, dy:Float)
+        angle = Math.atan2(dy, dx)
 }

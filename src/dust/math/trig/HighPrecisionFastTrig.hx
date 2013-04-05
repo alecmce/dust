@@ -44,4 +44,7 @@ class HighPrecisionFastTrig implements Trig
             else
                 0.255 * (n * n - n) + n;
         }
+
+    inline public function setDirection(dx:Float, dy:Float):Void
+        angle = Math.atan2(dy, dx)
 }

@@ -2,6 +2,8 @@ package dust.math.trig;
 
 class LowPrecisionFastTrig implements Trig
 {
+    inline static var QUARTER_PI = Math.PI / 4;
+
     var angle:Float;
 
     public function new() {}
@@ -39,5 +41,8 @@ class LowPrecisionFastTrig implements Trig
             else
                 1.27323954 * angle - 0.405284735 * square;
         }
+
+    inline public function setDirection(dx:Float, dy:Float):Void
+        angle = Math.atan2(dy, dx)
 
 }

@@ -6,4 +6,6 @@ interface Trig
     function getAngle():Float;
     function getSine():Float;
     function getCosine():Float;
+
+    function setDirection(dx:Float, dy:Float):Void;
 }
