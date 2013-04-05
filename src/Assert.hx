@@ -5,7 +5,7 @@ import haxe.PosInfos;
 
 class Assert
 {
-    static function addAssertion()
+    public static function addAssertion()
         massive.munit.Assert.assertionCount++
 
     public static function fail(message:String, ?info:PosInfos)

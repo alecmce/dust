@@ -1,6 +1,6 @@
 package dust.app.data;
 
-class AppData
+class App
 {
     public var stageWidth:Int;
     public var stageHeight:Int;

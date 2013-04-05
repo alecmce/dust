@@ -92,11 +92,11 @@ class Dust
       when 'html5'
         puts 'TODO running html5 target not implemented yet!'
       when 'ipad'
-        nme.run 'ios', '-ipad'
+        nme.test 'ios', '-ipad'
       when 'iphone_simulator'
-        nme.run 'ios', '-simulator'
+        nme.test 'ios', '-simulator'
       when 'ipad_simulator'
-        nme.run 'ios', '-simulator -ipad'
+        nme.test 'ios', '-simulator -ipad'
       else
         puts "dust unable to run #{target} - unsupported target"
     end

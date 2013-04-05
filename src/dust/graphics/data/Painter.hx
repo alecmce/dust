@@ -10,4 +10,10 @@ class Painter extends Component
     public var priority:Int;
 
     public function draw(entity:Entity, graphics:Graphics) {}
+
+    public function setPriority(priority:Int):Painter
+    {
+        this.priority = priority;
+        return this;
+    }
 }

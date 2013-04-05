@@ -28,7 +28,7 @@ class Nme
   end
 
   def test(target, flags)
-    command = "nme build #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+    command = "nme test #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
     execute command
   end
 
