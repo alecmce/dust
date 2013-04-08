@@ -1,5 +1,8 @@
 package dust.ui;
 
+import dust.ui.factory.UILabelFactory;
+import dust.text.SmallWhiteHelveticaFontConfig;
+import dust.text.BitmapTextConfig;
 import dust.ui.components.ComponentConfig;
 import dust.ui.systems.UIViewRootManager;
 import dust.collections.control.CollectionMap;
@@ -21,13 +24,12 @@ class UIConfig implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [EntitiesConfig, SystemsConfig];
-    }
+        return [EntitiesConfig, SystemsConfig, SmallWhiteHelveticaFontConfig]
 
     public function configure()
     {
         injector.mapSingleton(ComponentConfig);
+        injector.mapSingleton(UILabelFactory);
 
         collections
             .map([UIView, Position])

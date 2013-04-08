@@ -24,7 +24,7 @@ class BitmapFontChar
     public function getKerning(char:Int):Int
         return kerning.exists(char) ? kerning.get(char) : 0
 
-    public function drawTo(target:BitmapData, x:Int, y:Int)
+    public function drawTo(target:BitmapData, x:Float, y:Float)
     {
         position.x = x + dx;
         position.y = y + dy;

@@ -9,9 +9,9 @@ import dust.text.control.BitmapFonts;
 import dust.context.Config;
 import dust.context.DependentConfig;
 
-class Michroma24WhiteFontConfig implements DependentConfig
+class Fixed24WhiteMichromaFontConfig implements DependentConfig
 {
-    public static var MICHROMA_24_WHITE = 'michroma-24-white';
+    public static var FONT = '24-white-michroma';
 
     @inject public var factory:BitmapFontFactory;
     @inject public var fonts:BitmapFonts;
@@ -20,7 +20,7 @@ class Michroma24WhiteFontConfig implements DependentConfig
         return [BitmapTextConfig]
 
     public function configure()
-        fonts.add(MICHROMA_24_WHITE, makeFont())
+        fonts.add(FONT, makeFont())
 
         function makeFont():BitmapFont
         {

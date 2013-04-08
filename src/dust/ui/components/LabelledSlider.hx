@@ -15,9 +15,9 @@ class LabelledSlider extends Slider
         addChild(makeLabel(text));
     }
 
-        function makeLabel(text:String):Label
+        function makeLabel(text:String):UILabel
         {
-            var label:Label = new Label(text);
+            var label:UILabel = new UILabel(text);
             label.x = -label.width * 0.5;
             label.y = -label.height * 0.5;
             label.mouseEnabled = false;

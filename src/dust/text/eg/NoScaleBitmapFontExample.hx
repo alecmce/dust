@@ -28,11 +28,11 @@ class NoScaleBitmapFontExample implements DependentConfig
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig, Michroma24WhiteFontConfig, PaintersConfig]
+        return [CameraConfig, Fixed24WhiteMichromaFontConfig, PaintersConfig]
 
     public function configure()
     {
-        var font = fonts.get(Michroma24WhiteFontConfig.MICHROMA_24_WHITE);
+        var font = fonts.get(Fixed24WhiteMichromaFontConfig.FONT);
 
         var x = -200;
         var y = -100;

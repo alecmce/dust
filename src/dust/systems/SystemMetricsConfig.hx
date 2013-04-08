@@ -1,5 +1,6 @@
 package dust.systems;
 
+import dust.ui.factory.UILabelFactory;
 import dust.systems.ui.FrameRateView;
 import dust.context.UnconfigConfig;
 import dust.systems.impl.Systems;
@@ -30,6 +31,7 @@ class SystemMetricsConfig implements DependentConfig
     @inject public var injector:Injector;
     @inject public var entities:Entities;
     @inject public var systems:Systems;
+    @inject public var labelFactory:UILabelFactory;
 
     var metrics:SystemMetrics;
     var list:SystemsList;
@@ -59,7 +61,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeSystemMetricsViewEntity()
         {
             var entity = entities.require();
-            entity.addAsType(new SystemMetricsView(metrics, OUTPUT_PRECISION), UIView);
+            entity.addAsType(new SystemMetricsView(labelFactory, metrics, OUTPUT_PRECISION), UIView);
             entity.add(new Alignment(HAlign.LEFT, VAlign.BOTTOM));
             entity.add(new Position(0, stage().stageHeight));
             return entity;
@@ -68,7 +70,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeFrameRateViewEntity()
         {
             var entity = entities.require();
-            entity.addAsType(new FrameRateView(), UIView);
+            entity.addAsType(new FrameRateView(labelFactory), UIView);
             entity.add(new Alignment(HAlign.RIGHT, VAlign.TOP));
             entity.add(new Position(stage().stageWidth, 0));
             return entity;

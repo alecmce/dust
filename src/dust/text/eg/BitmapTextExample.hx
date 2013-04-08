@@ -1,5 +1,6 @@
 package dust.text.eg;
 
+import dust.text.data.BitmapTextData;
 import dust.text.control.BitmapFonts;
 import dust.graphics.data.Painter;
 import dust.graphics.data.BitmapPainter;
@@ -27,12 +28,13 @@ class BitmapTextExample implements DependentConfig
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig, MathConfig, Michroma24WhiteFontConfig, PaintersConfig]
+        return [CameraConfig, MathConfig, Fixed24WhiteMichromaFontConfig, PaintersConfig]
 
     public function configure()
     {
-        var font = fonts.get(Michroma24WhiteFontConfig.MICHROMA_24_WHITE);
-        var bitmap = bitmapFactory.make(font, "Hello World!");
+        var font = fonts.get(Fixed24WhiteMichromaFontConfig.FONT);
+        var data = new BitmapTextData(font, 'Hello World!');
+        var bitmap = bitmapFactory.make(data);
         var painter = new BitmapPainter(bitmap);
 
         var entity = entities.require();

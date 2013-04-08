@@ -1,5 +1,14 @@
 package dust.text.control;
 
+import nme.display.BitmapData;
+import nme.geom.Rectangle;
+import nme.display.BitmapData;
+import dust.text.data.BitmapTextChar;
+import dust.ui.data.VAlign;
+import dust.ui.data.HAlign;
+import dust.text.data.BitmapTextData;
+import dust.text.data.BitmapTextData;
+import dust.ui.data.Color;
 import dust.text.data.BitmapFont;
 import dust.text.data.BitmapFontChar;
 import dust.text.data.BitmapFont;
@@ -11,80 +20,62 @@ import nme.geom.Rectangle;
 
 class BitmapTextFactory
 {
+    @inject public var charsFactory:BitmapTextCharsFactory;
+
     var position:Point;
+    var width:Int;
+    var height:Int;
 
     public function new()
         position = new Point()
 
-    public function make(font:BitmapFont, label:String):BitmapData
+    public function make(data:BitmapTextData, current:BitmapData = null):BitmapData
     {
-        var chars = makeChars(font, label);
-        var bitmapData = makeBitmapData(chars.bounds);
-        if (bitmapData != null)
-            populateBitmapData(chars.list, bitmapData);
-        return bitmapData;
+        var chars = charsFactory.make(data.font, data.label);
+        var bounds = getBounds(data, chars.bounds);
+        var target = getBitmapData(current, data);
+        chars.draw(target, data.hAlign, data.vAlign);
+        return target;
     }
 
-        function makeChars(font:BitmapFont, label:String):{list:Array<BitmapTextChar>, bounds:Rectangle}
+        function getBounds(data:BitmapTextData, bounds:Rectangle)
         {
-            var x = 0;
-            var y = 0;
-            var bounds = new Rectangle(0, 0, 0, font.lineHeight);
+            width = data.width != BitmapTextData.UNDEFINED ? data.width : Std.int(bounds.width);
+            height = data.height != BitmapTextData.UNDEFINED ? data.height : Std.int(bounds.height);
+        }
 
-            var textChars = new Array<BitmapTextChar>();
-            for (i in 0...label.length)
+        function getBitmapData(current:BitmapData, data:BitmapTextData):BitmapData
+        {
+            return if (current != null)
+                reuseOrReplaceCurrentBitmapData(current, data);
+            else if (width == 0 || height == 0)
+                null;
+            else
+                makeNewBitmapData(data);
+        }
+
+            inline function reuseOrReplaceCurrentBitmapData(current:BitmapData, data:BitmapTextData):BitmapData
             {
-                var fontChar = font.getChar(label.charCodeAt(i));
-                if (fontChar == null)
-                    continue;
-
-                var textChar = new BitmapTextChar(fontChar, x, y);
-                x += fontChar.advance;
-                textChars.push(textChar);
-
-                var right = x + fontChar.dx + fontChar.data.width;
-                if (bounds.right < right)
-                    bounds.right = right;
-
-                var bottom = y + fontChar.dy + fontChar.data.height;
-                if (bounds.bottom < bottom)
-                    bounds.bottom = bottom;
+                return if (current.width < width || current.height < height)
+                    replaceBitmapData(current, data);
+                else
+                    reuseBitmapData(current, data);
             }
 
-            return {list:textChars, bounds:bounds};
-        }
+                inline function replaceBitmapData(current:BitmapData, data:BitmapTextData):BitmapData
+                {
+                    current.dispose();
+                    return makeNewBitmapData(data);
+                }
 
-        function makeBitmapData(bounds:Rectangle):BitmapData
-        {
-            var width = Std.int(bounds.width);
-            var height = Std.int(bounds.height);
-            return if (width > 0 && height > 0)
-                new BitmapData(width, height, true, 0);
-            else
-                null;
-        }
+                inline function reuseBitmapData(current:BitmapData, data:BitmapTextData):BitmapData
+                {
+                    current.fillRect(current.rect, data.background);
+                    return current;
+                }
 
-        function populateBitmapData(chars:Array<BitmapTextChar>, bitmapData:BitmapData)
-        {
-            for (char in chars)
-                char.drawTo(bitmapData);
-        }
+            inline function makeNewBitmapData(data:BitmapTextData):BitmapData
+                return new BitmapData(width, height, data.useAlpha, data.background)
 }
 
-class BitmapTextChar
-{
-    var char:BitmapFontChar;
-    var x:Int;
-    var y:Int;
 
-    public function new(char:BitmapFontChar, x:Int, y:Int)
-    {
-        this.char = char;
-        this.x = x;
-        this.y = y;
-    }
-
-    inline public function drawTo(target:BitmapData)
-        char.drawTo(target, x, y)
-
-}

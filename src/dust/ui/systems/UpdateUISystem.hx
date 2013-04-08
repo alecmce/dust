@@ -29,7 +29,7 @@ class UpdateUISystem implements System
         function updateEntity(entity:Entity)
         {
             var view:UIView = entity.get(UIView);
-            view.refresh(deltaTime);
+            view.refresh(entity, deltaTime);
 
             var position:Position = entity.get(Position);
             var alignment:Alignment = entity.has(Alignment) ? entity.get(Alignment) : Alignment.DEFAULT();

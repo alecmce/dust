@@ -1,11 +1,11 @@
 package dust.ui;
 
-import dust.ui.components.Label;
+import dust.ui.components.UILabel;
 
 class LabelTest
 {
     @Test public function canMakeLabel()
     {
-        var label = new Label("hello");
+        var label = new UILabel("hello");
     }
 }

@@ -4,10 +4,10 @@ import dust.app.data.AppTarget;
 import nme.display.DisplayObjectContainer;
 import dust.app.data.AppData;
 import dust.app.AppConfig;
-import dust.text.HelveticaSmallWhiteFontConfig;
+import dust.text.SmallWhiteHelveticaFontConfig;
 import dust.mainmenu.control.MainMenuButtonFactory;
 import dust.graphics.data.Paint;
-import dust.text.Michroma24WhiteFontConfig;
+import dust.text.Fixed24WhiteMichromaFontConfig;
 import dust.text.control.BitmapFontFactory;
 import dust.text.control.BitmapFonts;
 import dust.mainmenu.data.MainMenuButtonConfig;
@@ -28,7 +28,7 @@ class MainMenuConfig implements DependentConfig
     @inject public var root:DisplayObjectContainer;
 
     public function dependencies():Array<Class<Config>>
-        return [AppConfig, SignalMapConfig, HelveticaSmallWhiteFontConfig]
+        return [AppConfig, SignalMapConfig, SmallWhiteHelveticaFontConfig]
 
     public function configure()
     {
@@ -41,7 +41,7 @@ class MainMenuConfig implements DependentConfig
 
         function makeConfig():MainMenuButtonConfig
         {
-            var font = fonts.get(HelveticaSmallWhiteFontConfig.FONT);
+            var font = fonts.get(SmallWhiteHelveticaFontConfig.FONT);
             var paint = new Paint()
                 .setFill(0x1E90FF)
                 .setLine(1, 0xFFFFFF);

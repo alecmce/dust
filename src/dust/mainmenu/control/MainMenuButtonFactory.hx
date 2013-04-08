@@ -3,6 +3,7 @@ package dust.mainmenu.control;
 import nme.events.MouseEvent;
 import nme.events.TouchEvent;
 import dust.app.data.AppData;
+import dust.text.data.BitmapTextData;
 import dust.context.Config;
 import dust.mainmenu.ui.MainMenuButton;
 import dust.text.control.BitmapTextFactory;
@@ -47,7 +48,7 @@ class MainMenuButtonFactory
 
         function makeLabel(name:String):Bitmap
         {
-            var text = textFactory.make(buttonConfig.font, name);
+            var text = textFactory.make(new BitmapTextData(buttonConfig.font, name));
             if (text == null)
                 return null;
 

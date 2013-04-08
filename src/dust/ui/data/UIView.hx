@@ -1,8 +1,9 @@
 package dust.ui.data;
 
+import dust.entities.api.Entity;
+import dust.components.Component;
 import nme.display.Sprite;
 import nme.geom.Rectangle;
-import dust.components.Component;
 
 class UIView extends Component
 {
@@ -11,5 +12,5 @@ class UIView extends Component
     public function new()
         display = new Sprite()
 
-    public function refresh(deltaTime:Float) {}
+    public function refresh(entity:Entity, deltaTime:Float) {}
 }

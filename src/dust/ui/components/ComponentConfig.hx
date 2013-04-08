@@ -2,7 +2,6 @@ package dust.ui.components;
 
 class ComponentConfig
 {
-
     public var sliderWidth:Int;
     public var sliderHeight:Int;
     public var sliderBackgroundColor:Int;

@@ -12,9 +12,9 @@ import dust.text.control.BitmapFonts;
 import dust.context.Config;
 import dust.context.DependentConfig;
 
-class HelveticaSmallWhiteFontConfig implements DependentConfig
+class SmallWhiteHelveticaFontConfig implements DependentConfig
 {
-    public static var FONT = 'helvetica-normal-white';
+    public static var FONT = 'small-white-helvetica';
 
     static var FONT_10 = 'helvetica-10-white';
     static var FONT_20 = 'helvetica-20-white';
