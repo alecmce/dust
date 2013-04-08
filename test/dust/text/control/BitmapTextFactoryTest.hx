@@ -1,5 +1,7 @@
 package dust.text.control;
 
+import dust.text.data.BitmapTextData;
+import dust.text.data.BitmapTextData;
 import dust.text.data.BitmapFont;
 import nme.geom.Rectangle;
 import nme.display.BitmapData;
@@ -7,6 +9,7 @@ import dust.context.Context;
 
 import nme.display.Sprite;
 import dust.Injector;
+
 
 class BitmapTextFactoryTest
 {
@@ -25,14 +28,16 @@ class BitmapTextFactoryTest
 
     @Before public function makesTextfieldProperly()
     {
-        var text = textFactory.make(makeFont(), makeString([32, 33, 33]));
+        var data = new BitmapTextData(makeFont(), makeString([32, 33, 33]));
+        var text = textFactory.make(data);
         Assert.areEqual(25, text.width);
         Assert.areEqual(10, text.height);
     }
 
     @Before public function rendersTextfieldProperly()
     {
-        var text = textFactory.make(makeFont(), makeString([32, 33, 33]));
+        var data = new BitmapTextData(makeFont(), makeString([32, 33, 33]));
+        var text = textFactory.make(data);
         Assert.areEqual(0xFFFF0000, text.getPixel(1, 1));
         Assert.areEqual(0xFF00FF00, text.getPixel(11, 1));
         Assert.areEqual(0xFF00FF00, text.getPixel(21, 1));

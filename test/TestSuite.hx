@@ -71,7 +71,6 @@ import dust.tween.systems.TweenSystemTest;
 import dust.type.TypeIndexTest;
 import dust.type.TypeMapTest;
 import dust.ui.data.ColorTest;
-import dust.ui.LabelTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -156,6 +155,5 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.type.TypeIndexTest);
 		add(dust.type.TypeMapTest);
 		add(dust.ui.data.ColorTest);
-		add(dust.ui.LabelTest);
 	}
 }
