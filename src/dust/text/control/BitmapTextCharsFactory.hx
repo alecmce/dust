@@ -11,7 +11,7 @@ class BitmapTextCharsFactory
     {
         var x = 0;
         var y = 0;
-        var bounds = new Rectangle(0, 0, 0, font.lineHeight);
+        var bounds = new Rectangle(0, font.lineHeight, 0, 0);
 
         var textChars = new Array<BitmapTextChar>();
         for (i in 0...label.length)
@@ -23,6 +23,10 @@ class BitmapTextCharsFactory
             var textChar = new BitmapTextChar(fontChar, x, y);
             x += fontChar.advance;
             textChars.push(textChar);
+
+            var top = y + fontChar.dy;
+            if (bounds.top > top)
+                bounds.top = top;
 
             var right = x + fontChar.dx + fontChar.data.width;
             if (bounds.right < right)

@@ -1,4 +1,4 @@
-package dust.ui.components;
+package dust.gui.ui;
 
 import dust.text.data.BitmapTextData;
 import dust.text.data.BitmapFont;
@@ -7,7 +7,7 @@ import dust.text.control.BitmapTextFactory;
 import dust.text.control.BitmapTextFactory;
 import nme.display.Bitmap;
 import nme.display.BitmapData;
-import dust.ui.data.Color;
+import dust.gui.data.Color;
 import nme.Assets;
 import nme.display.Sprite;
 import nme.text.Font;

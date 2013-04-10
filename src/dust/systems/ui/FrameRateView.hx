@@ -1,12 +1,12 @@
 package dust.systems.ui;
 
-import dust.ui.factory.UILabelFactory;
+import dust.gui.control.UILabelFactory;
 import dust.entities.api.Entity;
 import nme.text.Font;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
-import dust.ui.components.UILabel;
-import dust.ui.data.UIView;
+import dust.gui.ui.UILabel;
+import dust.gui.data.UIView;
 
 import haxe.Timer;
 

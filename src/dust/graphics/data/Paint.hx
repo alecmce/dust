@@ -2,7 +2,7 @@ package dust.graphics.data;
 
 import dust.camera.data.Camera;
 import dust.components.Component;
-import dust.ui.data.Color;
+import dust.gui.data.Color;
 import nme.display.Graphics;
 
 class Paint

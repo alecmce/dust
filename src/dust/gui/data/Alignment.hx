@@ -1,4 +1,4 @@
-package dust.ui.data;
+package dust.gui.data;
 
 import dust.components.Component;
 

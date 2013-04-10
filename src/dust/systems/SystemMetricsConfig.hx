@@ -1,22 +1,22 @@
 package dust.systems;
 
-import dust.ui.factory.UILabelFactory;
+import dust.gui.control.UILabelFactory;
 import dust.systems.ui.FrameRateView;
 import dust.context.UnconfigConfig;
 import dust.systems.impl.Systems;
 import dust.type.TypeIndex;
-import dust.ui.data.UIView;
+import dust.gui.data.UIView;
 import dust.entities.api.Entity;
-import dust.ui.data.Alignment;
+import dust.gui.data.Alignment;
 import dust.geom.data.Position;
-import dust.ui.data.VAlign;
-import dust.ui.data.HAlign;
+import dust.gui.data.VAlign;
+import dust.gui.data.HAlign;
 import dust.systems.ui.SystemMetricsView;
 import dust.systems.impl.SystemsList;
 import dust.systems.impl.SystemMetrics;
 import dust.entities.EntitiesConfig;
 import dust.entities.api.Entities;
-import dust.ui.UIConfig;
+import dust.gui.GUIConfig;
 import dust.context.DependentConfig;
 import dust.context.Config;
 
@@ -40,7 +40,7 @@ class SystemMetricsConfig implements DependentConfig
 
     public function dependencies():Array<Class<Config>>
     {
-        return [EntitiesConfig, SystemsConfig, UIConfig];
+        return [EntitiesConfig, SystemsConfig, GUIConfig];
     }
 
     public function configure()

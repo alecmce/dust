@@ -1,35 +1,29 @@
-package dust.ui.components;
+package dust.gui.ui;
 
+import dust.gui.data.UISliderData;
 import nme.display.Sprite;
 import nme.events.MouseEvent;
 
-class SliderHandle extends Sprite
+class UISliderHandle extends Sprite
 {
     var update:Float->Void;
-    var config:ComponentConfig;
-    var size:Float;
+    var data:UISliderData;
 
-    public function new(update:Float->Void, config:ComponentConfig)
+    public function new(update:Float->Void, data:UISliderData)
     {
         super();
         this.update = update;
-        this.config = config;
-        setSize(config.sliderHeight);
-    }
-
-    public function setSize(size:Float)
-    {
-        this.size = size;
+        this.data = data;
         redraw();
     }
 
-        function redraw()
-        {
-            graphics.clear();
-            graphics.beginFill(config.sliderHandleColor);
-            graphics.drawRect(-size * 0.5, -size * 0.5, size, size);
-            graphics.endFill();
-        }
+    public function redraw()
+    {
+        graphics.clear();
+        graphics.beginFill(data.handleColor);
+        graphics.drawRect(-data.handleSize * 0.5, -data.handleSize * 0.5, data.handleSize, data.handleSize);
+        graphics.endFill();
+    }
 
     public function enable()
         addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown)

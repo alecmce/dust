@@ -1,15 +1,16 @@
-package dust.ui;
+package dust.gui;
 
-import dust.ui.factory.UILabelFactory;
+import dust.gui.control.UISliderFactory;
+import dust.gui.control.UILabelledSliderFactory;
+import dust.gui.control.UILabelFactory;
 import dust.text.SmallWhiteHelveticaFontConfig;
 import dust.text.BitmapTextConfig;
-import dust.ui.components.ComponentConfig;
-import dust.ui.systems.UIViewRootManager;
+import dust.gui.systems.UIViewRootManager;
 import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
 import dust.geom.data.Position;
-import dust.ui.data.UIView;
-import dust.ui.systems.UpdateUISystem;
+import dust.gui.data.UIView;
+import dust.gui.systems.UpdateUISystem;
 import dust.systems.SystemsConfig;
 import dust.systems.impl.Systems;
 import dust.context.DependentConfig;
@@ -17,7 +18,7 @@ import dust.context.Config;
 
 import dust.Injector;
 
-class UIConfig implements DependentConfig
+class GUIConfig implements DependentConfig
 {
     @inject public var injector:Injector;
     @inject public var collections:CollectionMap;
@@ -28,8 +29,9 @@ class UIConfig implements DependentConfig
 
     public function configure()
     {
-        injector.mapSingleton(ComponentConfig);
         injector.mapSingleton(UILabelFactory);
+        injector.mapSingleton(UILabelledSliderFactory);
+        injector.mapSingleton(UISliderFactory);
 
         collections
             .map([UIView, Position])

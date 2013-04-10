@@ -1,8 +1,9 @@
 package;
 
+import dust.systems.SystemMetricsConfig;
 import dust.systems.eg.FastInsertionSortAlgorithmExample;
 import dust.Injector;
-import dust.ui.eg.UIExample;
+import dust.gui.eg.GUIExample;
 import dust.context.DependentConfig;
 import dust.mainmenu.MainMenuConfig;
 import dust.text.eg.NoScaleBitmapFontExample;
@@ -59,7 +60,7 @@ class DustExamples implements DependentConfig
             .add("BitmapFont 2", BitmapFontExample)
             .add("BitmapText", BitmapTextExample)
             .add("QuadTree", QuadTreeVisualizationExample)
-            .add("UI", UIExample)
+            .add("GUI", GUIExample)
             .add("FastInsertionSort", FastInsertionSortAlgorithmExample);
 
         root.addChild(mainMenu);
@@ -80,6 +81,7 @@ class DustExamples implements DependentConfig
             module = new Context(parent)
                 .configure(MoveCameraExample)
                 .configure(ConsoleConfig)
+                .configure(SystemMetricsConfig)
                 .configure(config)
                 .start(new Sprite());
         }

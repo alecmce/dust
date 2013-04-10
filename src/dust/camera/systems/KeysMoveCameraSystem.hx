@@ -10,8 +10,8 @@ import nme.ui.Keyboard;
 
 class KeysMoveCameraSystem implements System
 {
-    inline static var DELTA:Float = 0.01;
-    inline static var SCALAR_DELTA:Float = 0.001;
+    inline static var DELTA:Float = 0.1;
+    inline static var SCALAR_DELTA:Float = 0.01;
 
     @inject public var keys:Keys;
     @inject public var collection:Collection;
@@ -29,10 +29,19 @@ class KeysMoveCameraSystem implements System
         inline function update(entity:Entity, deltaTime:Float)
         {
             var camera:Camera = entity.get(Camera);
-            camera.worldX += (isLeft() + isRight()) * DELTA / camera.scalar;
-            camera.worldY += (isUp() + isDown()) * DELTA / camera.scalar;
-            camera.scalar *= 1 + (isZoomIn() + isZoomOut()) * SCALAR_DELTA;
+            camera.worldX += deltaTime * getDX(camera);
+            camera.worldY += deltaTime * getDY(camera);
+            camera.scalar *= 1 + deltaTime * getDScalar();
         }
+
+            inline function getDX(camera:Camera)
+                return (isLeft() + isRight()) * DELTA / camera.scalar
+
+            inline function getDY(camera:Camera)
+                return (isUp() + isDown()) * DELTA / camera.scalar
+
+            inline function getDScalar()
+                return (isZoomIn() + isZoomOut()) * SCALAR_DELTA
 
             inline function isLeft():Int
                 return keys.isDown(Keyboard.A) ? 1 : 0

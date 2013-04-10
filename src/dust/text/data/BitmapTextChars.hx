@@ -1,7 +1,7 @@
 package dust.text.data;
 
-import dust.ui.data.VAlign;
-import dust.ui.data.HAlign;
+import dust.gui.data.VAlign;
+import dust.gui.data.HAlign;
 import nme.display.BitmapData;
 import nme.geom.Rectangle;
 
@@ -28,9 +28,9 @@ class BitmapTextChars
         function calculateDX(hAlign:HAlign, width:Int):Float
         {
             return if (hAlign == HAlign.CENTER)
-                (bounds.width - width)  * 0.5;
+                (width - bounds.width)  * 0.5;
             else if (hAlign == HAlign.RIGHT)
-                bounds.width - width;
+                width - bounds.width;
             else
                 0;
         }
@@ -38,10 +38,10 @@ class BitmapTextChars
         function calculateDY(vAlign:VAlign, height:Int):Float
         {
             return if (vAlign == VAlign.MIDDLE)
-                (bounds.height - height) * 0.5;
+                (height - bounds.height) * 0.5 - bounds.top;
             else if (vAlign == VAlign.BOTTOM)
-                bounds.height - height;
+                height - bounds.height - bounds.top;
             else
-                0;
+                -bounds.top;
         }
 }

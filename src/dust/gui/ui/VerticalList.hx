@@ -1,4 +1,4 @@
-package dust.ui.components;
+package dust.gui.ui;
 
 import dust.entities.api.Entity;
 

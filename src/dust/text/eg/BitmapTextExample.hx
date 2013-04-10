@@ -1,12 +1,12 @@
 package dust.text.eg;
 
+import dust.systems.SystemMetricsConfig;
 import dust.text.data.BitmapTextData;
 import dust.text.control.BitmapFonts;
 import dust.graphics.data.Painter;
 import dust.graphics.data.BitmapPainter;
 import dust.graphics.data.NoScaleBitmapPainter;
 import dust.camera.data.Camera;
-import dust.camera.CameraConfig;
 import dust.camera.CameraConfig;
 import dust.math.MathConfig;
 import nme.display.Bitmap;

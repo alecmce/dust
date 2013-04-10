@@ -1,15 +1,15 @@
 package dust.systems.ui;
 
-import dust.ui.factory.UILabelFactory;
+import dust.gui.control.UILabelFactory;
 import dust.entities.api.Entity;
 import dust.systems.impl.SystemMetricsData;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
 import dust.systems.impl.SystemsList;
 import dust.type.TypeIndex;
-import dust.ui.data.UIView;
-import dust.ui.components.UILabel;
-import dust.ui.components.VerticalList;
+import dust.gui.data.UIView;
+import dust.gui.ui.UILabel;
+import dust.gui.ui.VerticalList;
 
 import nme.display.Stage;
 

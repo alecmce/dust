@@ -1,4 +1,4 @@
-package dust.ui.factory;
+package dust.gui.control;
 
 import dust.text.control.BitmapTextDataFactory;
 import dust.text.control.BitmapFontFactory.BitmapFontData;
@@ -6,7 +6,7 @@ import dust.text.data.BitmapTextData;
 import dust.text.data.BitmapFont;
 import dust.text.SmallWhiteHelveticaFontConfig;
 import dust.text.control.BitmapFonts;
-import dust.ui.components.UILabel;
+import dust.gui.ui.UILabel;
 import dust.text.control.BitmapTextFactory;
 
 class UILabelFactory

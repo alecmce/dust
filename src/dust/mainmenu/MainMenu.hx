@@ -7,8 +7,8 @@ import nme.display.Sprite;
 import dust.mainmenu.control.MainMenuButtonFactory;
 import dust.signals.SignalVoid;
 import nme.ui.Keyboard;
-import dust.ui.components.UILabel;
-import dust.ui.components.VerticalList;
+import dust.gui.ui.UILabel;
+import dust.gui.ui.VerticalList;
 import dust.context.Config;
 import dust.signals.Signal;
 

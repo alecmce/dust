@@ -1,7 +1,7 @@
 package dust.text.data;
 
-import dust.ui.data.VAlign;
-import dust.ui.data.HAlign;
+import dust.gui.data.VAlign;
+import dust.gui.data.HAlign;
 
 class BitmapTextData
 {
