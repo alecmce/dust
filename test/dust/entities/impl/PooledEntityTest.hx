@@ -25,11 +25,6 @@ class PooledEntityTest
         entity = entities.require();
     }
 
-	@Test public function addingComponentReportsTrue()
-	{
-		Assert.isTrue(entity.add(new MockComponentA()));
-	}
-
     @Test public function byDefaultHasReportsFalse()
     {
         Assert.isFalse(entity.has(MockComponentA));
@@ -46,12 +41,6 @@ class PooledEntityTest
 		var mock = new MockComponentA();
 		entity.add(mock);
 		Assert.areEqual(mock, entity.get(MockComponentA));
-	}
-
-	@Test public function adding_same_component_twice_fails()
-	{
-		entity.add(new MockComponentA());
-		Assert.isFalse(entity.add(new MockComponentA()));
 	}
 
 	@Test public function removing_added_component_reports_true()

@@ -56,10 +56,12 @@ class Camera extends Component
         object.y = screenCenterY + (world.y - worldY) * scalar;
     }
 
-    inline public function toScreenMatrix(world:Position, matrix:Matrix, offsetX:Float = 0, offsetY:Float = 0):Matrix
+    inline public function toScreenMatrix(world:Position, matrix:Matrix, offsetX:Float = 0, offsetY:Float = 0, scale:Float = 1):Matrix
     {
+        var s = scalar * scale;
+
         matrix.identity();
-        matrix.scale(scalar, scalar);
+        matrix.scale(s, s);
         matrix.tx = screenCenterX + (world.x - offsetX - worldX) * scalar;
         matrix.ty = screenCenterY + (world.y - offsetY - worldY) * scalar;
         return matrix;

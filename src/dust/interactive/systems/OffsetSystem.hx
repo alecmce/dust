@@ -8,16 +8,9 @@ import dust.entities.api.Entity;
 import dust.interactive.data.Draggable;
 import dust.systems.System;
 
-import nme.display.InteractiveObject;
-import nme.display.Stage;
-
 class OffsetSystem implements System
 {
     @inject public var collection:Collection;
-
-    var target:InteractiveObject;
-    var dragging:Entity;
-    var stage:Stage;
 
     public function start() {}
     public function stop() {}

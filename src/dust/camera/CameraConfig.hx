@@ -44,9 +44,9 @@ class CameraConfig implements DependentConfig
             return switch (app.target)
             {
                 case AppTarget.IPAD_RETINA:
-                    new Camera(screenCenterX, screenCenterY, 2);
-                default:
                     new Camera(screenCenterX, screenCenterY, 1);
+                default:
+                    new Camera(screenCenterX, screenCenterY, 0.5);
             }
         }
 }

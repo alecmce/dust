@@ -32,6 +32,7 @@ class SystemsConfig implements DependentConfig
     @inject public var context:Context;
     @inject public var injector:Injector;
     @inject public var signals:SignalMap;
+    @inject public var collections:CollectionMap;
 
     public function dependencies():Array<Class<Config>>
         return [SignalMapConfig, CollectionsConfig]
@@ -62,6 +63,7 @@ class SystemsConfig implements DependentConfig
             signals.mapVoid(StopSystemsSignal, systems.stop);
 
             context.started.bind(systems.start);
+            context.started.bind(collections.instantiateAll);
             context.stopped.bind(systems.stop);
         }
 }

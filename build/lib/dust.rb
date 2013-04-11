@@ -46,14 +46,11 @@ class Dust
       when 'iphone', flags
         nme.make 'ios', flags
       when 'iphone_simulator'
-        flags << '-simulator'
-        nme.make 'ios', flags
+        nme.make 'ios', flags << ' -simulator'
       when 'ipad'
-        flags << '-ipad'
-        nme.make 'ios', flags
+        nme.make 'ios', flags << ' -ipad'
       when 'ipad_simulator'
-        flags << '-ipad -simulator'
-        nme.make 'ios', flags
+        nme.make 'ios', flags << ' -ipad -simulator'
       else
         puts "dust unable to make #{target} - unsupported target"
     end
@@ -62,11 +59,11 @@ class Dust
   def update(target)
     case target
       when 'ipad'
-        nme.update 'ios', '-ipad'
+        nme.update 'ios', ' -ipad'
       when 'iphone_simulator'
-        nme.update 'ios', '-simulator'
+        nme.update 'ios', ' -simulator'
       when 'ipad_simulator'
-        nme.update 'ios', '-simulator -ipad'
+        nme.update 'ios', ' -simulator -ipad'
       else
         puts "dust unable to update #{target} - don't know what to do!"
     end
@@ -77,26 +74,26 @@ class Dust
       when 'ipad'
         nme.build 'ios', '-ipad'
       when 'iphone_simulator'
-        nme.build 'ios', '-simulator'
+        nme.build 'ios', ' -simulator'
       when 'ipad_simulator'
         nme.build 'ios', '-simulator -ipad'
       else
-        puts "dust unable to update #{target} - don't know what to do!"
+        puts "dust unable to build #{target} - don't know what to do!"
     end
   end
 
-  def run(target)
+  def run(target, flags = [])
     case target
       when 'flash'
-        nme.run 'flash'
+        nme.run 'flash', flags
       when 'html5'
         puts 'TODO running html5 target not implemented yet!'
       when 'ipad'
-        nme.test 'ios', '-ipad'
+        nme.test 'ios', flags << ' -ipad'
       when 'iphone_simulator'
-        nme.test 'ios', '-simulator'
+        nme.test 'ios', flags << ' -simulator'
       when 'ipad_simulator'
-        nme.test 'ios', '-simulator -ipad'
+        nme.test 'ios', flags << ' -simulator -ipad'
       else
         puts "dust unable to run #{target} - unsupported target"
     end

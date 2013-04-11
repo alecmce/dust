@@ -27,22 +27,16 @@ class PooledEntity implements Entity
         deleted = new Array<Int>();
     }
 
-    inline public function add(component:Component):Bool
+    inline public function add(component:Component)
 	{
         var componentID = component.componentID;
-		var isNewComponent = !bitfield.get(componentID);
-		if (isNewComponent)
-		    addComponent(componentID, component);
-		return isNewComponent;
+        addComponent(componentID, component);
 	}
 
-    inline public function addAsType(component:Component, asType:Class<Component>):Bool
+    inline public function addAsType(component:Component, asType:Class<Component>)
     {
         var componentID = (cast asType).ID;
-        var isNewComponent = !bitfield.get(componentID);
-        if (isNewComponent)
-            addComponent(componentID, component);
-        return isNewComponent;
+        addComponent(componentID, component);
     }
 
         inline function addComponent(componentID:Int, component:Component)
