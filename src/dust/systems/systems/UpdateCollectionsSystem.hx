@@ -31,8 +31,9 @@ class UpdateCollectionsSystem implements System
 
             inline function processEntityChanges(entity:Entity)
             {
+                entity.cacheDeletions();
                 subscriber.updateEntity(entity);
-                entity.update();
+                entity.removeCachedDeletions();
                 if (entity.isReleased)
                     releaseEntity(entity);
             }

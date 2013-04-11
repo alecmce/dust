@@ -15,7 +15,10 @@ interface Entity
     function satisfies(bitfield:Bitfield):Bool;
     function dispose():Void;
     function removeAll():Void;
-    function update():Void;
+
+    function cacheDeletions():Void;
+    function removeCachedDeletions():Void;
+
     function get<T>(type:Class<T>):T;
     function has(type:Class<Dynamic>):Bool;
 	function iterator():Iterator<Component>;

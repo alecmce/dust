@@ -80,7 +80,8 @@ class PooledEntityTest
         var component = new MockComponentA();
         entity.add(component);
         entity.remove(MockComponentA);
-        entity.update();
+        entity.cacheDeletions();
+        entity.removeCachedDeletions();
         Assert.isNull(entity.get(Component));
     }
 
@@ -88,7 +89,8 @@ class PooledEntityTest
     {
         entity.add(new MockComponentA());
         entity.dispose();
-        entity.update();
+        entity.cacheDeletions();
+        entity.removeCachedDeletions();
         Assert.isFalse(entity.has(MockComponentA));
     }
 
@@ -136,7 +138,8 @@ class PooledEntityTest
         var instance = new BaseComponent();
         entity.add(instance);
         entity.remove(BaseComponent);
-        entity.update();
+        entity.cacheDeletions();
+        entity.removeCachedDeletions();
 
         Assert.isNull(entity.get(BaseComponent));
     }

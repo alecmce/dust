@@ -12,6 +12,7 @@ import dust.entities.api.Entities;
 class CollectionUpdateTest
 {
     var entities:Entities;
+    var entity:Entity;
     var collectionMap:CollectionMap;
     var systems:Systems;
 
@@ -23,59 +24,62 @@ class CollectionUpdateTest
             .start(new Sprite());
 
         entities = context.injector.getInstance(Entities);
+        entity = entities.require();
         collectionMap = context.injector.getInstance(CollectionMap);
         systems = context.injector.getInstance(Systems);
+
+        MockListeners.isAdded = false;
+        MockListeners.isRemoved = false;
+        MockSelfRemovingListeners.isAdded = false;
+        MockSelfRemovingListeners.isRemoved = false;
     }
+
+        function mapListeners(listeners:Class<CollectionListeners>)
+        {
+            collectionMap.map([MockComponentA]).toListeners(listeners);
+            collectionMap.instantiateAll();
+        }
+
+        function addComponent()
+        {
+            entity.add(new MockComponentA());
+            systems.update();
+        }
+
+        function removeComponent()
+        {
+            entity.remove(MockComponentA);
+            systems.update();
+        }
 
     @Test public function collectionListenersOnAddedCalledWhenEntitySatisfiesCollection()
     {
-        collectionMap.map([MockComponentA]).toListeners(MockListeners);
-        collectionMap.instantiateAll();
-
-        var entity = entities.require();
-        entity.add(new MockComponentA());
-        systems.update();
-
+        mapListeners(MockListeners);
+        addComponent();
         Assert.isTrue(MockListeners.isAdded);
     }
 
     @Test public function collectionListenersOnRemoveCalledWhenEntityNoLongerSatisfiesCollection()
     {
-        collectionMap.map([MockComponentA]).toListeners(MockListeners);
-        collectionMap.instantiateAll();
-
-        var entity = entities.require();
-        entity.add(new MockComponentA());
-        systems.update();
-
-        entity.remove(MockComponentA);
-        systems.update();
+        mapListeners(MockListeners);
+        addComponent();
+        removeComponent();
         Assert.isTrue(MockListeners.isRemoved);
     }
 
     @Test public function removeInSelfRemovingListenersWorks()
     {
-        collectionMap.map([MockComponentA]).toListeners(MockSelfRemovingListeners);
-        collectionMap.instantiateAll();
-
-        var entity = entities.require();
-        entity.add(new MockComponentA());
-        systems.update();
-
+        mapListeners(MockSelfRemovingListeners);
+        addComponent();
         Assert.isFalse(entity.has(MockComponentA));
     }
 
     @Test public function selfRemovingListenersGetRemovedCall()
     {
-        collectionMap.map([MockComponentA]).toListeners(MockSelfRemovingListeners);
-        collectionMap.instantiateAll();
-
-        var entity = entities.require();
-        entity.add(new MockComponentA());
+        mapListeners(MockSelfRemovingListeners);
+        addComponent();
         systems.update();
-        systems.update();
-
-        Assert.isTrue(MockListeners.isRemoved);
+        Assert.isTrue(MockSelfRemovingListeners.isRemoved);
     }
 }
 
@@ -99,8 +103,8 @@ class MockListeners implements CollectionListeners
 
 class MockSelfRemovingListeners implements CollectionListeners
 {
-    public static var isAdded:Int;
-    public static var isRemoved:Int;
+    public static var isAdded:Bool;
+    public static var isRemoved:Bool;
 
     public function new()
     {
@@ -115,6 +119,8 @@ class MockSelfRemovingListeners implements CollectionListeners
     }
 
     public function onEntityRemoved(entity:Entity)
-        isRemoved = true
+    {
+        isRemoved = true;
+    }
 }
 

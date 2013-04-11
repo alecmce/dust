@@ -9,12 +9,13 @@ import dust.lists.Pool;
 class PooledEntity implements Entity
 {
 	public var id:Int;
-    var bitfield:Bitfield;
-
     public var isChanged:Bool;
     public var isReleased:Bool;
+    
+    var bitfield:Bitfield;
     var components:IntHash<Component>;
     var deleted:Array<Int>;
+    var cached:Array<Int>;
 
 	public function new(id:Int, bitfield:Bitfield)
 	{
@@ -25,6 +26,7 @@ class PooledEntity implements Entity
         isReleased = false;
         components = new IntHash<Component>();
         deleted = new Array<Int>();
+        cached = new Array<Int>();
     }
 
     inline public function add(component:Component)
@@ -82,12 +84,19 @@ class PooledEntity implements Entity
             deleted.push(componentID);
     }
 
-    inline public function update()
+    inline public function cacheDeletions()
     {
-        for (componentID in deleted)
-            components.remove(componentID);
-        untyped deleted.length = 0;
+        var swap = cached;
+        cached = deleted;
+        deleted = swap;
         isChanged = false;
+    }
+
+    inline public function removeCachedDeletions()
+    {
+        for (componentID in cached)
+            components.remove(componentID);
+        untyped cached.length = 0;
     }
 
     inline public function get<T>(type:Class<T>):T
