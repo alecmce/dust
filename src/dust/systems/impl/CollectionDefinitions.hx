@@ -1,5 +1,6 @@
 package dust.systems.impl;
 
+import dust.components.Bitfield;
 import dust.collections.control.CollectionMapping;
 import dust.entities.api.Entity;
 import dust.collections.api.Collection;
@@ -24,8 +25,8 @@ class CollectionDefinitions
         list = new Array<CollectionDefinition>();
     }
 
-    public function add(components:Array<Class<Component>>, sorter:Entity->Entity->Int, name:String = "")
-        list.push(new CollectionDefinition(components, sorter, name))
+    public function add(bitfield:Bitfield, sorter:Entity->Entity->Int, name:String = "")
+        list.push(new CollectionDefinition(bitfield, sorter, name))
 
     public function map()
     {
@@ -35,7 +36,7 @@ class CollectionDefinitions
 
         function mapCollection(definition:CollectionDefinition)
         {
-            var config = collectionMap.map(definition.components);
+            var config = collectionMap.mapBitfield(definition.bitfield);
             definition.collection = config.getCollection();
             configureSort(definition.collection, definition.sorter);
             injector.mapValue(Collection, definition.collection, definition.name);

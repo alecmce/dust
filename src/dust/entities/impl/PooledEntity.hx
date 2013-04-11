@@ -9,10 +9,10 @@ import dust.lists.Pool;
 class PooledEntity implements Entity
 {
 	public var id:Int;
+    public var bitfield:Bitfield;
     public var isChanged:Bool;
     public var isReleased:Bool;
-    
-    var bitfield:Bitfield;
+
     var components:IntHash<Component>;
     var deleted:Array<Int>;
     var cached:Array<Int>;
@@ -44,7 +44,7 @@ class PooledEntity implements Entity
         inline function addComponent(componentID:Int, component:Component)
         {
             components.set(componentID, component);
-            bitfield.set(componentID, true);
+            bitfield.assert(componentID);
             isChanged = true;
         }
 
@@ -61,7 +61,7 @@ class PooledEntity implements Entity
 
             inline function markComponentAsRemoved(componentID:Int)
             {
-                bitfield.set(componentID, false);
+                bitfield.clear(componentID);
                 deleted.push(componentID);
                 isChanged = true;
             }
@@ -95,7 +95,10 @@ class PooledEntity implements Entity
     inline public function removeCachedDeletions()
     {
         for (componentID in cached)
-            components.remove(componentID);
+        {
+            if (!bitfield.get(componentID))
+                components.remove(componentID);
+        }
         untyped cached.length = 0;
     }
 

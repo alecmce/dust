@@ -6,6 +6,7 @@ import dust.components.Component;
 interface Entity
 {
 	var id:Int;
+    var bitfield:Bitfield;
     var isChanged:Bool;
     var isReleased:Bool;
 

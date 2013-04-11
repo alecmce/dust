@@ -90,22 +90,8 @@ class Bitfield
 	public function toString():String
 	{
 		var arr = new Array<String>();
-
-		var found = 0;
 		for (i in 0...size)
-		{
-			if (get(i))
-			{
-				found = i;
-				arr.unshift("1");
-			}
-			else
-			{
-				arr.unshift("0");
-			}
-		}
-
-		arr = arr.slice(size - found - 1);
+            arr.unshift(get(i) ? '1' : '0');
 		return arr.join("");
 	}
 

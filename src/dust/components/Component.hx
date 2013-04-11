@@ -15,8 +15,8 @@ class Component
 
 @:macro class ComponentMacro
 {
-    static var ID:Int = 1;
-    static var components:Array<Dynamic>;
+    public static var ID:Int = 1;
+    public static var components:Array<Dynamic>;
 
     public static function reset():Void
     {

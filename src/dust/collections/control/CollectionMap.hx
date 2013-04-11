@@ -31,6 +31,12 @@ class CollectionMap
         return getOrMakeMapping(key, bitfield);
     }
 
+    public function mapBitfield(bitfield:Bitfield):CollectionMapping
+    {
+        var key = bitfield.toString();
+        return getOrMakeMapping(key, bitfield);
+    }
+
         function getOrMakeMapping(key:String, bitfield:Bitfield):CollectionMapping
         {
             return if (configMap.exists(key))

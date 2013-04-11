@@ -143,6 +143,18 @@ class PooledEntityTest
 
         Assert.isNull(entity.get(BaseComponent));
     }
+
+    @Test public function componentsRemainInSyncAfterDeletingAndAddingComponentWithinSameIteration()
+    {
+        var instance = new BaseComponent();
+        entity.add(instance);
+        entity.remove(BaseComponent);
+        entity.add(instance);
+        entity.cacheDeletions();
+        entity.removeCachedDeletions();
+
+        Assert.areSame(instance, entity.get(BaseComponent));
+    }
 }
 
 class BaseComponent extends Component

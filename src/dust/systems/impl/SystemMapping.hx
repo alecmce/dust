@@ -1,5 +1,6 @@
 package dust.systems.impl;
 
+import dust.components.BitfieldFactory;
 import dust.systems.impl.CollectionSorts;
 import dust.systems.System;
 import dust.collections.control.CollectionMap;
@@ -39,7 +40,8 @@ class SystemMapping
 
     public function toCollection(components:Array<Class<Component>>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
     {
-        collections.add(components, sorter, name);
+        var factory:BitfieldFactory = injector.getInstance(BitfieldFactory);
+        collections.add(factory.make(components), sorter, name);
         return this;
     }
 
