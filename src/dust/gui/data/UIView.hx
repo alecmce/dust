@@ -12,5 +12,11 @@ class UIView extends Component
     public function new()
         display = new Sprite()
 
+    public function setDisplay(display:Sprite):UIView
+    {
+        this.display = display;
+        return this;
+    }
+
     public function refresh(entity:Entity, deltaTime:Float) {}
 }
