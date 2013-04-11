@@ -34,6 +34,7 @@ import dust.FloatUtilTest;
 import dust.geom.CircleTest;
 import dust.graphics.CanvasConfigTest;
 import dust.graphics.PrioritizedPaintersConfigTest;
+import dust.gui.data.ColorTest;
 import dust.InjectorTest;
 import dust.interactive.InteractiveConfigTest;
 import dust.keys.impl.KeyControlsTest;
@@ -70,7 +71,6 @@ import dust.text.control.BitmapTextFactoryTest;
 import dust.tween.systems.TweenSystemTest;
 import dust.type.TypeIndexTest;
 import dust.type.TypeMapTest;
-import dust.gui.data.ColorTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -118,6 +118,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.geom.CircleTest);
 		add(dust.graphics.CanvasConfigTest);
 		add(dust.graphics.PrioritizedPaintersConfigTest);
+		add(dust.gui.data.ColorTest);
 		add(dust.InjectorTest);
 		add(dust.interactive.InteractiveConfigTest);
 		add(dust.keys.impl.KeyControlsTest);
@@ -154,6 +155,5 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.tween.systems.TweenSystemTest);
 		add(dust.type.TypeIndexTest);
 		add(dust.type.TypeMapTest);
-		add(dust.gui.data.ColorTest);
 	}
 }
