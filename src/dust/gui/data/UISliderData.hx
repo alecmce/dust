@@ -32,4 +32,16 @@ class UISliderData
         this.handleColor = DEFAULT_HANDLE_COLOR;
         this.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     }
+
+    public function setWidth(width:Int):UISliderData
+    {
+        this.width = width;
+        return this;
+    }
+
+    public function setHeight(height:Int):UISliderData
+    {
+        this.height = height;
+        return this;
+    }
 }

@@ -41,6 +41,12 @@ class UISlider extends Sprite
         data.update(data.value);
     }
 
+    public function setWidth(value:Int)
+    {
+        data.width = value;
+        redraw();
+    }
+
     public function redraw()
     {
         graphics.clear();
