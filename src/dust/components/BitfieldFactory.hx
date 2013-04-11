@@ -18,11 +18,7 @@ class BitfieldFactory
     {
         var bitfield = new Bitfield(dimension);
         for (component in components)
-        {
-            var id = (cast component).ID;
-            bitfield.assert(id);
-            trace(bitfield.toString() + ' - ' + id + ' - ' + component);
-        }
+            bitfield.assert((cast component).ID);
         return bitfield;
     }
 }
