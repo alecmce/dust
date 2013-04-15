@@ -20,8 +20,8 @@ class Systems
     public function setMetrics(metrics:SystemMetrics)
         systemMap.setMetrics(metrics)
 
-    public function map(type:Class<System>):SystemMapping
-        return systemMap.map(type)
+    public function map(type:Class<System>, priority:Int = 0):SystemMapping
+        return systemMap.map(type, priority)
 
     public function hasMapping(type:Class<System>):Bool
         return systemMap.hasMapping(type)
