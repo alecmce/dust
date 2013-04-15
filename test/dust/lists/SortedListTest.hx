@@ -53,4 +53,18 @@ class SortedListTest
         makeAndAddItem(1);
         Assert.areEqual(toArray().join(","), "1,2");
     }
+
+    @Test public function allItemsAreMaintainedWhenSortedItemIsAdded()
+    {
+        makeAndAddItem(1);
+        makeAndAddItem(3);
+        makeAndAddItem(2);
+
+        var count = 0;
+        for (item in list)
+            ++count;
+
+        Assert.areEqual(3, count);
+    }
+
 }

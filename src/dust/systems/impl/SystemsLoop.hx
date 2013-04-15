@@ -17,8 +17,7 @@ class SystemsLoop
     var timer:Timer;
     var time:Float;
 
-    @inject
-    public function new(systems:SystemsList)
+    @inject public function new(systems:SystemsList)
     {
         this.systems = systems;
         millisecondsBetweenUpdates = DEFAULT_MILLISECONDS_BETWEEN_UPDATES;

@@ -12,6 +12,9 @@ class LinkedListItem<T>
 
     inline public function prefix(item:LinkedListItem<T>)
     {
+        if (prev != null)
+            prev.next = item;
+
         item.prev = prev;
         item.next = this;
         prev = item;
@@ -19,6 +22,9 @@ class LinkedListItem<T>
 
     inline public function append(item:LinkedListItem<T>)
     {
+        if (next != null)
+            next.prev = item;
+
         item.next = next;
         item.prev = this;
         next = item;
