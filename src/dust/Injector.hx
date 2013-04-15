@@ -2,6 +2,7 @@ package dust;
 
 import minject.Injector.InjecteeDescription;
 import minject.InjectionConfig;
+
 class Injector
 {
     var wrapped:minject.Injector;

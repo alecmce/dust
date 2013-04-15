@@ -1,5 +1,6 @@
 package dust.tween.data;
 
+import dust.entities.api.Entity;
 import dust.components.Component;
 
 class Tween extends Component
@@ -8,9 +9,10 @@ class Tween extends Component
     public var delta:Float;
     public var duration:Float;
     public var ease:Float->Float;
+    public var onComplete:Entity->Void;
     public var delay:Float;
 
-    public var value(default, null):Float;
+    public var value:Float;
 
     var progress:Float;
     var inverseDuration:Float;
@@ -21,6 +23,7 @@ class Tween extends Component
         this.delta = target - initial;
         this.duration = duration;
         this.ease = nullEase;
+        this.onComplete = nullComplete;
         this.delay = 0.0;
 
         this.progress = 0;
@@ -30,6 +33,26 @@ class Tween extends Component
 
         function nullEase(proportion:Float):Float
             return proportion
+
+        function nullComplete(entity:Entity) {}
+
+    public function setEase(ease:Float->Float):Tween
+    {
+        if (ease == null)
+            ease = nullEase;
+
+        this.ease = ease;
+        return this;
+    }
+
+    public function setOnComplete(onComplete:Entity->Void):Tween
+    {
+        if (onComplete == null)
+            onComplete = nullComplete;
+
+        this.onComplete = onComplete;
+        return this;
+    }
 
     inline public function update(deltaTime:Float)
     {

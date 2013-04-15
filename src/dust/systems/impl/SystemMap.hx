@@ -1,5 +1,6 @@
 package dust.systems.impl;
 
+import dust.lists.SortedList;
 import dust.systems.System;
 import dust.collections.control.CollectionMap;
 import dust.lists.SimpleList;
@@ -11,7 +12,7 @@ class SystemMap
     var injector:Injector;
     var collectionMap:CollectionMap;
     var collectionSorts:CollectionSorts;
-    var mappings:SimpleList<SystemMapping>;
+    var mappings:SortedList<SystemMapping>;
 
     var metrics:SystemMetrics;
 
@@ -21,8 +22,11 @@ class SystemMap
         this.injector = injector;
         this.collectionMap = collectionMap;
         this.collectionSorts = collectionSorts;
-        mappings = new SimpleList<SystemMapping>();
+        mappings = new SortedList(new SimpleList<SystemMapping>(), prioritySort);
     }
+
+        function prioritySort(a:SystemMapping, b:SystemMapping):Int
+            return b.priority - a.priority
 
     public function setMetrics(metrics:SystemMetrics)
     {
@@ -31,11 +35,11 @@ class SystemMap
         this.metrics = metrics;
     }
 
-    public function map(type:Class<System>):SystemMapping
+    public function map(type:Class<System>, priority:Int = 0):SystemMapping
     {
         var mapping = getMapping(type);
         if (mapping == null)
-            mapping = makeMapping(type);
+            mapping = makeMapping(type, priority);
         return mapping;
     }
 
@@ -59,13 +63,13 @@ class SystemMap
             return null;
         }
 
-        function makeMapping(type:Class<System>):SystemMapping
+        function makeMapping(type:Class<System>, priority:Int):SystemMapping
         {
-            var mapping = new SystemMapping(injector, collectionMap, collectionSorts, type);
+            var mapping = new SystemMapping(injector, collectionMap, collectionSorts, type, priority);
             if (metrics != null)
                 mapping.withMetrics(metrics);
 
-            mappings.append(mapping);
+            mappings.add(mapping);
             return mapping;
         }
 

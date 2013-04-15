@@ -39,7 +39,7 @@ class Random
         return min + float(max - min);
     }
 
-    inline public function from<T>(array:Array<T>):T
+    inline public function fromArray<T>(array:Array<T>):T
     {
         return array[int(array.length)];
     }

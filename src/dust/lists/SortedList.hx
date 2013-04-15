@@ -19,7 +19,7 @@ class SortedList<T>
         var item = list.head;
         while (item != null)
         {
-            if (sorter(item.data, data) < 0)
+            if (sorter(item.data, data) <= 0)
                 item = item.next;
             else
                 break;

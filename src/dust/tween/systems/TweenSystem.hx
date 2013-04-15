@@ -22,7 +22,11 @@ class TweenSystem implements System
         {
             var tween:Tween = entity.get(Tween);
             tween.update(deltaTime);
+
             if (tween.isComplete())
+            {
                 entity.remove(Tween);
+                tween.onComplete(entity);
+            }
         }
 }

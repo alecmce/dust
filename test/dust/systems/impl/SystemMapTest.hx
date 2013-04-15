@@ -1,5 +1,7 @@
 package dust.systems.impl;
 
+import nme.display.Sprite;
+import dust.context.Context;
 import dust.entities.impl.PooledEntities;
 import dust.collections.data.CollectionList;
 import dust.systems.impl.SystemMap;
@@ -12,16 +14,25 @@ import dust.Injector;
 
 class SystemMapTest
 {
+    public static var INDEX = 0;
+
     var injector:Injector;
     var collectionMap:CollectionMap;
-    var collectionSorts:CollectionSorts;
     var systemMap:SystemMap;
+    var systems:Systems;
 
     @Before public function before()
     {
-        injector = new Injector();
-        collectionMap = makeCollectionMap();
-        systemMap = new SystemMap(injector, collectionMap, collectionSorts);
+        INDEX = 0;
+
+        var context = new Context()
+            .configure(SystemsConfig)
+            .start(new Sprite());
+
+        injector = context.injector;
+        collectionMap = injector.getInstance(CollectionMap);
+        systemMap = injector.getInstance(SystemMap);
+        systems = injector.getInstance(Systems);
     }
 
         function makeCollectionMap():CollectionMap
@@ -53,5 +64,54 @@ class SystemMapTest
         systemMap.unmap(MockSystem);
         var second = systemMap.map(MockSystem);
         Assert.areNotSame(first, second);
+    }
+
+    @Test public function systemsRunInOrderOfMappingByDefault()
+    {
+        systemMap.map(MockSystemA);
+        systemMap.map(MockSystemB);
+        systems.start();
+        systems.update();
+
+        Assert.areEqual(MockSystemA.index, 1);
+        Assert.areEqual(MockSystemB.index, 2);
+    }
+
+    @Test public function systemsRunInOrderOfPriorityIfDefined()
+    {
+        var first = systemMap.map(MockSystemA, 1);
+        var second = systemMap.map(MockSystemB, 2);
+
+        systems.start();
+        systems.update();
+
+        Assert.areEqual(MockSystemA.index, 2);
+        Assert.areEqual(MockSystemB.index, 1);
+    }
+}
+
+class MockSystemA implements System
+{
+    public static var index:Int;
+
+    public function start() {}
+    public function stop() {}
+
+    public function iterate(deltaTime:Float)
+    {
+        index = ++SystemMapTest.INDEX;
+    }
+}
+
+class MockSystemB implements System
+{
+    public static var index:Int;
+
+    public function start() {}
+    public function stop() {}
+
+    public function iterate(deltaTime:Float)
+    {
+        index = ++SystemMapTest.INDEX;
     }
 }

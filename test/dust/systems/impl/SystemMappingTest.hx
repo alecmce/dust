@@ -28,6 +28,7 @@ class SystemMappingTest
     var injector:Injector;
     var context:Context;
 
+    var systemMap:SystemMap;
     var collectionMap:CollectionMap;
     var collectionSorts:CollectionSorts;
 
@@ -47,6 +48,7 @@ class SystemMappingTest
             .configure(SystemsConfig)
             .start(new Sprite());
 
+        systemMap = context.injector.getInstance(SystemMap);
         collectionMap = context.injector.getInstance(CollectionMap);
         collectionSorts = context.injector.getInstance(CollectionSorts);
 
@@ -54,30 +56,16 @@ class SystemMappingTest
         loop = new TestSystemsLoop(list);
     }
 
-        function makeCollectionMap():CollectionMap
-        {
-            var map = new CollectionMap();
-            map.injector = injector;
-            map.bitfieldFactory = new BitfieldFactory();
-            map.entities = new PooledEntities(map.bitfieldFactory);
-            map.collectionList = new CollectionList();
-            map.subscriber = new CollectionSubscriber();
-            return map;
-        }
-
-        function makeSystemMapping(system:Class<System>):SystemMapping
-            return new SystemMapping(injector, collectionMap, collectionSorts, system)
-
     @Test public function canApplySystemMappingToSystemList()
     {
-        mapping = makeSystemMapping(MockMappedSystem);
+        mapping = systemMap.map(MockMappedSystem);
         mapping.apply(loop);
         Assert.isType(loop.addedSystem, MockMappedSystem);
     }
 
     @Test public function timedUpdateMeansSystemIsWrappedInTimedSystem()
     {
-        mapping = makeSystemMapping(MockMappedSystem);
+        mapping = systemMap.map(MockMappedSystem);
         mapping.withTimedUpdate(1000);
         mapping.apply(loop);
         Assert.isType(loop.addedSystem, TimedSystem);
@@ -85,7 +73,7 @@ class SystemMappingTest
 
     @Test public function withCollectionDefinesCollectionInjectedIntoSystem()
     {
-        mapping = makeSystemMapping(MockCollectionSystem);
+        mapping = systemMap.map(MockCollectionSystem);
         mapping.toCollection([MockComponentA]);
         mapping.apply(loop);
 
@@ -95,7 +83,7 @@ class SystemMappingTest
 
     @Test public function canNameCollectionMapping()
     {
-        mapping = makeSystemMapping(MockNamedCollectionSystem);
+        mapping = systemMap.map(MockNamedCollectionSystem);
         mapping.toCollection([SortableComponent], "test");
         mapping.apply(loop);
 
@@ -105,7 +93,7 @@ class SystemMappingTest
 
     @Test public function firstCollectionCanBeNamedInTwoCollectionSystem()
     {
-        mapping = makeSystemMapping(MockTwoNamedCollectionsSystem);
+        mapping = systemMap.map(MockTwoNamedCollectionsSystem);
         mapping.toCollection([SortableComponent], "first");
         mapping.toCollection([Position], "second");
         mapping.apply(loop);
@@ -115,7 +103,7 @@ class SystemMappingTest
 
     @Test public function secondCollectionCanBeNamedInTwoCollectionSystem()
     {
-        mapping = makeSystemMapping(MockTwoNamedCollectionsSystem);
+        mapping = systemMap.map(MockTwoNamedCollectionsSystem);
         mapping.toCollection([SortableComponent], "first");
         mapping.toCollection([Position], "second");
         mapping.apply(loop);

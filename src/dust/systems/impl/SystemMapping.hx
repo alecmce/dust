@@ -12,6 +12,9 @@ import dust.Injector;
 
 class SystemMapping
 {
+    public var name:String;
+    public var priority:Int;
+
     var injector:Injector;
     var type:Class<System>;
 
@@ -23,14 +26,14 @@ class SystemMapping
     var useTimedUpdate:Bool;
     var timedUpdateDelay:Float;
 
-    var name:String;
     var metrics:SystemMetrics;
 
-    public function new(parent:Injector, collectionMap:CollectionMap, collectionSorts:CollectionSorts, type:Class<System>)
+    public function new(parent:Injector, collectionMap:CollectionMap, collectionSorts:CollectionSorts, type:Class<System>, priority:Int)
     {
         injector = new Injector(parent);
         this.collections = new CollectionDefinitions(injector, collectionMap, collectionSorts);
         this.type = type;
+        this.priority = priority;
     }
 
     public function isType(type:Class<System>):Bool
@@ -57,10 +60,11 @@ class SystemMapping
         return this;
     }
 
-    public function withTimedUpdate(seconds:Float)
+    public function withTimedUpdate(seconds:Float):SystemMapping
     {
         useTimedUpdate = true;
         timedUpdateDelay = seconds;
+        return this;
     }
 
     public function apply(loop:SystemsLoop)

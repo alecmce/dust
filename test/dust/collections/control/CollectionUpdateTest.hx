@@ -81,6 +81,16 @@ class CollectionUpdateTest
         systems.update();
         Assert.isTrue(MockSelfRemovingListeners.isRemoved);
     }
+
+    @Test public function whenEntityIsDisposedItRunsThroughListeners()
+    {
+        mapListeners(MockListeners);
+        addComponent();
+        systems.update();
+        entity.dispose();
+        systems.update();
+        Assert.isTrue(MockListeners.isRemoved);
+    }
 }
 
 class MockListeners implements CollectionListeners
@@ -88,11 +98,7 @@ class MockListeners implements CollectionListeners
     public static var isAdded:Bool;
     public static var isRemoved:Bool;
 
-    public function new()
-    {
-        isAdded = false;
-        isRemoved = false;
-    }
+    public function new() {}
 
     public function onEntityAdded(entity:Entity)
         isAdded = true
@@ -106,11 +112,7 @@ class MockSelfRemovingListeners implements CollectionListeners
     public static var isAdded:Bool;
     public static var isRemoved:Bool;
 
-    public function new()
-    {
-        isAdded = false;
-        isRemoved = false;
-    }
+    public function new() {}
 
     public function onEntityAdded(entity:Entity)
     {
