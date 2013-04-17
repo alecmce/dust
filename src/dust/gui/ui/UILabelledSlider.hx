@@ -26,6 +26,18 @@ class UILabelledSlider extends Sprite
         return this;
     }
 
+    public function enable():UILabelledSlider
+    {
+        slider.enable();
+        return this;
+    }
+
+    public function disable():UILabelledSlider
+    {
+        slider.disable();
+        return this;
+    }
+
     public function getValue():Float
         return slider.getValue()
 
@@ -40,11 +52,5 @@ class UILabelledSlider extends Sprite
         slider.setWidth(width);
         label.setWidth(width);
     }
-
-    public function enable()
-        slider.enable()
-
-    public function disable()
-        slider.disable()
 }
 

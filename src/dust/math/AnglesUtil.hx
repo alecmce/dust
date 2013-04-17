@@ -11,12 +11,18 @@ class AnglesUtil
 
     inline public static function constrainToHalfTurn(angle:Float):Float
     {
-        return if (angle < -PI)
-            angle + TWO_PI;
-        else if (angle >  PI)
-            angle - TWO_PI;
-        else
-            angle;
+        if (angle < -PI)
+        {
+            while (angle < -PI)
+                angle += TWO_PI;
+        }
+        else if (angle > PI)
+        {
+            while (angle > PI)
+                angle -= TWO_PI;
+        }
+
+        return angle;
     }
 
    inline public static function directedAngle(a:Float, b:Float):Float
