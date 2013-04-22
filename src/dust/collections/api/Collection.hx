@@ -47,6 +47,9 @@ class Collection
         onRemoved(entity);
     }
 
+    inline public function getCount():Int
+        return list.count
+
     inline public function iterator():Iterator<Entity>
         return list.iterator()
 

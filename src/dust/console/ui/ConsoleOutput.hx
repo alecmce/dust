@@ -17,8 +17,7 @@ class ConsoleOutput extends Sprite
     var textfield:TextField;
     var previous:Int;
 
-    @inject
-    public function new(app:App, format:ConsoleFormat)
+    @inject public function new(app:App, format:ConsoleFormat)
     {
         super();
         this.lines = new Array<String>();

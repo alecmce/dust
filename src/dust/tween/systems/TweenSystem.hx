@@ -21,7 +21,7 @@ class TweenSystem implements System
         inline function updateEntity(entity:Entity, deltaTime:Float)
         {
             var tween:Tween = entity.get(Tween);
-            tween.update(deltaTime);
+            tween.update(entity, deltaTime);
 
             if (tween.isComplete())
             {

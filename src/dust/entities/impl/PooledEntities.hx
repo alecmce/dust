@@ -24,7 +24,7 @@ class PooledEntities implements Entities
         list = new PooledList<Entity>();
     }
 
-        inline function makeEntity():Entity
+        function makeEntity():Entity
         {
             var bitfield = bitfieldFactory.makeEmpty();
             return new PooledEntity(++id, bitfield);

@@ -1,5 +1,6 @@
 package dust.systems;
 
+import dust.app.data.App;
 import dust.gui.control.UILabelFactory;
 import dust.systems.ui.FrameRateView;
 import dust.context.UnconfigConfig;
@@ -28,6 +29,7 @@ class SystemMetricsConfig implements DependentConfig
     inline static var MEAN_DATA_POINTS = 25;
     inline static var OUTPUT_PRECISION = 4;
 
+    @inject public var app:App;
     @inject public var injector:Injector;
     @inject public var entities:Entities;
     @inject public var systems:Systems;
@@ -62,8 +64,8 @@ class SystemMetricsConfig implements DependentConfig
         {
             var entity = entities.require();
             entity.addAsType(new SystemMetricsView(labelFactory, metrics, OUTPUT_PRECISION), UIView);
-            entity.add(new Alignment(HAlign.LEFT, VAlign.BOTTOM));
-            entity.add(new Position(0, stage().stageHeight));
+            entity.add(new Alignment(HAlign.RIGHT, VAlign.BOTTOM));
+            entity.add(new Position(app.stageWidth, app.stageHeight));
             return entity;
         }
 

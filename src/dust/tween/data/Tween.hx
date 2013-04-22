@@ -9,6 +9,7 @@ class Tween extends Component
     public var delta:Float;
     public var duration:Float;
     public var ease:Float->Float;
+    public var onUpdate:Entity->Float->Void;
     public var onComplete:Entity->Void;
     public var delay:Float;
 
@@ -23,6 +24,7 @@ class Tween extends Component
         this.delta = target - initial;
         this.duration = duration;
         this.ease = nullEase;
+        this.onUpdate = nullUpdate;
         this.onComplete = nullComplete;
         this.delay = 0.0;
 
@@ -34,6 +36,7 @@ class Tween extends Component
         function nullEase(proportion:Float):Float
             return proportion
 
+        function nullUpdate(entity:Entity, value:Float) {}
         function nullComplete(entity:Entity) {}
 
     public function setEase(ease:Float->Float):Tween
@@ -54,7 +57,7 @@ class Tween extends Component
         return this;
     }
 
-    inline public function update(deltaTime:Float)
+    inline public function update(entity:Entity, deltaTime:Float)
     {
         progress += deltaTime;
         if (progress > duration)
@@ -62,6 +65,7 @@ class Tween extends Component
 
         var proportion = ease((progress - delay) * inverseDuration);
         value = initial + delta * proportion;
+        onUpdate(entity, value);
     }
 
     inline public function isComplete():Bool

@@ -16,8 +16,7 @@ class SystemMap
 
     var metrics:SystemMetrics;
 
-    @inject
-    public function new(injector:Injector, collectionMap:CollectionMap, collectionSorts:CollectionSorts)
+    @inject public function new(injector:Injector, collectionMap:CollectionMap, collectionSorts:CollectionSorts)
     {
         this.injector = injector;
         this.collectionMap = collectionMap;

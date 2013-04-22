@@ -10,6 +10,7 @@ class EntityList
 {
     public var list:LinkedList<Entity>;
     public var hash:IntHash<LinkedListItem<Entity>>;
+    public var count:Int;
 
     public function new(list:LinkedList<Entity>)
     {
@@ -27,6 +28,7 @@ class EntityList
         var item = list.itemProvider(entity);
         list.appendItem(item);
         hash.set(entity.id, item);
+        ++count;
     }
 
     public function remove(entity:Entity)
@@ -35,6 +37,7 @@ class EntityList
         var item = hash.get(id);
         hash.remove(id);
         list.detachNodeFromList(item);
+        --count;
     }
 
     public function iterator():Iterator<Entity>
