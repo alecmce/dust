@@ -38,8 +38,6 @@ class QuadTree<T> extends Component
     {
         if (range.contains(position))
             addToRoot(new QuadTreeData<T>(position, data));
-        else
-            throw new OutOfBoundsError(position, range);
     }
 
         function addToRoot(data:QuadTreeData<T>)

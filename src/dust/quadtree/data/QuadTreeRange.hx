@@ -42,10 +42,10 @@ class QuadTreeRange extends Component
         return dx < de && dy < de;
     }
 
-    inline public function contains(position:Position):Bool
+    inline public function contains(p:Position):Bool
     {
-        var dx = position.x - this.position.x;
-        var dy = position.y - this.position.y;
+        var dx = p.x - position.x;
+        var dy = p.y - position.y;
         return dx >= -extent && dx < extent && dy >= -extent && dy < extent;
     }
 

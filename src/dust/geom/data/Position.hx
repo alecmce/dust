@@ -45,6 +45,9 @@ class Position extends Component
         y += dy;
     }
 
+    public function clone():Position
+        return new Position(x, y)
+
     public function setTo(position:Position)
     {
         this.x = position.x;
