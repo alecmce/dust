@@ -7,10 +7,15 @@ import dust.geom.data.Position;
 
 class ReflectionDecorator
 {
-    @inject
-    public var draggableDecorator:DraggableDecorator;
+    @inject public var draggableDecorator:DraggableDecorator;
 
-    public function apply(entity:Entity, center:Entity, reflected:Entity, scale:Float = 1)
+    public function setHalfLength(halfLength:Float):ReflectionDecorator
+    {
+        draggableDecorator.setHalfLength(halfLength);
+        return this;
+    }
+
+    public function apply(entity:Entity, center:Entity, reflected:Entity, scale:Float = 1.0)
     {
         ensureEntityIsDraggable(entity);
         ensureEntityIsDraggable(center);

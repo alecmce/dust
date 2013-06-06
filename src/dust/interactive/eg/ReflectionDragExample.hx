@@ -1,11 +1,12 @@
 package dust.interactive.eg;
 
+import dust.interactive.control.TouchInteractiveFactory;
 import dust.interactive.control.ReflectionDecorator;
 import dust.interactive.control.OffsetDecorator;
 import dust.interactive.data.Reflection;
 import dust.interactive.data.Offsets;
 import dust.entities.api.Entity;
-import dust.interactive.data.MouseInteractive;
+import dust.interactive.data.TouchInteractive;
 import dust.graphics.PaintersConfig;
 import dust.graphics.data.Paint;
 import dust.entities.EntitiesConfig;
@@ -26,11 +27,10 @@ class ReflectionDragExample implements DependentConfig
     @inject public var camera:Camera;
     @inject public var reflectionDecorator:ReflectionDecorator;
     @inject public var offsetDecorator:OffsetDecorator;
+    @inject public var factory:TouchInteractiveFactory;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [EntitiesConfig, InteractiveConfig, PaintersConfig];
-    }
+        return [EntitiesConfig, InteractiveConfig, PaintersConfig]
 
     public function configure()
     {
@@ -49,23 +49,14 @@ class ReflectionDragExample implements DependentConfig
             var position = new Position(x, y);
             var paint = new Paint().setFill(color);
             var painter = new DrawSquarePainter(paint, position);
-            var interactive = new MouseInteractive(isMouseOver);
             var drag = new Draggable();
 
             var entity = entities.require();
             entity.add(camera);
             entity.add(position);
             entity.addAsType(painter, Painter);
-            entity.add(interactive);
+            entity.add(factory.makeSquare(10));
             entity.add(drag);
             return entity;
         }
-
-            function isMouseOver(entity:Entity, mouse:Position):Bool
-            {
-                var position:Position = entity.get(Position);
-                var dx = mouse.x - position.x;
-                var dy = mouse.y - position.y;
-                return dx >= -10 && dx <= 10 && dy >= -10 && dy <= 10;
-            }
 }

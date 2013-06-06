@@ -10,7 +10,7 @@ class UIView extends Component
     public var display:Sprite;
 
     public function new()
-        display = new Sprite()
+        this.display = new Sprite()
 
     public function setDisplay(display:Sprite):UIView
     {

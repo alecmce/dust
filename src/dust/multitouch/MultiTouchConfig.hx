@@ -3,7 +3,7 @@ package dust.multitouch;
 import dust.multitouch.systems.MouseTouchSystem;
 import dust.multitouch.data.GestureAction;
 import dust.multitouch.systems.DragZoomSystem;
-import dust.multitouch.data.CameraDragZoomAction;
+import dust.multitouch.control.CameraDragZoomActionFactory;
 import dust.multitouch.data.DragZoomGesture;
 import dust.multitouch.control.DragZoomFactory;
 import dust.multitouch.systems.MultiTouchSystem;
@@ -38,7 +38,7 @@ class MultiTouchConfig implements DependentConfig
     {
         injector.mapSingleton(Touches);
         injector.mapValue(DragZoomGesture, new DragZoomGesture().setTravel(50));
-        injector.mapSingleton(CameraDragZoomAction);
+        injector.mapSingleton(CameraDragZoomActionFactory);
         injector.mapSingleton(DragZoomFactory);
 
         app.isMultiTouch ? mapMultiTouchSystem() : mapClickTouchSystem();

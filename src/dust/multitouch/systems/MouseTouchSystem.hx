@@ -28,8 +28,6 @@ class MouseTouchSystem implements System
     var secondTouch:Touch;
     var time:Float;
 
-    var isShiftDown:Bool;
-    var isAltDown:Bool;
     var isDrag:Bool;
     var isZoom:Bool;
 
@@ -65,21 +63,19 @@ class MouseTouchSystem implements System
 
         function onKeyDown(event:KeyboardEvent)
         {
-            isShiftDown = isShiftDown || event.keyCode == Keyboard.SHIFT;
-            isAltDown = event.altKey;
+            isZoom = isZoom || event.keyCode == Keyboard.SHIFT;
+            isDrag = isDrag || event.keyCode == Keyboard.ENTER;
         }
 
         function onKeyUp(event:KeyboardEvent)
         {
-            isShiftDown = isShiftDown && event.keyCode != Keyboard.SHIFT;
-            isAltDown = event.altKey;
+            isZoom = isZoom && event.keyCode != Keyboard.SHIFT;
+            isDrag = isDrag && event.keyCode != Keyboard.ENTER;
         }
 
         function onMouseDown(event:MouseEvent)
         {
             initTouch(mouseTouch, event.stageX, event.stageY);
-            isZoom = isShiftDown && isAltDown;
-            isDrag = !isZoom && isShiftDown;
             if (isZoom)
                 initTouch(secondTouch, app.stageWidth * 0.5, app.stageHeight * 0.5);
             else if (isDrag)

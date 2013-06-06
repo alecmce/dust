@@ -1,5 +1,6 @@
 package dust.interactive.eg;
 
+import dust.interactive.control.TouchInteractiveFactory;
 import dust.camera.data.Camera;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Paint;
@@ -13,7 +14,7 @@ import dust.entities.EntitiesConfig;
 import dust.geom.data.Position;
 import dust.interactive.control.OffsetDecorator;
 import dust.interactive.data.Draggable;
-import dust.interactive.data.MouseInteractive;
+import dust.interactive.data.TouchInteractive;
 import dust.interactive.data.Offsets;
 
 import nme.display.Graphics;
@@ -23,6 +24,7 @@ class OffsetDragExample implements DependentConfig
     @inject public var entities:Entities;
     @inject public var camera:Camera;
     @inject public var decorator:OffsetDecorator;
+    @inject public var factory:TouchInteractiveFactory;
 
     public function dependencies():Array<Class<Config>>
         return [EntitiesConfig, InteractiveConfig, PaintersConfig]
@@ -39,7 +41,7 @@ class OffsetDragExample implements DependentConfig
             var position = new Position(x, y);
             var paint = new Paint().setFill(color);
             var painter = new DrawSquarePainter(paint, position);
-            var interactive = new MouseInteractive(isMouseOver);
+            var interactive = factory.makeSquare(10);
             var drag = new Draggable();
 
             var entity = entities.require();
@@ -50,12 +52,4 @@ class OffsetDragExample implements DependentConfig
             entity.add(drag);
             return entity;
         }
-
-            function isMouseOver(entity:Entity, mouse:Position):Bool
-            {
-                var position:Position = entity.get(Position);
-                var dx = mouse.x - position.x;
-                var dy = mouse.y - position.y;
-                return dx >= -10 && dx <= 10 && dy >= -10 && dy <= 10;
-            }
 }

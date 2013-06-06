@@ -6,7 +6,7 @@ class BitfieldFactory
 
     public function new()
     {
-        dimension = 2;
+        dimension = 3;
     }
 
     public function makeEmpty():Bitfield

@@ -1,5 +1,6 @@
 package dust.graphics.data;
 
+import nme.geom.ColorTransform;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
 import dust.entities.api.Entity;
@@ -14,6 +15,7 @@ class BitmapPainter extends Painter
 
     public var bitmap:BitmapData;
     public var scale:Float;
+    public var alpha:Float;
 
     public function new(bitmap:BitmapData)
     {
@@ -25,6 +27,11 @@ class BitmapPainter extends Painter
     {
         this.scale = scale;
         return this;
+    }
+
+    public function fade()
+    {
+        bitmap.colorTransform(bitmap.rect, new ColorTransform(1.0, 1.0, 1.0, 0.95));
     }
 
     override public function draw(entity:Entity, graphics:Graphics)

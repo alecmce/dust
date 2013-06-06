@@ -1,5 +1,7 @@
 package dust.gui;
 
+import dust.camera.data.Camera;
+import dust.camera.control.CameraFactory;
 import dust.gui.control.UISliderFactory;
 import dust.gui.control.UILabelledSliderFactory;
 import dust.gui.control.UILabelFactory;
@@ -23,6 +25,7 @@ class GUIConfig implements DependentConfig
     @inject public var injector:Injector;
     @inject public var collections:CollectionMap;
     @inject public var systems:Systems;
+    @inject public var cameraFactory:CameraFactory;
 
     public function dependencies():Array<Class<Config>>
         return [EntitiesConfig, SystemsConfig, SmallWhiteHelveticaFontConfig]
@@ -32,6 +35,7 @@ class GUIConfig implements DependentConfig
         injector.mapSingleton(UILabelFactory);
         injector.mapSingleton(UILabelledSliderFactory);
         injector.mapSingleton(UISliderFactory);
+        injector.mapValue(Camera, cameraFactory.make(), 'ui');
 
         collections
             .map([UIView, Position])

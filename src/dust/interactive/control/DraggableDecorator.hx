@@ -1,6 +1,6 @@
 package dust.interactive.control;
 
-import dust.interactive.data.MouseInteractive;
+import dust.interactive.data.TouchInteractive;
 import dust.interactive.data.Draggable;
 import dust.geom.data.Position;
 import dust.interactive.data.Offsets;
@@ -9,13 +9,23 @@ import dust.entities.api.Entity;
 
 class DraggableDecorator
 {
-    @inject
-    public var interactiveDecorator:MouseInteractiveDecorator;
+    @inject public var factory:TouchInteractiveFactory;
+
+    var halfLength:Float;
+
+    public function new()
+        halfLength = 10.0
+
+    public function setHalfLength(halfLength:Float):DraggableDecorator
+    {
+        this.halfLength = halfLength;
+        return this;
+    }
 
     public function apply(entity:Entity):Entity
     {
-        if (!entity.has(MouseInteractive))
-            interactiveDecorator.apply(entity);
+        if (!entity.has(TouchInteractive))
+            entity.add(factory.makeSquare(halfLength));
         entity.add(new Draggable());
         return entity;
     }
@@ -23,6 +33,6 @@ class DraggableDecorator
     public function clear(entity:Entity)
     {
         entity.remove(Draggable);
-        interactiveDecorator.clear(entity);
+        entity.remove(TouchInteractive);
     }
 }

@@ -49,7 +49,7 @@ class BitmapTextFactory
             return if (current != null)
                 reuseOrReplaceCurrentBitmapData(current, data);
             else if (width == 0 || height == 0)
-                null;
+                new BitmapData(1, 1, true, 0);
             else
                 makeNewBitmapData(data);
         }
@@ -77,5 +77,3 @@ class BitmapTextFactory
             inline function makeNewBitmapData(data:BitmapTextData):BitmapData
                 return new BitmapData(width, height, data.useAlpha, data.background)
 }
-
-

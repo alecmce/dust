@@ -1,7 +1,8 @@
 package dust.interactive.eg;
 
+import dust.interactive.control.TouchInteractiveFactory;
 import dust.entities.api.Entity;
-import dust.interactive.data.MouseInteractive;
+import dust.interactive.data.TouchInteractive;
 import dust.graphics.PaintersConfig;
 import dust.graphics.data.Paint;
 import dust.entities.EntitiesConfig;
@@ -20,25 +21,23 @@ class DragExample implements DependentConfig
 {
     @inject public var entities:Entities;
     @inject public var camera:Camera;
+    @inject public var factory:TouchInteractiveFactory;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [EntitiesConfig, InteractiveConfig, PaintersConfig];
-    }
+        return [EntitiesConfig, InteractiveConfig, PaintersConfig]
 
     public function configure()
     {
         var position = new Position(0, 0);
         var paint = new Paint().setFill(0x1E90FF);
         var painter = new DrawSquarePainter(paint, position);
-        var interactive = new MouseInteractive(isMouseOver);
         var drag = new Draggable();
 
         var entity = entities.require();
         entity.add(position);
         entity.add(camera);
         entity.addAsType(painter, Painter);
-        entity.add(interactive);
+        entity.add(factory.makeSquare(10));
         entity.add(drag);
     }
 

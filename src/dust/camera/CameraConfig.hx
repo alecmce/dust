@@ -1,5 +1,6 @@
 package dust.camera;
 
+import dust.camera.control.CameraFactory;
 import dust.app.data.AppTarget;
 import dust.app.data.App;
 import dust.app.AppConfig;
@@ -16,37 +17,16 @@ import dust.Injector;
 class CameraConfig implements DependentConfig
 {
     @inject public var injector:Injector;
-    @inject public var app:App;
-    @inject public var entities:Entities;
-
-    var screenCenterX:Int;
-    var screenCenterY:Int;
-    var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
         return [AppConfig, CollectionsConfig]
 
     public function configure()
     {
-        var camera = makeCamera();
-        injector.mapValue(Camera, camera);
+        injector.mapSingleton(CameraFactory);
         injector.mapSingleton(CameraDecorator);
 
-        var entity = entities.require();
-        entity.add(camera);
+        var factory = injector.getInstance(CameraFactory);
+        injector.mapValue(Camera, factory.make());
     }
-
-        function makeCamera():Camera
-        {
-            screenCenterX = Std.int(app.stageWidth * 0.5);
-            screenCenterY = Std.int(app.stageHeight * 0.5);
-
-            return switch (app.target)
-            {
-                case AppTarget.IPAD_RETINA:
-                    new Camera(screenCenterX, screenCenterY, 1);
-                default:
-                    new Camera(screenCenterX, screenCenterY, 0.5);
-            }
-        }
 }

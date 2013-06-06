@@ -10,6 +10,12 @@ class OffsetDecorator
 {
     @inject public var draggableDecorator:DraggableDecorator;
 
+    public function setHalfLength(halfLength:Float):OffsetDecorator
+    {
+        draggableDecorator.setHalfLength(halfLength);
+        return this;
+    }
+
     public function apply(master:Entity, entity:Entity)
     {
         ensureEntityIsDraggable(master);
@@ -25,7 +31,7 @@ class OffsetDecorator
 
         function addOffsetsToEntity(master:Entity, linked:Entity)
         {
-            var method = master.has(Offsets) ? addToExistingOffsets : applyNewOffets;
+            var method = master.has(Offsets) ? addToExistingOffsets : applyNewOffsets;
             method(master, linked.get(Position));
         }
 
@@ -34,7 +40,7 @@ class OffsetDecorator
                 master.get(Offsets).offsets.push(position);
             }
 
-            function applyNewOffets(master:Entity, position:Position)
+            function applyNewOffsets(master:Entity, position:Position)
             {
                 var masterPosition = master.get(Position);
                 var offsets = new Offsets(masterPosition, [position]);

@@ -54,5 +54,5 @@ class Collection
         return list.iterator()
 
     public function toString():String
-        return "[Collection " + id + " (" + bitfield.toString() + ")]"
+        return "[Collection id=" + id + " bits=(" + bitfield.toString() + ")] count=" + list.count + "]"
 }

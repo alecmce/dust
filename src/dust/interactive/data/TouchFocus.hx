@@ -3,7 +3,7 @@ package dust.interactive.data;
 import dust.geom.data.Position;
 import dust.components.Component;
 
-class ClickFocus extends Component
+class TouchFocus extends Component
 {
     public var position:Position;
     public var isClick:Bool;

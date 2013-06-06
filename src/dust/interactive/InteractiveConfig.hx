@@ -1,13 +1,15 @@
 package dust.interactive;
 
-import dust.interactive.data.Clickable;
-import dust.interactive.control.MouseInteractiveDecorator;
+import dust.interactive.control.TouchInteractiveFactory;
+import dust.interactive.control.TouchSelector;
+import dust.multitouch.MultiTouchConfig;
+import dust.interactive.data.Touchable;
 import dust.interactive.control.DraggableDecorator;
 import dust.interactive.control.ReflectionDecorator;
 import dust.interactive.control.OffsetDecorator;
-import dust.interactive.data.MouseInteractive;
-import dust.interactive.data.MouseInteractive;
-import dust.interactive.data.MouseInteractive;
+import dust.interactive.data.TouchInteractive;
+import dust.interactive.data.TouchInteractive;
+import dust.interactive.data.TouchInteractive;
 import dust.interactive.data.DragFocus;
 import dust.interactive.data.Reflection;
 import dust.interactive.systems.ReflectionSystem;
@@ -20,10 +22,10 @@ import dust.graphics.GraphicsConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
 import dust.collections.control.CollectionMap;
-import dust.interactive.data.MouseInteractive;
-import dust.interactive.systems.ClickSystem;
+import dust.interactive.data.TouchInteractive;
+import dust.interactive.systems.TouchSystem;
 import dust.interactive.data.Draggable;
-import dust.interactive.data.ClickFocus;
+import dust.interactive.data.TouchFocus;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
 
@@ -36,35 +38,36 @@ class InteractiveConfig implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [GraphicsConfig, SystemsConfig, CameraConfig]
+        return [MultiTouchConfig, GraphicsConfig, SystemsConfig, CameraConfig]
 
     public function configure()
     {
-        injector.mapSingleton(ClickFocus);
+        injector.mapSingleton(TouchFocus);
         injector.mapSingleton(DragFocus);
-        injector.mapSingleton(MouseInteractiveDecorator);
         injector.mapSingleton(DraggableDecorator);
         injector.mapSingleton(OffsetDecorator);
         injector.mapSingleton(ReflectionDecorator);
+        injector.mapSingleton(TouchSelector);
+        injector.mapSingleton(TouchInteractiveFactory);
 
         systems
-            .map(ClickSystem)
-            .toCollection([MouseInteractive, Clickable])
+            .map(TouchSystem)
+            .toCollection([TouchInteractive, Touchable])
             .withName("Click");
 
         systems
             .map(DragSystem)
-            .toCollection([MouseInteractive, Draggable, Position])
+            .toCollection([TouchInteractive, Draggable, Position])
             .withName("Drag");
 
         systems
             .map(ReflectionSystem)
-            .toCollection([MouseInteractive, Reflection, Position, DragFocus])
+            .toCollection([TouchInteractive, Reflection, Position, DragFocus])
             .withName("Reflection");
 
         systems
             .map(OffsetSystem)
-            .toCollection([MouseInteractive, Offsets, Position, DragFocus])
+            .toCollection([TouchInteractive, Offsets, Position, DragFocus])
             .withName("Offset");
     }
 }

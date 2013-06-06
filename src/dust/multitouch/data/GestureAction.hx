@@ -4,9 +4,16 @@ import dust.components.Component;
 
 class GestureAction extends Component
 {
-    public function new() {}
+    public var start:Void->Void;
+    public var update:Void->Void;
+    public var end:Void->Void;
 
-    public function start() {}
-    public function update() {}
-    public function end() {}
+    public function new()
+    {
+        start = emptyMethod;
+        update = emptyMethod;
+        end = emptyMethod;
+    }
+
+    function emptyMethod() {}
 }

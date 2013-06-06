@@ -1,9 +1,11 @@
-package dust.multitouch.data;
+package dust.multitouch.control;
 
+import dust.multitouch.data.GestureAction;
+import dust.multitouch.data.DragZoomGesture;
 import dust.geom.data.Position;
 import dust.camera.data.Camera;
 
-class CameraDragZoomAction extends GestureAction
+class CameraDragZoomActionFactory
 {
     @inject public var camera:Camera;
     @inject public var gesture:DragZoomGesture;
@@ -23,12 +25,17 @@ class CameraDragZoomAction extends GestureAction
     var baseY:Float;
 
     public function new()
+        world = new Position()
+
+    public function make():GestureAction
     {
-        super();
-        world = new Position();
+        var action = new GestureAction();
+        action.start = start;
+        action.update = update;
+        return action;
     }
 
-    override public function start()
+    function start()
     {
         startingScale = camera.scalar;
         startingWorldX = camera.worldX;
@@ -39,7 +46,7 @@ class CameraDragZoomAction extends GestureAction
         worldGestureCenterY = world.y;
     }
 
-    override public function update()
+    function update()
     {
         var scalar = startingScale * gesture.zoomScalar;
         var invScalar = 1 / scalar;

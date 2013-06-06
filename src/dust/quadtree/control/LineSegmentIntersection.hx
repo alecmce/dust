@@ -3,6 +3,7 @@ package dust.quadtree.control;
 import dust.console.ui.ConsoleOutput;
 import dust.geom.data.Position;
 
+// TODO calculate via dust.math.geom.LineIntersection
 class LineSegmentIntersection
 {
     var ax:Float;
