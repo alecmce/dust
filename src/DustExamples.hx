@@ -1,5 +1,6 @@
 package;
 
+import dust.physics.eg.PhysicsExample;
 import dust.systems.SystemMetricsConfig;
 import dust.systems.eg.FastInsertionSortAlgorithmExample;
 import dust.Injector;
@@ -61,7 +62,8 @@ class DustExamples implements DependentConfig
             .add("BitmapText", BitmapTextExample)
             .add("QuadTree", QuadTreeVisualizationExample)
             .add("GUI", GUIExample)
-            .add("FastInsertionSort", FastInsertionSortAlgorithmExample);
+            .add("FastInsertionSort", FastInsertionSortAlgorithmExample)
+            .add("Physics", PhysicsExample);
 
         root.addChild(mainMenu);
         mainMenu.reset.bind(onReset);
