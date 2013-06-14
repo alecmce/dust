@@ -1,19 +1,9 @@
 package dust.graphics.data;
 
-import dust.components.Component;
+import nme.display.Graphics;
 import dust.entities.api.Entity;
 
-import nme.display.Graphics;
-
-class Painter extends Component
+interface Painter
 {
-    public var priority:Int;
-
-    public function draw(entity:Entity, graphics:Graphics) {}
-
-    public function setPriority(priority:Int):Painter
-    {
-        this.priority = priority;
-        return this;
-    }
+    public function draw(entity:Entity, graphics:Graphics):Void;
 }

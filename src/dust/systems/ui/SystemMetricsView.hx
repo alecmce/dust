@@ -1,5 +1,7 @@
 package dust.systems.ui;
 
+import nme.display.DisplayObject;
+import dust.gui.data.UIView;
 import dust.gui.control.UILabelFactory;
 import dust.entities.api.Entity;
 import dust.systems.impl.SystemMetricsData;
@@ -7,7 +9,7 @@ import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
 import dust.systems.impl.SystemsList;
 import dust.type.TypeIndex;
-import dust.gui.data.UIView;
+import dust.gui.data.UIContainer;
 import dust.gui.ui.UILabel;
 import dust.gui.ui.VerticalList;
 
@@ -15,8 +17,10 @@ import nme.display.Stage;
 
 using dust.FloatUtil;
 
-class SystemMetricsView extends UIView
+class SystemMetricsView implements UIView
 {
+    public var display:DisplayObject;
+
     var factory:UILabelFactory;
     var metrics:SystemMetrics;
     var precision:Int;
@@ -34,14 +38,11 @@ class SystemMetricsView extends UIView
         this.precision = precision;
         this.isEnabled = false;
 
-        ui = makeVerticalList();
+        display = ui = makeVerticalList();
         ui.addItem(factory.makeWithDefaults("Systems"));
         hash = new Hash<UILabel>();
 
         timeSinceLastUpdate = 0;
-
-        super();
-        display.addChild(ui);
     }
 
         function makeVerticalList():VerticalList
@@ -55,7 +56,7 @@ class SystemMetricsView extends UIView
         inline function getStage():Stage
             return nme.Lib.current.stage
 
-    override public function refresh(entity:Entity, deltaTime:Float)
+    public function refresh(entity:Entity, deltaTime:Float)
     {
         timeSinceLastUpdate += deltaTime;
         if (timeSinceLastUpdate >= 1)

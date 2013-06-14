@@ -1,7 +1,7 @@
-package dust.graphics.control;
+package dust.graphics.systems;
 
 import dust.camera.data.Camera;
-import dust.graphics.data.Painter;
+import dust.graphics.data.Painters;
 import dust.collections.api.Collection;
 import dust.lists.Pool;
 import dust.lists.SortedList;
@@ -24,6 +24,6 @@ class PainterSystem implements System
     {
         graphics.clear();
         for (entity in collection)
-            entity.get(Painter).draw(entity, graphics);
+            entity.get(Painters).draw(entity, graphics);
     }
 }

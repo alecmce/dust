@@ -1,13 +1,14 @@
 package dust.interactive.eg;
 
+import dust.graphics.data.Painter;
 import dust.entities.api.Entity;
 import dust.camera.data.Camera;
 import dust.graphics.data.Paint;
-import dust.graphics.data.Painter;
+import dust.graphics.data.Painters;
 import dust.geom.data.Position;
 import nme.display.Graphics;
 
-class DrawSquarePainter extends Painter
+class DrawSquarePainter implements Painter
 {
     public var paint:Paint;
     var position:Position;
@@ -20,13 +21,13 @@ class DrawSquarePainter extends Painter
         screen = new Position();
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
         paint.paint(entity, graphics, drawSquare)
 
-    function drawSquare(entity:Entity, graphics:Graphics)
-    {
-        var camera:Camera = entity.get(Camera);
-        camera.toScreen(position, screen);
-        graphics.drawRect(screen.x - 10, screen.y - 10, 20, 20);
-    }
+        function drawSquare(entity:Entity, graphics:Graphics)
+        {
+            var camera:Camera = entity.get(Camera);
+            camera.toScreen(position, screen);
+            graphics.drawRect(screen.x - 10, screen.y - 10, 20, 20);
+        }
 }

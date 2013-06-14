@@ -1,19 +1,24 @@
 package dust.systems.ui;
 
+import nme.display.DisplayObject;
+import nme.display.Sprite;
+import dust.gui.data.UIView;
 import dust.gui.control.UILabelFactory;
 import dust.entities.api.Entity;
 import nme.text.Font;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
 import dust.gui.ui.UILabel;
-import dust.gui.data.UIView;
+import dust.gui.data.UIContainer;
 
 import haxe.Timer;
 
 using dust.FloatUtil;
 
-class FrameRateView extends UIView
+class FrameRateView implements UIView
 {
+    public var display:DisplayObject;
+
     var factory:UILabelFactory;
     var label:UILabel;
     var rollingMean:RollingMean;
@@ -22,16 +27,14 @@ class FrameRateView extends UIView
 
     public function new(factory:UILabelFactory)
     {
-        super();
         this.factory = factory;
-        label = factory.makeWithDefaults("??fps");
-        display.addChild(label);
+        display = label = factory.makeWithDefaults("??fps");
         rollingMean = new RollingMean(5);
         updatesThisSecond = 0;
         elapsedTimeSinceUpdate = 0;
     }
 
-    override public function refresh(entity:Entity, deltaTime:Float)
+    public function refresh(entity:Entity, deltaTime:Float)
     {
         ++updatesThisSecond;
         elapsedTimeSinceUpdate += deltaTime;

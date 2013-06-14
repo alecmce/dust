@@ -1,8 +1,8 @@
 package dust.text.eg;
 
 import dust.text.control.BitmapFonts;
-import dust.graphics.data.Painter;
-import dust.graphics.data.NoScaleBitmapPainter;
+import dust.graphics.data.Painters;
+import dust.graphics.data.NoScaleBitmapDrawer;
 import dust.camera.data.Camera;
 import dust.camera.CameraConfig;
 import dust.math.Random;
@@ -41,11 +41,11 @@ class NoScaleBitmapFontExample implements DependentConfig
         for (n in list)
         {
             var bitmap = font.getChar(n).data;
-            var painter = new NoScaleBitmapPainter(bitmap);
+            var painter = new NoScaleBitmapDrawer(bitmap);
 
             var entity = entities.require();
             entity.add(new Position(x, y));
-            entity.addAsType(painter, Painter);
+            entity.add(new Painters().add(painter));
             entity.add(camera);
 
             x += 50;

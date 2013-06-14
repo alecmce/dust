@@ -1,14 +1,17 @@
 package dust.geom.ui;
 
+import dust.graphics.data.Painter;
+import dust.entities.api.Entity;
+import dust.components.Component;
 import dust.camera.data.Camera;
 import dust.entities.api.Entity;
-import dust.graphics.data.Painter;
+import dust.graphics.data.Painters;
 import dust.geom.data.Position;
 import dust.graphics.data.Paint;
 
 import nme.display.Graphics;
 
-class CrossPositionPainter extends Painter
+class CrossPositionPainter implements Painter
 {
     var paint:Paint;
     var screen:Position;
@@ -19,7 +22,7 @@ class CrossPositionPainter extends Painter
         screen = new Position();
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
         paint.paint(entity, graphics, drawCross)
 
         function drawCross(entity:Entity, graphics:Graphics)

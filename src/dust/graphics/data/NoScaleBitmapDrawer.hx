@@ -1,5 +1,6 @@
 package dust.graphics.data;
 
+import dust.components.Component;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
 import dust.entities.api.Entity;
@@ -8,7 +9,9 @@ import nme.display.BitmapData;
 import nme.display.Graphics;
 import nme.geom.Matrix;
 
-class NoScaleBitmapPainter extends Painter
+class NoScaleBitmapDrawer
+    extends Component,
+    implements Painter
 {
     static var matrix:Matrix = new Matrix();
 
@@ -22,7 +25,7 @@ class NoScaleBitmapPainter extends Painter
         this.screen = new Position();
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
     {
         var camera:Camera = entity.get(Camera);
         var world:Position = entity.get(Position);

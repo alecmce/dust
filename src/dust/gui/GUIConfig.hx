@@ -7,11 +7,11 @@ import dust.gui.control.UILabelledSliderFactory;
 import dust.gui.control.UILabelFactory;
 import dust.text.SmallWhiteHelveticaFontConfig;
 import dust.text.BitmapTextConfig;
-import dust.gui.systems.UIViewRootManager;
+import dust.gui.systems.UIRootManager;
 import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
 import dust.geom.data.Position;
-import dust.gui.data.UIView;
+import dust.gui.data.UIContainer;
 import dust.gui.systems.UpdateUISystem;
 import dust.systems.SystemsConfig;
 import dust.systems.impl.Systems;
@@ -38,12 +38,12 @@ class GUIConfig implements DependentConfig
         injector.mapValue(Camera, cameraFactory.make(), 'ui');
 
         collections
-            .map([UIView, Position])
-            .toListeners(UIViewRootManager);
+            .map([UIContainer, Position])
+            .toListeners(UIRootManager);
 
         systems
             .map(UpdateUISystem)
-            .toCollection([UIView, Position])
+            .toCollection([UIContainer, Position])
             .withName("UpdateUI");
     }
 }

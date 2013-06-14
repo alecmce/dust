@@ -1,7 +1,7 @@
 package dust.graphics;
 
 import dust.Injector;
-import dust.graphics.control.PainterSystem;
+import dust.graphics.systems.PainterSystem;
 import dust.context.Context;
 import dust.systems.impl.Systems;
 

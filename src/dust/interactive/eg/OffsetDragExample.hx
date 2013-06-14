@@ -4,7 +4,7 @@ import dust.interactive.control.TouchInteractiveFactory;
 import dust.camera.data.Camera;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Paint;
-import dust.graphics.data.Painter;
+import dust.graphics.data.Painters;
 import dust.graphics.PaintersConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
@@ -47,7 +47,7 @@ class OffsetDragExample implements DependentConfig
             var entity = entities.require();
             entity.add(camera);
             entity.add(position);
-            entity.addAsType(painter, Painter);
+            entity.add(new Painters().add(painter));
             entity.add(interactive);
             entity.add(drag);
             return entity;

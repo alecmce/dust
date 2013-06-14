@@ -1,12 +1,14 @@
 package dust.systems;
 
+import dust.gui.data.UIContainer;
+import dust.gui.data.UIContainer;
 import dust.app.data.App;
 import dust.gui.control.UILabelFactory;
 import dust.systems.ui.FrameRateView;
 import dust.context.UnconfigConfig;
 import dust.systems.impl.Systems;
 import dust.type.TypeIndex;
-import dust.gui.data.UIView;
+import dust.gui.data.UIContainer;
 import dust.entities.api.Entity;
 import dust.gui.data.Alignment;
 import dust.geom.data.Position;
@@ -63,7 +65,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeSystemMetricsViewEntity()
         {
             var entity = entities.require();
-            entity.addAsType(new SystemMetricsView(labelFactory, metrics, OUTPUT_PRECISION), UIView);
+            entity.add(new UIContainer().add(new SystemMetricsView(labelFactory, metrics, OUTPUT_PRECISION)));
             entity.add(new Alignment(HAlign.RIGHT, VAlign.BOTTOM));
             entity.add(new Position(app.stageWidth, app.stageHeight));
             return entity;
@@ -72,7 +74,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeFrameRateViewEntity()
         {
             var entity = entities.require();
-            entity.addAsType(new FrameRateView(labelFactory), UIView);
+            entity.add(new UIContainer().add(new FrameRateView(labelFactory)));
             entity.add(new Alignment(HAlign.RIGHT, VAlign.TOP));
             entity.add(new Position(stage().stageWidth, 0));
             return entity;

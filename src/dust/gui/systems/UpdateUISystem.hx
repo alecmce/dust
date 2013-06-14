@@ -5,7 +5,7 @@ import dust.gui.data.Alignment;
 import dust.gui.data.VAlign;
 import dust.gui.data.HAlign;
 import dust.geom.data.Position;
-import dust.gui.data.UIView;
+import dust.gui.data.UIContainer;
 import dust.entities.api.Entity;
 import dust.collections.api.Collection;
 import dust.systems.System;
@@ -28,7 +28,7 @@ class UpdateUISystem implements System
 
         function updateEntity(entity:Entity)
         {
-            var view:UIView = entity.get(UIView);
+            var view:UIContainer = entity.get(UIContainer);
             view.refresh(entity, deltaTime);
 
             var position:Position = entity.get(Position);

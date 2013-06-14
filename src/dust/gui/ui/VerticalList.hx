@@ -1,6 +1,6 @@
 package dust.gui.ui;
 
-import dust.gui.data.UIView;
+import dust.gui.data.UIContainer;
 import dust.entities.api.Entity;
 
 import nme.display.DisplayObject;

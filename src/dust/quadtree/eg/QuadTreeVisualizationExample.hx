@@ -1,6 +1,7 @@
 package dust.quadtree.eg;
 
 import dust.graphics.data.Painter;
+import dust.graphics.data.Painters;
 import dust.geom.ui.CrossPositionPainter;
 import dust.geom.systems.MovingPositionsSystem;
 import dust.geom.data.Delta;
@@ -74,7 +75,7 @@ class QuadTreeVisualizationExample implements DependentConfig
             var entity = entities.require();
             entity.add(tree);
             entity.add(camera);
-            entity.addAsType(painter, Painter);
+            entity.add(new Painters().add(painter));
             return entity;
         }
 
@@ -100,7 +101,7 @@ class QuadTreeVisualizationExample implements DependentConfig
             var entity = entities.require();
             entity.add(position);
             entity.add(camera);
-            entity.addAsType(painter, Painter);
+            entity.add(new Painters().add(painter));
             entity.add(delta);
 
             tree.add(position, entity);

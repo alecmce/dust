@@ -8,7 +8,7 @@ import dust.graphics.data.Paint;
 import dust.entities.EntitiesConfig;
 import dust.camera.data.Camera;
 import dust.graphics.data.Paint;
-import dust.graphics.data.Painter;
+import dust.graphics.data.Painters;
 import dust.context.Config;
 import dust.context.DependentConfig;
 import dust.entities.api.Entities;
@@ -36,7 +36,7 @@ class DragExample implements DependentConfig
         var entity = entities.require();
         entity.add(position);
         entity.add(camera);
-        entity.addAsType(painter, Painter);
+        entity.add(new Painters().add(painter));
         entity.add(factory.makeSquare(10));
         entity.add(drag);
     }

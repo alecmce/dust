@@ -20,14 +20,19 @@ class TouchInteractiveFactory
 
     public function makeCircular(radius:Float):TouchInteractive
     {
-        var circular = new CircularTouchAlgorithm(camera, radius * scalar);
-        return new TouchInteractive(circular.isWithinRadius);
+        var algorithm = new CircularTouchAlgorithm(camera, radius * scalar);
+        return new TouchInteractive(algorithm.isWithinRadius);
     }
 
     public function makeSquare(distance:Float):TouchInteractive
     {
-        var square = new SquareTouchAlgorithm(camera, distance * scalar);
-        return new TouchInteractive(square.isWithinSquare);
+        return makeRectangular(distance, distance);
+    }
+
+    public function makeRectangular(horizontal:Float, vertical:Float):TouchInteractive
+    {
+        var algorithm = new RectangularTouchAlgorithm(camera, horizontal * scalar, vertical * scalar);
+        return new TouchInteractive(algorithm.isWithinRectangle);
     }
 }
 
@@ -56,20 +61,22 @@ class CircularTouchAlgorithm
     }
 }
 
-class SquareTouchAlgorithm
+class RectangularTouchAlgorithm
 {
     var camera:Camera;
-    var value:Float;
+    var horizontal:Float;
+    var vertical:Float;
     var screen:Position;
 
-    public function new(camera:Camera, halfLength:Float)
+    public function new(camera:Camera, horizontal:Float, vertical:Float)
     {
         this.camera = camera;
-        this.value = halfLength;
+        this.horizontal = horizontal;
+        this.vertical = horizontal;
         this.screen = new Position();
     }
 
-    public function isWithinSquare(entity:Entity, mouse:Position):TouchInteractiveResponse
+    public function isWithinRectangle(entity:Entity, mouse:Position):TouchInteractiveResponse
     {
         var world:Position = entity.get(Position);
         camera.toScreen(world, screen);
@@ -77,7 +84,7 @@ class SquareTouchAlgorithm
         var dx = mouse.x - screen.x;
         var dy = mouse.y - screen.y;
         var dd = dx * dx + dy * dy;
-        var isAtPosition = dx >= -value && dx <= value && dy >= -value && dy <= value;
+        var isAtPosition = dx >= -horizontal && dx <= horizontal && dy >= -vertical && dy <= vertical;
         return {isAtPosition:isAtPosition , distance:dd};
     }
 }

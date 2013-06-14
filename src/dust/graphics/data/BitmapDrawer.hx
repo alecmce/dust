@@ -1,5 +1,6 @@
 package dust.graphics.data;
 
+import dust.components.Component;
 import nme.geom.ColorTransform;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
@@ -9,7 +10,9 @@ import nme.display.BitmapData;
 import nme.display.Graphics;
 import nme.geom.Matrix;
 
-class BitmapPainter extends Painter
+class BitmapDrawer
+    extends Component,
+    implements Painter
 {
     static var matrix:Matrix = new Matrix();
 
@@ -23,7 +26,7 @@ class BitmapPainter extends Painter
         this.scale = 1;
     }
 
-    public function setScale(scale:Float):BitmapPainter
+    public function setScale(scale:Float):BitmapDrawer
     {
         this.scale = scale;
         return this;
@@ -34,7 +37,7 @@ class BitmapPainter extends Painter
         bitmap.colorTransform(bitmap.rect, new ColorTransform(1.0, 1.0, 1.0, 0.95));
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
     {
         var position:Position = entity.get(Position);
         var camera:Camera = entity.get(Camera);
@@ -42,7 +45,7 @@ class BitmapPainter extends Painter
         var width = bitmap.width;
         var height = bitmap.height;
 
-        camera.toScreenMatrix(position, matrix, width * 0.5, height * 0.5, scale);
+        camera.toScreenMatrix(position, matrix, width * 0.5 * scale, height * 0.5 * scale, scale);
         graphics.lineStyle();
         graphics.beginBitmapFill(bitmap, matrix, false, true);
         graphics.drawRect(matrix.tx, matrix.ty, width * scalar, height * scalar);

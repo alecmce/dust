@@ -1,10 +1,10 @@
 package dust.graphics;
 
-import dust.graphics.data.Painter;
 import dust.camera.CameraConfig;
 import dust.camera.data.Camera;
+import dust.graphics.data.Painters;
 import dust.graphics.GraphicsConfig;
-import dust.graphics.control.PainterSystem;
+import dust.graphics.systems.PainterSystem;
 import dust.context.DependentConfig;
 import dust.context.Config;
 import dust.collections.control.CollectionMap;
@@ -33,10 +33,10 @@ class PaintersConfig implements DependentConfig
     {
         systems
             .map(PainterSystem)
-            .toCollection([Camera, Painter], sorter)
+            .toCollection([Camera, Painters], sorter)
             .withName("Painters");
     }
 
         function sorter(a:Entity, b:Entity):Int
-            return a.get(Painter).priority - b.get(Painter).priority
+            return a.get(Painters).getPriority() - b.get(Painters).getPriority()
 }

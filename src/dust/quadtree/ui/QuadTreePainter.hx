@@ -1,17 +1,18 @@
 package dust.quadtree.ui;
 
+import dust.graphics.data.Painter;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
 import dust.quadtree.data.QuadTreeRange;
 import dust.camera.data.Camera;
 import dust.entities.api.Entity;
 import dust.graphics.data.Paint;
-import dust.graphics.data.Painter;
+import dust.graphics.data.Painters;
 import dust.quadtree.data.QuadTree;
 
 import nme.display.Graphics;
 
-class QuadTreePainter extends Painter
+class QuadTreePainter implements Painter
 {
     var paint:Paint;
     var screen:Position;
@@ -22,7 +23,7 @@ class QuadTreePainter extends Painter
         this.screen = new Position();
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
         paint.paint(entity, graphics, drawQuadTree)
 
         function drawQuadTree(entity:Entity, graphics:Graphics)
