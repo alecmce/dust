@@ -22,6 +22,7 @@ class PhysicsConfig implements DependentConfig
         systems
             .map(PhysicsSystem)
             .toCollection([State, Physics])
+            .withTimedUpdate(1 / 100.0)
             .withName("Physics");
 
         systems

@@ -19,6 +19,9 @@ class Delta extends Component
     public var dr:Float;
 
     public function new(dx:Float = 0.0, dy:Float = 0.0, dr:Float = 0.0)
+        set(dx, dy, dr)
+
+    inline public function set(dx:Float = 0.0, dy:Float = 0.0, dr:Float = 0.0)
     {
         this.dx = dx;
         this.dy = dy;
@@ -39,11 +42,12 @@ class Delta extends Component
         this.dr -= delta.dr;
     }
 
-    inline public function multiply(value:Float)
+    inline public function multiply(value:Float):Delta
     {
         dx *= value;
         dy *= value;
         dr *= value;
+        return this;
     }
 
     inline public function limit(maxMagnitude:Float)
@@ -52,6 +56,9 @@ class Delta extends Component
         if (magnitude > maxMagnitude)
             multiply(maxMagnitude / magnitude);
     }
+
+    inline public function clone():Delta
+        return new Delta(dx, dy, dr)
 
     inline public function reset()
     {
@@ -63,8 +70,16 @@ class Delta extends Component
         return Math.sqrt(dx * dx + dy * dy)
 
     inline public function setMagnitude(value:Float)
-        multiply(value / getMagnitude())
+    {
+        if (value == 0)
+            reset();
+        else
+            multiply(value / getMagnitude());
+    }
 
     inline public function normalize()
         multiply(1 / getMagnitude())
+
+    public function toString():String
+        return ["[Delta dx=", dx, ", dy=", dy, "]"].join("")
 }

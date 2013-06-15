@@ -1,5 +1,6 @@
 package dust.math;
 
+import dust.geom.data.Delta;
 import dust.geom.data.Position;
 
 class AnglesUtil
@@ -25,7 +26,7 @@ class AnglesUtil
         return angle;
     }
 
-   inline public static function directedAngle(a:Float, b:Float):Float
+    inline public static function directedAngle(a:Float, b:Float):Float
         return constrainToHalfTurn(constrainToHalfTurn(b) - constrainToHalfTurn(a))
 
     inline public static function directedAngleFromVectors(aI:Float, aJ:Float, bI:Float, bJ:Float):Float
@@ -39,7 +40,10 @@ class AnglesUtil
 
         return Math.atan2(j, i);
     }
-    
+
+    inline public static function directedAngleFromDeltas(a:Delta, b:Delta):Float
+        return directedAngleFromVectors(a.dx, a.dy, b.dx, b.dy)
+
     inline public static function directedAngleFromVertices(center:Position, a:Position, b:Position):Float
     {
         var aI = a.x - center.x;

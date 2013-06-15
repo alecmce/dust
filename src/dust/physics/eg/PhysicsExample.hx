@@ -27,6 +27,8 @@ class PhysicsExample implements DependentConfig
     @inject public var random:Random;
     @inject public var trig:Trig;
 
+    var friction:Fric;
+
     public function dependencies():Array<Class<Config>>
         return [PaintersConfig, PhysicsConfig, MathConfig, SystemMetricsConfig]
 

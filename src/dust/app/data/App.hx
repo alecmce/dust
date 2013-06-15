@@ -10,4 +10,7 @@ class App
     public var supportedGestures:Array<String>;
 
     public function new() {}
+
+    public function isRetina():Bool
+        return target == AppTarget.IPAD_RETINA
 }

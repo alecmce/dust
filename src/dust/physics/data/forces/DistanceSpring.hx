@@ -1,7 +1,5 @@
 package dust.physics.data.forces;
 
-import dust.geom.data.Position;
-
 class DistanceSpring implements Force
 {
     public var other:Physics;
@@ -19,20 +17,22 @@ class DistanceSpring implements Force
 
     public function apply(state:State, force:Derivative):Void
     {
-        var forceDX = other.workingState.positionX - state.positionX;
-        var forceDY = other.workingState.positionY - state.positionY;
-        var currentDistance = Math.sqrt(forceDX * forceDX + forceDY * forceDY);
+        var dx = other.workingState.positionX - state.positionX;
+        var dy = other.workingState.positionY - state.positionY;
+        var distance = Math.sqrt(dx * dx + dy * dy);
 
-        var scalar = -tightness * (currentDistance - restDistance) / currentDistance;
-        forceDX *= scalar;
-        forceDY *= scalar;
+        var invDistance = 1 / distance;
+        var unitX = dx * invDistance;
+        var unitY = dy * invDistance;
 
-        var dampingX = (other.workingState.velocityX - state.velocityX) * dampingCoefficient;
-        var dampingY = (other.workingState.velocityY - state.velocityY) * dampingCoefficient;
-        forceDX -= dampingX;
-        forceDY -= dampingY;
+        var velocityX = other.workingState.velocityX - state.velocityX;
+        var velocityY = other.workingState.velocityY - state.velocityY;
 
-        force.forceX -= forceDX;
-        force.forceY -= forceDY;
+        var forceX = -tightness * (distance - restDistance) * unitX - dampingCoefficient * velocityX;
+        var forceY = -tightness * (distance - restDistance) * unitY - dampingCoefficient * velocityY;
+
+        force.forceX -= forceX;
+        force.forceY -= forceY;
     }
 }
+

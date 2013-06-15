@@ -17,7 +17,8 @@ class LineSegmentIntersectionTest
     {
         intersection
             .setLineA(0, 0, 0, 3)
-            .setLineB(1, 0, 0, 3);
+            .setLineB(1, 0, 0, 3)
+            .calculate();
 
         Assert.isFalse(intersection.isIntersection());
     }
@@ -26,7 +27,8 @@ class LineSegmentIntersectionTest
     {
         intersection
             .setLineA(0, 5, 10, 0)
-            .setLineB(5, 0, 0, 10);
+            .setLineB(5, 0, 0, 10)
+            .calculate();
 
         Assert.isTrue(intersection.isIntersection());
     }
@@ -36,7 +38,7 @@ class LineSegmentIntersectionTest
         intersection
             .setLineA(0, 5, 10, 0)
             .setLineB(5, 0, 0, 10)
-            .isIntersection();
+            .calculate();
 
         intersection.setToIntersection(position);
         Assert.areEqual(position.x, 5);
@@ -48,7 +50,7 @@ class LineSegmentIntersectionTest
         intersection
             .setLineA(6, 0, 0, 10)
             .setLineB(0, 2, 10, 0)
-            .isIntersection();
+            .calculate();
 
         intersection.setToIntersection(position);
         Assert.areEqual(position.x, 6);
@@ -60,7 +62,7 @@ class LineSegmentIntersectionTest
         intersection
             .setLineA(0, 0, 8, 8)
             .setLineB(0, 8, 8, -8)
-            .isIntersection();
+            .calculate();
 
         intersection.setToIntersection(position);
         Assert.areEqual(position.x, 4);
@@ -72,7 +74,7 @@ class LineSegmentIntersectionTest
         intersection
             .setLineA(0, 0, 8, 8)
             .setLineB(0, 4, 4, -4)
-            .isIntersection();
+            .calculate();
 
         intersection.setToIntersection(position);
         Assert.areEqual(position.x, 2);

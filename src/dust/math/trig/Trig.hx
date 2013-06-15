@@ -1,5 +1,7 @@
 package dust.math.trig;
 
+import dust.geom.data.Delta;
+
 interface Trig
 {
     function setAngle(angle:Float):Void;

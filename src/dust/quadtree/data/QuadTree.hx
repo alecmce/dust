@@ -59,7 +59,7 @@ class QuadTree<T> extends Component
         untyped list.length = 0;
     }
 
-    public function getData(range:QuadTreeRange)
+    public function getData(range:QuadTreeRange):Array<T>
     {
         var output = new Array<T>();
         root.populateDataInRange(range, output);

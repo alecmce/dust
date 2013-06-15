@@ -39,20 +39,29 @@ class Position extends Component
         this.y = y;
     }
 
-    public function offset(dx:Float, dy:Float)
+    public function offset(dx:Float, dy:Float):Position
     {
         x += dx;
         y += dy;
+        return this;
+    }
+
+    public function offsetDelta(delta:Delta):Position
+    {
+        x += delta.dx;
+        y += delta.dy;
+        return this;
     }
 
     public function clone():Position
         return new Position(x, y)
 
-    public function setTo(position:Position)
+    public function setTo(position:Position):Position
     {
         this.x = position.x;
         this.y = position.y;
         this.rotation = position.rotation;
+        return this;
     }
 
     public function setToPositionXY(position:Position)

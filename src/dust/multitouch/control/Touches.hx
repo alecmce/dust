@@ -1,6 +1,7 @@
 package dust.multitouch.control;
 
 import dust.multitouch.data.Touch;
+
 class Touches
 {
     var list:Array<Touch>;

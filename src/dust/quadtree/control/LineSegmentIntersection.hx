@@ -17,7 +17,8 @@ class LineSegmentIntersection
     var bdy:Float;
 
     var divisor:Float;
-    var aProportion:Float;
+    public var aProportion:Float;
+    public var bProportion:Float;
 
     public function new() {}
 
@@ -39,14 +40,16 @@ class LineSegmentIntersection
         return this;
     }
 
-    inline public function isIntersection():Bool
-        return areNotParallelLines() && intersectionLiesOnSegments()
-
-        inline function areNotParallelLines():Bool
-            return (divisor = adx * bdy - bdx * ady) != 0 && divisor == divisor
-
-        inline function intersectionLiesOnSegments():Bool
-            return isInBounds(aProportion = proportionAlongA()) && isInBounds(proportionAlongB())
+    public function calculate():LineSegmentIntersection
+    {
+        divisor = adx * bdy - bdx * ady;
+        if (divisor != 0)
+        {
+            aProportion = proportionAlongA();
+            bProportion = proportionAlongB();
+        }
+        return this;
+    }
 
         inline function proportionAlongA():Float
             return (bdx * (ay - by) - bdy * (ax - bx)) / divisor
@@ -54,10 +57,20 @@ class LineSegmentIntersection
         inline function proportionAlongB():Float
             return (bdx != 0) ? (ax - bx + adx * aProportion) / bdx : (ay - by + ady * aProportion) / bdy
 
-        inline function isInBounds(proportion:Float):Bool
-            return proportion >= 0 && proportion < 1
 
-    inline public function setToIntersection(position:Position)
+    public function isIntersection():Bool
+        return areNotParallelLines() && intersectionLiesOnSegments()
+
+        inline function areNotParallelLines():Bool
+            return divisor != 0 && divisor == divisor
+
+        inline function intersectionLiesOnSegments():Bool
+            return isInBounds(aProportion) && isInBounds(bProportion)
+
+            inline function isInBounds(proportion:Float):Bool
+                return proportion >= 0 && proportion < 1
+
+    public function setToIntersection(position:Position)
     {
         position.x = ax + aProportion * adx;
         position.y = ay + aProportion * ady;
