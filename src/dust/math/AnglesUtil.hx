@@ -7,6 +7,8 @@ class AnglesUtil
 {
     inline static public var PI = 3.141592653589793;
     inline static public var TWO_PI = 2 * PI;
+    inline static public var HALF_PI = PI / 2;
+    inline static public var QUARTER_PI = PI / 4;
     inline static public var TO_RADIANS = PI / 180;
     inline static public var TO_DEGREES = 180 / PI;
 

@@ -58,6 +58,17 @@ class QuadTreeDivisions<T> implements QuadTreeNode<T>
                 node.populateRanges(dataRange, output);
     }
 
+    public function getRange(position:Position):QuadTreeRange
+    {
+        for (node in nodes)
+        {
+            if (node.range.contains(position))
+                return node.getRange(position);
+        }
+
+        return null;
+    }
+
     public function toString(indent:Int = 0):String
     {
         var space = "";

@@ -43,9 +43,7 @@ class SystemMetricsConfig implements DependentConfig
     var frameRateView:Entity;
 
     public function dependencies():Array<Class<Config>>
-    {
-        return [EntitiesConfig, SystemsConfig, GUIConfig];
-    }
+        return [EntitiesConfig, SystemsConfig, GUIConfig]
 
     public function configure()
     {

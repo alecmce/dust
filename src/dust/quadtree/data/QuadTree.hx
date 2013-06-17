@@ -46,6 +46,14 @@ class QuadTree<T> extends Component
             root = root.add(data);
         }
 
+    public function getRange(position:Position):QuadTreeRange
+    {
+        return if (range.contains(position))
+            root.getRange(position);
+        else
+            null;
+    }
+
     public function update()
     {
         root = new QuadTreeAtom(range, maxDataPerNode, threshold);

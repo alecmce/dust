@@ -21,4 +21,11 @@ class PaintersUtil
         if (painters != null)
             painters.remove(painter);
     }
+    
+    public static function setPaintersPriority(entity:Entity, priority:Int)
+    {
+        var painters:Painters = entity.get(Painters);
+        if (painters != null)
+            painters.setPriority(priority);
+    }
 }

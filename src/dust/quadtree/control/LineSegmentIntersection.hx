@@ -1,6 +1,5 @@
 package dust.quadtree.control;
 
-import dust.console.ui.ConsoleOutput;
 import dust.geom.data.Position;
 
 // TODO calculate via dust.math.geom.LineIntersection
@@ -68,7 +67,7 @@ class LineSegmentIntersection
             return isInBounds(aProportion) && isInBounds(bProportion)
 
             inline function isInBounds(proportion:Float):Bool
-                return proportion >= 0 && proportion < 1
+                return proportion >= 0 && proportion <= 1
 
     public function setToIntersection(position:Position)
     {

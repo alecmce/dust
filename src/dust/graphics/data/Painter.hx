@@ -5,5 +5,5 @@ import dust.entities.api.Entity;
 
 interface Painter
 {
-    public function draw(entity:Entity, graphics:Graphics):Void;
+    function draw(entity:Entity, graphics:Graphics):Void;
 }

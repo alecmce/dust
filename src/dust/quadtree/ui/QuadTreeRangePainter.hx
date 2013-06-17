@@ -1,5 +1,6 @@
 package dust.quadtree.ui;
 
+import dust.components.Component;
 import dust.graphics.data.Painter;
 import dust.geom.data.Position;
 import dust.camera.data.Camera;
@@ -9,9 +10,12 @@ import nme.display.Graphics;
 import dust.entities.api.Entity;
 import dust.graphics.data.Painters;
 
-class QuadTreeRangePainter implements Painter
+class QuadTreeRangePainter
+    extends Component,
+    implements Painter
 {
-    var paint:Paint;
+    public var paint:Paint;
+
     var screen:Position;
 
     public function new(paint:Paint)
@@ -20,7 +24,7 @@ class QuadTreeRangePainter implements Painter
         this.screen = new Position();
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
         paint.paint(entity, graphics, drawRange)
 
         function drawRange(entity:Entity, graphics:Graphics)

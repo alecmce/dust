@@ -1,5 +1,6 @@
 package dust.gui;
 
+import dust.camera.CameraConfig;
 import dust.camera.data.Camera;
 import dust.camera.control.CameraFactory;
 import dust.gui.control.UISliderFactory;
@@ -28,7 +29,7 @@ class GUIConfig implements DependentConfig
     @inject public var cameraFactory:CameraFactory;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig, SystemsConfig, SmallWhiteHelveticaFontConfig]
+        return [EntitiesConfig, SystemsConfig, CameraConfig, SmallWhiteHelveticaFontConfig]
 
     public function configure()
     {

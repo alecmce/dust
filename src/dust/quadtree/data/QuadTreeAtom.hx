@@ -51,6 +51,11 @@ class QuadTreeAtom<T> implements QuadTreeNode<T>
         }
     }
 
+    public function getRange(position:Position):QuadTreeRange
+    {
+        return range;
+    }
+
     public function populateRanges(dataRange:QuadTreeRange, output:Array<QuadTreeRange>)
     {
         if (range.intersects(dataRange))
