@@ -9,7 +9,7 @@ class Physics extends Component
     public var b:Derivative;
     public var c:Derivative;
     public var d:Derivative;
-    public var workingState:State;
+    public var state:State;
 
     var forces:Array<Force>;
 
@@ -19,8 +19,8 @@ class Physics extends Component
         b = new Derivative();
         c = new Derivative();
         d = new Derivative();
-        workingState = new State();
 
+        state = new State();
         forces = new Array<Force>();
     }
 

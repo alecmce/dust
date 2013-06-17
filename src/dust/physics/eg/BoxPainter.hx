@@ -9,7 +9,7 @@ import dust.entities.api.Entity;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Painter;
 
-class BoxPainter extends Painter
+class BoxPainter implements Painter
 {
     inline static function quarterTurn():Float return Math.PI / 4
 
@@ -26,7 +26,7 @@ class BoxPainter extends Painter
         screen = new Position();
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
         paint.paint(entity, graphics, drawQuad)
 
         function drawQuad(entity:Entity, graphics:Graphics)

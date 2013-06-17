@@ -2,7 +2,7 @@ package dust.text.eg;
 
 import dust.text.control.BitmapFonts;
 import dust.graphics.data.Painters;
-import dust.graphics.data.BitmapDrawer;
+import dust.graphics.data.BitmapPainter;
 import dust.camera.data.Camera;
 import dust.camera.CameraConfig;
 import dust.math.Random;
@@ -41,7 +41,7 @@ class BitmapFontExample implements DependentConfig
         for (n in list)
         {
             var bitmap = font.getChar(n).data;
-            var drawer = new BitmapDrawer(bitmap);
+            var drawer = new BitmapPainter(bitmap);
 
             var entity = entities.require();
             entity.add(new Position(x, y));

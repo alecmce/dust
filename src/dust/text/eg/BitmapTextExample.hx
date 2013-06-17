@@ -4,8 +4,8 @@ import dust.systems.SystemMetricsConfig;
 import dust.text.data.BitmapTextData;
 import dust.text.control.BitmapFonts;
 import dust.graphics.data.Painters;
-import dust.graphics.data.BitmapDrawer;
-import dust.graphics.data.NoScaleBitmapDrawer;
+import dust.graphics.data.BitmapPainter;
+import dust.graphics.data.NoScaleBitmapPainter;
 import dust.camera.data.Camera;
 import dust.camera.CameraConfig;
 import dust.math.MathConfig;
@@ -35,7 +35,7 @@ class BitmapTextExample implements DependentConfig
         var font = fonts.get(Fixed24WhiteMichromaFontConfig.FONT);
         var data = new BitmapTextData(font, 'Hello World!');
         var bitmap = bitmapFactory.make(data);
-        var painter = new BitmapDrawer(bitmap);
+        var painter = new BitmapPainter(bitmap);
 
         var entity = entities.require();
         entity.add(new Position(0, 0));

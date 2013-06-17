@@ -14,6 +14,9 @@ class Delta extends Component
     public static function subtractDeltas(a:Delta, b:Delta):Delta
         return new Delta(b.dx - a.dx, b.dy - a.dy, b.dr - a.dr)
 
+    public static function dotProduct(a:Delta, b:Delta):Float
+        return a.dx * b.dx + a.dy * b.dy
+
     public var dx:Float;
     public var dy:Float;
     public var dr:Float;

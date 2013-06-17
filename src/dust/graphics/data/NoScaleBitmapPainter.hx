@@ -9,7 +9,7 @@ import nme.display.BitmapData;
 import nme.display.Graphics;
 import nme.geom.Matrix;
 
-class NoScaleBitmapDrawer
+class NoScaleBitmapPainter
     extends Component,
     implements Painter
 {

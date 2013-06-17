@@ -26,8 +26,8 @@ class AngularSpring implements Force
     public function apply(state:State, force:Derivative):Void
     {
         var targetAngle = state.rotation;
-        var deltaX = other.workingState.positionX - state.positionX;
-        var deltaY = other.workingState.positionY - state.positionY;
+        var deltaX = other.previousState.positionX - state.positionX;
+        var deltaY = other.previousState.positionY - state.positionY;
 
         var alpha = state.rotation;
 

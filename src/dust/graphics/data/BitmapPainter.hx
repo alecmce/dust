@@ -10,7 +10,7 @@ import nme.display.BitmapData;
 import nme.display.Graphics;
 import nme.geom.Matrix;
 
-class BitmapDrawer
+class BitmapPainter
     extends Component,
     implements Painter
 {
@@ -26,7 +26,7 @@ class BitmapDrawer
         this.scale = 1;
     }
 
-    public function setScale(scale:Float):BitmapDrawer
+    public function setScale(scale:Float):BitmapPainter
     {
         this.scale = scale;
         return this;

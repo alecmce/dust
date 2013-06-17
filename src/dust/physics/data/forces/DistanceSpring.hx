@@ -17,19 +17,20 @@ class DistanceSpring implements Force
 
     public function apply(state:State, force:Derivative):Void
     {
-        var dx = other.workingState.positionX - state.positionX;
-        var dy = other.workingState.positionY - state.positionY;
-        var distance = Math.sqrt(dx * dx + dy * dy);
+        var otherState:State = other.state;
 
+        var dx = otherState.positionX - state.positionX;
+        var dy = otherState.positionY - state.positionY;
+        var distance = Math.sqrt(dx * dx + dy * dy);
         var invDistance = 1 / distance;
         var unitX = dx * invDistance;
         var unitY = dy * invDistance;
 
-        var velocityX = other.workingState.velocityX - state.velocityX;
-        var velocityY = other.workingState.velocityY - state.velocityY;
+        var momentumDX = otherState.momentumX - state.momentumX;
+        var momentumDY = otherState.momentumY - state.momentumY;
 
-        var forceX = -tightness * (distance - restDistance) * unitX - dampingCoefficient * velocityX;
-        var forceY = -tightness * (distance - restDistance) * unitY - dampingCoefficient * velocityY;
+        var forceX = -tightness * (distance - restDistance) * unitX - dampingCoefficient * momentumDX;
+        var forceY = -tightness * (distance - restDistance) * unitY - dampingCoefficient * momentumDY;
 
         force.forceX -= forceX;
         force.forceY -= forceY;

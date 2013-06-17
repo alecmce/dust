@@ -38,7 +38,7 @@ class InspectorExample implements DependentConfig
     }
 }
 
-class CirclePainter extends Painter
+class CirclePainter implements Painter
 {
     public var radius:Float;
     public var paint:Paint;
@@ -53,7 +53,7 @@ class CirclePainter extends Painter
         screen = new Position();
     }
 
-    override public function draw(entity:Entity, graphics:Graphics)
+    public function draw(entity:Entity, graphics:Graphics)
         paint.paint(entity, graphics, drawCircle)
 
         function drawCircle(entity:Entity, graphics:Graphics)

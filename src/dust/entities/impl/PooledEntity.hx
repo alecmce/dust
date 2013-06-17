@@ -32,11 +32,21 @@ class PooledEntity implements Entity
     inline public function add(component:Component)
 	{
         var componentID = component.componentID;
+        addComponent(componentID, component);
+	}
 
-        components.set(componentID, component);
-        bitfield.assert(componentID);
-        isChanged = true;
+    inline public function addAsType(component:Component, asType:Class<Component>)
+    {
+        var componentID = (cast asType).ID;
+        addComponent(componentID, component);
     }
+
+        inline function addComponent(componentID:Int, component:Component)
+        {
+            components.set(componentID, component);
+            bitfield.assert(componentID);
+            isChanged = true;
+        }
 
     inline public function remove<T>(type:Class<T>):Bool
         return removeComponentWithID(cast(type).ID)
