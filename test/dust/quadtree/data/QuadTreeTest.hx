@@ -66,23 +66,6 @@ class QuadTreeTest
         }
         Assert.isTrue(tree.getRanges(tree.range).length > 5);
     }
-
-    @Test public function addingItemOutsideRangeThrowsError()
-    {
-        makeTree(1);
-
-        var isError = false;
-        try
-        {
-            addItem(200, 200);
-        }
-        catch (error:OutOfBoundsError)
-        {
-            isError = true;
-        }
-
-        Assert.isTrue(isError);
-    }
 }
 
 class QuadTreeTestItem
