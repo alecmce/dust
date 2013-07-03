@@ -9,7 +9,7 @@ import dust.graphics.data.Painters;
 import dust.geom.data.Position;
 import dust.graphics.data.Paint;
 
-import nme.display.Graphics;
+import flash.display.Graphics;
 
 class CrossPositionPainter implements Painter
 {

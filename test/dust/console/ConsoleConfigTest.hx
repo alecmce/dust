@@ -5,7 +5,7 @@ import dust.console.impl.Console;
 import dust.console.control.ShowConsoleSignal;
 import dust.console.impl.ConsoleMap;
 import dust.Injector;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 
 class ConsoleConfigTest

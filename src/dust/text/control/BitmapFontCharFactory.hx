@@ -1,8 +1,8 @@
 package dust.text.control;
 
-import nme.geom.Rectangle;
-import nme.geom.Point;
-import nme.display.BitmapData;
+import flash.geom.Rectangle;
+import flash.geom.Point;
+import flash.display.BitmapData;
 import dust.text.data.BitmapFontChar;
 
 class BitmapFontCharFactory
@@ -18,7 +18,7 @@ class BitmapFontCharFactory
         pixel = new BitmapData(1, 1, true, 0);
     }
 
-    public function make(hash:Hash<Dynamic>, sources:Array<BitmapData>):BitmapFontChar
+    public function make(hash:Map<String, Dynamic>, sources:Array<BitmapData>):BitmapFontChar
     {
         var page = hash.get('page');
         var source = sources[page];
@@ -31,9 +31,9 @@ class BitmapFontCharFactory
         return char;
     }
 
-        function makeHash(line:String):Hash<Dynamic>
+        function makeHash(line:String):Map<String, Dynamic>
         {
-            var hash = new Hash<Dynamic>();
+            var hash = new Map<String, Dynamic>();
 
             var pairs = line.split(" ");
             for (pair in pairs)
@@ -46,7 +46,7 @@ class BitmapFontCharFactory
             return hash;
         }
 
-        function makeData(hash:Hash<Dynamic>, source:BitmapData):BitmapData
+        function makeData(hash:Map<String, Dynamic>, source:BitmapData):BitmapData
         {
             var width = hash.get('width');
             var height = hash.get('height');

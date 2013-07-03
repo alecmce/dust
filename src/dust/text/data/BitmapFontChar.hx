@@ -1,7 +1,7 @@
 package dust.text.data;
 
-import nme.geom.Point;
-import nme.display.BitmapData;
+import flash.geom.Point;
+import flash.display.BitmapData;
 
 class BitmapFontChar
 {
@@ -13,16 +13,16 @@ class BitmapFontChar
     public var dy:Int;
     public var advance:Int;
 
-    var kerning:IntHash<Int>;
+    var kerning:Map<Int, Int>;
 
     public function new()
-        kerning = new IntHash<Int>()
+        kerning = new Map<Int, Int>();
 
     public function addKerning(char:Int, amount:Int)
-        kerning.set(char, amount)
+        kerning.set(char, amount);
 
     public function getKerning(char:Int):Int
-        return kerning.exists(char) ? kerning.get(char) : 0
+        return kerning.exists(char) ? kerning.get(char) : 0;
 
     public function drawTo(target:BitmapData, x:Float, y:Float)
     {
@@ -33,5 +33,5 @@ class BitmapFontChar
 
 
     public function toString():String
-        return ['[BitmapFontChar char=',String.fromCharCode(id),' id=',id,' dx=',dx,' dy=',dy,' advance=',advance,']'].join('')
+        return ['[BitmapFontChar char=',String.fromCharCode(id),' id=',id,' dx=',dx,' dy=',dy,' advance=',advance,']'].join('');
 }

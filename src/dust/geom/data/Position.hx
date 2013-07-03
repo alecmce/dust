@@ -5,7 +5,7 @@ import dust.components.Component;
 class Position extends Component
 {
     public static function areEqual(a:Position, b:Position):Bool
-        return a.x == b.x && a.y == b.y
+        return a.x == b.x && a.y == b.y;
 
     public static function areClose(a:Position, b:Position, threshold:Float):Bool
     {
@@ -54,7 +54,7 @@ class Position extends Component
     }
 
     public function clone():Position
-        return new Position(x, y)
+        return new Position(x, y);
 
     public function setTo(position:Position):Position
     {
@@ -86,5 +86,5 @@ class Position extends Component
     }
 
     public function toString():String
-        return "[Position x=" + x + ", y=" + y + ", angle=" + rotation + "]"
+        return "[Position x=" + x + ", y=" + y + ", angle=" + rotation + "]";
 }

@@ -4,7 +4,7 @@ import dust.math.trig.Trig;
 import dust.physics.data.Box;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
-import nme.display.Graphics;
+import flash.display.Graphics;
 import dust.entities.api.Entity;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Painter;

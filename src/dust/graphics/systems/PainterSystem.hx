@@ -7,7 +7,7 @@ import dust.lists.Pool;
 import dust.lists.SortedList;
 import dust.systems.System;
 
-import nme.display.Graphics;
+import flash.display.Graphics;
 
 class PainterSystem implements System
 {

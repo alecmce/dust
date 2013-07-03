@@ -5,7 +5,7 @@ import dust.entities.api.Entity;
 import dust.collections.api.Collection;
 import dust.components.MockComponentA;
 import dust.entities.api.Entities;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 import dust.Injector;
 import dust.collections.data.CollectionList;

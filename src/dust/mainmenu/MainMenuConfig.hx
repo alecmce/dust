@@ -1,7 +1,7 @@
 package dust.mainmenu;
 
 import dust.app.data.AppTarget;
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 import dust.app.data.App;
 import dust.app.AppConfig;
 import dust.text.SmallWhiteHelveticaFontConfig;

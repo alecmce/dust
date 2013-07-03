@@ -9,7 +9,7 @@ import dust.gui.data.VAlign;
 import dust.gui.data.Alignment;
 import dust.app.data.App;
 import dust.geom.data.Position;
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 import dust.inspector.ui.UIInspector;
 import haxe.macro.Expr.Field;
 import dust.inspector.data.Inspector;

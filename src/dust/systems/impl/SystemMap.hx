@@ -25,7 +25,7 @@ class SystemMap
     }
 
         function prioritySort(a:SystemMapping, b:SystemMapping):Int
-            return b.priority - a.priority
+            return b.priority - a.priority;
 
     public function setMetrics(metrics:SystemMetrics)
     {
@@ -43,9 +43,7 @@ class SystemMap
     }
 
     public function hasMapping(type:Class<System>):Bool
-    {
         return getMapping(type) != null;
-    }
 
     public function unmap(type:Class<System>)
     {
@@ -73,7 +71,5 @@ class SystemMap
         }
 
     public function iterator():Iterator<SystemMapping>
-    {
         return mappings.iterator();
-    }
 }

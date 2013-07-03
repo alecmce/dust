@@ -10,7 +10,7 @@ import dust.graphics.data.Paint;
 import dust.graphics.data.Painters;
 import dust.quadtree.data.QuadTree;
 
-import nme.display.Graphics;
+import flash.display.Graphics;
 
 class QuadTreePainter implements Painter
 {

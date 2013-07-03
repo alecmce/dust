@@ -5,7 +5,7 @@ import dust.context.Context;
 import dust.systems.impl.Systems;
 
 import dust.Injector;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class SystemsConfigTest
 {

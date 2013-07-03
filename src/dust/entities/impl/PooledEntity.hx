@@ -49,7 +49,7 @@ class PooledEntity implements Entity
         }
 
     inline public function remove<T>(type:Class<T>):Bool
-        return removeComponentWithID(cast(type).ID)
+        return removeComponentWithID(cast(type).ID);
 
         inline function removeComponentWithID(componentID:Int):Bool
         {
@@ -67,7 +67,7 @@ class PooledEntity implements Entity
             }
 
     inline public function satisfies(collectionBitfield:Bitfield):Bool
-        return bitfield.isSubset(collectionBitfield)
+        return bitfield.isSubset(collectionBitfield);
 
     inline public function dispose()
     {
@@ -103,14 +103,14 @@ class PooledEntity implements Entity
     }
 
     inline public function get<T>(type:Class<T>):T
-		return cast(components.get(cast(type).ID))
+		return cast(components.get(cast(type).ID));
 
-    inline public function has(type:Class<Dynamic>):Bool
-        return bitfield.get(cast(type).ID)
+    inline public function has<T>(type:Class<T>):Bool
+        return bitfield.get(cast(type).ID);
 
 	inline public function iterator():Iterator<Component>
-		return components.iterator()
+		return components.iterator();
 
     public function toString():String
-        return "[Entity " + id + " (" + bitfield.toString() + ")]"
+        return "[Entity " + id + " (" + bitfield.toString() + ")]";
 }

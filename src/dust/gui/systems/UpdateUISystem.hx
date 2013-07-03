@@ -1,6 +1,6 @@
 package dust.gui.systems;
 
-import nme.geom.Rectangle;
+import flash.geom.Rectangle;
 import dust.gui.data.Alignment;
 import dust.gui.data.VAlign;
 import dust.gui.data.HAlign;

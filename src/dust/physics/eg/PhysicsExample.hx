@@ -1,7 +1,6 @@
 package dust.physics.eg;
 
 import dust.graphics.data.Paint;
-import dust.graphics.data.Painter;
 import dust.physics.data.Box;
 import dust.graphics.PaintersConfig;
 import dust.physics.data.forces.DistanceSpring;
@@ -18,6 +17,8 @@ import dust.math.Random;
 import dust.math.trig.Trig;
 import dust.systems.SystemMetricsConfig;
 
+using dust.graphics.PaintersUtil;
+
 class PhysicsExample implements DependentConfig
 {
     inline static function quarterTurn():Float return Math.PI / 4
@@ -26,8 +27,6 @@ class PhysicsExample implements DependentConfig
     @inject public var camera:Camera;
     @inject public var random:Random;
     @inject public var trig:Trig;
-
-    var friction:Fric;
 
     public function dependencies():Array<Class<Config>>
         return [PaintersConfig, PhysicsConfig, MathConfig, SystemMetricsConfig]
@@ -49,7 +48,7 @@ class PhysicsExample implements DependentConfig
         a.add(aPosition);
         a.add(camera);
         a.add(new Box(60));
-        a.addAsType(aPainter, Painter);
+        a.addPainter(aPainter);
         a.add(aState);
         a.add(forces.a);
 
@@ -57,7 +56,7 @@ class PhysicsExample implements DependentConfig
         b.add(bPosition);
         b.add(camera);
         b.add(new Box(60));
-        b.addAsType(bPainter, Painter);
+        b.addPainter(bPainter);
         b.add(bState);
         b.add(forces.b);
 

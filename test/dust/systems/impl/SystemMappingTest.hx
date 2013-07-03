@@ -16,12 +16,11 @@ import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemsLoop;
 import dust.systems.impl.TimedSystem;
 import dust.systems.System;
-import SystemMappingTest.MockNamedCollectionSystem;
 import dust.entities.api.Entity;
 import dust.entities.api.Entities;
 
 import dust.Injector;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class SystemMappingTest
 {

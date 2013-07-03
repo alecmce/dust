@@ -18,19 +18,19 @@ class Systems
     }
 
     public function setMetrics(metrics:SystemMetrics)
-        systemMap.setMetrics(metrics)
+        systemMap.setMetrics(metrics);
 
     public function map(type:Class<System>, priority:Int = 0):SystemMapping
-        return systemMap.map(type, priority)
+        return systemMap.map(type, priority);
 
     public function hasMapping(type:Class<System>):Bool
-        return systemMap.hasMapping(type)
+        return systemMap.hasMapping(type);
 
     public function unmap(type:Class<System>)
-        systemMap.unmap(type)
+        systemMap.unmap(type);
 
     public function setRate(millisecondsBetweenUpdates:Int)
-        loop.setRate(millisecondsBetweenUpdates)
+        loop.setRate(millisecondsBetweenUpdates);
 
     public function start()
     {
@@ -42,7 +42,7 @@ class Systems
     }
 
     public function update()
-        loop.update()
+        loop.update();
 
     public function stop()
     {

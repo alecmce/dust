@@ -46,10 +46,10 @@ class CollectionTest
     }
 
         function onEntityAdded(entity:Entity)
-            added = entity
+            added = entity;
 
         function onEntityRemoved(entity:Entity)
-            removed = entity
+            removed = entity;
 
     @Test public function canDetectWhenEntityMeetsRequirements()
     {

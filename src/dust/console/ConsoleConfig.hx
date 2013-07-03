@@ -21,10 +21,10 @@ import dust.context.UnconfigConfig;
 import dust.signals.SignalMap;
 
 import dust.Injector;
-import nme.display.Stage;
-import nme.events.KeyboardEvent;
-import nme.text.TextFormat;
-import nme.ui.Keyboard;
+import flash.display.Stage;
+import flash.events.KeyboardEvent;
+import flash.text.TextFormat;
+import flash.ui.Keyboard;
 
 class ConsoleConfig implements DependentConfig, implements UnconfigConfig
 {

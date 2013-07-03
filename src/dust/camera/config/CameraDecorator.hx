@@ -8,8 +8,8 @@ class CameraDecorator
     @inject public var camera:Camera;
 
     public function apply(entity:Entity)
-        entity.add(camera)
+        entity.add(camera);
 
     public function clear(entity:Entity)
-        entity.remove(Camera)
+        entity.remove(Camera);
 }

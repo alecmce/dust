@@ -1,7 +1,7 @@
 package dust.camera;
 
 import dust.context.Context;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.camera.config.CameraDecorator;
 import dust.entities.EntitiesConfig;
 import dust.entities.api.Entities;

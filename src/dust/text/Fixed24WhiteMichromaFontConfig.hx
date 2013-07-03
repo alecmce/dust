@@ -1,8 +1,8 @@
 package dust.text;
 
-import nme.errors.Error;
-import nme.display.BitmapData;
-import nme.Assets;
+import flash.errors.Error;
+import flash.display.BitmapData;
+import openfl.Assets;
 import dust.text.data.BitmapFont;
 import dust.text.control.BitmapFontFactory;
 import dust.text.control.BitmapFonts;

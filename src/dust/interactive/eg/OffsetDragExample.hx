@@ -17,7 +17,7 @@ import dust.interactive.data.Draggable;
 import dust.interactive.data.TouchInteractive;
 import dust.interactive.data.Offsets;
 
-import nme.display.Graphics;
+import flash.display.Graphics;
 
 class OffsetDragExample implements DependentConfig
 {

@@ -1,10 +1,10 @@
 package dust.mainmenu.data;
 
 import dust.app.data.App;
-import nme.display.Graphics;
-import nme.display.Sprite;
+import flash.display.Graphics;
+import flash.display.Sprite;
 import dust.geom.data.Position;
-import nme.geom.Point;
+import flash.geom.Point;
 import dust.text.data.BitmapFont;
 import dust.graphics.data.Paint;
 

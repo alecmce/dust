@@ -30,10 +30,10 @@ class SystemsLoop
     }
 
     public function add(system:System)
-        systems.add(system)
+        systems.add(system);
 
     public function remove(system:System)
-        systems.remove(system)
+        systems.remove(system);
 
     public function start()
     {

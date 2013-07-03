@@ -17,7 +17,7 @@ class SystemMetricsData
     }
 
     public function add(value:Float)
-        total += value
+        total += value;
 
     public function update()
     {
@@ -26,5 +26,5 @@ class SystemMetricsData
     }
 
     public function getMean():Float
-        return rollingMean.getMean()
+        return rollingMean.getMean();
 }

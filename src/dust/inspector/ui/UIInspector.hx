@@ -1,6 +1,6 @@
 package dust.inspector.ui;
 
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 import dust.inspector.control.UIInspectedFieldFactory;
 import dust.inspector.data.Inspector;
 import dust.entities.api.Entity;
@@ -10,9 +10,9 @@ import dust.inspector.data.InspectedField;
 import dust.gui.ui.VerticalList;
 import dust.gui.data.UIView;
 import dust.entities.api.Entity;
-import nme.display.Graphics;
+import flash.display.Graphics;
 import dust.graphics.data.Painter;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class UIInspector extends UIView
 {

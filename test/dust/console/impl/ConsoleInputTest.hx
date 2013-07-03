@@ -1,13 +1,13 @@
 package dust.console.impl;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 import dust.Injector;
 import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleInput;
-import nme.events.KeyboardEvent;
-import nme.events.KeyboardEvent;
-import nme.text.TextFormat;
+import flash.events.KeyboardEvent;
+import flash.events.KeyboardEvent;
+import flash.text.TextFormat;
 
 class ConsoleInputTest
 {

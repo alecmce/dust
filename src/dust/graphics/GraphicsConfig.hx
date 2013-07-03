@@ -7,9 +7,9 @@ import dust.context.Context;
 import dust.context.Config;
 
 import dust.Injector;
-import nme.display.Graphics;
-import nme.display.DisplayObjectContainer;
-import nme.display.Sprite;
+import flash.display.Graphics;
+import flash.display.DisplayObjectContainer;
+import flash.display.Sprite;
 
 class GraphicsConfig implements DependentConfig
 {

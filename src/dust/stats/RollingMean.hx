@@ -30,7 +30,7 @@ class RollingMean
     }
 
     inline function isEstablished():Bool
-    return count == valuesToCount
+    return count == valuesToCount;
 
     inline function updateEstablished(value:Float)
     {
@@ -41,5 +41,5 @@ class RollingMean
     }
 
     public function getMean():Float
-    return sum / count
+    return sum / count;
 }

@@ -3,8 +3,8 @@ package dust.context;
 import dust.context.DependentConfig;
 import dust.context.Context;
 import dust.context.Config;
-import nme.display.DisplayObjectContainer;
-import nme.display.Sprite;
+import flash.display.DisplayObjectContainer;
+import flash.display.Sprite;
 import dust.Injector;
 
 

@@ -1,6 +1,6 @@
 package dust.text.data;
 
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 
 class BitmapTextChar
 {
@@ -16,5 +16,5 @@ class BitmapTextChar
     }
 
     inline public function drawTo(target:BitmapData, dx:Float = 0, dy:Float = 0)
-        char.drawTo(target, x + dx, y + dy)
+        char.drawTo(target, x + dx, y + dy);
 }

@@ -1,6 +1,6 @@
 package dust.context;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class ChildContextTest
 {

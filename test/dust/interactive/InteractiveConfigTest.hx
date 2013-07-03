@@ -1,7 +1,7 @@
 package dust.interactive;
 
-import nme.display.Sprite;
-import nme.display.DisplayObjectContainer;
+import flash.display.Sprite;
+import flash.display.DisplayObjectContainer;
 import dust.context.Context;
 
 import dust.Injector;

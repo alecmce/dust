@@ -8,7 +8,7 @@ import dust.entities.EntitiesConfig;
 import dust.context.Context;
 
 import dust.Injector;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class CollectionsConfigTest
 {

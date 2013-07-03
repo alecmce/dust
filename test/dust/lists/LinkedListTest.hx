@@ -6,10 +6,10 @@ class LinkedListTest
     var list:LinkedList<Data>;
 
     @Before public function before()
-        list = new LinkedList<Data>(itemProvider)
+        list = new LinkedList<Data>(itemProvider);
 
         function itemProvider(data:Data):LinkedListItem<Data>
-            return new LinkedListItem<Data>(data)
+            return new LinkedListItem<Data>(data);
 
     function dataIsIteratedOver(data:Data):Bool
     {

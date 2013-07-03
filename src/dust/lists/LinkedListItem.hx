@@ -8,7 +8,7 @@ class LinkedListItem<T>
     public var data:T;
 
     public function new(?data:T)
-        this.data = data
+        this.data = data;
 
     inline public function prefix(item:LinkedListItem<T>)
     {

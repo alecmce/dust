@@ -1,6 +1,6 @@
 package dust.text.control;
 
-import nme.display.BitmapData;
+import flash.display.BitmapData;
 import dust.text.data.BitmapFont;
 
 class BitmapFontFactory
@@ -43,7 +43,7 @@ class BitmapFontFactory
     {
         var pairs = line.split(" ");
         var name = pairs.shift();
-        var hash = new Hash<Dynamic>();
+        var hash = new Map<String, Dynamic>();
         for (pair in pairs)
         {
             var keyvalue = pair.split("=");
@@ -54,7 +54,7 @@ class BitmapFontFactory
         return {name:name, data:hash};
     }
 
-    function applyInfo(font:BitmapFont, data:Hash<Dynamic>)
+    function applyInfo(font:BitmapFont, data:Map<String, Dynamic>)
     {
         font.name = data.get('face');
         font.size = data.get('size');
@@ -62,19 +62,19 @@ class BitmapFontFactory
         font.italic = data.get('italic') != 0;
     }
 
-    function applyCommon(font:BitmapFont, data:Hash<Dynamic>)
+    function applyCommon(font:BitmapFont, data:Map<String, Dynamic>)
     {
         font.lineHeight = data.get('lineHeight');
         font.base = data.get('base');
     }
 
-    function addChar(font:BitmapFont, data:Hash<Dynamic>, sources:Array<BitmapData>)
+    function addChar(font:BitmapFont, data:Map<String, Dynamic>, sources:Array<BitmapData>)
     {
         var char = charFactory.make(data, sources);
         font.addChar(char);
     }
 
-    function addKerning(font:BitmapFont, data:Hash<Dynamic>)
+    function addKerning(font:BitmapFont, data:Map<String, Dynamic>)
     {
         var char = font.getChar(data.get('first'));
         if (char != null)
@@ -82,4 +82,4 @@ class BitmapFontFactory
     }
 }
 
-typedef BitmapFontData = {name:String, data:Hash<Dynamic>}
+typedef BitmapFontData = {name:String, data:Map<String, Dynamic>}

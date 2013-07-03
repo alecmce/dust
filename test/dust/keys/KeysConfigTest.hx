@@ -5,9 +5,9 @@ import dust.keys.impl.KeyControllerSystem;
 import dust.context.Context;
 import dust.systems.impl.Systems;
 import dust.keys.impl.KeyControls;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.Injector;
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 
 class KeysConfigTest
 {

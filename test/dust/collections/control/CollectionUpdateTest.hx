@@ -5,7 +5,7 @@ import dust.collections.api.CollectionListeners;
 import dust.components.MockComponentA;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 import dust.entities.api.Entities;
 
@@ -101,10 +101,10 @@ class MockListeners implements CollectionListeners
     public function new() {}
 
     public function onEntityAdded(entity:Entity)
-        isAdded = true
+        isAdded = true;
 
     public function onEntityRemoved(entity:Entity)
-        isRemoved = true
+        isRemoved = true;
 }
 
 class MockSelfRemovingListeners implements CollectionListeners

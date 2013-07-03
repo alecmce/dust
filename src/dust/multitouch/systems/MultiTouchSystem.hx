@@ -2,14 +2,14 @@ package dust.multitouch.systems;
 
 import dust.multitouch.data.DragZoomGesture;
 import dust.multitouch.data.Touch;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.lists.Pool;
 import dust.lists.LinkedList;
 import dust.lists.PooledList;
 import dust.multitouch.control.Touches;
-import nme.ui.Multitouch;
-import nme.events.TouchEvent;
-import nme.ui.MultitouchInputMode;
+import flash.ui.Multitouch;
+import flash.events.TouchEvent;
+import flash.ui.MultitouchInputMode;
 import dust.systems.System;
 
 class MultiTouchSystem implements System

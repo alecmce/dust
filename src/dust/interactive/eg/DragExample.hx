@@ -15,7 +15,7 @@ import dust.entities.api.Entities;
 import dust.interactive.data.Draggable;
 import dust.geom.data.Position;
 
-import nme.display.Graphics;
+import flash.display.Graphics;
 
 class DragExample implements DependentConfig
 {

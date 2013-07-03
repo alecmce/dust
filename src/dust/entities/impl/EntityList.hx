@@ -19,9 +19,7 @@ class EntityList
     }
 
     public function has(entity:Entity):Bool
-    {
         return hash.exists(entity.id);
-    }
 
     public function add(entity:Entity)
     {
@@ -41,5 +39,5 @@ class EntityList
     }
 
     public function iterator():Iterator<Entity>
-        return list.iterator()
+        return list.iterator();
 }

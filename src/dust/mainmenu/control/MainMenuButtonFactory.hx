@@ -1,7 +1,7 @@
 package dust.mainmenu.control;
 
-import nme.events.MouseEvent;
-import nme.events.TouchEvent;
+import flash.events.MouseEvent;
+import flash.events.TouchEvent;
 import dust.app.data.App;
 import dust.context.Config;
 import dust.text.data.BitmapTextData;
@@ -10,9 +10,9 @@ import dust.text.control.BitmapTextFactory;
 import dust.mainmenu.data.MainMenuButtonConfig;
 import dust.graphics.data.Paint;
 import dust.text.data.BitmapFont;
-import nme.display.Bitmap;
-import nme.display.Graphics;
-import nme.display.Sprite;
+import flash.display.Bitmap;
+import flash.display.Graphics;
+import flash.display.Sprite;
 
 class MainMenuButtonFactory
 {

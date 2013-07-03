@@ -3,7 +3,7 @@ package dust.inspector.ui;
 import dust.entities.api.Entity;
 import dust.gui.ui.UILabelledSlider;
 import dust.inspector.data.InspectedField;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class UIFieldSlider
     extends Sprite,

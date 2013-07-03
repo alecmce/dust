@@ -10,9 +10,9 @@ import dust.interactive.data.TouchInteractive;
 import dust.collections.api.Collection;
 import dust.entities.api.Entity;
 
-import nme.display.DisplayObjectContainer;
-import nme.display.InteractiveObject;
-import nme.events.MouseEvent;
+import flash.display.DisplayObjectContainer;
+import flash.display.InteractiveObject;
+import flash.events.MouseEvent;
 
 class TouchSystem implements System
 {

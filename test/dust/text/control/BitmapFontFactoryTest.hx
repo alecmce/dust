@@ -1,11 +1,11 @@
 package dust.text.control;
 
 import dust.text.data.BitmapFont;
-import nme.geom.Rectangle;
-import nme.display.BitmapData;
+import flash.geom.Rectangle;
+import flash.display.BitmapData;
 import dust.context.Context;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.Injector;
 
 class BitmapFontFactoryTest

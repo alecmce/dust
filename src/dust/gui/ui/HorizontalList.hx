@@ -3,11 +3,11 @@ package dust.gui.ui;
 import dust.gui.data.UIContainer;
 import dust.entities.api.Entity;
 
-import nme.display.DisplayObject;
-import nme.display.Sprite;
-import nme.text.Font;
-import nme.text.TextField;
-import nme.text.TextFormat;
+import flash.display.DisplayObject;
+import flash.display.Sprite;
+import flash.text.Font;
+import flash.text.TextField;
+import flash.text.TextFormat;
 
 class HorizontalList extends Sprite
 {

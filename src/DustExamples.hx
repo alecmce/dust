@@ -20,16 +20,16 @@ import dust.interactive.eg.DragExample;
 import dust.mainmenu.MainMenu;
 import dust.context.Context;
 
-import nme.Assets;
-import nme.display.DisplayObjectContainer;
-import nme.display.MovieClip;
-import nme.display.Sprite;
-import nme.display.Stage;
-import nme.events.KeyboardEvent;
-import nme.events.MouseEvent;
-import nme.ui.Keyboard;
-import nme.text.TextField;
-import nme.text.TextFormat;
+import openfl.Assets;
+import flash.display.DisplayObjectContainer;
+import flash.display.MovieClip;
+import flash.display.Sprite;
+import flash.display.Stage;
+import flash.events.KeyboardEvent;
+import flash.events.MouseEvent;
+import flash.ui.Keyboard;
+import flash.text.TextField;
+import flash.text.TextFormat;
 
 class DustExamples implements DependentConfig
 {

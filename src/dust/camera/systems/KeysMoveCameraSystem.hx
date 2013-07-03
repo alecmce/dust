@@ -6,7 +6,7 @@ import dust.entities.api.Entity;
 import dust.keys.impl.Keys;
 import dust.systems.System;
 
-import nme.ui.Keyboard;
+import flash.ui.Keyboard;
 
 class KeysMoveCameraSystem implements System
 {
@@ -35,29 +35,29 @@ class KeysMoveCameraSystem implements System
         }
 
             inline function getDX(camera:Camera)
-                return (isLeft() + isRight()) * DELTA / camera.scalar
+                return (isLeft() + isRight()) * DELTA / camera.scalar;
 
             inline function getDY(camera:Camera)
-                return (isUp() + isDown()) * DELTA / camera.scalar
+                return (isUp() + isDown()) * DELTA / camera.scalar;
 
             inline function getDScalar()
-                return (isZoomIn() + isZoomOut()) * SCALAR_DELTA
+                return (isZoomIn() + isZoomOut()) * SCALAR_DELTA;
 
             inline function isLeft():Int
-                return keys.isDown(Keyboard.A) ? 1 : 0
+                return keys.isDown(Keyboard.A) ? 1 : 0;
 
             inline function isRight():Int
-                return keys.isDown(Keyboard.D) ? -1 : 0
+                return keys.isDown(Keyboard.D) ? -1 : 0;
 
             inline function isUp():Int
-                return keys.isDown(Keyboard.W) ? 1 : 0
+                return keys.isDown(Keyboard.W) ? 1 : 0;
 
             inline function isDown():Int
-                return keys.isDown(Keyboard.S) ? -1 : 0
+                return keys.isDown(Keyboard.S) ? -1 : 0;
 
             inline function isZoomIn():Int
-                return keys.isDown(Keyboard.Q) ? 1 : 0
+                return keys.isDown(Keyboard.Q) ? 1 : 0;
 
             inline function isZoomOut():Int
-                return keys.isDown(Keyboard.E) ? -1 : 0
+                return keys.isDown(Keyboard.E) ? -1 : 0;
 }

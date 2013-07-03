@@ -9,14 +9,14 @@ class BitmapFont
     public var lineHeight:Int;
     public var base:Int;
 
-    var chars:IntHash<BitmapFontChar>;
+    var chars:Map<Int, BitmapFontChar>;
 
     public function new()
-        chars = new IntHash<BitmapFontChar>()
+        chars = new Map<Int, BitmapFontChar>();
 
     public function addChar(char:BitmapFontChar)
-        chars.set(char.id, char)
+        chars.set(char.id, char);
 
     public function getChar(id:Int):BitmapFontChar
-        return chars.get(id)
+        return chars.get(id);
 }

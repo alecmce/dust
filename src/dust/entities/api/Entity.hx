@@ -21,7 +21,7 @@ interface Entity
     function removeCachedDeletions():Void;
 
     function get<T>(type:Class<T>):T;
-    function has(type:Class<Dynamic>):Bool;
+    function has<T>(type:Class<T>):Bool;
 	function iterator():Iterator<Component>;
     function toString():String;
 }

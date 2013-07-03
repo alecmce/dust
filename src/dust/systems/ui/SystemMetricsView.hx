@@ -1,6 +1,6 @@
 package dust.systems.ui;
 
-import nme.display.DisplayObject;
+import flash.display.DisplayObject;
 import dust.gui.data.UIView;
 import dust.gui.control.UILabelFactory;
 import dust.entities.api.Entity;
@@ -13,7 +13,7 @@ import dust.gui.data.UIContainer;
 import dust.gui.ui.UILabel;
 import dust.gui.ui.VerticalList;
 
-import nme.display.Stage;
+import flash.display.Stage;
 
 using dust.FloatUtil;
 

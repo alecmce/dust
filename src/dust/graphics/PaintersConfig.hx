@@ -14,9 +14,9 @@ import dust.systems.SystemsConfig;
 import dust.graphics.data.Paint;
 
 import dust.Injector;
-import nme.display.Graphics;
-import nme.display.Sprite;
-import nme.display.DisplayObjectContainer;
+import flash.display.Graphics;
+import flash.display.Sprite;
+import flash.display.DisplayObjectContainer;
 
 class PaintersConfig implements DependentConfig
 {

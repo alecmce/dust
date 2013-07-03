@@ -34,7 +34,7 @@ class Tween extends Component
     }
 
         function nullEase(proportion:Float):Float
-            return proportion
+            return proportion;
 
         function nullUpdate(entity:Entity, value:Float) {}
         function nullComplete(entity:Entity) {}
@@ -69,5 +69,5 @@ class Tween extends Component
     }
 
     inline public function isComplete():Bool
-        return progress >= duration
+        return progress >= duration;
 }

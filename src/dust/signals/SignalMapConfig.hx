@@ -10,5 +10,5 @@ class SignalMapConfig implements Config
     @inject public var injector:Injector;
 
     public function configure()
-        injector.mapSingleton(SignalMap)
+        injector.mapSingleton(SignalMap);
 }

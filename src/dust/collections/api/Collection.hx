@@ -30,10 +30,10 @@ class Collection
     }
 
     inline public function has(entity:Entity):Bool
-        return list.has(entity)
+        return list.has(entity);
 
     inline public function meetsRequirements(entity:Entity):Bool
-        return entity.satisfies(bitfield)
+        return entity.satisfies(bitfield);
 
     inline public function add(entity:Entity)
     {
@@ -48,11 +48,11 @@ class Collection
     }
 
     inline public function getCount():Int
-        return list.count
+        return list.count;
 
     inline public function iterator():Iterator<Entity>
-        return list.iterator()
+        return list.iterator();
 
     public function toString():String
-        return "[Collection id=" + id + " bits=(" + bitfield.toString() + ")] count=" + list.count + "]"
+        return "[Collection id=" + id + " bits=(" + bitfield.toString() + ")] count=" + list.count + "]";
 }

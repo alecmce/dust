@@ -8,7 +8,7 @@ import dust.entities.api.Entity;
 import dust.gui.data.UIContainer;
 
 import dust.Injector;
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 
 class UIRootManager implements CollectionListeners
 {

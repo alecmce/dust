@@ -1,9 +1,9 @@
 package dust.mainmenu.ui;
 
-import nme.events.TouchEvent;
-import nme.events.MouseEvent;
-import nme.display.Sprite;
-import nme.display.DisplayObject;
+import flash.events.TouchEvent;
+import flash.events.MouseEvent;
+import flash.display.Sprite;
+import flash.display.DisplayObject;
 import dust.context.Config;
 import dust.signals.Signal;
 

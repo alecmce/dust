@@ -12,5 +12,5 @@ class App
     public function new() {}
 
     public function isRetina():Bool
-        return target == AppTarget.IPAD_RETINA
+        return target == AppTarget.IPAD_RETINA;
 }

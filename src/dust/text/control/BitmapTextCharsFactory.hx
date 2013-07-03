@@ -2,7 +2,7 @@ package dust.text.control;
 
 import dust.text.data.BitmapTextChars;
 import dust.text.data.BitmapTextChar;
-import nme.geom.Rectangle;
+import flash.geom.Rectangle;
 import dust.text.data.BitmapFont;
 
 class BitmapTextCharsFactory

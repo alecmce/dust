@@ -2,7 +2,7 @@ package dust.gui.data;
 
 import dust.entities.api.Entity;
 
-import nme.display.DisplayObject;
+import flash.display.DisplayObject;
 
 interface UIView
 {

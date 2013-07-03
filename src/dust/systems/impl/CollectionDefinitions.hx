@@ -26,7 +26,7 @@ class CollectionDefinitions
     }
 
     public function add(bitfield:Bitfield, sorter:Entity->Entity->Int, name:String = "")
-        list.push(new CollectionDefinition(bitfield, sorter, name))
+        list.push(new CollectionDefinition(bitfield, sorter, name));
 
     public function map()
     {

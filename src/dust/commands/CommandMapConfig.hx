@@ -11,8 +11,8 @@ class CommandMapConfig implements DependentConfig
     @inject public var injector:Injector;
 
     public function dependencies():Array<Class<Config>>
-        return [SignalMapConfig]
+        return [SignalMapConfig];
 
     public function configure()
-        injector.mapSingleton(CommandMap)
+        injector.mapSingleton(CommandMap);
 }

@@ -19,9 +19,9 @@ import dust.systems.SystemsConfig;
 import dust.systems.impl.Systems;
 import dust.Injector;
 import dust.context.Config;
-import nme.events.TouchEvent;
-import nme.ui.MultitouchInputMode;
-import nme.ui.Multitouch;
+import flash.events.TouchEvent;
+import flash.ui.MultitouchInputMode;
+import flash.ui.Multitouch;
 import dust.context.DependentConfig;
 
 class MultiTouchConfig implements DependentConfig

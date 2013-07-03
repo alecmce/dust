@@ -9,19 +9,17 @@ import haxe.macro.Type;
 
 class TypeIndex
 {
-    static var types:Hash<Int>;
+    static var types:Map<String, Int>;
     static var nextId:Int;
 
-    @:macro
-    public static function getInstanceID(component:Expr):Expr
+    macro public static function getInstanceID(component:Expr):Expr
     {
         var name = getTypeName(Context.follow(Context.typeof(component), false));
         var index = mapNameToID(name);
         return Context.makeExpr(index, component.pos);
     }
 
-    @:macro
-    public static function getClassID(component:Expr):Expr
+    macro public static function getClassID(component:Expr):Expr
     {
         var name = getTypeName(Context.typeof(component));
         var index = mapNameToID(name);

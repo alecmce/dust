@@ -10,25 +10,25 @@ class LinkedList<T>
     public var itemProvider:T->LinkedListItem<T>;
 
     public function new(itemProvider:T->LinkedListItem<T>)
-        this.itemProvider = itemProvider
+        this.itemProvider = itemProvider;
 
     inline public function append(data:T)
-        appendItem(itemProvider(data))
+        appendItem(itemProvider(data));
 
     inline public function appendItem(item:LinkedListItem<T>)
-        hasItem() ? appendToTail(item) : setFirstItem(item)
+        hasItem() ? appendToTail(item) : setFirstItem(item);
 
     inline public function prefix(data:T)
-        prefixItem(itemProvider(data))
+        prefixItem(itemProvider(data));
 
     inline public function prefixItem(item:LinkedListItem<T>)
-        hasItem() ? prefixToHead(item) : setFirstItem(item)
+        hasItem() ? prefixToHead(item) : setFirstItem(item);
 
         inline function hasItem():Bool
-            return tail != null
+            return tail != null;
 
         inline function prefixToHead(item:LinkedListItem<T>)
-            prefixItemToHead(item)
+            prefixItemToHead(item);
 
         inline function prefixItemToHead(item:LinkedListItem<T>)
         {
@@ -38,7 +38,7 @@ class LinkedList<T>
         }
 
         inline function appendToTail(item:LinkedListItem<T>)
-            appendItemToTail(item)
+            appendItemToTail(item);
 
         inline function appendItemToTail(item:LinkedListItem<T>)
         {
@@ -48,7 +48,7 @@ class LinkedList<T>
         }
 
         inline function setFirstItem(item:LinkedListItem<T>)
-            head = tail = item
+            head = tail = item;
 
     public function remove(data:T)
     {
@@ -75,5 +75,5 @@ class LinkedList<T>
         }
 
     public function iterator():Iterator<T>
-        return new LinkedListIterator<T>(head)
+        return new LinkedListIterator<T>(head);
 }

@@ -4,7 +4,7 @@ import dust.entities.api.Entity;
 import dust.geom.data.Position;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 
 class CollectionSortsTest
@@ -33,7 +33,7 @@ class CollectionSortsTestConfig implements Config
     }
 
         function sorter(a:Entity, b:Entity):Int
-            return 0
+            return 0;
 }
 
 class CollectionSortsSystem implements System

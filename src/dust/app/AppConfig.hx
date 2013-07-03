@@ -1,9 +1,9 @@
 package dust.app;
 
-import nme.ui.MultitouchInputMode;
+import flash.ui.MultitouchInputMode;
 import dust.app.data.AppTarget;
-import nme.Vector;
-import nme.ui.Multitouch;
+import flash.Vector;
+import flash.ui.Multitouch;
 import dust.app.data.App;
 import dust.Injector;
 import dust.context.Config;

@@ -2,11 +2,11 @@ package dust.graphics;
 
 import dust.camera.data.Camera;
 import dust.Injector;
-import nme.display.Graphics;
-import nme.display.Sprite;
+import flash.display.Graphics;
+import flash.display.Sprite;
 import dust.context.Context;
 
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 
 class CanvasConfigTest
 {

@@ -12,10 +12,10 @@ class QuadTreeRange extends Component
     public var extent:Float;
     public var area:Float;
 
-    public var left(get_left, null):Float; inline function get_left() return position.x - extent
-    public var top(get_top, null):Float; inline function get_top() return position.y - extent
-    public var right(get_right, null):Float; inline function get_right() return position.x + extent
-    public var bottom(get_bottom, null):Float; inline function get_bottom() return position.y + extent
+    public var left(get_left, null):Float; inline function get_left() return position.x - extent;
+    public var top(get_top, null):Float; inline function get_top() return position.y - extent;
+    public var right(get_right, null):Float; inline function get_right() return position.x + extent;
+    public var bottom(get_bottom, null):Float; inline function get_bottom() return position.y + extent;
 
     public function new(position:Position, extent:Float)
     {
@@ -64,5 +64,5 @@ class QuadTreeRange extends Component
     }
 
     public function toString(indent:Int = 0):String
-        return "[QuadTreeRange position=" + position.toString() + ", extent=" + extent + "]"
+        return "[QuadTreeRange position=" + position.toString() + ", extent=" + extent + "]";
 }

@@ -6,7 +6,7 @@ import dust.camera.data.Camera;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Painters;
 import dust.geom.data.Position;
-import nme.display.Graphics;
+import flash.display.Graphics;
 
 class DrawSquarePainter implements Painter
 {

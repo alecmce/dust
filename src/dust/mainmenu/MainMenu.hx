@@ -1,18 +1,18 @@
 package dust.mainmenu;
 
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 import dust.mainmenu.ui.MainMenuButton;
-import nme.events.MouseEvent;
-import nme.display.Sprite;
+import flash.events.MouseEvent;
+import flash.display.Sprite;
 import dust.mainmenu.control.MainMenuButtonFactory;
 import dust.signals.SignalVoid;
-import nme.ui.Keyboard;
+import flash.ui.Keyboard;
 import dust.gui.ui.UILabel;
 import dust.gui.ui.VerticalList;
 import dust.context.Config;
 import dust.signals.Signal;
 
-import nme.events.KeyboardEvent;
+import flash.events.KeyboardEvent;
 
 class MainMenu extends Sprite
 {

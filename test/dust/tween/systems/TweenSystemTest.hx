@@ -10,7 +10,7 @@ import dust.systems.impl.SystemsLoop;
 import dust.tween.TweenConfig;
 
 import dust.Injector;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class TweenSystemTest
 {

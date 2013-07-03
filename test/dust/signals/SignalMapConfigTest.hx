@@ -4,7 +4,7 @@ import dust.signals.SignalMapConfig;
 import dust.signals.SignalMap;
 import dust.Injector;
 import dust.context.Config;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 
 class SignalMapConfigTest

@@ -3,11 +3,11 @@ package dust.text.control;
 import dust.text.data.BitmapTextData;
 import dust.text.data.BitmapTextData;
 import dust.text.data.BitmapFont;
-import nme.geom.Rectangle;
-import nme.display.BitmapData;
+import flash.geom.Rectangle;
+import flash.display.BitmapData;
 import dust.context.Context;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.Injector;
 
 
@@ -52,7 +52,7 @@ class BitmapTextFactoryTest
         }
 
         function makeFont():BitmapFont
-            return fontFactory.make(makeFontDefinition(), makeFontData())
+            return fontFactory.make(makeFontDefinition(), makeFontData());
 
             function makeFontDefinition()
             {

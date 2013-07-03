@@ -24,7 +24,7 @@ import dust.context.DependentConfig;
 import dust.context.Config;
 
 import dust.Injector;
-import nme.display.Stage;
+import flash.display.Stage;
 
 class SystemMetricsConfig implements DependentConfig
 {

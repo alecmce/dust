@@ -4,7 +4,7 @@ import dust.commands.CommandMapConfig;
 import dust.Injector;
 import dust.context.Config;
 import dust.commands.CommandMap;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 
 class CommandMapConfigTest

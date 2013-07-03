@@ -11,7 +11,7 @@ import dust.collections.control.CollectionMap;
 import dust.geom.data.Position;
 
 import dust.Injector;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class QuadTreeTest
 {

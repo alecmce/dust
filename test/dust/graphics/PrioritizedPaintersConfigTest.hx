@@ -5,8 +5,8 @@ import dust.graphics.systems.PainterSystem;
 import dust.context.Context;
 import dust.systems.impl.Systems;
 
-import nme.display.DisplayObjectContainer;
-import nme.display.Sprite;
+import flash.display.DisplayObjectContainer;
+import flash.display.Sprite;
 
 class PrioritizedPaintersConfigTest
 {

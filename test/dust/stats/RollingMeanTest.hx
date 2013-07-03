@@ -5,7 +5,7 @@ class RollingMeanTest
     var mean:RollingMean;
 
     public function makeRollingMeanWithCount(count:Int)
-        mean = new RollingMean(count)
+        mean = new RollingMean(count);
 
     @Test public function firstValueIsMean()
     {

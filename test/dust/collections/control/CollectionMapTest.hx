@@ -1,7 +1,7 @@
 package dust.collections.control;
 
 import dust.collections.api.CollectionListeners;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 import dust.collections.control.CollectionMap;
 import dust.collections.control.CollectionMapping;

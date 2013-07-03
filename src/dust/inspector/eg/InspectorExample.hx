@@ -7,7 +7,7 @@ import dust.app.data.App;
 import dust.geom.data.Position;
 import dust.graphics.data.Paint;
 import dust.gui.data.Color;
-import nme.display.Graphics;
+import flash.display.Graphics;
 import dust.entities.api.Entity;
 import dust.graphics.data.Painter;
 import dust.entities.api.Entities;

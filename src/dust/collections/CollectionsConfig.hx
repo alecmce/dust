@@ -16,7 +16,7 @@ class CollectionsConfig implements DependentConfig
     @inject public var context:Context;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig]
+        return [EntitiesConfig];
 
     public function configure()
     {
@@ -28,5 +28,5 @@ class CollectionsConfig implements DependentConfig
     }
 
     function onContextStarted()
-        injector.getInstance(CollectionMap).instantiateAll()
+        injector.getInstance(CollectionMap).instantiateAll();
 }

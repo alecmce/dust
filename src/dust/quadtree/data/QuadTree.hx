@@ -82,5 +82,5 @@ class QuadTree<T> extends Component
     }
 
     public function toString():String
-        return "QuadTree range=" + range + ", maxDataPerNode=" + maxDataPerNode + ", threshold=" + threshold + "]"
+        return "QuadTree range=" + range + ", maxDataPerNode=" + maxDataPerNode + ", threshold=" + threshold + "]";
 }

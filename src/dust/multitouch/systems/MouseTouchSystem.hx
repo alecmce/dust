@@ -8,12 +8,12 @@ import dust.systems.System;
 import dust.multitouch.data.DragZoomGesture;
 import dust.multitouch.data.Touch;
 import dust.multitouch.control.Touches;
-import nme.ui.Keyboard;
-import nme.events.KeyboardEvent;
-import nme.display.Sprite;
-import nme.ui.Multitouch;
-import nme.events.MouseEvent;
-import nme.ui.MultitouchInputMode;
+import flash.ui.Keyboard;
+import flash.events.KeyboardEvent;
+import flash.display.Sprite;
+import flash.ui.Multitouch;
+import flash.events.MouseEvent;
+import flash.ui.MultitouchInputMode;
 
 class MouseTouchSystem implements System
 {

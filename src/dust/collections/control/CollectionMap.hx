@@ -22,7 +22,7 @@ class CollectionMap
     var configMap:Hash<CollectionMapping>;
 
     public function new()
-        configMap = new Hash<CollectionMapping>()
+        configMap = new Hash<CollectionMapping>();
 
     public function map(components:Array<Class<Component>>):CollectionMapping
     {

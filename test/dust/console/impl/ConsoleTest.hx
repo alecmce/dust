@@ -1,6 +1,6 @@
 package dust.console.impl;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.Injector;
 import dust.context.Context;
 import dust.console.ui.ConsoleFormat;

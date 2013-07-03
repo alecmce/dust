@@ -27,7 +27,7 @@ class QuadTreeAtomTest
     }
 
     function makeData(x:Float, y:Float, item:TestItem):QuadTreeData<TestItem>
-        return new QuadTreeData<TestItem>(new Position(x, y), item)
+        return new QuadTreeData<TestItem>(new Position(x, y), item);
 
     @Test public function firstItemIsAddedToAtom()
     {

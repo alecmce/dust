@@ -7,8 +7,8 @@ import dust.entities.api.Entity;
 import dust.interactive.data.Draggable;
 import dust.systems.System;
 
-import nme.display.InteractiveObject;
-import nme.display.Stage;
+import flash.display.InteractiveObject;
+import flash.display.Stage;
 
 class ReflectionSystem implements System
 {

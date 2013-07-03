@@ -9,7 +9,7 @@ import dust.gui.control.UISliderFactory;
 import dust.gui.GUIConfig;
 import dust.console.ConsoleConfig;
 import dust.console.impl.Console;
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 import dust.gui.ui.UISlider;
 import dust.context.Config;
 import dust.context.DependentConfig;

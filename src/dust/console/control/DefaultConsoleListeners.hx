@@ -2,8 +2,8 @@ package dust.console.control;
 
 import dust.console.impl.Console;
 
-import nme.events.KeyboardEvent;
-import nme.ui.Keyboard;
+import flash.events.KeyboardEvent;
+import flash.ui.Keyboard;
 
 class DefaultConsoleListeners
 {

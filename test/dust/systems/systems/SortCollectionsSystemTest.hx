@@ -4,7 +4,7 @@ import dust.systems.impl.Systems;
 import dust.systems.impl.CollectionSort;
 import dust.lists.LinkedListItem;
 import dust.entities.api.Entities;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.entities.EntitiesConfig;
 import dust.context.Context;
 import dust.components.Component;
@@ -31,12 +31,12 @@ class SortCollectionsSystemTest
         entities = injector.getInstance(Entities);
     }
 
-    @Test public function sort123() sortAndAssertIsSorted([1, 2, 3])
-    @Test public function sort132() sortAndAssertIsSorted([1, 3, 2])
-    @Test public function sort213() sortAndAssertIsSorted([2, 1, 3])
-    @Test public function sort231() sortAndAssertIsSorted([2, 3, 1])
-    @Test public function sort312() sortAndAssertIsSorted([3, 1, 2])
-    @Test public function sort321() sortAndAssertIsSorted([3, 2, 1])
+    @Test public function sort123() sortAndAssertIsSorted([1, 2, 3]);
+    @Test public function sort132() sortAndAssertIsSorted([1, 3, 2]);
+    @Test public function sort213() sortAndAssertIsSorted([2, 1, 3]);
+    @Test public function sort231() sortAndAssertIsSorted([2, 3, 1]);
+    @Test public function sort312() sortAndAssertIsSorted([3, 1, 2]);
+    @Test public function sort321() sortAndAssertIsSorted([3, 2, 1]);
 
         function sortAndAssertIsSorted(values:Array<Int>)
         {
@@ -59,10 +59,10 @@ class SortCollectionsSystemTest
             }
 
                 function makeItem(entity:Entity):LinkedListItem<Entity>
-                    return new LinkedListItem<Entity>(entity)
+                    return new LinkedListItem<Entity>(entity);
 
                 function sorter(a:Entity, b:Entity):Int
-                    return a.get(SortValue).value - b.get(SortValue).value
+                    return a.get(SortValue).value - b.get(SortValue).value;
 
             function getResult(sort:CollectionSort):Array<Int>
             {
@@ -78,5 +78,5 @@ class SortValue extends Component
     public var value:Int;
 
     public function new(value:Int)
-        this.value = value
+        this.value = value;
 }

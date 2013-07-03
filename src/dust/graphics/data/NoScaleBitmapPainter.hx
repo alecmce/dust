@@ -5,9 +5,9 @@ import dust.camera.data.Camera;
 import dust.geom.data.Position;
 import dust.entities.api.Entity;
 
-import nme.display.BitmapData;
-import nme.display.Graphics;
-import nme.geom.Matrix;
+import flash.display.BitmapData;
+import flash.display.Graphics;
+import flash.geom.Matrix;
 
 class NoScaleBitmapPainter
     extends Component,

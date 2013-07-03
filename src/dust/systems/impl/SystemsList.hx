@@ -48,5 +48,5 @@ class SystemsList
     }
 
     public function iterator():Iterator<System>
-        return list.iterator()
+        return list.iterator();
 }

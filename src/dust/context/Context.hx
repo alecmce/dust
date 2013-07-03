@@ -1,11 +1,11 @@
 package dust.context;
 
 import dust.signals.SignalVoid;
-import nme.display.Stage;
+import flash.display.Stage;
 import dust.signals.Signal;
 import dust.Injector;
 
-import nme.display.DisplayObjectContainer;
+import flash.display.DisplayObjectContainer;
 
 class Context
 {

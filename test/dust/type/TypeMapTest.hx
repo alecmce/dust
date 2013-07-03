@@ -1,7 +1,7 @@
 package dust.type;
 
-import nme.geom.Point;
-import nme.display.Sprite;
+import flash.geom.Point;
+import flash.display.Sprite;
 
 
 class MacroExampleA { public function new() {} }

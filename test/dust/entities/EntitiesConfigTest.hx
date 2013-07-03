@@ -6,7 +6,7 @@ import dust.context.Context;
 import dust.collections.control.CollectionMap;
 import dust.entities.api.Entities;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class EntitiesConfigTest
 {

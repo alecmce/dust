@@ -1,11 +1,11 @@
 package dust.console.ui;
 
 import dust.app.data.App;
-import nme.display.Shape;
-import nme.display.Sprite;
-import nme.display.BlendMode;
-import nme.text.TextFormat;
-import nme.text.TextField;
+import flash.display.Shape;
+import flash.display.Sprite;
+import flash.display.BlendMode;
+import flash.text.TextFormat;
+import flash.text.TextField;
 
 class ConsoleOutput extends Sprite
 {

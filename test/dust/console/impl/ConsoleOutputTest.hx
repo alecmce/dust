@@ -1,11 +1,11 @@
 package dust.console.impl;
 
 import dust.context.Context;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.Injector;
 import dust.console.ui.ConsoleFormat;
 import dust.console.ui.ConsoleOutput;
-import nme.text.TextFormat;
+import flash.text.TextFormat;
 
 class ConsoleOutputTest
 {

@@ -1,6 +1,6 @@
 package dust.systems.impl;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 import dust.entities.impl.PooledEntities;
 import dust.collections.data.CollectionList;

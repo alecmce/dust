@@ -1,7 +1,7 @@
 package dust.systems.systems;
 
 import dust.systems.impl.Systems;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.context.Context;
 import dust.Injector;
 

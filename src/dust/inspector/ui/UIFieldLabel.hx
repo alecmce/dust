@@ -1,6 +1,6 @@
 package dust.inspector.ui;
 
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.gui.data.Color;
 import dust.entities.api.Entity;
 import dust.inspector.data.InspectedField;

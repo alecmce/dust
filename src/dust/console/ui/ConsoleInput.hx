@@ -1,14 +1,14 @@
 package dust.console.ui;
 
 import dust.app.data.App;
-import nme.display.BlendMode;
+import flash.display.BlendMode;
 import dust.signals.Signal;
 
-import nme.display.Sprite;
-import nme.events.KeyboardEvent;
-import nme.text.TextField;
-import nme.text.TextFormat;
-import nme.text.TextFieldType;
+import flash.display.Sprite;
+import flash.events.KeyboardEvent;
+import flash.text.TextField;
+import flash.text.TextFormat;
+import flash.text.TextFieldType;
 
 class ConsoleInput extends Sprite
 {

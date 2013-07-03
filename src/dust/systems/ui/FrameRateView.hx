@@ -1,11 +1,11 @@
 package dust.systems.ui;
 
-import nme.display.DisplayObject;
-import nme.display.Sprite;
+import flash.display.DisplayObject;
+import flash.display.Sprite;
 import dust.gui.data.UIView;
 import dust.gui.control.UILabelFactory;
 import dust.entities.api.Entity;
-import nme.text.Font;
+import flash.text.Font;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
 import dust.gui.ui.UILabel;

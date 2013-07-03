@@ -23,7 +23,7 @@ describe 'config wraps a hash to expose config data' do
   it 'gets all library dependencies for given contexts' do
     hash = {'default' => {'libs' => 'munit actuate'}, 'flash' => {'libs' => 'jeash'}}
     config = HaxeConfig.new hash
-    config.get_list('flash', 'libs').should == %w(munit actuate jeash)
+    config.get_list('flash', 'libs').should =~ %w(munit actuate jeash)
   end
 
 end

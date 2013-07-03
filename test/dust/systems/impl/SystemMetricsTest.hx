@@ -8,7 +8,7 @@ class SystemMetricsTest
     var metrics:SystemMetrics;
 
     @Before public function before()
-        metrics = new SystemMetrics(3)
+        metrics = new SystemMetrics(3);
 
     @Test public function canRecordATimeAgainstLabel()
     {

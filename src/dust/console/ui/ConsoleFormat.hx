@@ -1,6 +1,6 @@
 package dust.console.ui;
 
-import nme.text.TextFormat;
+import flash.text.TextFormat;
 
 class ConsoleFormat extends TextFormat
 {

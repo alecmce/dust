@@ -1,10 +1,10 @@
 package dust.mainmenu;
 
-import nme.display.BitmapData;
-import nme.Assets;
+import flash.display.BitmapData;
+import openfl.Assets;
 import dust.context.Context;
 import dust.Injector;
-import nme.display.Sprite;
+import flash.display.Sprite;
 
 class MainMenuConfigTest
 {

@@ -1,6 +1,6 @@
 package dust.context;
 
-interface DependentConfig implements Config
+interface DependentConfig extends Config
 {
     function dependencies():Array<Class<Config>>;
 }

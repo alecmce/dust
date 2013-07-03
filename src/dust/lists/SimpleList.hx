@@ -5,11 +5,11 @@ import dust.lists.LinkedListItem;
 class SimpleList<T> extends LinkedList<T>
 {
     public static function make<T>():SimpleList<T>
-        return new SimpleList<T>()
+        return new SimpleList<T>();
 
     public function new()
-        super(makeItem)
+        super(makeItem);
 
     inline function makeItem(data:T):LinkedListItem<T>
-        return new LinkedListItem(data)
+        return new LinkedListItem(data);
 }

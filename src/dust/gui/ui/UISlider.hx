@@ -2,9 +2,9 @@ package dust.gui.ui;
 
 import dust.gui.data.UISliderData;
 import dust.gui.ui.UISliderHandle;
-import nme.events.MouseEvent;
-import nme.display.Shape;
-import nme.display.Sprite;
+import flash.events.MouseEvent;
+import flash.display.Shape;
+import flash.display.Sprite;
 
 class UISlider extends Sprite
 {

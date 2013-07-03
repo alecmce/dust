@@ -3,13 +3,13 @@ package dust.console.impl;
 import dust.console.ui.ConsoleOutput;
 import dust.console.ui.ConsoleInput;
 import dust.signals.Signal;
-import nme.display.BlendMode;
-import nme.display.Sprite;
-import nme.display.Stage;
-import nme.text.TextField;
-import nme.text.TextFormat;
-import nme.events.Event;
-import nme.events.KeyboardEvent;
+import flash.display.BlendMode;
+import flash.display.Sprite;
+import flash.display.Stage;
+import flash.text.TextField;
+import flash.text.TextFormat;
+import flash.events.Event;
+import flash.events.KeyboardEvent;
 
 class Console extends Sprite
 {

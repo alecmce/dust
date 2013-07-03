@@ -35,7 +35,7 @@ class SystemsConfig implements DependentConfig
     @inject public var collections:CollectionMap;
 
     public function dependencies():Array<Class<Config>>
-        return [SignalMapConfig, CollectionsConfig]
+        return [SignalMapConfig, CollectionsConfig];
 
     public function configure()
     {

@@ -5,16 +5,16 @@ import dust.text.data.BitmapFont;
 import dust.text.SmallWhiteHelveticaFontConfig;
 import dust.text.control.BitmapTextFactory;
 import dust.text.control.BitmapTextFactory;
-import nme.display.Bitmap;
-import nme.display.BitmapData;
+import flash.display.Bitmap;
+import flash.display.BitmapData;
 import dust.gui.data.Color;
-import nme.Assets;
-import nme.display.Sprite;
-import nme.text.Font;
-import nme.text.TextField;
-import nme.text.TextFieldAutoSize;
-import nme.text.TextFormat;
-import nme.text.TextFormatAlign;
+import openfl.Assets;
+import flash.display.Sprite;
+import flash.text.Font;
+import flash.text.TextField;
+import flash.text.TextFieldAutoSize;
+import flash.text.TextFormat;
+import flash.text.TextFormatAlign;
 
 class UILabel extends Bitmap
 {

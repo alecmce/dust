@@ -1,14 +1,14 @@
 package dust.graphics.data;
 
 import dust.components.Component;
-import nme.geom.ColorTransform;
+import flash.geom.ColorTransform;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
 import dust.entities.api.Entity;
 
-import nme.display.BitmapData;
-import nme.display.Graphics;
-import nme.geom.Matrix;
+import flash.display.BitmapData;
+import flash.display.Graphics;
+import flash.geom.Matrix;
 
 class BitmapPainter
     extends Component,

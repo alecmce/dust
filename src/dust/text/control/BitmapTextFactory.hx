@@ -1,8 +1,8 @@
 package dust.text.control;
 
-import nme.display.BitmapData;
-import nme.geom.Rectangle;
-import nme.display.BitmapData;
+import flash.display.BitmapData;
+import flash.geom.Rectangle;
+import flash.display.BitmapData;
 import dust.text.data.BitmapTextChar;
 import dust.gui.data.VAlign;
 import dust.gui.data.HAlign;
@@ -14,9 +14,9 @@ import dust.text.data.BitmapFontChar;
 import dust.text.data.BitmapFont;
 import dust.text.data.BitmapFont;
 
-import nme.geom.Point;
-import nme.display.BitmapData;
-import nme.geom.Rectangle;
+import flash.geom.Point;
+import flash.display.BitmapData;
+import flash.geom.Rectangle;
 
 class BitmapTextFactory
 {
@@ -27,7 +27,7 @@ class BitmapTextFactory
     var height:Int;
 
     public function new()
-        position = new Point()
+        position = new Point();
 
     public function make(data:BitmapTextData, current:BitmapData = null):BitmapData
     {
@@ -75,5 +75,5 @@ class BitmapTextFactory
                 }
 
             inline function makeNewBitmapData(data:BitmapTextData):BitmapData
-                return new BitmapData(width, height, data.useAlpha, data.background)
+                return new BitmapData(width, height, data.useAlpha, data.background);
 }

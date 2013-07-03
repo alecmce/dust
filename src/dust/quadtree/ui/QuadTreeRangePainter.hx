@@ -6,7 +6,7 @@ import dust.geom.data.Position;
 import dust.camera.data.Camera;
 import dust.quadtree.data.QuadTreeRange;
 import dust.graphics.data.Paint;
-import nme.display.Graphics;
+import flash.display.Graphics;
 import dust.entities.api.Entity;
 import dust.graphics.data.Painters;
 

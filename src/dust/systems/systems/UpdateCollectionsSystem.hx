@@ -15,7 +15,7 @@ class UpdateCollectionsSystem implements System
     public function start() {}
     
     public function stop()
-        iterate(0)
+        iterate(0);
 
     public function iterate(deltaTime:Float)
     {

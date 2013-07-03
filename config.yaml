@@ -15,7 +15,7 @@ default:
   height: 600
   fps: 60
   background: 000000
-  libs: nme minject
+  libs: openfl minject
   assets: assets
   orientation: portrait
   resizable: false

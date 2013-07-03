@@ -1,7 +1,7 @@
 package dust.camera.data;
 
-import nme.geom.Matrix;
-import nme.display.DisplayObject;
+import flash.geom.Matrix;
+import flash.display.DisplayObject;
 import dust.components.Component;
 import dust.geom.data.Position;
 

@@ -2,7 +2,7 @@ package dust.interactive.systems;
 
 import dust.interactive.control.TouchSelector;
 import dust.multitouch.control.Touches;
-import nme.events.MouseEvent;
+import flash.events.MouseEvent;
 import dust.camera.data.Camera;
 import dust.collections.api.Collection;
 import dust.entities.api.Entity;
@@ -13,9 +13,9 @@ import dust.interactive.data.TouchInteractive;
 import dust.geom.data.Position;
 import dust.systems.System;
 
-import nme.display.DisplayObjectContainer;
-import nme.display.InteractiveObject;
-import nme.display.Stage;
+import flash.display.DisplayObjectContainer;
+import flash.display.InteractiveObject;
+import flash.display.Stage;
 
 class DragSystem implements System
 {

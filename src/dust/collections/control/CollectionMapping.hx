@@ -74,5 +74,5 @@ class CollectionMapping
             }
 
         function populateCollection(collection:Collection)
-            subscriber.updateCollection(collection)
+            subscriber.updateCollection(collection);
 }

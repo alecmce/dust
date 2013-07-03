@@ -7,7 +7,7 @@ import dust.inspector.ui.UIFieldSlider;
 import dust.gui.data.UISliderData;
 import dust.gui.control.UISliderFactory;
 import dust.gui.ui.UILabelledSlider;
-import nme.display.Sprite;
+import flash.display.Sprite;
 import dust.gui.data.VAlign;
 import dust.gui.control.UILabelFactory;
 import dust.text.SmallWhiteHelveticaFontConfig;

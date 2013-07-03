@@ -2,8 +2,8 @@ package dust.text.data;
 
 import dust.gui.data.VAlign;
 import dust.gui.data.HAlign;
-import nme.display.BitmapData;
-import nme.geom.Rectangle;
+import flash.display.BitmapData;
+import flash.geom.Rectangle;
 
 class BitmapTextChars
 {

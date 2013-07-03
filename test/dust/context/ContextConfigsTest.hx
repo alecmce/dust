@@ -67,7 +67,7 @@ class ContextConfigsTest
 }
 
 class ExampleConfig
-    implements DependentConfig,
+    implements DependentConfig
     implements UnconfigConfig
 {
     public static var status:ConfigStatus;
@@ -75,10 +75,10 @@ class ExampleConfig
     public static var unconfigIndex:Int;
 
     public function new()
-        status = ConfigStatus.INSTANTIATED
+        status = ConfigStatus.INSTANTIATED;
 
     public function dependencies():Array<Class<Config>>
-        return [ExampleDependentConfig]
+        return [ExampleDependentConfig];
 
     public function configure()
     {
@@ -101,7 +101,7 @@ class ExampleDependentConfig
     public static var unconfigIndex:Int;
 
     public function new()
-        status = ConfigStatus.INSTANTIATED
+        status = ConfigStatus.INSTANTIATED;
 
     public function configure()
     {
