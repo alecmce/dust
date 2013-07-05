@@ -1,12 +1,11 @@
-package dust.entities.impl;
+package dust.entities;
 
 import dust.components.MockComponentA;
-import dust.entities.PooledEntities;
 import dust.components.BitfieldFactory;
 import dust.entities.Entity;
 import dust.entities.Entities;
 
-class PooledEntitiesTest
+class EntitiesTest
 {
     var bitfieldFactory:BitfieldFactory;
     var entities:Entities;
@@ -14,7 +13,7 @@ class PooledEntitiesTest
     @Before public function before()
     {
         bitfieldFactory = new BitfieldFactory();
-        entities = new PooledEntities(bitfieldFactory);
+        entities = new Entities(bitfieldFactory);
     }
 
     @Test public function canRequireEntity()

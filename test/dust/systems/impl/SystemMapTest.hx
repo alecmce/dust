@@ -2,7 +2,7 @@ package dust.systems.impl;
 
 import flash.display.Sprite;
 import dust.context.Context;
-import dust.entities.PooledEntities;
+import dust.entities.Entities;
 import dust.collections.data.CollectionList;
 import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemMapping;
@@ -40,7 +40,7 @@ class SystemMapTest
             var map = new CollectionMap();
             map.injector = injector;
             map.bitfieldFactory = new BitfieldFactory();
-            map.entities = new PooledEntities(map.bitfieldFactory);
+            map.entities = new Entities(map.bitfieldFactory);
             map.collectionList = new CollectionList();
             return map;
         }

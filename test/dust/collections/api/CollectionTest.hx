@@ -1,7 +1,7 @@
 package dust.collections.api;
 
-import dust.entities.PooledEntities;
-import dust.entities.PooledEntity;
+import dust.entities.Entities;
+import dust.entities.Entity;
 import dust.components.BitfieldFactory;
 import dust.components.Bitfield;
 import dust.collections.api.CollectionListeners;
@@ -35,14 +35,14 @@ class CollectionTest
     @Before public function before()
     {
         bitfieldFactory = new BitfieldFactory();
-        entities = new PooledEntities(bitfieldFactory);
+        entities = new Entities(bitfieldFactory);
 
         collectionBitfield = bitfieldFactory.makeEmpty();
         list = new EntityList(new SimpleList<Entity>());
         collection = new Collection(collectionBitfield, list, onEntityAdded, onEntityRemoved);
 
         entityBitfield = bitfieldFactory.makeEmpty();
-        entity = new PooledEntity(1, entityBitfield);
+        entity = new Entity(1, entityBitfield);
     }
 
         function onEntityAdded(entity:Entity)

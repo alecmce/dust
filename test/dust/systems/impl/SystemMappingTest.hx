@@ -1,6 +1,6 @@
 package dust.systems.impl;
 
-import dust.entities.PooledEntities;
+import dust.entities.Entities;
 import dust.collections.api.Collection;
 import dust.collections.control.CollectionSubscriber;
 import dust.collections.control.CollectionMap;

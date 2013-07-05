@@ -1,6 +1,5 @@
-package dust.entities.impl;
+package dust.entities;
 
-import dust.entities.PooledEntities;
 import dust.components.MockComponentB;
 import dust.components.MockComponentA;
 import dust.components.BitfieldFactory;
@@ -10,7 +9,7 @@ import dust.components.Bitfield;
 import dust.entities.Entity;
 import massive.munit.async.AsyncFactory;
 
-class PooledEntityTest
+class EntityTest
 {
     var bitfieldFactory:BitfieldFactory;
 
@@ -20,7 +19,7 @@ class PooledEntityTest
 	@Before public function before()
     {
         bitfieldFactory = new BitfieldFactory();
-        entities = new PooledEntities(bitfieldFactory);
+        entities = new Entities(bitfieldFactory);
         entity = entities.require();
     }
 

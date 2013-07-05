@@ -1,13 +1,12 @@
 package dust.entities;
 
-import dust.entities.PooledEntities;
 import dust.components.BitfieldFactory;
 import dust.entities.Entities;
 import dust.entities.Entity;
 import dust.lists.SimpleList;
 import dust.entities.EntityList;
 
-class SimpleEntityListTest
+class EntityListTest
 {
     var entities:Entities;
     var list:EntityList;
@@ -15,7 +14,7 @@ class SimpleEntityListTest
     @Before public function before()
     {
         var factory = new BitfieldFactory();
-        entities = new PooledEntities(factory);
+        entities = new Entities(factory);
         list = new EntityList(new SimpleList<Entity>());
     }
 
