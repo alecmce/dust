@@ -30,10 +30,10 @@ class Entity
     }
 
     inline public function add(component:Dynamic)
-        macro addComponent(TypeIndex.getInstanceID(component), component);
+        addComponent(TypeIndex.getInstanceID(component), component);
 
     inline public function addAsType(component:Dynamic, asType:Class<Dynamic>)
-        macro addComponent(TypeIndex.getClassID(asType), component);
+        addComponent(TypeIndex.getClassID(asType), component);
 
         inline function addComponent(componentID:Int, component:Dynamic)
         {
@@ -106,5 +106,5 @@ class Entity
 		return components.iterator();
 
     public function toString():String
-        return "[Entity $id (${bitfield.toString()})]";
+        return '[Entity $id (${bitfield.toString()})]';
 }
