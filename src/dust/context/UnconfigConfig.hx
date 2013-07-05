@@ -1,6 +1,6 @@
 package dust.context;
 
-interface UnconfigConfig implements Config
+interface UnconfigConfig extends Config
 {
     function unconfigure():Void;
 }

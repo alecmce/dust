@@ -2,7 +2,7 @@ package dust.geom.systems;
 
 import dust.geom.data.Delta;
 import dust.geom.data.Position;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.quadtree.eg.QuadTreeVisualizationExample;
 import dust.collections.api.Collection;
 import dust.systems.System;

@@ -2,13 +2,13 @@ package dust.systems.impl;
 
 import flash.display.Sprite;
 import dust.context.Context;
-import dust.entities.impl.PooledEntities;
+import dust.entities.PooledEntities;
 import dust.collections.data.CollectionList;
 import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemMapping;
 import dust.components.BitfieldFactory;
 import dust.collections.control.CollectionMap;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 
 import dust.Injector;
 

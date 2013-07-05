@@ -15,7 +15,7 @@ class RelationsConfig implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig, SystemsConfig]
+        return [EntitiesConfig, SystemsConfig];
 
     public function configure()
     {

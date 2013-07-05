@@ -1,13 +1,13 @@
 package dust.collections.control;
 
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.collections.api.CollectionListeners;
 import dust.components.MockComponentA;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
 import flash.display.Sprite;
 import dust.context.Context;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 
 class CollectionUpdateTest
 {

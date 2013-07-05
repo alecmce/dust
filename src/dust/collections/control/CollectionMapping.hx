@@ -5,10 +5,9 @@ import dust.collections.api.Collection;
 import dust.collections.api.CollectionListeners;
 import dust.commands.Command;
 import dust.components.Bitfield;
-import dust.components.Component;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
-import dust.entities.impl.EntityList;
+import dust.entities.Entity;
+import dust.entities.Entities;
+import dust.entities.EntityList;
 import dust.lists.LinkedList;
 import dust.lists.SimpleList;
 
@@ -25,7 +24,7 @@ class CollectionMapping
     var listenersMap:CollectionListenersMap;
 
     var instance:Collection;
-    var components:Array<Class<Component>>;
+    var components:Array<Class<Dynamic>>;
 
     public function new(parent:Injector, bitfield:Bitfield, collectionList:CollectionList, subscriber:CollectionSubscriber)
     {
@@ -39,7 +38,7 @@ class CollectionMapping
         injector.mapValue(CollectionListenersMap, listenersMap);
     }
 
-    public function setComponents(components:Array<Class<Component>>):CollectionMapping
+    public function setComponents(components:Array<Class<Dynamic>>):CollectionMapping
     {
         this.components = components;
         return this;

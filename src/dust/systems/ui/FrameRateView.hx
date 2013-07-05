@@ -4,7 +4,7 @@ import flash.display.DisplayObject;
 import flash.display.Sprite;
 import dust.gui.data.UIView;
 import dust.gui.control.UILabelFactory;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import flash.text.Font;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;

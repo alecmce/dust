@@ -1,7 +1,7 @@
 package dust.interactive.eg;
 
 import dust.interactive.control.TouchInteractiveFactory;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.interactive.data.TouchInteractive;
 import dust.graphics.PaintersConfig;
 import dust.graphics.data.Paint;
@@ -11,7 +11,7 @@ import dust.graphics.data.Paint;
 import dust.graphics.data.Painters;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.interactive.data.Draggable;
 import dust.geom.data.Position;
 
@@ -24,7 +24,7 @@ class DragExample implements DependentConfig
     @inject public var factory:TouchInteractiveFactory;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig, InteractiveConfig, PaintersConfig]
+        return [EntitiesConfig, InteractiveConfig, PaintersConfig];
 
     public function configure()
     {

@@ -1,11 +1,11 @@
 package dust.entities;
 
-import dust.entities.impl.PooledEntities;
+import dust.entities.PooledEntities;
 import dust.components.BitfieldFactory;
-import dust.entities.api.Entities;
-import dust.entities.api.Entity;
+import dust.entities.Entities;
+import dust.entities.Entity;
 import dust.lists.SimpleList;
-import dust.entities.impl.EntityList;
+import dust.entities.EntityList;
 
 class SimpleEntityListTest
 {

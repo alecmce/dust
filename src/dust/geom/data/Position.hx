@@ -1,8 +1,7 @@
 package dust.geom.data;
 
-import dust.components.Component;
 
-class Position extends Component
+class Position
 {
     public static function areEqual(a:Position, b:Position):Bool
         return a.x == b.x && a.y == b.y;

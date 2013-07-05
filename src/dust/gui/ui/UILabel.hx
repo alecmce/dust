@@ -61,8 +61,8 @@ class UILabel extends Bitmap
     }
 
         function update()
-            bitmapData = factory.make(data, bitmapData)
+            bitmapData = factory.make(data, bitmapData);
 
     public function getWidth():Int
-        return bitmapData.width
+        return bitmapData.width;
 }

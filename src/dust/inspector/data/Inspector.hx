@@ -1,9 +1,8 @@
 package dust.inspector.data;
 
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 
-class Inspector extends Component
+class Inspector
 {
     public var ui:Entity;
 
@@ -14,7 +13,7 @@ class Inspector extends Component
         this.typeHash = new TypeHash();
     }
 
-    public function add(type:Class<Component>, field:String)
+    public function add(type:Class<Dynamic>, field:String)
     {
         var componentID = (cast type).ID;
         var fieldHash = getTypeHash(componentID);
@@ -36,7 +35,7 @@ class Inspector extends Component
             return fieldHash;
         }
 
-    public function has(type:Class<Component>, field:String):Bool
+    public function has(type:Class<Dynamic>, field:String):Bool
     {
         var componentID = (cast type).ID;
         return typeHash.exists(componentID) && typeHash.get(componentID).exists(field);

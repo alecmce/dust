@@ -4,8 +4,8 @@ import dust.interactive.data.TouchInteractive;
 import dust.interactive.data.Draggable;
 import dust.geom.data.Position;
 import dust.interactive.data.Offsets;
-import dust.entities.api.Entity;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
+import dust.entities.Entity;
 
 class DraggableDecorator
 {
@@ -14,7 +14,7 @@ class DraggableDecorator
     var halfLength:Float;
 
     public function new()
-        halfLength = 10.0
+        halfLength = 10.0;
 
     public function setHalfLength(halfLength:Float):DraggableDecorator
     {

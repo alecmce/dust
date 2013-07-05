@@ -9,7 +9,7 @@ import dust.context.UnconfigConfig;
 import dust.systems.impl.Systems;
 import dust.type.TypeIndex;
 import dust.gui.data.UIContainer;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.gui.data.Alignment;
 import dust.geom.data.Position;
 import dust.gui.data.VAlign;
@@ -18,13 +18,12 @@ import dust.systems.ui.SystemMetricsView;
 import dust.systems.impl.SystemsList;
 import dust.systems.impl.SystemMetrics;
 import dust.entities.EntitiesConfig;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.gui.GUIConfig;
 import dust.context.DependentConfig;
 import dust.context.Config;
 
 import dust.Injector;
-import flash.display.Stage;
 
 class SystemMetricsConfig implements DependentConfig
 {
@@ -43,7 +42,7 @@ class SystemMetricsConfig implements DependentConfig
     var frameRateView:Entity;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig, SystemsConfig, GUIConfig]
+        return [EntitiesConfig, SystemsConfig, GUIConfig];
 
     public function configure()
     {
@@ -74,10 +73,7 @@ class SystemMetricsConfig implements DependentConfig
             var entity = entities.require();
             entity.add(new UIContainer().add(new FrameRateView(labelFactory)));
             entity.add(new Alignment(HAlign.RIGHT, VAlign.TOP));
-            entity.add(new Position(stage().stageWidth, 0));
+            entity.add(new Position(app.stageWidth, 0));
             return entity;
         }
-
-            inline function stage():Stage
-                return nme.Lib.current.stage
 }

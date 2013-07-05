@@ -49,7 +49,7 @@ class DustExamples implements DependentConfig
     var module:Context;
 
     public function dependencies():Array<Class<Config>>
-        return [MainMenuConfig]
+        return [MainMenuConfig];
 
     public function configure()
     {

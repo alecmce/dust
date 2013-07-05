@@ -1,19 +1,19 @@
-package dust.entities.impl;
+package dust.entities;
 
 import dust.interactive.data.Offsets;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.components.Bitfield;
-import dust.components.Component;
 import dust.lists.Pool;
+import dust.type.TypeIndex;
 
-class PooledEntity implements Entity
+class Entity
 {
 	public var id:Int;
     public var bitfield:Bitfield;
     public var isChanged:Bool;
     public var isReleased:Bool;
 
-    var components:IntHash<Component>;
+    var components:Map<Int, Dynamic>;
     var deleted:Array<Int>;
     var cached:Array<Int>;
 
@@ -24,32 +24,26 @@ class PooledEntity implements Entity
 
         isChanged = false;
         isReleased = false;
-        components = new IntHash<Component>();
+        components = new Map<Int, Dynamic>();
         deleted = new Array<Int>();
         cached = new Array<Int>();
     }
 
-    inline public function add(component:Component)
-	{
-        var componentID = component.componentID;
-        addComponent(componentID, component);
-	}
+    inline public function add(component:Dynamic)
+        macro addComponent(TypeIndex.getInstanceID(component), component);
 
-    inline public function addAsType(component:Component, asType:Class<Component>)
-    {
-        var componentID = (cast asType).ID;
-        addComponent(componentID, component);
-    }
+    inline public function addAsType(component:Dynamic, asType:Class<Dynamic>)
+        macro addComponent(TypeIndex.getClassID(asType), component);
 
-        inline function addComponent(componentID:Int, component:Component)
+        inline function addComponent(componentID:Int, component:Dynamic)
         {
             components.set(componentID, component);
             bitfield.assert(componentID);
             isChanged = true;
         }
 
-    inline public function remove<T>(type:Class<T>):Bool
-        return removeComponentWithID(cast(type).ID);
+    public function remove<T>(type:Class<T>):Bool
+        return removeComponentWithID(TypeIndex.getClassID(type));
 
         inline function removeComponentWithID(componentID:Int):Bool
         {
@@ -103,14 +97,14 @@ class PooledEntity implements Entity
     }
 
     inline public function get<T>(type:Class<T>):T
-		return cast(components.get(cast(type).ID));
+		return cast components.get(TypeIndex.getClassID(type));
 
     inline public function has<T>(type:Class<T>):Bool
-        return bitfield.get(cast(type).ID);
+        return bitfield.get(TypeIndex.getClassID(type));
 
-	inline public function iterator():Iterator<Component>
+	inline public function iterator():Iterator<Dynamic>
 		return components.iterator();
 
     public function toString():String
-        return "[Entity " + id + " (" + bitfield.toString() + ")]";
+        return "[Entity $id (${bitfield.toString()})]";
 }

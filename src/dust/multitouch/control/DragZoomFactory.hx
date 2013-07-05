@@ -2,8 +2,8 @@ package dust.multitouch.control;
 
 import dust.multitouch.data.GestureAction;
 import dust.multitouch.data.DragZoomGesture;
-import dust.entities.api.Entities;
-import dust.entities.api.Entity;
+import dust.entities.Entities;
+import dust.entities.Entity;
 
 class DragZoomFactory
 {

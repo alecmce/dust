@@ -3,8 +3,8 @@ package dust.interactive.control;
 import dust.interactive.data.Draggable;
 import dust.geom.data.Position;
 import dust.interactive.data.Offsets;
-import dust.entities.api.Entity;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
+import dust.entities.Entity;
 
 class OffsetDecorator
 {

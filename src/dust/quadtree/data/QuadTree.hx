@@ -1,9 +1,8 @@
 package dust.quadtree.data;
 
 import dust.geom.data.Position;
-import dust.components.Component;
 
-class QuadTree<T> extends Component
+class QuadTree<T>
 {
     public var range:QuadTreeRange;
     public var maxDataPerNode:Int;

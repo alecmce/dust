@@ -8,8 +8,8 @@ import dust.graphics.data.Painters;
 import dust.graphics.PaintersConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 import dust.entities.EntitiesConfig;
 import dust.geom.data.Position;
 import dust.interactive.control.OffsetDecorator;
@@ -27,7 +27,7 @@ class OffsetDragExample implements DependentConfig
     @inject public var factory:TouchInteractiveFactory;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig, InteractiveConfig, PaintersConfig]
+        return [EntitiesConfig, InteractiveConfig, PaintersConfig];
 
     public function configure()
     {

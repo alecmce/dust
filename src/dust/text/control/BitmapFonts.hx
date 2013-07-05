@@ -4,14 +4,14 @@ import dust.text.data.BitmapFont;
 
 class BitmapFonts
 {
-    var cache:Hash<BitmapFont>;
+    var cache:Map<String, BitmapFont>;
 
     public function new()
-        cache = new Hash<BitmapFont>()
+        cache = new Map<String, BitmapFont>();
 
     public function get(name:String):BitmapFont
-        return cache.get(name)
+        return cache.get(name);
 
     public function add(name:String, font:BitmapFont)
-        cache.set(name, font)
+        cache.set(name, font);
 }

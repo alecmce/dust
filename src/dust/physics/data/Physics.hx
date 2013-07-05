@@ -1,9 +1,8 @@
 package dust.physics.data;
 
-import dust.components.Component;
 import dust.physics.data.Derivative;
 
-class Physics extends Component
+class Physics
 {
     public var a:Derivative;
     public var b:Derivative;

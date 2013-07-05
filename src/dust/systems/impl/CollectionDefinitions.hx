@@ -2,11 +2,10 @@ package dust.systems.impl;
 
 import dust.components.Bitfield;
 import dust.collections.control.CollectionMapping;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.collections.api.Collection;
 import dust.collections.control.CollectionMap;
 import dust.Injector;
-import dust.components.Component;
 
 class CollectionDefinitions
 {

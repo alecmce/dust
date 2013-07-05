@@ -3,6 +3,7 @@ package dust.multitouch.systems;
 import dust.multitouch.data.DragZoomGesture;
 import dust.multitouch.data.Touch;
 import flash.display.Sprite;
+import flash.display.Stage;
 import dust.lists.Pool;
 import dust.lists.LinkedList;
 import dust.lists.PooledList;
@@ -15,13 +16,14 @@ import dust.systems.System;
 class MultiTouchSystem implements System
 {
     @inject public var touches:Touches;
+    @inject public var stage:Stage;
 
     var pool:Pool<Touch>;
 
     var events:Array<TouchEvent>;
-    var beginEvents:IntHash<Bool>;
-    var moveEvents:IntHash<Bool>;
-    var endEvents:IntHash<Bool>;
+    var beginEvents:Map<Int, Bool>;
+    var moveEvents:Map<Int, Bool>;
+    var endEvents:Map<Int, Bool>;
 
     var time:Float;
 
@@ -31,9 +33,9 @@ class MultiTouchSystem implements System
         pool.populate(4);
 
         events = new Array<TouchEvent>();
-        beginEvents = new IntHash<Bool>();
-        moveEvents = new IntHash<Bool>();
-        endEvents = new IntHash<Bool>();
+        beginEvents = new Map<Int, Bool>();
+        moveEvents = new Map<Int, Bool>();
+        endEvents = new Map<Int, Bool>();
     }
 
     public function start()
@@ -42,7 +44,6 @@ class MultiTouchSystem implements System
 
         time = 0;
 
-        var stage = nme.Lib.current.stage;
         stage.addEventListener(TouchEvent.TOUCH_BEGIN, queueBeginEvent);
         stage.addEventListener(TouchEvent.TOUCH_MOVE, queueMoveEvent);
         stage.addEventListener(TouchEvent.TOUCH_END, queueEndEvent);
@@ -50,22 +51,21 @@ class MultiTouchSystem implements System
 
     public function stop()
     {
-        var stage = nme.Lib.current.stage;
         stage.removeEventListener(TouchEvent.TOUCH_BEGIN, queueBeginEvent);
         stage.removeEventListener(TouchEvent.TOUCH_MOVE, queueMoveEvent);
         stage.removeEventListener(TouchEvent.TOUCH_END, queueEndEvent);
     }
 
         function queueBeginEvent(event:TouchEvent)
-            queueEventIfUnmarked(event, beginEvents)
+            queueEventIfUnmarked(event, beginEvents);
 
         function queueMoveEvent(event:TouchEvent)
-            queueEventIfUnmarked(event, moveEvents)
+            queueEventIfUnmarked(event, moveEvents);
 
         function queueEndEvent(event:TouchEvent)
-            queueEventIfUnmarked(event, endEvents)
+            queueEventIfUnmarked(event, endEvents);
 
-            inline function queueEventIfUnmarked(event:TouchEvent, hash:IntHash<Bool>)
+            inline function queueEventIfUnmarked(event:TouchEvent, hash:Map<Int, Bool>)
             {
                 var id = event.touchPointID;
                 if (!hash.exists(id))

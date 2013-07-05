@@ -1,23 +1,22 @@
 package dust.physics.data;
 
-import dust.components.Component;
 
-class Box extends Component
+class Box
 {
     inline static function root2():Float
-        return Math.sqrt(2)
+        return Math.sqrt(2);
 
     inline static function shortEdge():Float
-        return root2() * 0.5
+        return root2() * 0.5;
 
     public var size:Float;
 
     public function new(size:Float)
-        this.size = size
+        this.size = size;
 
     inline public function setDistanceToEdge(value:Float)
-        size = root2() * value
+        size = root2() * value;
 
     inline public function getDistanceFromEdge():Float
-        return size * shortEdge()
+        return size * shortEdge();
 }

@@ -1,12 +1,11 @@
 package dust.interactive.data;
 
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 
-class Touchable extends Component
+class Touchable
 {
     public var execute:Entity->Void;
 
     public function new(execute:Entity->Void)
-        this.execute = execute
+        this.execute = execute;
 }

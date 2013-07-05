@@ -19,7 +19,7 @@ class PhysicsConfig implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [SystemsConfig]
+        return [SystemsConfig];
 
     public function configure()
     {

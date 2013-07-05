@@ -1,7 +1,7 @@
-package dust.entities.impl;
+package dust.entities;
 
-import dust.entities.impl.EntityList;
-import dust.entities.api.Entity;
+import dust.entities.EntityList;
+import dust.entities.Entity;
 import dust.lists.SimpleList;
 import dust.lists.LinkedListItem;
 import dust.lists.LinkedList;
@@ -9,13 +9,13 @@ import dust.lists.LinkedList;
 class EntityList
 {
     public var list:LinkedList<Entity>;
-    public var hash:IntHash<LinkedListItem<Entity>>;
+    public var hash:Map<Int, LinkedListItem<Entity>>;
     public var count:Int;
 
     public function new(list:LinkedList<Entity>)
     {
         this.list = list;
-        hash = new IntHash<LinkedListItem<Entity>>();
+        hash = new Map<Int, LinkedListItem<Entity>>();
     }
 
     public function has(entity:Entity):Bool

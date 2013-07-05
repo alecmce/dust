@@ -34,7 +34,7 @@ class BitmapFontCharFactoryTest
 
     function makeSourceDefinition()
     {
-        var data = new Hash<Dynamic>();
+        var data = new Map<String, Dynamic>();
         data.set('id', 1);
         data.set('x', 50);
         data.set('y', 0);

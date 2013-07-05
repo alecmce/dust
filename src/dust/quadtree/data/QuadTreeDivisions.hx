@@ -42,7 +42,7 @@ class QuadTreeDivisions<T> implements QuadTreeNode<T>
     }
 
     inline function getIndex(position:Position):Int
-        return (position.x < range.position.x ? LEFT : RIGHT) + (position.y < range.position.y ? TOP : BOTTOM)
+        return (position.x < range.position.x ? LEFT : RIGHT) + (position.y < range.position.y ? TOP : BOTTOM);
 
     public function populateDataInRange(dataRange:QuadTreeRange, output:Array<T>)
     {

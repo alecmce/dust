@@ -1,9 +1,8 @@
 package dust.physics.data;
 
 import dust.geom.data.Position;
-import dust.components.Component;
 
-class State extends Component
+class State
 {
     public var mass:Float;                  // kilograms
     public var inertiaTensor:Float;         // inertia tensor

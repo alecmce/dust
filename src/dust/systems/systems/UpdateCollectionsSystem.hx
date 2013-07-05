@@ -2,8 +2,8 @@ package dust.systems.systems;
 
 import dust.collections.control.CollectionSubscriber;
 import dust.collections.data.CollectionList;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 import dust.systems.System;
 
 class UpdateCollectionsSystem implements System

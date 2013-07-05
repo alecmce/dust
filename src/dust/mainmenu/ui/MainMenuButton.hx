@@ -22,11 +22,11 @@ class MainMenuButton extends Sprite
     }
 
     public function enable()
-        addEventListener(MouseEvent.CLICK, onClick)
+        addEventListener(MouseEvent.CLICK, onClick);
 
         function onClick(_)
-            trigger.dispatch(config)
+            trigger.dispatch(config);
 
     public function disable()
-        removeEventListener(MouseEvent.CLICK, onClick)
+        removeEventListener(MouseEvent.CLICK, onClick);
 }

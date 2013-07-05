@@ -12,7 +12,7 @@ class SystemMetrics
     public function new(valuesToCount:Int)
     {
         this.valuesToCount = valuesToCount;
-        this.hash = new Hash<SystemMetricsData>();
+        this.hash = new Map<String, SystemMetricsData>();
     }
 
     public function recordTime(label:String, value:Float)

@@ -1,9 +1,9 @@
 package dust.collections.control;
 
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.collections.api.Collection;
 import dust.collections.data.CollectionList;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 class CollectionSubscriber
 {

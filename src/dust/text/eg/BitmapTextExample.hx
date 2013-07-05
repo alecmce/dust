@@ -14,7 +14,7 @@ import dust.text.control.BitmapTextFactory;
 import openfl.Assets;
 import dust.text.control.BitmapFontFactory;
 import dust.geom.data.Position;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.text.BitmapTextConfig;
 import dust.graphics.PaintersConfig;
 import dust.context.Config;
@@ -28,7 +28,7 @@ class BitmapTextExample implements DependentConfig
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig, MathConfig, Fixed24WhiteMichromaFontConfig, PaintersConfig]
+        return [CameraConfig, MathConfig, Fixed24WhiteMichromaFontConfig, PaintersConfig];
 
     public function configure()
     {

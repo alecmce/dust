@@ -1,7 +1,6 @@
 package dust.inspector.control;
-import dust.components.Component;
 import dust.inspector.data.Inspector;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 class InspectorPopulator
 {
@@ -36,7 +35,7 @@ class InspectorPopulator
         return null;
     }
 
-    function addField(inspector:Inspector, component:Class<Component>, field:String)
+    function addField(inspector:Inspector, component:Class<Dynamic>, field:String)
     {
         inspector.add(component, field);
     }

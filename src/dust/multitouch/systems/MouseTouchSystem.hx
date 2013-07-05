@@ -11,6 +11,7 @@ import dust.multitouch.control.Touches;
 import flash.ui.Keyboard;
 import flash.events.KeyboardEvent;
 import flash.display.Sprite;
+import flash.display.Stage;
 import flash.ui.Multitouch;
 import flash.events.MouseEvent;
 import flash.ui.MultitouchInputMode;
@@ -23,6 +24,7 @@ class MouseTouchSystem implements System
 
     @inject public var app:App;
     @inject public var touches:Touches;
+    @inject public var stage:Stage;
 
     var mouseTouch:Touch;
     var secondTouch:Touch;
@@ -43,7 +45,6 @@ class MouseTouchSystem implements System
     {
         time = 0;
 
-        var stage = nme.Lib.current.stage;
         stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
         stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
         stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
@@ -53,7 +54,6 @@ class MouseTouchSystem implements System
 
     public function stop()
     {
-        var stage = nme.Lib.current.stage;
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
         stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
         stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);

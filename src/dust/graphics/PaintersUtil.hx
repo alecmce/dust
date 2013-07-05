@@ -2,7 +2,7 @@ package dust.graphics;
 
 import dust.graphics.data.Painters;
 import dust.graphics.data.Painter;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 class PaintersUtil
 {

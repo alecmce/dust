@@ -6,7 +6,7 @@ import dust.gui.data.VAlign;
 import dust.gui.data.HAlign;
 import dust.geom.data.Position;
 import dust.gui.data.UIContainer;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.collections.api.Collection;
 import dust.systems.System;
 

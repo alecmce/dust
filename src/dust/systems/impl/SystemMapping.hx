@@ -4,9 +4,8 @@ import dust.components.BitfieldFactory;
 import dust.systems.impl.CollectionSorts;
 import dust.systems.System;
 import dust.collections.control.CollectionMap;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.collections.api.Collection;
-import dust.components.Component;
 
 import dust.Injector;
 
@@ -41,7 +40,7 @@ class SystemMapping
         return this.type == type;
     }
 
-    public function toCollection(components:Array<Class<Component>>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
+    public function toCollection(components:Array<Class<Dynamic>>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
     {
         var factory:BitfieldFactory = injector.getInstance(BitfieldFactory);
         collections.add(factory.make(components), sorter, name);

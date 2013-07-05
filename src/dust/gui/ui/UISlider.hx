@@ -23,10 +23,10 @@ class UISlider extends Sprite
     }
 
         function onHandleMove(x:Float)
-            setValue(data.min + (data.max - data.min) * (0.5 + x / (data.width- data.height)))
+            setValue(data.min + (data.max - data.min) * (0.5 + x / (data.width- data.height)));
 
     public function getValue():Float
-        return data.value
+        return data.value;
 
     public function setValue(v:Float)
     {
@@ -58,9 +58,9 @@ class UISlider extends Sprite
     }
 
     public function enable()
-        handle.enable()
+        handle.enable();
 
     public function disable()
-        handle.disable()
+        handle.disable();
 }
 

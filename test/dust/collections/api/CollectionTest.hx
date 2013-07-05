@@ -1,18 +1,18 @@
 package dust.collections.api;
 
-import dust.entities.impl.PooledEntities;
-import dust.entities.impl.PooledEntity;
+import dust.entities.PooledEntities;
+import dust.entities.PooledEntity;
 import dust.components.BitfieldFactory;
 import dust.components.Bitfield;
 import dust.collections.api.CollectionListeners;
 import dust.collections.data.EmptyCollectionListeners;
 import dust.collections.api.CollectionListeners;
 import dust.collections.data.SimpleCollectionListeners;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 import dust.collections.api.Collection;
 import dust.lists.SimpleList;
-import dust.entities.impl.EntityList;
+import dust.entities.EntityList;
 
 using Lambda;
 

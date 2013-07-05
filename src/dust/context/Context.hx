@@ -2,6 +2,7 @@ package dust.context;
 
 import dust.signals.SignalVoid;
 import flash.display.Stage;
+import flash.events.Event;
 import dust.signals.Signal;
 import dust.Injector;
 
@@ -15,6 +16,7 @@ class Context
     public var injector(default, null):Injector;
 
     var configs:ContextConfigs;
+    var root:DisplayObjectContainer;
 
     public function new(parent:Context = null)
     {
@@ -28,7 +30,7 @@ class Context
         function mapDefaultInjections()
         {
             injector.mapValue(Context, this);
-            injector.mapValue(Stage, nme.Lib.current.stage);
+            injector.mapValue(Stage, flash.Lib.current.stage);
             injector.mapValue(Injector, injector);
         }
 
@@ -40,9 +42,10 @@ class Context
 
     public function start(root:DisplayObjectContainer):Context
     {
+        this.root = root;
         injector.mapValue(DisplayObjectContainer, root);
         configs.configure();
-        nme.Lib.current.addChildAt(root, 0);
+        flash.Lib.current.addChildAt(root, 0);
         started.dispatch();
         return this;
     }
@@ -50,8 +53,7 @@ class Context
     public function stop()
     {
         configs.unconfigure();
-        var root = injector.getInstance(DisplayObjectContainer);
-        nme.Lib.current.removeChild(root);
+        root.parent.removeChild(root);
         stopped.dispatch();
     }
 }

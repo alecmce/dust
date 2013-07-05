@@ -1,7 +1,7 @@
 package dust.collections.data;
 
 import dust.collections.api.CollectionListeners;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 class EmptyCollectionListeners implements CollectionListeners
 {

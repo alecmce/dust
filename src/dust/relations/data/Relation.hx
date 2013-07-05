@@ -1,9 +1,8 @@
 package dust.relations.data;
 
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 
-class Relation extends Component
+class Relation
 {
     public var agent:Entity;
     public var object:Entity;

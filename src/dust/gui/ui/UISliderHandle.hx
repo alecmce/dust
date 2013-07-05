@@ -26,7 +26,7 @@ class UISliderHandle extends Sprite
     }
 
     public function enable()
-        addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown)
+        addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 
     function onMouseDown(_)
     {
@@ -35,7 +35,7 @@ class UISliderHandle extends Sprite
     }
 
     function onMouseMove(event:MouseEvent)
-        update(parent.mouseX)
+        update(parent.mouseX);
 
     public function disable()
     {

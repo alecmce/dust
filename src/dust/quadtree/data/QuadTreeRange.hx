@@ -1,9 +1,8 @@
 package dust.quadtree.data;
 
-import dust.components.Component;
 import dust.geom.data.Position;
 
-class QuadTreeRange extends Component
+class QuadTreeRange
 {
     static var RANGE_ID:Int = 0;
     public var rangeId:Int;

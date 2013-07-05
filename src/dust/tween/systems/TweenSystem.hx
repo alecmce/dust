@@ -1,7 +1,7 @@
 package dust.tween.systems;
 
 import dust.tween.data.Tween;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.systems.System;
 import dust.collections.api.Collection;
 

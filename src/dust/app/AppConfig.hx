@@ -1,9 +1,11 @@
 package dust.app;
 
+import flash.ui.Multitouch;
 import flash.ui.MultitouchInputMode;
 import dust.app.data.AppTarget;
 import flash.Vector;
 import flash.ui.Multitouch;
+import flash.display.Stage;
 import dust.app.data.App;
 import dust.Injector;
 import dust.context.Config;
@@ -11,6 +13,7 @@ import dust.context.Config;
 class AppConfig implements Config
 {
     @inject public var injector:Injector;
+    @inject public var stage:Stage;
 
     var app:App;
 
@@ -23,17 +26,17 @@ class AppConfig implements Config
 
         function makeApp():App
         {
-            var width = nme.Lib.current.stage.stageWidth;
-            var height = nme.Lib.current.stage.stageHeight;
-            var isMultiTouch = nme.ui.Multitouch.supportsTouchEvents;
+            var width = stage.stageWidth;
+            var height = stage.stageHeight;
+            var isMultiTouch = flash.ui.Multitouch.supportsTouchEvents;
 
             var app = new App();
             app.stageWidth = Std.int(width);
             app.stageHeight = Std.int(height);
             app.target = getTarget(width, height, isMultiTouch);
             app.isMultiTouch = isMultiTouch;
-            app.hasGestures = nme.ui.Multitouch.supportsGestureEvents;
-            app.supportedGestures = toArray(nme.ui.Multitouch.supportedGestures);
+            app.hasGestures = flash.ui.Multitouch.supportsGestureEvents;
+            app.supportedGestures = toArray(flash.ui.Multitouch.supportedGestures);
 
             return app;
         }

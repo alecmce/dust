@@ -1,6 +1,5 @@
 package dust.text.data;
 
-import dust.components.Component;
 import dust.gui.data.VAlign;
 import dust.gui.data.HAlign;
 

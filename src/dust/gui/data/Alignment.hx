@@ -1,11 +1,10 @@
 package dust.gui.data;
 
-import dust.components.Component;
 
-class Alignment extends Component
+class Alignment
 {
     inline public static function DEFAULT():Alignment
-        return new Alignment(HAlign.LEFT, VAlign.TOP)
+        return new Alignment(HAlign.LEFT, VAlign.TOP);
 
     public var vAlign:VAlign;
     public var hAlign:HAlign;

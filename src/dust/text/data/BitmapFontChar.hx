@@ -33,5 +33,5 @@ class BitmapFontChar
 
 
     public function toString():String
-        return ['[BitmapFontChar char=',String.fromCharCode(id),' id=',id,' dx=',dx,' dy=',dy,' advance=',advance,']'].join('');
+        return '[BitmapFontChar char=${String.fromCharCode(id)} id=$id dx=$dx dy=$dy advance=$advance';
 }

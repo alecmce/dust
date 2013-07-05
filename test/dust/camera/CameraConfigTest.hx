@@ -4,7 +4,7 @@ import dust.context.Context;
 import flash.display.Sprite;
 import dust.camera.config.CameraDecorator;
 import dust.entities.EntitiesConfig;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.camera.data.Camera;
 import dust.context.Config;
 import dust.context.DependentConfig;

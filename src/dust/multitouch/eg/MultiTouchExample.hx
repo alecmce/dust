@@ -14,7 +14,7 @@ class MultiTouchExample implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [MultiTouchConfig, SystemsConfig]
+        return [MultiTouchConfig, SystemsConfig];
 
     public function configure()
     {

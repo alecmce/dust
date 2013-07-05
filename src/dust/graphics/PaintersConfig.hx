@@ -8,7 +8,7 @@ import dust.graphics.systems.PainterSystem;
 import dust.context.DependentConfig;
 import dust.context.Config;
 import dust.collections.control.CollectionMap;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
 import dust.graphics.data.Paint;
@@ -27,7 +27,7 @@ class PaintersConfig implements DependentConfig
     var canvas:Sprite;
 
     public function dependencies():Array<Class<Config>>
-        return [GraphicsConfig, SystemsConfig, CameraConfig]
+        return [GraphicsConfig, SystemsConfig, CameraConfig];
 
     public function configure()
     {
@@ -38,5 +38,5 @@ class PaintersConfig implements DependentConfig
     }
 
         function sorter(a:Entity, b:Entity):Int
-            return a.get(Painters).getPriority() - b.get(Painters).getPriority()
+            return a.get(Painters).getPriority() - b.get(Painters).getPriority();
 }

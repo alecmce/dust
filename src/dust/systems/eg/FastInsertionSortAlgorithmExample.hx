@@ -1,8 +1,7 @@
 package dust.systems.eg;
 
-import dust.entities.api.Entities;
-import dust.components.Component;
-import dust.entities.api.Entity;
+import dust.entities.Entities;
+import dust.entities.Entity;
 import dust.console.ui.ConsoleOutput;
 import dust.console.ConsoleConfig;
 import dust.lists.LinkedListItem;
@@ -16,7 +15,7 @@ class FastInsertionSortAlgorithmExample implements DependentConfig
     @inject public var entities:Entities;
 
     public function dependencies():Array<Class<Config>>
-        return [ConsoleConfig]
+        return [ConsoleConfig];
 
     public function configure()
     {
@@ -27,7 +26,7 @@ class FastInsertionSortAlgorithmExample implements DependentConfig
             for (value in array)
                 list.append(makeEntity(value));
             doSort(list, sorter);
-            consoleOutput.write(['entities: ',array,' => ',toArray(list)].join(''));
+            consoleOutput.write('entities: $array => ${toArray(list)}');
         }
     }
 
@@ -39,10 +38,10 @@ class FastInsertionSortAlgorithmExample implements DependentConfig
         }
 
         function makeItem(item:Entity):LinkedListItem<Entity>
-            return new LinkedListItem<Entity>(item)
+            return new LinkedListItem<Entity>(item);
 
         function sorter(a:Entity, b:Entity):Int
-            return a.get(SortValue).value - b.get(SortValue).value
+            return a.get(SortValue).value - b.get(SortValue).value;
 
         function toArray(list:LinkedList<Entity>):Array<Int>
         {
@@ -109,10 +108,10 @@ class FastInsertionSortAlgorithmExample implements DependentConfig
     }
 }
 
-class SortValue extends Component
+class SortValue
 {
     public var value:Int;
 
     public function new(value:Int)
-    this.value = value
+        this.value = value;
 }

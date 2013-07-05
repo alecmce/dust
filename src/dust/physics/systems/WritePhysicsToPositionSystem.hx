@@ -4,7 +4,7 @@ import dust.math.AnglesUtil;
 import dust.collections.api.Collection;
 import dust.geom.data.Position;
 import dust.physics.data.State;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.systems.System;
 
 class WritePhysicsToPositionSystem implements System

@@ -51,23 +51,22 @@ class LineSegmentIntersection
     }
 
         inline function proportionAlongA():Float
-            return (bdx * (ay - by) - bdy * (ax - bx)) / divisor
+            return (bdx * (ay - by) - bdy * (ax - bx)) / divisor;
 
         inline function proportionAlongB():Float
-            return (bdx != 0) ? (ax - bx + adx * aProportion) / bdx : (ay - by + ady * aProportion) / bdy
-
+            return (bdx != 0) ? (ax - bx + adx * aProportion) / bdx : (ay - by + ady * aProportion) / bdy;
 
     public function isIntersection():Bool
-        return areNotParallelLines() && intersectionLiesOnSegments()
+        return areNotParallelLines() && intersectionLiesOnSegments();
 
         inline function areNotParallelLines():Bool
-            return divisor != 0 && divisor == divisor
+            return divisor != 0 && divisor == divisor;
 
         inline function intersectionLiesOnSegments():Bool
-            return isInBounds(aProportion) && isInBounds(bProportion)
+            return isInBounds(aProportion) && isInBounds(bProportion);
 
             inline function isInBounds(proportion:Float):Bool
-                return proportion >= 0 && proportion <= 1
+                return proportion >= 0 && proportion <= 1;
 
     public function setToIntersection(position:Position)
     {

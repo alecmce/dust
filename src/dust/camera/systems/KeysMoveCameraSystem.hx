@@ -2,7 +2,7 @@ package dust.camera.systems;
 
 import dust.camera.data.Camera;
 import dust.collections.api.Collection;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.keys.impl.Keys;
 import dust.systems.System;
 

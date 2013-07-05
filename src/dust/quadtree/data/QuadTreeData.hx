@@ -14,5 +14,5 @@ class QuadTreeData<T>
     }
 
     public function toString():String
-        return "[QuadTreeData position=" + position + ", data=" + data + "]"
+        return "[QuadTreeData position=" + position + ", data=" + data + "]";
 }

@@ -1,10 +1,10 @@
 package dust.entities.impl;
 
 import dust.components.MockComponentA;
-import dust.entities.impl.PooledEntities;
+import dust.entities.PooledEntities;
 import dust.components.BitfieldFactory;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 
 class PooledEntitiesTest
 {

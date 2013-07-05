@@ -2,7 +2,7 @@ package dust.multitouch.systems;
 
 import dust.camera.data.Camera;
 import dust.collections.api.Collection;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.systems.System;
 import dust.multitouch.control.Touches;
 import dust.multitouch.data.DragZoomGesture;

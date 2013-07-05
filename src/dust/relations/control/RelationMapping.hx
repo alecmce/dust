@@ -1,7 +1,6 @@
 package dust.relations.control;
 
 import dust.systems.impl.SystemMapping;
-import dust.components.Component;
 
 class RelationMapping
 {
@@ -12,12 +11,12 @@ class RelationMapping
         this.systemMapping = systemMapping;
     }
 
-    public function toAgent(collection:Array<Class<Component>>):RelationMapping
+    public function toAgent(collection:Array<Class<Dynamic>>):RelationMapping
     {
         return this;
     }
 
-    public function toObject(collection:Array<Class<Component>>):RelationMapping
+    public function toObject(collection:Array<Class<Dynamic>>):RelationMapping
     {
         return this;
     }

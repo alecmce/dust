@@ -3,7 +3,7 @@ package dust.systems.ui;
 import flash.display.DisplayObject;
 import dust.gui.data.UIView;
 import dust.gui.control.UILabelFactory;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.systems.impl.SystemMetricsData;
 import dust.stats.RollingMean;
 import dust.systems.impl.SystemMetrics;
@@ -12,8 +12,6 @@ import dust.type.TypeIndex;
 import dust.gui.data.UIContainer;
 import dust.gui.ui.UILabel;
 import dust.gui.ui.VerticalList;
-
-import flash.display.Stage;
 
 using dust.FloatUtil;
 
@@ -29,7 +27,7 @@ class SystemMetricsView implements UIView
     var timeSinceLastUpdate:Float;
 
     var ui:VerticalList;
-    var hash:Hash<UILabel>;
+    var hash:Map<String, UILabel>;
 
     public function new(factory:UILabelFactory, metrics:SystemMetrics, precision:Int)
     {
@@ -40,7 +38,7 @@ class SystemMetricsView implements UIView
 
         display = ui = makeVerticalList();
         ui.addItem(factory.makeWithDefaults("Systems"));
-        hash = new Hash<UILabel>();
+        hash = new Map<String, UILabel>();
 
         timeSinceLastUpdate = 0;
     }
@@ -52,9 +50,6 @@ class SystemMetricsView implements UIView
             verticalList.mouseChildren = false;
             return verticalList;
         }
-
-        inline function getStage():Stage
-            return nme.Lib.current.stage
 
     public function refresh(entity:Entity, deltaTime:Float)
     {
@@ -81,7 +76,7 @@ class SystemMetricsView implements UIView
             }
 
                 function getLabel(name:String):UILabel
-                    return hash.exists(name) ? hash.get(name) : makeLabel(name)
+                    return hash.exists(name) ? hash.get(name) : makeLabel(name);
 
                     function makeLabel(name:String)
                     {

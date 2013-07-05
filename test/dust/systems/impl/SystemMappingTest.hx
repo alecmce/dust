@@ -1,12 +1,11 @@
 package dust.systems.impl;
 
-import dust.entities.impl.PooledEntities;
+import dust.entities.PooledEntities;
 import dust.collections.api.Collection;
 import dust.collections.control.CollectionSubscriber;
 import dust.collections.control.CollectionMap;
 import dust.collections.data.CollectionList;
 import dust.components.BitfieldFactory;
-import dust.components.Component;
 import dust.components.MockComponentA;
 import dust.context.Context;
 import dust.geom.data.Position;
@@ -16,8 +15,8 @@ import dust.systems.impl.SystemMap;
 import dust.systems.impl.SystemsLoop;
 import dust.systems.impl.TimedSystem;
 import dust.systems.System;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 
 import dust.Injector;
 import flash.display.Sprite;
@@ -35,7 +34,7 @@ class SystemMappingTest
     var loop:TestSystemsLoop;
     var mapping:SystemMapping;
 
-    function assertCollectionHasComponentAsDefinien(collection:Collection, component:Class<Component>)
+    function assertCollectionHasComponentAsDefinien(collection:Collection, component:Class<Dynamic>)
     {
         var componentID = (cast component).ID;
         Assert.isTrue(collection.bitfield.get(componentID));
@@ -147,7 +146,7 @@ class TestSystemsLoop extends SystemsLoop
     }
 }
 
-class SortableComponent extends Component
+class SortableComponent
 {
     public var priority:Int;
 }

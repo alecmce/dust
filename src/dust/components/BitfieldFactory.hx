@@ -14,7 +14,7 @@ class BitfieldFactory
         return new Bitfield(dimension);
     }
 
-    public function make(components:Array<Class<Component>>):Bitfield
+    public function make(components:Array<Class<Dynamic>>):Bitfield
     {
         var bitfield = new Bitfield(dimension);
         for (component in components)

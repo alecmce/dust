@@ -1,17 +1,16 @@
 package dust.quadtree.ui;
 
-import dust.components.Component;
 import dust.graphics.data.Painter;
 import dust.geom.data.Position;
 import dust.camera.data.Camera;
 import dust.quadtree.data.QuadTreeRange;
 import dust.graphics.data.Paint;
 import flash.display.Graphics;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.graphics.data.Painters;
 
 class QuadTreeRangePainter
-    extends Component,
+   ,
     implements Painter
 {
     public var paint:Paint;

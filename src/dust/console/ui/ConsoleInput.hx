@@ -5,6 +5,7 @@ import flash.display.BlendMode;
 import dust.signals.Signal;
 
 import flash.display.Sprite;
+import flash.display.Stage;
 import flash.events.KeyboardEvent;
 import flash.text.TextField;
 import flash.text.TextFormat;
@@ -15,13 +16,15 @@ class ConsoleInput extends Sprite
     public var command:Signal<String>;
 
     var format:ConsoleFormat;
+    var container:Stage;
     var input:TextField;
 
     @inject
-    public function new(app:App, format:ConsoleFormat)
+    public function new(app:App, format:ConsoleFormat, container:Stage)
     {
         super();
         this.format = format;
+        this.container = container;
         this.input = makeInput(app);
         command = new Signal<String>();
     }
@@ -43,16 +46,14 @@ class ConsoleInput extends Sprite
 
     public function enable()
     {
-        var stage = nme.Lib.current.stage;
-        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-        stage.focus = input;
+        container.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+        container.focus = input;
     }
 
     public function disable()
     {
-        var stage = nme.Lib.current.stage;
-        stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-        stage.focus = stage;
+        container.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+        container.focus = container;
     }
 
         function onKeyDown(event:KeyboardEvent)

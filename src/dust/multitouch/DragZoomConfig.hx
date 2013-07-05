@@ -9,7 +9,7 @@ class DragZoomConfig implements DependentConfig
     @inject public var factory:DragZoomFactory;
 
     public function dependencies():Array<Class<Config>>
-        return [MultiTouchConfig]
+        return [MultiTouchConfig];
 
     public function configure()
         factory.make()

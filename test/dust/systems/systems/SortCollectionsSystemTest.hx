@@ -3,12 +3,11 @@ package dust.systems.systems;
 import dust.systems.impl.Systems;
 import dust.systems.impl.CollectionSort;
 import dust.lists.LinkedListItem;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import flash.display.Sprite;
 import dust.entities.EntitiesConfig;
 import dust.context.Context;
-import dust.components.Component;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.lists.LinkedList;
 import dust.systems.impl.CollectionSort;
 import dust.systems.impl.CollectionSorts;
@@ -73,7 +72,7 @@ class SortCollectionsSystemTest
             }
 }
 
-class SortValue extends Component
+class SortValue
 {
     public var value:Int;
 

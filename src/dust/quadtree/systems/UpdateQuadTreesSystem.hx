@@ -1,7 +1,7 @@
 package dust.quadtree.systems;
 
 import dust.collections.api.Collection;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.quadtree.data.QuadTree;
 import dust.systems.System;
 

@@ -22,9 +22,8 @@ class GUIExample implements DependentConfig
     @inject public var fonts:BitmapFonts;
     @inject public var labelledSliderFactory:UILabelledSliderFactory;
 
-
     public function dependencies():Array<Class<Config>>
-        return [GUIConfig, ConsoleConfig]
+        return [GUIConfig, ConsoleConfig];
 
     public function configure()
     {
@@ -56,5 +55,5 @@ class GUIExample implements DependentConfig
         }
 
         function onUpdate(value:Float)
-            console.write('slider.value = ' + value)
+            console.write('slider.value = ' + value);
 }

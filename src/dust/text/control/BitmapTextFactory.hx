@@ -32,13 +32,13 @@ class BitmapTextFactory
     public function make(data:BitmapTextData, current:BitmapData = null):BitmapData
     {
         var chars = charsFactory.make(data.font, data.label);
-        var bounds = getBounds(data, chars.bounds);
+        defineBounds(data, chars.bounds);
         var target = getBitmapData(current, data);
         chars.draw(target, data.hAlign, data.vAlign);
         return target;
     }
 
-        function getBounds(data:BitmapTextData, bounds:Rectangle)
+        function defineBounds(data:BitmapTextData, bounds:Rectangle)
         {
             width = data.width != BitmapTextData.UNDEFINED ? data.width : Std.int(bounds.width);
             height = data.height != BitmapTextData.UNDEFINED ? data.height : Std.int(bounds.height);

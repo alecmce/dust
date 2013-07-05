@@ -26,7 +26,9 @@ import flash.events.KeyboardEvent;
 import flash.text.TextFormat;
 import flash.ui.Keyboard;
 
-class ConsoleConfig implements DependentConfig, implements UnconfigConfig
+class ConsoleConfig
+    implements DependentConfig
+    implements UnconfigConfig
 {
     @inject public var context:Context;
     @inject public var injector:Injector;
@@ -41,7 +43,7 @@ class ConsoleConfig implements DependentConfig, implements UnconfigConfig
     var listeners:DefaultConsoleListeners;
 
     public function dependencies():Array<Class<Config>>
-        return [AppConfig, SignalMapConfig, CommandMapConfig]
+        return [AppConfig, SignalMapConfig, CommandMapConfig];
 
     public function configure()
     {
@@ -76,7 +78,7 @@ class ConsoleConfig implements DependentConfig, implements UnconfigConfig
 
         function enableListener()
         {
-            listeners = new DefaultConsoleListeners(console);
+            listeners = new DefaultConsoleListeners(stage, console);
             listeners.enable();
         }
 

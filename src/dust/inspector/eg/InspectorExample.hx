@@ -8,9 +8,9 @@ import dust.geom.data.Position;
 import dust.graphics.data.Paint;
 import dust.gui.data.Color;
 import flash.display.Graphics;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.graphics.data.Painter;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.graphics.PaintersConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
@@ -22,7 +22,7 @@ class InspectorExample implements DependentConfig
     @inject public var camera:Camera;
 
     public function dependencies():Array<Class<Config>>
-        return [InspectorConfig, CameraConfig, PaintersConfig]
+        return [InspectorConfig, CameraConfig, PaintersConfig];
 
     public function configure()
     {

@@ -1,7 +1,7 @@
 package dust.inspector.systems;
 
 import dust.inspector.control.UIInspectorFactory;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.gui.data.UIView;
 import dust.inspector.data.Inspector;
 import dust.gui.data.HAlign;
@@ -13,9 +13,8 @@ import flash.display.DisplayObjectContainer;
 import dust.inspector.ui.UIInspector;
 import haxe.macro.Expr.Field;
 import dust.inspector.data.Inspector;
-import dust.entities.api.Entity;
-import dust.components.Component;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
+import dust.entities.Entity;
 import dust.collections.api.CollectionListeners;
 
 // written to accept/expect trigger from either Inspector or InspectorFocus, per InspectorConfig
@@ -80,7 +79,7 @@ class InspectorListeners implements CollectionListeners
                 return null;
             }
 
-            function addField(inspector:Inspector, component:Class<Component>, field:String)
+            function addField(inspector:Inspector, component:Class<Dynamic>, field:String)
             {
                 inspector.add(component, field);
             }

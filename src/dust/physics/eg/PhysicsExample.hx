@@ -9,8 +9,8 @@ import dust.physics.data.State;
 import dust.camera.data.Camera;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.api.Entities;
-import dust.entities.api.Entity;
+import dust.entities.Entities;
+import dust.entities.Entity;
 import dust.geom.data.Position;
 import dust.math.MathConfig;
 import dust.math.Random;
@@ -21,15 +21,13 @@ using dust.graphics.PaintersUtil;
 
 class PhysicsExample implements DependentConfig
 {
-    inline static function quarterTurn():Float return Math.PI / 4
-
     @inject public var entities:Entities;
     @inject public var camera:Camera;
     @inject public var random:Random;
     @inject public var trig:Trig;
 
     public function dependencies():Array<Class<Config>>
-        return [PaintersConfig, PhysicsConfig, MathConfig, SystemMetricsConfig]
+        return [PaintersConfig, PhysicsConfig, MathConfig, SystemMetricsConfig];
 
     public function configure()
     {

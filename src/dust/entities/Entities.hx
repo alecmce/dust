@@ -1,12 +1,12 @@
-package dust.entities.impl;
+package dust.entities;
 
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 import dust.lists.PooledList;
 import dust.lists.Pool;
 import dust.components.BitfieldFactory;
 
-class PooledEntities implements Entities
+class Entities
 {
     var bitfieldFactory:BitfieldFactory;
 
@@ -27,7 +27,7 @@ class PooledEntities implements Entities
         function makeEntity():Entity
         {
             var bitfield = bitfieldFactory.makeEmpty();
-            return new PooledEntity(++id, bitfield);
+            return new Entity(++id, bitfield);
         }
 
     public function require():Entity

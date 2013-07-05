@@ -3,11 +3,10 @@ package dust.collections.control;
 import dust.collections.data.CollectionList;
 import dust.collections.api.Collection;
 import dust.Injector;
-import dust.components.Component;
 import dust.components.BitfieldFactory;
-import dust.entities.impl.EntityList;
+import dust.entities.EntityList;
 import dust.components.Bitfield;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.lists.LinkedList;
 import dust.lists.SimpleList;
 
@@ -19,12 +18,12 @@ class CollectionMap
     @inject public var collectionList:CollectionList;
     @inject public var subscriber:CollectionSubscriber;
 
-    var configMap:Hash<CollectionMapping>;
+    var configMap:Map<String, CollectionMapping>;
 
     public function new()
-        configMap = new Hash<CollectionMapping>();
+        configMap = new Map<String, CollectionMapping>();
 
-    public function map(components:Array<Class<Component>>):CollectionMapping
+    public function map(components:Array<Class<Dynamic>>):CollectionMapping
     {
         var bitfield = bitfieldFactory.make(components);
         var key = bitfield.toString();
@@ -52,7 +51,7 @@ class CollectionMap
             return config;
         }
 
-    public function getCollection(components:Array<Class<Component>>):Collection
+    public function getCollection(components:Array<Class<Dynamic>>):Collection
     {
         var bitfield = bitfieldFactory.make(components);
         var key = bitfield.toString();

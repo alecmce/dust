@@ -2,10 +2,9 @@ package dust.camera.data;
 
 import flash.geom.Matrix;
 import flash.display.DisplayObject;
-import dust.components.Component;
 import dust.geom.data.Position;
 
-class Camera extends Component
+class Camera
 {
     public var screenCenterX:Int;
     public var screenCenterY:Int;

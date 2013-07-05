@@ -15,7 +15,7 @@ class MoveCameraExample implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [KeysConfig, CameraConfig]
+        return [KeysConfig, CameraConfig];
 
     public function configure()
     {

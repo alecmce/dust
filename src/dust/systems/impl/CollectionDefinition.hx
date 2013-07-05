@@ -1,8 +1,7 @@
 package dust.systems.impl;
 
 import dust.components.Bitfield;
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 import dust.collections.api.Collection;
 
 class CollectionDefinition

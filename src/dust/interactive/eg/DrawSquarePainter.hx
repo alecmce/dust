@@ -1,7 +1,7 @@
 package dust.interactive.eg;
 
 import dust.graphics.data.Painter;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.camera.data.Camera;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Painters;
@@ -22,7 +22,7 @@ class DrawSquarePainter implements Painter
     }
 
     public function draw(entity:Entity, graphics:Graphics)
-        paint.paint(entity, graphics, drawSquare)
+        paint.paint(entity, graphics, drawSquare);
 
         function drawSquare(entity:Entity, graphics:Graphics)
         {

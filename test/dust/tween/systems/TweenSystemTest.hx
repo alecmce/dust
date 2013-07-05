@@ -2,8 +2,8 @@ package dust.tween.systems;
 
 import dust.tween.data.Tween;
 import dust.context.Context;
-import dust.entities.api.Entities;
-import dust.entities.api.Entity;
+import dust.entities.Entities;
+import dust.entities.Entity;
 import dust.systems.impl.Systems;
 import dust.systems.impl.SystemsList;
 import dust.systems.impl.SystemsLoop;

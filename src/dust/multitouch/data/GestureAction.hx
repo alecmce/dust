@@ -1,8 +1,7 @@
 package dust.multitouch.data;
 
-import dust.components.Component;
 
-class GestureAction extends Component
+class GestureAction
 {
     public var start:Void->Void;
     public var update:Void->Void;

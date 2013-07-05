@@ -1,9 +1,8 @@
 package dust.tween.data;
 
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 
-class Tween extends Component
+class Tween
 {
     public var initial:Float;
     public var delta:Float;

@@ -5,13 +5,13 @@ import dust.multitouch.data.Touch;
 class Touches
 {
     var list:Array<Touch>;
-    var hash:IntHash<Touch>;
+    var hash:Map<Int, Touch>;
     var count:Int;
 
     public function new()
     {
         list = new Array<Touch>();
-        hash = new IntHash<Touch>();
+        hash = new Map<Int, Touch>();
         count = 0;
     }
 
@@ -30,17 +30,17 @@ class Touches
     }
 
     inline public function getByIndex(index:Int):Touch
-        return list[index]
+        return list[index];
 
     inline public function has(id:Int):Bool
-        return hash.exists(id)
+        return hash.exists(id);
 
     inline public function get(id:Int):Touch
-        return hash.get(id)
+        return hash.get(id);
 
     inline public function getCount():Int
-        return count
+        return count;
 
     public function iterator():Iterator<Touch>
-        return list.iterator()
+        return list.iterator();
 }

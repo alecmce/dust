@@ -1,6 +1,6 @@
 package dust.systems.impl;
 
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.geom.data.Position;
 import dust.context.Config;
 import dust.context.DependentConfig;

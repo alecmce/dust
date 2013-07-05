@@ -2,7 +2,7 @@ package dust.inspector.control;
 
 import dust.inspector.ui.UIInspector;
 import dust.inspector.ui.UIInspectedField;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 class UIInspectorFactory
 {

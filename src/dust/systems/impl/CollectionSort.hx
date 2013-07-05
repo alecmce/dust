@@ -1,8 +1,8 @@
 package dust.systems.impl;
 
 import dust.lists.LinkedList;
-import dust.entities.api.Entity;
-import dust.entities.impl.EntityList;
+import dust.entities.Entity;
+import dust.entities.EntityList;
 
 class CollectionSort
 {

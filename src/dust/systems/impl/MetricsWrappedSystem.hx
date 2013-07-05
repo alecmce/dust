@@ -20,10 +20,10 @@ class MetricsWrappedSystem implements System
     }
 
     public function start()
-        system.start()
+        system.start();
 
     public function stop()
-        system.stop()
+        system.stop();
 
     public function iterate(deltaTime:Float)
     {

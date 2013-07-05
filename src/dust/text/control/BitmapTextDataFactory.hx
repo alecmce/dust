@@ -12,8 +12,8 @@ class BitmapTextDataFactory
     public function new() {}
 
     public function make(font:String, label:String):BitmapTextData
-        return new BitmapTextData(fonts.get(font), label)
+        return new BitmapTextData(fonts.get(font), label);
 
     public function makeWithDefaults(label:String):BitmapTextData
-        return new BitmapTextData(fonts.get(DEFAULT_FONT), label)
+        return new BitmapTextData(fonts.get(DEFAULT_FONT), label);
 }

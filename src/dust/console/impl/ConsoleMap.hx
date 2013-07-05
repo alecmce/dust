@@ -2,11 +2,11 @@ package dust.console.impl;
 
 class ConsoleMap
 {
-    var hash:Hash<ConsoleMapping>;
+    var hash:Map<String, ConsoleMapping>;
 
     public function new()
     {
-        hash = new Hash<ConsoleMapping>();
+        hash = new Map<String, ConsoleMapping>();
     }
 
     public function map(pattern:String):ConsoleMapping

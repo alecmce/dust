@@ -17,10 +17,10 @@ class Fixed24WhiteMichromaFontConfig implements DependentConfig
     @inject public var fonts:BitmapFonts;
 
     public function dependencies():Array<Class<Config>>
-        return [BitmapTextConfig]
+        return [BitmapTextConfig];
 
     public function configure()
-        fonts.add(FONT, makeFont())
+        fonts.add(FONT, makeFont());
 
         function makeFont():BitmapFont
         {

@@ -1,7 +1,6 @@
 package dust.graphics.data;
 
 import dust.camera.data.Camera;
-import dust.components.Component;
 import dust.gui.data.Color;
 import flash.display.Graphics;
 

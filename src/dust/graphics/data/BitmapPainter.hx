@@ -1,18 +1,15 @@
 package dust.graphics.data;
 
-import dust.components.Component;
 import flash.geom.ColorTransform;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 import flash.display.BitmapData;
 import flash.display.Graphics;
 import flash.geom.Matrix;
 
-class BitmapPainter
-    extends Component,
-    implements Painter
+class BitmapPainter implements Painter
 {
     static var matrix:Matrix = new Matrix();
 

@@ -14,12 +14,11 @@ class KeyControllerSystem implements System
     var controls:KeyControls;
     var stage:Stage;
     
-    @inject
-    public function new(keys:Keys, controls:KeyControls)
+    @inject public function new(keys:Keys, stage:Stage, controls:KeyControls)
     {
         this.keys = keys;
         this.controls = controls;
-        this.stage = nme.Lib.current.stage;
+        this.stage = stage;
     }
 
     public function start()

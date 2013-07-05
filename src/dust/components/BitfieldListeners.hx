@@ -6,7 +6,7 @@ class BitfieldListeners<T>
 {
     var dimension:Int;
     var size:Int;
-    var listeners:IntHash<LinkedList<T->Void>>;
+    var listeners:Map<Int, LinkedList<T->Void>>;
 
     public function new(dimension:Int, listFactory:Void->LinkedList<T->Void>)
     {
@@ -17,7 +17,7 @@ class BitfieldListeners<T>
 
         function makeListeners(listFactory:Void->LinkedList<T->Void>)
         {
-            this.listeners = new IntHash<LinkedList<T->Void>>();
+            this.listeners = new Map<Int, LinkedList<T->Void>>();
             for (i in 0...size)
                 listeners.set(i, listFactory());
         }

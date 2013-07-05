@@ -1,12 +1,11 @@
 package dust.multitouch.data;
 
-import dust.components.Component;
 import dust.geom.data.Position;
 
-class Touch extends Component
+class Touch
 {
     public static function make():Touch
-        return new Touch()
+        return new Touch();
 
     public var id:Int;
 
@@ -58,9 +57,7 @@ class Touch extends Component
     }
 
     public function clear()
-    {
         this.isCurrent = false;
-    }
 
     inline public function squareDistance():Float
     {
@@ -70,6 +67,6 @@ class Touch extends Component
     }
 
     public function toString():String
-        return ['[Touch id=',id,' x=',current.x,' y=',current.y,']'].join('')
+        return '[Touch id=$id x=${current.x} y=${current.y}]';
 
 }

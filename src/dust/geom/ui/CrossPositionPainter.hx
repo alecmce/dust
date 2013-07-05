@@ -1,10 +1,9 @@
 package dust.geom.ui;
 
 import dust.graphics.data.Painter;
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 import dust.camera.data.Camera;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.graphics.data.Painters;
 import dust.geom.data.Position;
 import dust.graphics.data.Paint;
@@ -23,7 +22,7 @@ class CrossPositionPainter implements Painter
     }
 
     public function draw(entity:Entity, graphics:Graphics)
-        paint.paint(entity, graphics, drawCross)
+        paint.paint(entity, graphics, drawCross);
 
         function drawCross(entity:Entity, graphics:Graphics)
         {

@@ -5,7 +5,7 @@ import dust.interactive.control.ReflectionDecorator;
 import dust.interactive.control.OffsetDecorator;
 import dust.interactive.data.Reflection;
 import dust.interactive.data.Offsets;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.interactive.data.TouchInteractive;
 import dust.graphics.PaintersConfig;
 import dust.graphics.data.Paint;
@@ -15,7 +15,7 @@ import dust.graphics.data.Paint;
 import dust.graphics.data.Painters;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.interactive.data.Draggable;
 import dust.geom.data.Position;
 
@@ -30,7 +30,7 @@ class ReflectionDragExample implements DependentConfig
     @inject public var factory:TouchInteractiveFactory;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig, InteractiveConfig, PaintersConfig]
+        return [EntitiesConfig, InteractiveConfig, PaintersConfig];
 
     public function configure()
     {

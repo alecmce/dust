@@ -5,13 +5,13 @@ import dust.physics.data.Box;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
 import flash.display.Graphics;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Painter;
 
 class BoxPainter implements Painter
 {
-    inline static function quarterTurn():Float return Math.PI / 4
+    inline static var QUARTER_PI = 3.14159265359 / 4;
 
     public var paint:Paint;
     public var trig:Trig;
@@ -27,7 +27,7 @@ class BoxPainter implements Painter
     }
 
     public function draw(entity:Entity, graphics:Graphics)
-        paint.paint(entity, graphics, drawQuad)
+        paint.paint(entity, graphics, drawQuad);
 
         function drawQuad(entity:Entity, graphics:Graphics)
         {
@@ -36,7 +36,7 @@ class BoxPainter implements Painter
             var box:Box = entity.get(Box);
 
             camera.toScreen(position, screen);
-            trig.setAngle(position.rotation + quarterTurn());
+            trig.setAngle(position.rotation + QUARTER_PI);
 
             var size = box.size * camera.scalar;
             var dx = size * trig.getCosine();

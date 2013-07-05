@@ -28,7 +28,7 @@ class MainMenuConfig implements DependentConfig
     @inject public var root:DisplayObjectContainer;
 
     public function dependencies():Array<Class<Config>>
-        return [AppConfig, SignalMapConfig, SmallWhiteHelveticaFontConfig]
+        return [AppConfig, SignalMapConfig, SmallWhiteHelveticaFontConfig];
 
     public function configure()
     {

@@ -1,6 +1,7 @@
 package dust.camera.control;
 
 import dust.app.data.App;
+import dust.app.data.AppTarget;
 import dust.camera.data.Camera;
 
 class CameraFactory

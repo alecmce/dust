@@ -1,7 +1,7 @@
 package dust.camera.config;
 
 import dust.camera.data.Camera;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 class CameraDecoratorTest
 {

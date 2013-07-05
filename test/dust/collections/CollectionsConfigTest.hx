@@ -6,8 +6,8 @@ import dust.collections.data.CollectionList;
 import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
 import dust.context.Context;
-
 import dust.Injector;
+
 import flash.display.Sprite;
 
 class CollectionsConfigTest

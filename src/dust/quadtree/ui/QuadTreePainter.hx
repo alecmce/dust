@@ -5,7 +5,7 @@ import dust.camera.data.Camera;
 import dust.geom.data.Position;
 import dust.quadtree.data.QuadTreeRange;
 import dust.camera.data.Camera;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.graphics.data.Paint;
 import dust.graphics.data.Painters;
 import dust.quadtree.data.QuadTree;
@@ -24,7 +24,7 @@ class QuadTreePainter implements Painter
     }
 
     public function draw(entity:Entity, graphics:Graphics)
-        paint.paint(entity, graphics, drawQuadTree)
+        paint.paint(entity, graphics, drawQuadTree);
 
         function drawQuadTree(entity:Entity, graphics:Graphics)
         {

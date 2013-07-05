@@ -3,7 +3,7 @@ package dust.interactive.systems;
 import dust.interactive.data.Reflection;
 import dust.geom.data.Position;
 import dust.collections.api.Collection;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.interactive.data.Draggable;
 import dust.systems.System;
 

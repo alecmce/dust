@@ -84,31 +84,58 @@ class TypeIndex
 					str.add(getTypeName(val));
 			case TDynamic(t):
 				Context.error("Cannot store dynamic values", Context.currentPos());
-			case TType(defRef, params):
-			    var typeDef = defRef.get();
-
-			    var nameArr = typeDef.pack.copy();
-				nameArr.push(typeDef.name);
-
-				str.add(nameArr.join("."));
-				if (params.length > 0)
-				{
-					str.addChar("<".code);
-					var pStrArr = Lambda.map(params, getTypeName);
-					str.add(pStrArr.join(","));
-					str.addChar(">".code);
-				}
+			case TType(ref, params):
+				str.add(parseTypeRef(ref));
+				str.add(parseParams(params));
+				// if (params.length > 0)
+				// {
+				// 	str.addChar("<".code);
+				// 	var pStrArr = Lambda.map(params, getTypeName);
+				// 	str.add(pStrArr.join(","));
+				// 	str.addChar(">".code);
+				// }
+			case TAbstract(ref, params):
+				str.add(parseTypeRef(ref));
+				str.add(parseParams(params));
+				
+				// if (params.length > 0)
+				// {
+				// 	str.addChar("<".code);
+				// 	var pStrArr = Lambda.map(params, getTypeName);
+				// 	str.add(pStrArr.join(","));
+				// 	str.addChar(">".code);
+				// }
 		}
 
 		return StringTools.replace(str.toString(), "#", "");
 	}
+
+		static function parseTypeRef<T>(ref:Ref<T>):String
+		{
+			var def = cast ref.get();
+			var list = def.pack.copy();
+			list.push(def.name);
+			return list.join(".");
+		}
+
+		static function parseParams(params:Array<Type>):String
+			return params.length == 0 ? "" : stringifyParams(params);
+
+		static function stringifyParams(params:Array<Type>):String
+		{
+			var str = new StringBuf();
+			str.addChar("<".code);
+			str.add(Lambda.map(params, getTypeName).join(","));
+			str.addChar(">".code);
+			return str.toString();
+		}
 
     static function mapNameToID(name:String):Int
     {
         if (types == null)
         {
             nextId = 0;
-            types = new Hash<Int>();
+            types = new Map<String, Int>();
         }
 
         var index = 0;

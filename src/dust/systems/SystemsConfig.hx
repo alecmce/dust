@@ -22,7 +22,7 @@ import dust.context.DependentConfig;
 import dust.context.Config;
 import dust.systems.impl.Systems;
 import dust.collections.control.CollectionMap;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.components.BitfieldFactory;
 
 import dust.Injector;

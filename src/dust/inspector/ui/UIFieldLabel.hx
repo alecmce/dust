@@ -2,7 +2,7 @@ package dust.inspector.ui;
 
 import flash.display.Sprite;
 import dust.gui.data.Color;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.inspector.data.InspectedField;
 import dust.gui.ui.UILabel;
 

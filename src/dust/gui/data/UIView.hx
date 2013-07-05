@@ -1,6 +1,6 @@
 package dust.gui.data;
 
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 import flash.display.DisplayObject;
 

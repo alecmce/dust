@@ -1,9 +1,8 @@
 package dust.multitouch.data;
 
-import dust.components.Component;
 import dust.geom.data.Position;
 
-class DragZoomGesture extends Component
+class DragZoomGesture
 {
     var travel:Float;
     var travelSquared:Float;

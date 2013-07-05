@@ -1,20 +1,19 @@
 package dust.inspector.data;
 
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 
 class InspectedField
 {
     static var ID:Int = 0;
     public var id:Int;
 
-    public var type:Class<Component>;
+    public var type:Class<Dynamic>;
     public var field:String;
     public var value:Dynamic;
 
     var name:String;
 
-    public function new(type:Class<Component>, field:String)
+    public function new(type:Class<Dynamic>, field:String)
     {
         id = ++ID;
         this.type = type;

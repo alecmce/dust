@@ -4,7 +4,7 @@ import dust.Injector;
 import dust.entities.EntitiesConfig;
 import dust.context.Context;
 import dust.collections.control.CollectionMap;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 
 import flash.display.Sprite;
 

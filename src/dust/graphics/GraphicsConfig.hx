@@ -20,7 +20,7 @@ class GraphicsConfig implements DependentConfig
     var canvas:Sprite;
 
     public function dependencies():Array<Class<Config>>
-        return [CameraConfig]
+        return [CameraConfig];
 
     public function configure()
     {

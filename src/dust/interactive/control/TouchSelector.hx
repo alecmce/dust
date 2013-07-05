@@ -3,7 +3,7 @@ package dust.interactive.control;
 import dust.interactive.data.TouchInteractive;
 import dust.geom.data.Position;
 import dust.camera.data.Camera;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.multitouch.control.Touches;
 import dust.collections.api.Collection;
 

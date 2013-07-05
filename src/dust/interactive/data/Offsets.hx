@@ -1,9 +1,8 @@
 package dust.interactive.data;
 
 import dust.geom.data.Position;
-import dust.components.Component;
 
-class Offsets extends Component
+class Offsets
 {
     public var current:Position;
     public var offsets:Array<Position>;

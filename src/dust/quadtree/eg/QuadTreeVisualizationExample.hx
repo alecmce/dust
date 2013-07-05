@@ -10,12 +10,11 @@ import dust.systems.impl.SystemMetrics;
 import dust.camera.data.Camera;
 import dust.graphics.data.Paint;
 import dust.graphics.PaintersConfig;
-import dust.components.Component;
 import dust.context.Config;
 import dust.context.DependentConfig;
 import dust.collections.api.Collection;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 import dust.entities.EntitiesConfig;
 import dust.math.MathConfig;
 import dust.math.Random;
@@ -45,7 +44,7 @@ class QuadTreeVisualizationExample implements DependentConfig
     var tree:QuadTree<Entity>;
 
     public function dependencies():Array<Class<Config>>
-        return [MathConfig, EntitiesConfig, SystemsConfig, SystemMetricsConfig, PaintersConfig]
+        return [MathConfig, EntitiesConfig, SystemsConfig, SystemMetricsConfig, PaintersConfig];
 
     public function configure()
     {

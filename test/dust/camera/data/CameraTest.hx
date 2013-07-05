@@ -13,7 +13,6 @@ class CameraTest
 
     @Before public function before()
     {
-        var stage = nme.Lib.current.stage;
         screenCenterX = Std.int(400);
         screenCenterY = Std.int(300);
 

@@ -1,6 +1,6 @@
 package dust.components;
 
-import dust.components.Component;
+import dust.type.TypeIndex;
 import dust.components.BitfieldFactory;
 import dust.components.Bitfield;
 import dust.components.Bitfield.ZeroBitfieldDimensionError;
@@ -53,22 +53,26 @@ class BitfieldFactoryTest
 
     @Test public function makeWithComponentsMakesNonBlankBitfield()
     {
-        var components:Array<Class<Component>> = [MockComponentA, MockComponentB];
+        var components:Array<Class<Dynamic>> = [MockComponentA, MockComponentB];
         var bitfield = factory.make(components);
         Assert.isFalse(isEmpty(bitfield));
     }
 
     @Test public function makeWithComponentsAutomaticallySetsFlags()
     {
-        var components:Array<Class<Component>> = [MockComponentA];
+        var id = TypeIndex.getClassID(MockComponentA);
+
+        var components:Array<Class<Dynamic>> = [MockComponentA];
         var bitfield = factory.make(components);
-        Assert.isTrue(bitfield.get(MockComponentA.ID));
+        Assert.isTrue(bitfield.get(id));
     }
 
     @Test public function makeWithComponentsDoesNotSetFlagsForComponentsNotSet()
     {
-        var components:Array<Class<Component>> = [MockComponentA];
+        var id = TypeIndex.getClassID(MockComponentB);
+
+        var components:Array<Class<Dynamic>> = [MockComponentA];
         var bitfield = factory.make(components);
-        Assert.isFalse(bitfield.get(MockComponentB.ID));
+        Assert.isFalse(bitfield.get(id));
     }
 }

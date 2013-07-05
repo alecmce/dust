@@ -3,8 +3,8 @@ package dust.relations.control;
 import dust.systems.impl.Systems;
 import dust.systems.System;
 import dust.relations.data.Relation;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 
 class Relations
 {

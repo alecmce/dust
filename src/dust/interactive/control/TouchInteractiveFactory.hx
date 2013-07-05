@@ -4,7 +4,7 @@ import dust.app.data.App;
 import dust.camera.data.Camera;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.interactive.data.TouchInteractive;
 
 class TouchInteractiveFactory

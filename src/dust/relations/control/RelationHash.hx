@@ -1,6 +1,6 @@
 package dust.relations.control;
 
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 class RelationHash
 {

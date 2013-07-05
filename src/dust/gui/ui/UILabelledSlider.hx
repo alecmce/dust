@@ -39,13 +39,13 @@ class UILabelledSlider extends Sprite
     }
 
     public function getValue():Float
-        return slider.getValue()
+        return slider.getValue();
 
     public function setValue(v:Float)
-        slider.setValue(v)
+        slider.setValue(v);
 
     public function getWidth():Int
-        return label.getWidth()
+        return label.getWidth();
 
     public function setWidth(width:Int)
     {

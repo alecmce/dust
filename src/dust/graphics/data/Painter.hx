@@ -1,7 +1,7 @@
 package dust.graphics.data;
 
 import flash.display.Graphics;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 interface Painter
 {

@@ -24,10 +24,10 @@ class SmallWhiteHelveticaFontConfig implements DependentConfig
     @inject public var fonts:BitmapFonts;
 
     public function dependencies():Array<Class<Config>>
-        return [AppConfig, BitmapTextConfig]
+        return [AppConfig, BitmapTextConfig];
 
     public function configure()
-        fonts.add(FONT, makeFont())
+        fonts.add(FONT, makeFont());
 
         function makeFont():BitmapFont
         {
@@ -43,10 +43,10 @@ class SmallWhiteHelveticaFontConfig implements DependentConfig
         }
 
             function getFontDefinition():String
-                return Assets.getText('assets/' + getFontTarget() + '.fnt')
+                return Assets.getText('assets/' + getFontTarget() + '.fnt');
 
             function getFontAsset():BitmapData
-                return Assets.getBitmapData('assets/' + getFontTarget() + '.png')
+                return Assets.getBitmapData('assets/' + getFontTarget() + '.png');
 
             function getFontTarget()
             {

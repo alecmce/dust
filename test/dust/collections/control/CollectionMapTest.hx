@@ -7,11 +7,10 @@ import dust.collections.control.CollectionMap;
 import dust.collections.control.CollectionMapping;
 import dust.collections.data.CollectionList;
 import dust.components.BitfieldFactory;
-import dust.components.Component;
 import dust.components.MockComponentA;
 import dust.components.MockComponentB;
-import dust.entities.api.Entity;
-import dust.entities.api.Entities;
+import dust.entities.Entity;
+import dust.entities.Entities;
 
 import dust.Injector;
 
@@ -34,21 +33,21 @@ class CollectionMapTest
 
     @Test public function mapReturnsConfig()
     {
-        var components:Array<Class<Component>> = [MockComponentA];
+        var components:Array<Class<Dynamic>> = [MockComponentA];
         Assert.isType(collectionMap.map(components), CollectionMapping);
     }
 
     @Test public function sameDefinitionsReturnSameMapping()
     {
-        var first:Array<Class<Component>> = [MockComponentA];
-        var second:Array<Class<Component>> = [MockComponentA];
+        var first:Array<Class<Dynamic>> = [MockComponentA];
+        var second:Array<Class<Dynamic>> = [MockComponentA];
         Assert.areSame(collectionMap.map(first), collectionMap.map(second));
     }
 
     @Test public function differentDefinitionsReturnDifferentMappings()
     {
-        var first:Array<Class<Component>> = [MockComponentA];
-        var second:Array<Class<Component>> = [MockComponentB];
+        var first:Array<Class<Dynamic>> = [MockComponentA];
+        var second:Array<Class<Dynamic>> = [MockComponentB];
         Assert.areNotSame(collectionMap.map(first), collectionMap.map(second));
     }
 
@@ -64,7 +63,7 @@ class CollectionMapTest
 
     @Test public function unsatisfyingEntitiesAreNotMembersOfCollection()
     {
-        var components:Array<Class<Component>> = [MockComponentA];
+        var components:Array<Class<Dynamic>> = [MockComponentA];
         var config = collectionMap.map(components);
 
         var entity = entities.require();

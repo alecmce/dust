@@ -38,7 +38,7 @@ class InteractiveConfig implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [MultiTouchConfig, GraphicsConfig, SystemsConfig, CameraConfig]
+        return [MultiTouchConfig, GraphicsConfig, SystemsConfig, CameraConfig];
 
     public function configure()
     {

@@ -25,7 +25,7 @@ class CameraDragZoomActionFactory
     var baseY:Float;
 
     public function new()
-        world = new Position()
+        world = new Position();
 
     public function make():GestureAction
     {

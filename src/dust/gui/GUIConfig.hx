@@ -29,7 +29,7 @@ class GUIConfig implements DependentConfig
     @inject public var cameraFactory:CameraFactory;
 
     public function dependencies():Array<Class<Config>>
-        return [EntitiesConfig, SystemsConfig, CameraConfig, SmallWhiteHelveticaFontConfig]
+        return [EntitiesConfig, SystemsConfig, CameraConfig, SmallWhiteHelveticaFontConfig];
 
     public function configure()
     {

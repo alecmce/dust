@@ -1,11 +1,10 @@
 package dust.gui.data;
 
-import dust.entities.api.Entity;
-import dust.components.Component;
+import dust.entities.Entity;
 import flash.display.Sprite;
 import flash.geom.Rectangle;
 
-class UIContainer extends Component
+class UIContainer
 {
     public var display:Sprite;
     var list:Array<UIView>;
@@ -37,5 +36,5 @@ class UIContainer extends Component
     }
 
     public function iterator():Iterator<UIView>
-        return list.iterator()
+        return list.iterator();
 }

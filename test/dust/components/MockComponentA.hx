@@ -1,7 +1,6 @@
 package dust.components;
 
-import dust.components.Component;
-class MockComponentA extends Component
+class MockComponentA
 {
     public function new() {}
 }

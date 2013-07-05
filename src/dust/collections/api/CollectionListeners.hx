@@ -1,6 +1,6 @@
 package dust.collections.api;
 
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 interface CollectionListeners
 {

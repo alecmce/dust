@@ -1,7 +1,7 @@
 package dust.gui.ui;
 
 import dust.gui.data.UIContainer;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 import flash.display.DisplayObject;
 import flash.display.Sprite;

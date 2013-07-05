@@ -7,7 +7,7 @@ import dust.app.AppConfig;
 import dust.collections.CollectionsConfig;
 import dust.camera.config.CameraDecorator;
 import dust.entities.EntitiesConfig;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.camera.data.Camera;
 import dust.context.Config;
 import dust.context.DependentConfig;
@@ -19,7 +19,7 @@ class CameraConfig implements DependentConfig
     @inject public var injector:Injector;
 
     public function dependencies():Array<Class<Config>>
-        return [AppConfig, CollectionsConfig]
+        return [AppConfig, CollectionsConfig];
 
     public function configure()
     {

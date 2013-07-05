@@ -20,7 +20,7 @@ namespace :test do
   task :all => [:build, :clients]
 
   task :clients do
-    puts dust.test %w(as3 js) #%w(as3 js cpp)
+    puts dust.test %w(as3 js cpp)
   end
 
   task :as3 do
@@ -32,8 +32,7 @@ namespace :test do
   end
 
   task :cpp do
-    puts 'munit does not fully support hxcpp yet'
-    #puts munit.test %w(cpp)
+    puts munit.test %w(cpp)
   end
 
   task :build do

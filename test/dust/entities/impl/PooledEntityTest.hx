@@ -1,14 +1,13 @@
 package dust.entities.impl;
 
-import dust.entities.impl.PooledEntities;
+import dust.entities.PooledEntities;
 import dust.components.MockComponentB;
 import dust.components.MockComponentA;
 import dust.components.BitfieldFactory;
-import dust.entities.api.Entities;
+import dust.entities.Entities;
 import dust.lists.Pool;
-import dust.components.Component;
 import dust.components.Bitfield;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import massive.munit.async.AsyncFactory;
 
 class PooledEntityTest
@@ -82,7 +81,7 @@ class PooledEntityTest
         entity.remove(MockComponentA);
         entity.cacheDeletions();
         entity.removeCachedDeletions();
-        Assert.isNull(entity.get(Component));
+        Assert.isNull(entity.get(MockComponentA));
     }
 
     @Test public function disposeAndUpdateRemovesAllComponents()
@@ -96,7 +95,7 @@ class PooledEntityTest
 
     @Test public function entityReportsThatItDoesNotSatisfySupersetBitfield()
     {
-        var components:Array<Class<Component>> = [MockComponentA, MockComponentB];
+        var components:Array<Class<Dynamic>> = [MockComponentA, MockComponentB];
         var superset = bitfieldFactory.make(components);
 
         entity.add(new MockComponentA());
@@ -105,7 +104,7 @@ class PooledEntityTest
 
     @Test public function entityReportsThatItDoesSatisfySubsetBitfield()
     {
-        var components:Array<Class<Component>> = [MockComponentA];
+        var components:Array<Class<Dynamic>> = [MockComponentA];
         var subset = bitfieldFactory.make(components);
 
         entity.add(new MockComponentA());
@@ -157,7 +156,7 @@ class PooledEntityTest
     }
 }
 
-class BaseComponent extends Component
+class BaseComponent
 {
     public function new() {}
 }

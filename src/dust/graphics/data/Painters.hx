@@ -1,12 +1,11 @@
 package dust.graphics.data;
 
-import dust.components.Component;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import flash.display.Graphics;
 
 using dust.ArrayUtil;
 
-class Painters extends Component
+class Painters
 {
     var priority:Int;
     var painters:Array<Entity->Graphics->Void>;

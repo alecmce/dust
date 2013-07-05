@@ -1,6 +1,6 @@
 package dust.inspector.ui;
 
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 
 interface UIInspectedField
 {

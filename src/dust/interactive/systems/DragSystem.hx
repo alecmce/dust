@@ -5,7 +5,7 @@ import dust.multitouch.control.Touches;
 import flash.events.MouseEvent;
 import dust.camera.data.Camera;
 import dust.collections.api.Collection;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.interactive.data.Draggable;
 import dust.interactive.data.DragFocus;
 import dust.interactive.data.TouchFocus;

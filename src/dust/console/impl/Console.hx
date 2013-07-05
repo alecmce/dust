@@ -19,15 +19,17 @@ class Console extends Sprite
     var log:ConsoleLog;
     var output:ConsoleOutput;
     var input:ConsoleInput;
+    var container:Stage;
 
     @inject
-    public function new(map:ConsoleMap, input:ConsoleInput, output:ConsoleOutput)
+    public function new(map:ConsoleMap, input:ConsoleInput, output:ConsoleOutput, stage:Stage)
     {
         super();
 
         this.map = map;
         this.output = output;
         this.input = input;
+        this.container = stage;
         log = new ConsoleLog();
         addChild(output);
         addChild(input);
@@ -43,7 +45,7 @@ class Console extends Sprite
     {
         if (!isEnabled)
         {
-            nme.Lib.current.stage.addChild(this);
+            container.addChild(this);
             input.enable();
             isEnabled = true;
         }
@@ -53,7 +55,7 @@ class Console extends Sprite
     {
         if (isEnabled)
         {
-            nme.Lib.current.stage.removeChild(this);
+            container.removeChild(this);
             input.disable();
             isEnabled = false;
         }

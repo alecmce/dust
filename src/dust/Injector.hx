@@ -39,7 +39,7 @@ class Injector
 
     public function reset():Injector
     {
-        untyped wrapped.injectionConfigs = new Hash<InjectionConfig>();
+        untyped wrapped.injectionConfigs = new haxe.ds.StringMap<InjectionConfig>();
         untyped wrapped.injecteeDescriptions = new minject.Injector.ClassHash<InjecteeDescription>();
         return this;
     }

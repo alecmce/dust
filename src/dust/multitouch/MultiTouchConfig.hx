@@ -10,7 +10,7 @@ import dust.multitouch.systems.MultiTouchSystem;
 import dust.multitouch.control.Touches;
 import dust.systems.System;
 import dust.collections.control.CollectionMap;
-import dust.entities.api.Entity;
+import dust.entities.Entity;
 import dust.geom.data.Position;
 import dust.camera.CameraConfig;
 import dust.app.data.App;
@@ -32,7 +32,7 @@ class MultiTouchConfig implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [SystemsConfig, CameraConfig, MathConfig]
+        return [SystemsConfig, CameraConfig, MathConfig];
 
     public function configure()
     {

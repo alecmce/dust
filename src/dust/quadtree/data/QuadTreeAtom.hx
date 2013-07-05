@@ -22,10 +22,10 @@ class QuadTreeAtom<T> implements QuadTreeNode<T>
     }
 
     public function add(data:QuadTreeData<T>):QuadTreeNode<T>
-        return isAddedToSelf(data) ? addToSelf(data) : subdivide(data)
+        return isAddedToSelf(data) ? addToSelf(data) : subdivide(data);
 
         inline function isAddedToSelf(data:QuadTreeData<T>):Bool
-            return count < maxDataPerNode || Position.areClose(data.position, range.position, threshold)
+            return count < maxDataPerNode || Position.areClose(data.position, range.position, threshold);
 
         inline function addToSelf(data:QuadTreeData<T>):QuadTreeNode<T>
         {

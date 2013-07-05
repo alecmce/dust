@@ -17,8 +17,8 @@ class UILabelFactory
     public function new() {}
 
     public function make(data:BitmapTextData):UILabel
-        return new UILabel(textFactory, data)
+        return new UILabel(textFactory, data);
 
     public function makeWithDefaults(label:String):UILabel
-        return make(dataFactory.make(SmallWhiteHelveticaFontConfig.FONT, label))
+        return make(dataFactory.make(SmallWhiteHelveticaFontConfig.FONT, label));
 }
