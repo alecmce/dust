@@ -10,6 +10,11 @@ import dust.entities.Entities;
 import dust.lists.LinkedList;
 import dust.lists.SimpleList;
 
+import haxe.macro.Expr;
+import haxe.macro.Expr.ExprOf;
+import haxe.macro.Context;
+import haxe.macro.Type;
+
 class CollectionMap
 {
     @inject public var injector:Injector;
@@ -23,12 +28,18 @@ class CollectionMap
     public function new()
         configMap = new Map<String, CollectionMapping>();
 
-    public function map(components:Array<Class<Dynamic>>):CollectionMapping
+    macro public function map(self:ExprOf<CollectionMap>, components:Expr):Expr
     {
-        var bitfield = bitfieldFactory.make(components);
-        var key = bitfield.toString();
-        return getOrMakeMapping(key, bitfield);
+        var ids = macro dust.type.TypeIndex.getClassIDList($components);
+        return macro (untyped $self.mapDefined)($ids);
     }
+
+        function mapDefined(ids:Array<Int>):CollectionMapping
+        {
+            var bitfield = bitfieldFactory.makeDefined(ids);
+            var key = bitfield.toString();
+            return getOrMakeMapping(key, bitfield);
+        }
 
     public function mapBitfield(bitfield:Bitfield):CollectionMapping
     {
@@ -51,12 +62,18 @@ class CollectionMap
             return config;
         }
 
-    public function getCollection(components:Array<Class<Dynamic>>):Collection
+    macro public function getCollection(self:ExprOf<CollectionMap>, components:Expr):Expr
     {
-        var bitfield = bitfieldFactory.make(components);
-        var key = bitfield.toString();
-        return getOrMakeMapping(key, bitfield).getCollection();
+        var ids = macro dust.type.TypeIndex.getClassIDList($components);
+        return macro (untyped $self.getDefined)($ids);
     }
+
+        function getDefined(ids:Array<Int>):Collection
+        {
+            var bitfield:Bitfield = bitfieldFactory.makeDefined(ids);
+            var key = bitfield.toString();
+            return getOrMakeMapping(key, bitfield).getCollection();
+        }
 
     public function instantiateAll()
     {

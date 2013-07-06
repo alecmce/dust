@@ -4,7 +4,11 @@ import dust.interactive.data.Offsets;
 import dust.entities.Entity;
 import dust.components.Bitfield;
 import dust.lists.Pool;
-import dust.type.TypeIndex;
+
+import haxe.macro.Expr;
+import haxe.macro.Expr.ExprOf;
+import haxe.macro.Context;
+import haxe.macro.Type;
 
 class Entity
 {
@@ -29,12 +33,18 @@ class Entity
         cached = new Array<Int>();
     }
 
-    inline public function add(component:Dynamic)
-        addComponent(TypeIndex.getInstanceID(component), component);
+    macro public function add(self:ExprOf<Entity>, component:Expr):Expr
+    {
+        var id = macro dust.type.TypeIndex.getInstanceID($component);
+        return macro (untyped $self.addComponent)($id, $component);
+    }
 
-    inline public function addAsType(component:Dynamic, asType:Class<Dynamic>)
-        addComponent(TypeIndex.getClassID(asType), component);
-
+    macro public function addAsType(self:ExprOf<Entity>, component:Expr, type:Expr):Expr
+    {
+        var id = macro dust.type.TypeIndex.getClassID($type);
+        return macro (untyped $self.addComponent)($id, $component);
+    }
+        
         inline function addComponent(componentID:Int, component:Dynamic)
         {
             components.set(componentID, component);
@@ -42,8 +52,11 @@ class Entity
             isChanged = true;
         }
 
-    public function remove<T>(type:Class<T>):Bool
-        return removeComponentWithID(TypeIndex.getClassID(type));
+    macro public function remove(self:ExprOf<Entity>, component:Expr):Expr
+    {
+        var id = macro dust.type.TypeIndex.getClassID($component);
+        return macro (untyped $self.removeComponentWithID)($id);
+    }
 
         inline function removeComponentWithID(componentID:Int):Bool
         {
@@ -96,11 +109,17 @@ class Entity
         untyped cached.length = 0;
     }
 
-    inline public function get<T>(type:Class<T>):T
-		return cast components.get(TypeIndex.getClassID(type));
+    macro public function get(self:ExprOf<Entity>, component:Expr):Expr
+    {
+        var id = macro dust.type.TypeIndex.getClassID($component);
+		return macro (untyped $self.components).get($id);
+    }
 
-    inline public function has<T>(type:Class<T>):Bool
-        return bitfield.get(TypeIndex.getClassID(type));
+    macro public function has(self:ExprOf<Entity>, component:Expr):Expr
+    {
+        var id = macro dust.type.TypeIndex.getClassID($component);
+        return macro (untyped $self.bitfield).get($id);
+    }
 
 	inline public function iterator():Iterator<Dynamic>
 		return components.iterator();

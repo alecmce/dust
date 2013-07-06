@@ -25,10 +25,7 @@ class Entities
     }
 
         function makeEntity():Entity
-        {
-            var bitfield = bitfieldFactory.makeEmpty();
-            return new Entity(++id, bitfield);
-        }
+            return new Entity(++id, bitfieldFactory.makeEmpty());
 
     public function require():Entity
     {

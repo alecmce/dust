@@ -43,7 +43,8 @@ class SystemMapping
     public function toCollection(components:Array<Class<Dynamic>>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
     {
         var factory:BitfieldFactory = injector.getInstance(BitfieldFactory);
-        collections.add(factory.make(components), sorter, name);
+        var bitfield = factory.make(components);
+        collections.add(bitfield, sorter, name);
         return this;
     }
 
