@@ -33,24 +33,24 @@ class Dust
       when 'tests'
         munit.clean
       when 'ios'
-        nme.clean 'ios'
+        openfl.clean 'ios'
     end
   end
 
   def make(target, flags = [])
     case target
       when 'flash'
-        nme.make 'flash', flags
+        openfl.make 'flash', flags
       when 'html5', flags
         haxe.html5
       when 'iphone', flags
-        nme.make 'ios', flags
+        openfl.make 'ios', flags
       when 'iphone_simulator'
-        nme.make 'ios', flags << ' -simulator'
+        openfl.make 'ios', flags << ' -simulator'
       when 'ipad'
-        nme.make 'ios', flags << ' -ipad'
+        openfl.make 'ios', flags << ' -ipad'
       when 'ipad_simulator'
-        nme.make 'ios', flags << ' -ipad -simulator'
+        openfl.make 'ios', flags << ' -ipad -simulator'
       else
         puts "dust unable to make #{target} - unsupported target"
     end
@@ -59,11 +59,11 @@ class Dust
   def update(target)
     case target
       when 'ipad'
-        nme.update 'ios', ' -ipad'
+        openfl.update 'ios', ' -ipad'
       when 'iphone_simulator'
-        nme.update 'ios', ' -simulator'
+        openfl.update 'ios', ' -simulator'
       when 'ipad_simulator'
-        nme.update 'ios', ' -simulator -ipad'
+        openfl.update 'ios', ' -simulator -ipad'
       else
         puts "dust unable to update #{target} - don't know what to do!"
     end
@@ -72,11 +72,11 @@ class Dust
   def build(target)
     case target
       when 'ipad'
-        nme.build 'ios', '-ipad'
+        openfl.build 'ios', '-ipad'
       when 'iphone_simulator'
-        nme.build 'ios', ' -simulator'
+        openfl.build 'ios', ' -simulator'
       when 'ipad_simulator'
-        nme.build 'ios', '-simulator -ipad'
+        openfl.build 'ios', '-simulator -ipad'
       else
         puts "dust unable to build #{target} - don't know what to do!"
     end
@@ -85,15 +85,15 @@ class Dust
   def run(target, flags = [])
     case target
       when 'flash'
-        nme.run 'flash', flags
+        openfl.run 'flash', flags
       when 'html5'
         puts 'TODO running html5 target not implemented yet!'
       when 'ipad'
-        nme.test 'ios', flags << ' -ipad'
+        openfl.test 'ios', flags << ' -ipad'
       when 'iphone_simulator'
-        nme.test 'ios', flags << ' -simulator'
+        openfl.test 'ios', flags << ' -simulator'
       when 'ipad_simulator'
-        nme.test 'ios', flags << ' -simulator -ipad'
+        openfl.test 'ios', flags << ' -simulator -ipad'
       else
         puts "dust unable to run #{target} - unsupported target"
     end
@@ -109,8 +109,8 @@ class Dust
       @haxe ||= Haxe.new @root, config, library
     end
 
-    def nme
-      @nme ||= Nme.new @root, config, library
+    def openfl
+      @openfl ||= OpenFL.new @root, config, library
     end
 
 end

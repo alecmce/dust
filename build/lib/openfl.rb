@@ -1,4 +1,4 @@
-class Nme
+class OpenFL
 
   require 'builder'
 
@@ -17,33 +17,33 @@ class Nme
     hash
   end
 
-  def make(target, flags = nil)
+  def make(target, flags)
     @target = target
     write_nmml
     test target, flags
   end
 
   def clean(target)
-    command = "nme clean #{target}"
+    command = "openfl clean #{target}"
   end
 
   def test(target, flags)
-    command = "nme test #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+    command = "openfl test #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
     execute command
   end
 
-  def update(target, flags = nil)
-    command = "nme update #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+  def update(target, flags)
+    command = "openfl update #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
     execute command
   end
 
-  def build(target, flags = nil)
-    command = "nme build #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+  def build(target, flags)
+    command = "openfl build #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
     execute command
   end
 
-  def run(target, flags = nil)
-    command = "nme run #{target}.nmml #{target} #{flags.nil? ? '' : flags}"
+  def run(target, flags)
+    command = "openfl run #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
     execute command
   end
 
