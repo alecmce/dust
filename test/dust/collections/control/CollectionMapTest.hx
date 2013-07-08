@@ -39,16 +39,16 @@ class CollectionMapTest
 
     @Test public function sameDefinitionsReturnSameMapping()
     {
-        var first:Array<Class<Dynamic>> = [MockComponentA];
-        var second:Array<Class<Dynamic>> = [MockComponentA];
-        Assert.areSame(collectionMap.map(first), collectionMap.map(second));
+        var first = collectionMap.map([MockComponentA]);
+        var second = collectionMap.map([MockComponentA]);
+        Assert.areSame(first, second);
     }
 
     @Test public function differentDefinitionsReturnDifferentMappings()
     {
-        var first:Array<Class<Dynamic>> = [MockComponentA];
-        var second:Array<Class<Dynamic>> = [MockComponentB];
-        Assert.areNotSame(collectionMap.map(first), collectionMap.map(second));
+        var first = collectionMap.map([MockComponentA]);
+        var second = collectionMap.map([MockComponentB]);
+        Assert.areNotSame(first, second);
     }
 
     @Test public function satisfyingEntitiesAreAddedAtFirstMomentOfConstruction()

@@ -9,6 +9,11 @@ import dust.collections.api.Collection;
 
 import dust.Injector;
 
+import haxe.macro.Expr;
+import haxe.macro.Expr.ExprOf;
+import haxe.macro.Context;
+import haxe.macro.Type;
+
 class SystemMapping
 {
     public var name:String;
@@ -40,13 +45,21 @@ class SystemMapping
         return this.type == type;
     }
 
-    public function toCollection(components:Array<Class<Dynamic>>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
+    macro public function toCollection(self:ExprOf<SystemMapping>, collection:Expr, args:Array<Expr>):Expr
     {
-        var factory:BitfieldFactory = injector.getInstance(BitfieldFactory);
-        var bitfield = factory.make(components);
-        collections.add(bitfield, sorter, name);
-        return this;
+        var ids = macro dust.type.TypeIndex.getClassIDList($collection);
+        var sorter =  macro args.length > 1 ? ${args[1]} : null;
+        var name = macro args.length > 2 ? ${args[2]} : "";
+        return macro (untyped $self.defineCollection)($ids, $sorter, $name);
     }
+
+        function defineCollection(components:Array<Int>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
+        {
+            var factory:BitfieldFactory = injector.getInstance(BitfieldFactory);
+            var bitfield = factory.makeDefined(components);
+            collections.add(bitfield, sorter, name);
+            return this;
+        }
 
     public function withName(name:String):SystemMapping
     {

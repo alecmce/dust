@@ -27,6 +27,19 @@ class TypeIndex
     macro public static function getClassIDList(components:Expr):Expr
     {
     	var ids = new Array<Int>();
+		switch (components.expr)
+		{
+			case EArrayDecl(values):
+				for (value in values)
+				{
+					var name = getTypeName(Context.typeof(value));
+					var index = mapNameToID(name);
+					ids.push(index);
+				}
+			default:
+				Context.error("TypeIndex error: getClassIDList must be an EArrayDecl, not a " + components.expr, Context.currentPos());
+		}
+
     	return Context.makeExpr(ids, components.pos);
     }
 

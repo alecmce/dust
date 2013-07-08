@@ -9,7 +9,7 @@ require 'rspec'
 describe 'works around haxelib firewall problems' do
 
   subject do
-    library = HaxeLibraryItem.new 'random', ['1.0.0.1', '1.1.0.0', '1.0.1.1']
+    library = HaxeLibraryItem.new 'random', ['1.1.0', '1.2.0', '1.3.0']
     HaxeFirewallWorkaround.new library
   end
 
@@ -22,13 +22,13 @@ describe 'works around haxelib firewall problems' do
   end
 
   it 'should choose most recent version if no version is supplied' do
-    subject.version.should == '1.1.0.0'
+    subject.version.should == '1.3.0'
   end
 
   it 'should install random library' do
     `haxelib remove random`
     subject.install
-    subject.library.current_version.should == '1.1.0.0'
+    subject.library.current_version.should == '1.3.0'
   end
 
 end

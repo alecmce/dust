@@ -7,7 +7,7 @@ require 'yaml'
 
 class HaxeLibrary
 
-  HAXELIB_URL = 'http://lib.haxe.org/files/'
+  HAXELIB_URL = 'http://lib.haxe.org/files/3.0/'
   HAXELIB_CACHE = '.haxelib_cache'
 
   @@items = nil

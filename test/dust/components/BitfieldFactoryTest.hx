@@ -61,9 +61,8 @@ class BitfieldFactoryTest
     @Test public function makeWithComponentsAutomaticallySetsFlags()
     {
         var id = TypeIndex.getClassID(MockComponentA);
-
-        var components:Array<Class<Dynamic>> = [MockComponentA];
-        var bitfield = factory.make(components);
+        var bitfield = factory.make([MockComponentA]);
+        trace(id + " <=> " + bitfield.toString());
         Assert.isTrue(bitfield.get(id));
     }
 
