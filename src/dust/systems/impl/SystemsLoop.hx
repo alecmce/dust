@@ -47,8 +47,8 @@ class SystemsLoop
         function makeTimer()
         {
             isStarted = true;
-            timer = new Timer(millisecondsBetweenUpdates);
-            timer.run = update;
+            // timer = new Timer(millisecondsBetweenUpdates);
+            // timer.run = update;
             time = Timer.stamp();
         }
 
@@ -73,7 +73,7 @@ class SystemsLoop
         function stopTimer()
         {
             isStarted = false;
-            timer.stop();
+            // timer.stop();
             timer = null;
         }
 }

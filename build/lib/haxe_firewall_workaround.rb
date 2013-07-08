@@ -32,9 +32,7 @@ class HaxeFirewallWorkaround
 
     def download(remote, local)
       File.open(local, 'wb') do |write_file|
-        open(remote) do |read_file|
-          write_file.write(read_file.read)
-        end
+        write_file << open(remote).read
       end
     end
 

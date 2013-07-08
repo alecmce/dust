@@ -21,7 +21,7 @@ describe 'creates library items' do
   end
 
   it 'versions each item' do
-    subject.library('munit').versions.should include '2.0.0'
+    subject.library('munit').versions.should include '2.0.2'
   end
 
   it 'detects whether a library is available' do

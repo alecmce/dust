@@ -37,8 +37,8 @@ class TypeIndex
 					ids.push(index);
 				}
 			default:
-				Context.error("TypeIndex error: getClassIDList must be an EArrayDecl, not a " + components.expr, Context.currentPos());
-		}
+				Context.error("TypeIndex error: class definition must be explicitly defined in the macro method at at " + Context.getLocalClass() + "." + Context.getLocalMethod(), Context.currentPos());
+		} 
 
     	return Context.makeExpr(ids, components.pos);
     }

@@ -94,8 +94,7 @@ class EntityTest
 
     @Test public function entityReportsThatItDoesNotSatisfySupersetBitfield()
     {
-        var components:Array<Class<Dynamic>> = [MockComponentA, MockComponentB];
-        var superset = bitfieldFactory.make(components);
+        var superset = bitfieldFactory.make([MockComponentA, MockComponentB]);
 
         entity.add(new MockComponentA());
         Assert.isFalse(entity.satisfies(superset));
@@ -103,8 +102,7 @@ class EntityTest
 
     @Test public function entityReportsThatItDoesSatisfySubsetBitfield()
     {
-        var components:Array<Class<Dynamic>> = [MockComponentA];
-        var subset = bitfieldFactory.make(components);
+        var subset = bitfieldFactory.make([MockComponentA]);
 
         entity.add(new MockComponentA());
         entity.add(new MockComponentB());

@@ -53,8 +53,7 @@ class BitfieldFactoryTest
 
     @Test public function makeWithComponentsMakesNonBlankBitfield()
     {
-        var components:Array<Class<Dynamic>> = [MockComponentA, MockComponentB];
-        var bitfield = factory.make(components);
+        var bitfield = factory.make([MockComponentA, MockComponentB]);
         Assert.isFalse(isEmpty(bitfield));
     }
 
@@ -62,16 +61,13 @@ class BitfieldFactoryTest
     {
         var id = TypeIndex.getClassID(MockComponentA);
         var bitfield = factory.make([MockComponentA]);
-        trace(id + " <=> " + bitfield.toString());
         Assert.isTrue(bitfield.get(id));
     }
 
     @Test public function makeWithComponentsDoesNotSetFlagsForComponentsNotSet()
     {
         var id = TypeIndex.getClassID(MockComponentB);
-
-        var components:Array<Class<Dynamic>> = [MockComponentA];
-        var bitfield = factory.make(components);
+        var bitfield = factory.make([MockComponentA]);
         Assert.isFalse(bitfield.get(id));
     }
 }

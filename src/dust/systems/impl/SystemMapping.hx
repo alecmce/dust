@@ -1,5 +1,14 @@
 package dust.systems.impl;
 
+#if macro
+
+import haxe.macro.Expr;
+import haxe.macro.Expr.ExprOf;
+import haxe.macro.Context;
+import haxe.macro.Type;
+
+#end
+
 import dust.components.BitfieldFactory;
 import dust.systems.impl.CollectionSorts;
 import dust.systems.System;
@@ -8,11 +17,6 @@ import dust.entities.Entity;
 import dust.collections.api.Collection;
 
 import dust.Injector;
-
-import haxe.macro.Expr;
-import haxe.macro.Expr.ExprOf;
-import haxe.macro.Context;
-import haxe.macro.Type;
 
 class SystemMapping
 {
@@ -45,11 +49,9 @@ class SystemMapping
         return this.type == type;
     }
 
-    macro public function toCollection(self:ExprOf<SystemMapping>, collection:Expr, args:Array<Expr>):Expr
+    macro public function toCollection(self:ExprOf<SystemMapping>, collection:Expr, ?sorter:ExprOf<Entity->Entity->Int>, ?name:ExprOf<String>):Expr
     {
         var ids = macro dust.type.TypeIndex.getClassIDList($collection);
-        var sorter =  macro args.length > 1 ? ${args[1]} : null;
-        var name = macro args.length > 2 ? ${args[2]} : "";
         return macro (untyped $self.defineCollection)($ids, $sorter, $name);
     }
 

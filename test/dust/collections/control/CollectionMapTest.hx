@@ -33,8 +33,7 @@ class CollectionMapTest
 
     @Test public function mapReturnsConfig()
     {
-        var components:Array<Class<Dynamic>> = [MockComponentA];
-        Assert.isType(collectionMap.map(components), CollectionMapping);
+        Assert.isType(collectionMap.map([MockComponentA]), CollectionMapping);
     }
 
     @Test public function sameDefinitionsReturnSameMapping()
@@ -63,8 +62,7 @@ class CollectionMapTest
 
     @Test public function unsatisfyingEntitiesAreNotMembersOfCollection()
     {
-        var components:Array<Class<Dynamic>> = [MockComponentA];
-        var config = collectionMap.map(components);
+        var config = collectionMap.map([MockComponentA]);
 
         var entity = entities.require();
         entity.add(new MockComponentB());
