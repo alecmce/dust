@@ -3,7 +3,6 @@ package;
 import dust.physics.eg.PhysicsExample;
 import dust.systems.SystemMetricsConfig;
 import dust.systems.eg.FastInsertionSortAlgorithmExample;
-import dust.Injector;
 import dust.gui.eg.GUIExample;
 import dust.context.DependentConfig;
 import dust.mainmenu.MainMenuConfig;
@@ -20,16 +19,8 @@ import dust.interactive.eg.DragExample;
 import dust.mainmenu.MainMenu;
 import dust.context.Context;
 
-import openfl.Assets;
 import flash.display.DisplayObjectContainer;
-import flash.display.MovieClip;
 import flash.display.Sprite;
-import flash.display.Stage;
-import flash.events.KeyboardEvent;
-import flash.events.MouseEvent;
-import flash.ui.Keyboard;
-import flash.text.TextField;
-import flash.text.TextFormat;
 
 class DustExamples implements DependentConfig
 {

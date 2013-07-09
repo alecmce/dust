@@ -7,6 +7,8 @@ import haxe.macro.Type;
 
 class TypeIndex
 {
+	inline static var IGNORE_GENERIC_TYPES = true;
+
     static var types:Map<String, Int>;
     static var nextId:Int;
 
@@ -104,9 +106,12 @@ class TypeIndex
 		static function stringifyParams(params:Array<Type>):String
 		{
 			var str = new StringBuf();
-			str.addChar("<".code);
-			str.add(Lambda.map(params, getTypeName).join(","));
-			str.addChar(">".code);
+			if (!IGNORE_GENERIC_TYPES)
+			{
+				str.addChar("<".code);
+				str.add(Lambda.map(params, getTypeName).join(","));
+				str.addChar(">".code);
+			}
 			return str.toString();
 		}
 
@@ -127,6 +132,7 @@ class TypeIndex
         {
             index = nextId++;
             types.set(name, index);
+            trace('$name -> $index');
         }
 
         return index;

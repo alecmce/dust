@@ -9,13 +9,12 @@ import haxe.macro.Type;
 
 #end
 
+import dust.collections.api.Collection;
+import dust.collections.control.CollectionMap;
 import dust.components.BitfieldFactory;
+import dust.entities.Entity;
 import dust.systems.impl.CollectionSorts;
 import dust.systems.System;
-import dust.collections.control.CollectionMap;
-import dust.entities.Entity;
-import dust.collections.api.Collection;
-
 import dust.Injector;
 
 class SystemMapping
