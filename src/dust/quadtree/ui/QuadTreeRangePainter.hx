@@ -22,7 +22,7 @@ class QuadTreeRangePainter implements Painter
     }
 
     public function draw(entity:Entity, graphics:Graphics)
-        paint.paint(entity, graphics, drawRange)
+        paint.paint(entity, graphics, drawRange);
 
         function drawRange(entity:Entity, graphics:Graphics)
         {

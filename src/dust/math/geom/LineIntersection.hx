@@ -49,8 +49,8 @@ class LineIntersection
     }
 
         inline function proportionAlongA():Float
-            return (bdx * (ay - by) - bdy * (ax - bx)) / divisor
+            return (bdx * (ay - by) - bdy * (ax - bx)) / divisor;
 
         inline function proportionAlongB():Float
-            return (bdx != 0) ? (ax - bx + adx * aProportion) / bdx : (ay - by + ady * aProportion) / bdy
+            return (bdx != 0) ? (ax - bx + adx * aProportion) / bdx : (ay - by + ady * aProportion) / bdy;
 }
