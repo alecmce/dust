@@ -9,9 +9,7 @@ import flash.display.Graphics;
 import dust.entities.Entity;
 import dust.graphics.data.Painters;
 
-class QuadTreeRangePainter
-   ,
-    implements Painter
+class QuadTreeRangePainter implements Painter
 {
     public var paint:Paint;
 
