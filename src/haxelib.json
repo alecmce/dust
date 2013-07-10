@@ -1,0 +1,15 @@
+{
+  "name": "dust",
+  "url" : "http://github.com/alecmce/dust/src",
+  "license": "MIT",
+  "tags": ["cross","js","flash","cpp","game","openfl"],
+  "description": "An entity-system for Haxe",
+  "version": "0.2",
+  "releasenote": "Early Alpha. Haxe3 only",
+  "contributors": ["alecmce"],
+  "dependencies": {
+  	"munit": "",
+  	"minject": "",
+    "openfl": ""
+  }
+}

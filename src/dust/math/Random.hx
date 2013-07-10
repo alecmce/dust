@@ -1,7 +1,5 @@
 package dust.math;
 
-import Array;
-
 class Random
 {
     inline static var MODULUS = 2147483647;

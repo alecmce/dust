@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+require 'fileutils'
+require 'rubygems'
+require 'zip/zip'
+
 HOME = File.dirname(__FILE__)
 Dir[File.join(HOME, 'build/lib/*.rb')].each do |file|
   require file.chomp(File.extname(file))
@@ -97,6 +101,28 @@ namespace :run do
 
   task :ipad_simulator => :'make:ipad_simulator' do
     dust.run 'ipad_simulator'
+  end
+
+end
+
+namespace :haxelib do
+
+  task :package do
+    directory = File.join(HOME, 'src', '/')
+    target = File.join(HOME, 'dust.zip')
+    puts "create #{target}"
+    FileUtils.rm target if File.exists? target
+    Zip::ZipFile.open(target, Zip::ZipFile::CREATE) do |zipfile|
+      Dir[File.join(directory, '**', '**')].each do |file|
+        zipfile.add(file.sub(directory, ''), file)
+      end
+    end
+  end
+
+  task :install => :package do
+    command = `haxelib local #{File.join(HOME, 'dust.zip')}`
+    puts command
+    `#{command}`
   end
 
 end

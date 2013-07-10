@@ -117,7 +117,7 @@ class OpenFL
     end
 
     def is_defined(key)
-      @config.get_flag(@target, key)
+      !@config.get(@target, key).nil?
     end
 
     def list_of(key)

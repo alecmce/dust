@@ -6,6 +6,8 @@ Gemfile.lock
 .idea
 .temp
 
+dust.zip
+
 build/zip/*
 build/example/bin/*
 build/build.nmml
