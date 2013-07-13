@@ -50,7 +50,7 @@ class SystemMapping
 
     macro public function toCollection(self:ExprOf<SystemMapping>, collection:Expr, ?sorter:ExprOf<Entity->Entity->Int>, ?name:ExprOf<String>):Expr
     {
-        var ids = macro dust.type.TypeIndex.getClassIDList($collection);
+        var ids = macro dust.type.TypeIndex.getClassIDList($collection, '${self.pos}');
         return macro (untyped $self.defineCollection)($ids, $sorter, $name);
     }
 

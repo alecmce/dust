@@ -119,8 +119,11 @@ namespace :haxelib do
     end
   end
 
-  task :install => :package do
-    command = `haxelib local #{File.join(HOME, 'dust.zip')}`
+  task :local => :package do
+    command = "haxelib remove dust"
+    puts command
+    `#{command}`
+    command = "haxelib local #{File.join(HOME, 'dust.zip')}"
     puts command
     `#{command}`
   end

@@ -30,7 +30,7 @@ class CollectionMap
 
     macro public function map(self:ExprOf<CollectionMap>, components:Expr):Expr
     {
-        var ids = macro dust.type.TypeIndex.getClassIDList($components);
+        var ids = macro dust.type.TypeIndex.getClassIDList($components, '${self.pos}');
         return macro (untyped $self.mapDefined)($ids);
     }
 
@@ -64,7 +64,7 @@ class CollectionMap
 
     macro public function getCollection(self:ExprOf<CollectionMap>, components:Expr):Expr
     {
-        var ids = macro dust.type.TypeIndex.getClassIDList($components);
+        var ids = macro dust.type.TypeIndex.getClassIDList($components, '${self.pos}');
         return macro (untyped $self.getDefined)($ids);
     }
 

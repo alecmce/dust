@@ -25,23 +25,23 @@ class Entity
 	{
 		this.id = id;
         this.bitfield = bitfield;
-
         isChanged = false;
         isReleased = false;
+
         components = new Map<Int, Dynamic>();
         deleted = new Array<Int>();
         cached = new Array<Int>();
     }
 
-    macro public function add(self:ExprOf<Entity>, component:Expr):Expr
+    macro inline public function add(self:ExprOf<Entity>, component:Expr):Expr
     {
-        var id = macro dust.type.TypeIndex.getInstanceID($component);
+        var id = macro dust.type.TypeIndex.getInstanceID($component, '${self.pos}');
         return macro (untyped $self.addComponent)($id, $component);
     }
 
     macro public function addAsType(self:ExprOf<Entity>, component:Expr, type:Expr):Expr
     {
-        var id = macro dust.type.TypeIndex.getClassID($type);
+        var id = macro dust.type.TypeIndex.getClassID($type, '${self.pos}');
         return macro (untyped $self.addComponent)($id, $component);
     }
         
@@ -54,7 +54,7 @@ class Entity
 
     macro public function remove(self:ExprOf<Entity>, component:Expr):Expr
     {
-        var id = macro dust.type.TypeIndex.getClassID($component);
+        var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
         return macro (untyped $self.removeComponentWithID)($id);
     }
 
@@ -111,13 +111,13 @@ class Entity
 
     macro public function get(self:ExprOf<Entity>, component:Expr):Expr
     {
-        var id = macro dust.type.TypeIndex.getClassID($component);
+        var id = macro dust.type.TypeIndex.getClassID($component, '${Context.getLocalClass()}.${Context.getLocalMethod()}');
 		return macro (untyped $self.components).get($id);
     }
 
     macro public function has(self:ExprOf<Entity>, component:Expr):Expr
     {
-        var id = macro dust.type.TypeIndex.getClassID($component);
+        var id = macro dust.type.TypeIndex.getClassID($component, '${Context.getLocalClass()}.${Context.getLocalMethod()}');
         return macro (untyped $self.bitfield).get($id);
     }
 

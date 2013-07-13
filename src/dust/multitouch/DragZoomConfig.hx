@@ -12,5 +12,5 @@ class DragZoomConfig implements DependentConfig
         return [MultiTouchConfig];
 
     public function configure()
-        factory.make()
+        factory.make();
 }
