@@ -32,7 +32,7 @@ class PaintersConfig implements DependentConfig
     public function configure()
     {
         systems
-            .map(PainterSystem)
+            .map(PainterSystem, 0)
             .toCollection([Camera, Painters], sorter)
             .withName("Painters");
     }

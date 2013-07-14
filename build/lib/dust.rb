@@ -46,11 +46,11 @@ class Dust
       when 'iphone', flags
         openfl.make 'ios', flags
       when 'iphone_simulator'
-        openfl.make 'ios', flags << ' -simulator'
+        openfl.make 'ios', flags << '-simulator'
       when 'ipad'
-        openfl.make 'ios', flags << ' -ipad'
+        openfl.make 'ios', flags << '-ipad'
       when 'ipad_simulator'
-        openfl.make 'ios', flags << ' -ipad -simulator'
+        openfl.make 'ios', flags << '-ipad -simulator'
       else
         puts "dust unable to make #{target} - unsupported target"
     end

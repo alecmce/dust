@@ -9,7 +9,6 @@ import haxe.macro.Type;
 
 #end
 
-import dust.collections.api.Collection;
 import dust.collections.control.CollectionMap;
 import dust.components.BitfieldFactory;
 import dust.entities.Entity;
@@ -54,7 +53,7 @@ class SystemMapping
         return macro (untyped $self.defineCollection)($ids, $sorter, $name);
     }
 
-        function defineCollection(components:Array<Int>, ?sorter:Entity->Entity->Int = null, ?name:String = ""):SystemMapping
+        function defineCollection(components:Array<Int>, sorter:Entity->Entity->Int, name:String):SystemMapping
         {
             var factory:BitfieldFactory = injector.getInstance(BitfieldFactory);
             var bitfield = factory.makeDefined(components);

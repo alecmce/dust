@@ -24,13 +24,13 @@ class PhysicsConfig implements DependentConfig
     public function configure()
     {
         systems
-            .map(getPhysicsSystem())
+            .map(getPhysicsSystem(), 0)
             .toCollection([State, Physics])
             .withTimedUpdate(1 / 100.0)
             .withName("Physics");
 
         systems
-            .map(WritePhysicsToPositionSystem)
+            .map(WritePhysicsToPositionSystem, 0)
             .toCollection([State, Position])
             .withName("Write Physics To Position");
     }

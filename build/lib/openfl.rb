@@ -28,22 +28,22 @@ class OpenFL
   end
 
   def test(target, flags)
-    command = "openfl test #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
+    command = "openfl test #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
 
   def update(target, flags)
-    command = "openfl update #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
+    command = "openfl update #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
 
   def build(target, flags)
-    command = "openfl build #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
+    command = "openfl build #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
 
   def run(target, flags)
-    command = "openfl run #{target}.nmml #{target} #{flags.empty? ? '' : flags}"
+    command = "openfl run #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
 

@@ -34,6 +34,11 @@ class Position
 
     public function set(x:Float, y:Float)
     {
+        #if debug
+        if (x != x || y != y)
+            throw new Error("Position set to null!");
+        #end
+
         this.x = x;
         this.y = y;
     }

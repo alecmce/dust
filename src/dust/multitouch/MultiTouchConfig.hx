@@ -44,7 +44,7 @@ class MultiTouchConfig implements DependentConfig
         app.isMultiTouch ? mapMultiTouchSystem() : mapClickTouchSystem();
 
         systems
-            .map(DragZoomSystem)
+            .map(DragZoomSystem, 0)
             .toCollection([GestureAction, DragZoomGesture])
             .withName('DragZoom');
     }
@@ -52,14 +52,14 @@ class MultiTouchConfig implements DependentConfig
         function mapMultiTouchSystem()
         {
             systems
-                .map(MultiTouchSystem)
+                .map(MultiTouchSystem, 0)
                 .withName('MultiTouch');
         }
 
         function mapClickTouchSystem()
         {
             systems
-                .map(MouseTouchSystem)
+                .map(MouseTouchSystem, 0)
                 .withName('MultiTouch');
         }
 }

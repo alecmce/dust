@@ -52,12 +52,12 @@ class QuadTreeVisualizationExample implements DependentConfig
         tree = new QuadTree<Entity>(range, 1, 0.001);
 
         systems
-            .map(MovingPositionsSystem)
+            .map(MovingPositionsSystem, 0)
             .toCollection([Position, Delta])
             .withName("MovingPositions");
 
         systems
-            .map(UpdateQuadTreesSystem)
+            .map(UpdateQuadTreesSystem, 0)
             .toCollection([QuadTree])
             .withName("UpdateQuadTrees")
             .withMetrics(metrics);

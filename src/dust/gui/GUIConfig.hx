@@ -43,7 +43,7 @@ class GUIConfig implements DependentConfig
             .toListeners(UIRootManager);
 
         systems
-            .map(UpdateUISystem)
+            .map(UpdateUISystem, 0)
             .toCollection([UIContainer, Position])
             .withName("UpdateUI");
     }

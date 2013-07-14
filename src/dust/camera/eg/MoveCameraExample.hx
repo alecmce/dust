@@ -8,8 +8,6 @@ import dust.systems.impl.Systems;
 import dust.camera.data.Camera;
 import dust.context.DependentConfig;
 
-import dust.Injector;
-
 class MoveCameraExample implements DependentConfig
 {
     @inject public var systems:Systems;
@@ -20,7 +18,7 @@ class MoveCameraExample implements DependentConfig
     public function configure()
     {
         systems
-            .map(KeysMoveCameraSystem)
+            .map(KeysMoveCameraSystem, 0)
             .toCollection([Camera])
             .withName("KeysMoveCamera");
     }

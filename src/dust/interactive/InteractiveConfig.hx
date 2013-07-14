@@ -51,22 +51,22 @@ class InteractiveConfig implements DependentConfig
         injector.mapSingleton(TouchInteractiveFactory);
 
         systems
-            .map(TouchSystem)
+            .map(TouchSystem, 0)
             .toCollection([TouchInteractive, Touchable])
             .withName("Click");
 
         systems
-            .map(DragSystem)
+            .map(DragSystem, 0)
             .toCollection([TouchInteractive, Draggable, Position])
             .withName("Drag");
 
         systems
-            .map(ReflectionSystem)
+            .map(ReflectionSystem, 0)
             .toCollection([TouchInteractive, Reflection, Position, DragFocus])
             .withName("Reflection");
 
         systems
-            .map(OffsetSystem)
+            .map(OffsetSystem, 0)
             .toCollection([TouchInteractive, Offsets, Position, DragFocus])
             .withName("Offset");
     }

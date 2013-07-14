@@ -105,6 +105,29 @@ namespace :run do
 
 end
 
+namespace :fix do
+
+  task :semicolons do
+    
+    previous_stderr, $stderr = $stderr, StringIO.new
+
+    list = `rake make:flash 2>&1`.scan(/(.+?):([0-9]+): characters ([0-9]+)-([0-9]+) : Missing ;/)
+
+    list.each do |fileName, lineNumber, startChar, endChar|
+      lines = File.readlines(fileName)
+      index = lineNumber.to_i - 1
+      lines[index] = "#{lines[index].chomp};\n"
+      File.open(fileName, "w") do |file|
+        file.puts lines
+      end
+    end
+
+    $stderr = previous_stderr
+
+  end
+
+end
+
 namespace :haxelib do
 
   task :package do
