@@ -1,9 +1,9 @@
 package dust.collections.control;
 
-import dust.components.MockComponentB;
+import dust.bitfield.MockComponentB;
 import dust.entities.Entity;
 import dust.collections.api.Collection;
-import dust.components.MockComponentA;
+import dust.bitfield.MockComponentA;
 import dust.entities.Entities;
 import flash.display.Sprite;
 import dust.context.Context;

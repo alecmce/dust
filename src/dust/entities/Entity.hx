@@ -1,7 +1,7 @@
 package dust.entities;
 
 import dust.entities.Entity;
-import dust.components.Bitfield;
+import dust.bitfield.Bitfield;
 
 #if macro
 import haxe.macro.Expr;

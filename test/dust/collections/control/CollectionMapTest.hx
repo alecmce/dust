@@ -6,9 +6,9 @@ import dust.context.Context;
 import dust.collections.control.CollectionMap;
 import dust.collections.control.CollectionMapping;
 import dust.collections.data.CollectionList;
-import dust.components.BitfieldFactory;
-import dust.components.MockComponentA;
-import dust.components.MockComponentB;
+import dust.bitfield.BitfieldFactory;
+import dust.bitfield.MockComponentA;
+import dust.bitfield.MockComponentB;
 import dust.entities.Entity;
 import dust.entities.Entities;
 

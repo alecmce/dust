@@ -9,7 +9,7 @@ import dust.systems.impl.Systems;
 import dust.systems.System;
 import dust.collections.control.CollectionMap;
 import dust.entities.Entities;
-import dust.components.BitfieldFactory;
+import dust.bitfield.BitfieldFactory;
 import dust.Injector;
 
 class SystemsTest

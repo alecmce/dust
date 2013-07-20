@@ -1,7 +1,7 @@
 package dust.entities;
 
-import dust.components.MockComponentA;
-import dust.components.BitfieldFactory;
+import dust.bitfield.MockComponentA;
+import dust.bitfield.BitfieldFactory;
 import dust.entities.Entity;
 import dust.entities.Entities;
 

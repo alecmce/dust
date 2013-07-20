@@ -2,7 +2,7 @@ package dust.collections.control;
 
 import dust.entities.Entity;
 import dust.collections.api.CollectionListeners;
-import dust.components.MockComponentA;
+import dust.bitfield.MockComponentA;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
 import flash.display.Sprite;

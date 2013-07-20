@@ -1,4 +1,4 @@
-package dust.components;
+package dust.bitfield;
 
 import dust.lists.SimpleList;
 import dust.lists.LinkedList;

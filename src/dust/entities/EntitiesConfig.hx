@@ -2,7 +2,7 @@ package dust.entities;
 
 import dust.signals.SignalMapConfig;
 import dust.commands.CommandMap;
-import dust.components.BitfieldFactory;
+import dust.bitfield.BitfieldFactory;
 import dust.context.Config;
 import dust.context.Context;
 import dust.context.DependentConfig;

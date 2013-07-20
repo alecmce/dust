@@ -1,11 +1,11 @@
 package dust.entities;
 
-import dust.components.MockComponentB;
-import dust.components.MockComponentA;
-import dust.components.BitfieldFactory;
+import dust.bitfield.MockComponentB;
+import dust.bitfield.MockComponentA;
+import dust.bitfield.BitfieldFactory;
 import dust.entities.Entities;
 import dust.lists.Pool;
-import dust.components.Bitfield;
+import dust.bitfield.Bitfield;
 import dust.entities.Entity;
 import massive.munit.async.AsyncFactory;
 

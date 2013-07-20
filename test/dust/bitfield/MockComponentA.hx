@@ -1,4 +1,4 @@
-package dust.components;
+package dust.bitfield;
 
 class MockComponentA
 {

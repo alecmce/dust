@@ -1,7 +1,7 @@
 package dust.collections;
 
 import dust.collections.control.CollectionSubscriber;
-import dust.components.MockComponentA;
+import dust.bitfield.MockComponentA;
 import dust.collections.data.CollectionList;
 import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;

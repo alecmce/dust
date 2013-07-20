@@ -1,6 +1,6 @@
-package dust.components;
+package dust.bitfield;
 
-import dust.components.Bitfield;
+import dust.bitfield.Bitfield;
 import massive.munit.async.AsyncFactory;
 
 class BitfieldTest

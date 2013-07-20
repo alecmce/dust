@@ -4,7 +4,7 @@ import dust.collections.data.CollectionList;
 import dust.collections.api.Collection;
 import dust.collections.api.CollectionListeners;
 import dust.commands.Command;
-import dust.components.Bitfield;
+import dust.bitfield.Bitfield;
 import dust.entities.Entity;
 import dust.entities.Entities;
 import dust.entities.EntityList;

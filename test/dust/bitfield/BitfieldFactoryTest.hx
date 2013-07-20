@@ -1,9 +1,9 @@
-package dust.components;
+package dust.bitfield;
 
 import dust.type.TypeIndex;
-import dust.components.BitfieldFactory;
-import dust.components.Bitfield;
-import dust.components.Bitfield.ZeroBitfieldDimensionError;
+import dust.bitfield.BitfieldFactory;
+import dust.bitfield.Bitfield;
+import dust.bitfield.Bitfield.ZeroBitfieldDimensionError;
 
 class BitfieldFactoryTest
 {

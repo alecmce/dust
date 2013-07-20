@@ -1,4 +1,4 @@
-package dust.components;
+package dust.bitfield;
 
 #if macro
 import haxe.macro.Expr;

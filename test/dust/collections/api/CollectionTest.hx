@@ -2,8 +2,8 @@ package dust.collections.api;
 
 import dust.entities.Entities;
 import dust.entities.Entity;
-import dust.components.BitfieldFactory;
-import dust.components.Bitfield;
+import dust.bitfield.BitfieldFactory;
+import dust.bitfield.Bitfield;
 import dust.collections.api.CollectionListeners;
 import dust.collections.data.EmptyCollectionListeners;
 import dust.collections.api.CollectionListeners;

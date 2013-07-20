@@ -8,7 +8,7 @@ import haxe.macro.Type;
 #end
 
 import dust.collections.control.CollectionMap;
-import dust.components.BitfieldFactory;
+import dust.bitfield.BitfieldFactory;
 import dust.entities.Entity;
 import dust.systems.impl.CollectionSorts;
 import dust.systems.System;

@@ -4,7 +4,7 @@ import dust.entities.Entity;
 import dust.entities.Entities;
 import dust.lists.PooledList;
 import dust.lists.Pool;
-import dust.components.BitfieldFactory;
+import dust.bitfield.BitfieldFactory;
 
 class Entities
 {

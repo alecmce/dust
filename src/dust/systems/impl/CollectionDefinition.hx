@@ -1,6 +1,6 @@
 package dust.systems.impl;
 
-import dust.components.Bitfield;
+import dust.bitfield.Bitfield;
 import dust.entities.Entity;
 import dust.collections.api.Collection;
 
