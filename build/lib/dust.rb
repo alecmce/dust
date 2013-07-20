@@ -42,7 +42,9 @@ class Dust
       when 'flash'
         openfl.make 'flash', flags
       when 'html5', flags
-        haxe.html5
+        openfl.build 'html5', flags
+        openfl.update 'html5', flags
+        launch_html5 File.join(@root, 'bin', 'html5', 'bin', 'index.html')
       when 'iphone', flags
         openfl.make 'ios', flags
       when 'iphone_simulator'
@@ -87,7 +89,7 @@ class Dust
       when 'flash'
         openfl.run 'flash', flags
       when 'html5'
-        puts 'TODO running html5 target not implemented yet!'
+        openfl.run 'html5'
       when 'ipad'
         openfl.test 'ios', flags << ' -ipad'
       when 'iphone_simulator'
@@ -111,6 +113,16 @@ class Dust
 
     def openfl
       @openfl ||= OpenFL.new @root, config, library
+    end
+
+    def launch_html5(path)
+        system "open -a firefox http://localhost:8080"
+        system "pushd #{File.dirname(path)}; python -m SimpleHTTPServer 8080; popd;"
+    end
+
+    def system(command)
+        puts "SYSTEM #{command}"
+        `#{command}`
     end
 
 end

@@ -27,7 +27,7 @@ flash:
   swf_version: 11.4
 
 js:
-  libs: jeash
+  libs: openfl-html5
 
 cpp:
   libs: hxcpp

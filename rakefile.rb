@@ -56,7 +56,7 @@ namespace :make do
   end
 
   task :html5 do
-    dust.make 'html5'
+    dust.make 'html5', ['-minify', '-yui']
   end
 
   task :iphone do
