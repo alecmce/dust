@@ -1,14 +1,14 @@
 package dust.entities;
 
-import dust.interactive.data.Offsets;
 import dust.entities.Entity;
 import dust.components.Bitfield;
-import dust.lists.Pool;
 
+#if macro
 import haxe.macro.Expr;
 import haxe.macro.Expr.ExprOf;
 import haxe.macro.Context;
 import haxe.macro.Type;
+#end
 
 class Entity
 {
@@ -17,7 +17,7 @@ class Entity
     public var isChanged:Bool;
     public var isReleased:Bool;
 
-    var components:Map<Int, Dynamic>;
+    var components:Array<Dynamic>;
     var deleted:Array<Int>;
     var cached:Array<Int>;
 
@@ -25,15 +25,15 @@ class Entity
 	{
 		this.id = id;
         this.bitfield = bitfield;
-        isChanged = false;
-        isReleased = false;
+        this.isChanged = false;
+        this.isReleased = false;
 
-        components = new Map<Int, Dynamic>();
+        components = new Array<Dynamic>();
         deleted = new Array<Int>();
         cached = new Array<Int>();
     }
 
-    macro inline public function add(self:ExprOf<Entity>, component:Expr):Expr
+    macro public function add(self:ExprOf<Entity>, component:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getInstanceID($component, '${self.pos}');
         return macro (untyped $self.addComponent)($id, $component);
@@ -47,7 +47,7 @@ class Entity
         
         inline function addComponent(componentID:Int, component:Dynamic)
         {
-            components.set(componentID, component);
+            components[componentID] = component;
             bitfield.assert(componentID);
             isChanged = true;
         }
@@ -60,7 +60,7 @@ class Entity
 
         inline function removeComponentWithID(componentID:Int):Bool
         {
-            var isExistingComponent = components.exists(componentID);
+            var isExistingComponent = components[componentID] != null;
             if (isExistingComponent)
                 markComponentAsRemoved(componentID);
             return isExistingComponent;
@@ -87,8 +87,10 @@ class Entity
     {
         bitfield.reset();
         isChanged = true;
-        for (componentID in components.keys())
-            deleted.push(componentID);
+
+        for (i in 0...components.length)
+            if (components[i] != null)
+                deleted.push(i);
     }
 
     inline public function cacheDeletions()
@@ -104,20 +106,20 @@ class Entity
         for (componentID in cached)
         {
             if (!bitfield.get(componentID))
-                components.remove(componentID);
+                components[componentID] = null;
         }
         untyped cached.length = 0;
     }
 
     macro public function get(self:ExprOf<Entity>, component:Expr):Expr
     {
-        var id = macro dust.type.TypeIndex.getClassID($component, '${Context.getLocalClass()}.${Context.getLocalMethod()}');
-		return macro (untyped $self.components).get($id);
+        var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
+		return macro (untyped $self.components)[$id];
     }
 
     macro public function has(self:ExprOf<Entity>, component:Expr):Expr
     {
-        var id = macro dust.type.TypeIndex.getClassID($component, '${Context.getLocalClass()}.${Context.getLocalMethod()}');
+        var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
         return macro (untyped $self.bitfield).get($id);
     }
 

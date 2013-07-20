@@ -1,16 +1,16 @@
 package dust.physics;
 
-import dust.systems.System;
-import dust.physics.systems.MultiPassRK4PhysicsSystem;
-import dust.physics.systems.SinglePassRK4PhysicsSystem;
-import dust.physics.systems.WritePhysicsToPositionSystem;
+import dust.context.Config;
+import dust.context.DependentConfig;
 import dust.geom.data.Position;
 import dust.physics.data.Physics;
 import dust.physics.data.State;
 import dust.systems.impl.Systems;
+import dust.physics.systems.MultiPassRK4PhysicsSystem;
+import dust.physics.systems.SinglePassRK4PhysicsSystem;
+import dust.physics.systems.WritePhysicsToPositionSystem;
+import dust.systems.System;
 import dust.systems.SystemsConfig;
-import dust.context.DependentConfig;
-import dust.context.Config;
 
 class PhysicsConfig implements DependentConfig
 {

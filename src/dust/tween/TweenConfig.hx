@@ -4,7 +4,6 @@ import dust.tween.data.Tween;
 import dust.tween.systems.TweenSystem;
 import dust.context.Config;
 import dust.context.DependentConfig;
-import dust.entities.EntitiesConfig;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
 

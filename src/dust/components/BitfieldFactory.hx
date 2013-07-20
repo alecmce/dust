@@ -1,9 +1,11 @@
 package dust.components;
 
+#if macro
 import haxe.macro.Expr;
 import haxe.macro.Expr.ExprOf;
 import haxe.macro.Context;
 import haxe.macro.Type;
+#end
 
 class BitfieldFactory
 {

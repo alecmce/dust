@@ -73,9 +73,7 @@ class DragSystem implements System
         function endDragIfOngoing()
         {
             if (touchTarget != null)
-            {
                 touchTarget.remove(DragFocus);
-                touchTarget = null;
-            }
+            touchTarget = null;
         }
 }

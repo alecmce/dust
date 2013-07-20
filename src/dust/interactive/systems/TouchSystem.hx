@@ -3,16 +3,9 @@ package dust.interactive.systems;
 import dust.interactive.control.TouchSelector;
 import dust.multitouch.control.Touches;
 import dust.interactive.data.Touchable;
-import dust.camera.data.Camera;
-import dust.geom.data.Position;
 import dust.systems.System;
-import dust.interactive.data.TouchInteractive;
 import dust.collections.api.Collection;
 import dust.entities.Entity;
-
-import flash.display.DisplayObjectContainer;
-import flash.display.InteractiveObject;
-import flash.events.MouseEvent;
 
 class TouchSystem implements System
 {

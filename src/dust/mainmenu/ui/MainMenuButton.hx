@@ -1,6 +1,5 @@
 package dust.mainmenu.ui;
 
-import flash.events.TouchEvent;
 import flash.events.MouseEvent;
 import flash.display.Sprite;
 import flash.display.DisplayObject;

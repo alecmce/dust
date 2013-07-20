@@ -10,10 +10,12 @@ import dust.entities.Entities;
 import dust.lists.LinkedList;
 import dust.lists.SimpleList;
 
+#if macro
 import haxe.macro.Expr;
 import haxe.macro.Expr.ExprOf;
 import haxe.macro.Context;
 import haxe.macro.Type;
+#end
 
 class CollectionMap
 {

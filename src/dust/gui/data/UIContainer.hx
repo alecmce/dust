@@ -2,7 +2,6 @@ package dust.gui.data;
 
 import dust.entities.Entity;
 import flash.display.Sprite;
-import flash.geom.Rectangle;
 
 class UIContainer
 {

@@ -1,16 +1,15 @@
 package dust.type;
 
+#if macro
 import haxe.macro.Expr;
 import haxe.macro.Expr.ExprOf;
 import haxe.macro.Context;
 import haxe.macro.Type;
+#end
 
 class TypeIndex
 {
 	inline static var IGNORE_GENERIC_TYPES = true;
-
-    static var types:Map<String, Int>;
-    static var nextId:Int;
 
     macro public static function getInstanceID(component:Expr, reference:String):Expr
     {
@@ -46,6 +45,8 @@ class TypeIndex
     }
 
     #if macro
+    static var types:Array<String>;
+
 	static function getTypeName(type:Type, reference:String):String
 	{
 		var str = new StringBuf();
@@ -126,23 +127,17 @@ class TypeIndex
     static function mapNameToID(name:String):Int
     {
         if (types == null)
-        {
-            nextId = 0;
-            types = new Map<String, Int>();
-        }
+            types = new Array<String>();
 
-        var index = 0;
-        if (types.exists(name))
-        {
-            index = types.get(name);
-        }
-        else
-        {
-            index = nextId++;
-            types.set(name, index);
-        }
+        var isDefined = false;
+        var index = types.length;
+        while (!isDefined && --index >= 0)
+            isDefined = types[index] == name;
 
-        return index;
+        if (!isDefined)
+            index = types.push(name) - 1;
+
+        return index + 1;
     }
     #end
 }

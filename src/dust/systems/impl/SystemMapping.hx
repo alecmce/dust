@@ -1,12 +1,10 @@
 package dust.systems.impl;
 
 #if macro
-
 import haxe.macro.Expr;
 import haxe.macro.Expr.ExprOf;
 import haxe.macro.Context;
 import haxe.macro.Type;
-
 #end
 
 import dust.collections.control.CollectionMap;
