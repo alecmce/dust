@@ -41,8 +41,10 @@ testing:
   resources: assets
   templates: nil
   coverage: nil
+  libs: openfl-validation
   coverage_ignored: nil
   disable_inline: true
+  debug: false
 
 webos:
   width: 200

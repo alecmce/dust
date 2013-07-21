@@ -1,6 +1,5 @@
 package dust.geom.data;
 
-
 class Position
 {
     public static function areEqual(a:Position, b:Position):Bool
@@ -36,7 +35,7 @@ class Position
     {
         #if debug
         if (x != x || y != y)
-            throw new Error("Position set to null!");
+            throw "Position set to null!";
         #end
 
         this.x = x;

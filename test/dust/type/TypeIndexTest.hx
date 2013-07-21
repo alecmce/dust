@@ -5,39 +5,39 @@ class TypeIndexTest
 {
     @Test public function reflectorGoesAbove32()
     {
-        TypeIndex.getClassID(TypeExample1);
-        TypeIndex.getClassID(TypeExample2);
-        TypeIndex.getClassID(TypeExample3);
-        TypeIndex.getClassID(TypeExample4);
-        TypeIndex.getClassID(TypeExample5);
-        TypeIndex.getClassID(TypeExample6);
-        TypeIndex.getClassID(TypeExample7);
-        TypeIndex.getClassID(TypeExample8);
-        TypeIndex.getClassID(TypeExample9);
-        TypeIndex.getClassID(TypeExample10);
-        TypeIndex.getClassID(TypeExample11);
-        TypeIndex.getClassID(TypeExample12);
-        TypeIndex.getClassID(TypeExample13);
-        TypeIndex.getClassID(TypeExample14);
-        TypeIndex.getClassID(TypeExample15);
-        TypeIndex.getClassID(TypeExample16);
-        TypeIndex.getClassID(TypeExample17);
-        TypeIndex.getClassID(TypeExample18);
-        TypeIndex.getClassID(TypeExample19);
-        TypeIndex.getClassID(TypeExample20);
-        TypeIndex.getClassID(TypeExample21);
-        TypeIndex.getClassID(TypeExample22);
-        TypeIndex.getClassID(TypeExample23);
-        TypeIndex.getClassID(TypeExample24);
-        TypeIndex.getClassID(TypeExample25);
-        TypeIndex.getClassID(TypeExample26);
-        TypeIndex.getClassID(TypeExample27);
-        TypeIndex.getClassID(TypeExample28);
-        TypeIndex.getClassID(TypeExample29);
-        TypeIndex.getClassID(TypeExample30);
-        TypeIndex.getClassID(TypeExample31);
-        TypeIndex.getClassID(TypeExample32);
-        Assert.isTrue(TypeIndex.getClassID(TypeExample33) > 32);
+        TypeIndex.getClassID(TypeExample1, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample2, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample3, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample4, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample5, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample6, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample7, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample8, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample9, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample10, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample11, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample12, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample13, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample14, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample15, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample16, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample17, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample18, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample19, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample20, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample21, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample22, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample23, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample24, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample25, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample26, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample27, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample28, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample29, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample30, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample31, 'TypeIndexTest.reflectorGoesAbove32');
+        TypeIndex.getClassID(TypeExample32, 'TypeIndexTest.reflectorGoesAbove32');
+        Assert.isTrue(TypeIndex.getClassID(TypeExample33, 'TypeIndexTest.reflectorGoesAbove32') > 32);
     }
 }
 

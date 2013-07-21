@@ -34,7 +34,7 @@ class SystemMap
         this.metrics = metrics;
     }
 
-    public function map(type:Class<System>, priority:Int):SystemMapping
+    public function map(type:Class<System>, priority:Int = 0):SystemMapping
     {
         var mapping = getMapping(type);
         if (mapping == null)

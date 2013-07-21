@@ -15,17 +15,17 @@ class TypeMap
         storage = new Map<Int, Dynamic>();
 
     macro public function add(self:ExprOf<TypeMap>, component:Expr):Expr
-        return macro $self.storage.set(TypeIndex.getInstanceID($component), $component);
+        return macro $self.storage.set(TypeIndex.getInstanceID($component, '${self.pos}'), $component);
 
     macro public function addAsType(self:ExprOf<TypeMap>, component:Expr, type:Expr)
-        return macro $self.storage.set(TypeIndex.getClassID($type), $component);
+        return macro $self.storage.set(TypeIndex.getClassID($type, '${self.pos}'), $component);
 
     macro public function exists(self:ExprOf<TypeMap>, component:Expr):Expr
-        return macro $self.storage.exists(TypeIndex.getClassID($component));
+        return macro $self.storage.exists(TypeIndex.getClassID($component, '${self.pos}'));
 
     macro public function get(self:ExprOf<TypeMap>, component:Expr):Expr
-        return macro $self.storage.get(TypeIndex.getClassID($component));
+        return macro $self.storage.get(TypeIndex.getClassID($component, '${self.pos}'));
 
     macro public function remove(self:ExprOf<TypeMap>, component:Expr):Expr
-        return macro $self.storage.remove(TypeIndex.getClassID($component));
+        return macro $self.storage.remove(TypeIndex.getClassID($component, '${self.pos}'));
 }

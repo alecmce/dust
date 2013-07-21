@@ -50,14 +50,14 @@ class SystemMappingTest
 
     @Test public function canApplySystemMappingToSystemList()
     {
-        mapping = systemMap.map(MockMappedSystem);
+        mapping = systemMap.map(MockMappedSystem, 0);
         mapping.apply(loop);
         Assert.isType(loop.addedSystem, MockMappedSystem);
     }
 
     @Test public function timedUpdateMeansSystemIsWrappedInTimedSystem()
     {
-        mapping = systemMap.map(MockMappedSystem);
+        mapping = systemMap.map(MockMappedSystem, 0);
         mapping.withTimedUpdate(1000);
         mapping.apply(loop);
         Assert.isType(loop.addedSystem, TimedSystem);
@@ -65,7 +65,7 @@ class SystemMappingTest
 
     @Test public function withCollectionDefinesCollectionInjectedIntoSystem()
     {
-        mapping = systemMap.map(MockCollectionSystem);
+        mapping = systemMap.map(MockCollectionSystem, 0);
         mapping.toCollection([MockComponentA]);
         mapping.apply(loop);
 

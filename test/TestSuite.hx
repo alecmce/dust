@@ -1,6 +1,9 @@
 import massive.munit.TestSuite;
 
 import dust.ArrayUtilTest;
+import dust.bitfield.BitfieldFactoryTest;
+import dust.bitfield.BitfieldListenersTest;
+import dust.bitfield.BitfieldTest;
 import dust.camera.CameraConfigTest;
 import dust.camera.config.CameraDecoratorTest;
 import dust.camera.data.CameraTest;
@@ -13,9 +16,6 @@ import dust.collections.control.CollectionSubscriberTest;
 import dust.collections.control.CollectionUpdateTest;
 import dust.commands.CommandMapConfigTest;
 import dust.commands.CommandMapTest;
-import dust.bitfield.BitfieldFactoryTest;
-import dust.bitfield.BitfieldListenersTest;
-import dust.bitfield.BitfieldTest;
 import dust.console.ConsoleConfigTest;
 import dust.console.impl.ConsoleInputTest;
 import dust.console.impl.ConsoleLogTest;
@@ -85,6 +85,9 @@ class TestSuite extends massive.munit.TestSuite
 		super();
 
 		add(dust.ArrayUtilTest);
+		add(dust.bitfield.BitfieldFactoryTest);
+		add(dust.bitfield.BitfieldListenersTest);
+		add(dust.bitfield.BitfieldTest);
 		add(dust.camera.CameraConfigTest);
 		add(dust.camera.config.CameraDecoratorTest);
 		add(dust.camera.data.CameraTest);
@@ -97,9 +100,6 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.collections.control.CollectionUpdateTest);
 		add(dust.commands.CommandMapConfigTest);
 		add(dust.commands.CommandMapTest);
-		add(dust.bitfield.BitfieldFactoryTest);
-		add(dust.bitfield.BitfieldListenersTest);
-		add(dust.bitfield.BitfieldTest);
 		add(dust.console.ConsoleConfigTest);
 		add(dust.console.impl.ConsoleInputTest);
 		add(dust.console.impl.ConsoleLogTest);

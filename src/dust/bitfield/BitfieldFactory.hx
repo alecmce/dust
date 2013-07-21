@@ -19,7 +19,7 @@ class BitfieldFactory
 
     macro public function make(self:ExprOf<BitfieldFactory>, components:Expr):Expr
     {
-        var ids = macro dust.type.TypeIndex.getClassIDList($components);
+        var ids = macro dust.type.TypeIndex.getClassIDList($components, '${self.pos}');
         return macro $self.makeDefined($ids);
     }
 

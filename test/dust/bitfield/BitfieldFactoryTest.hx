@@ -59,14 +59,14 @@ class BitfieldFactoryTest
 
     @Test public function makeWithComponentsAutomaticallySetsFlags()
     {
-        var id = TypeIndex.getClassID(MockComponentA);
+        var id = TypeIndex.getClassID(MockComponentA, 'BitfieldFactoryTest.makeWithComponentsAutomaticallySetsFlags');
         var bitfield = factory.make([MockComponentA]);
         Assert.isTrue(bitfield.get(id));
     }
 
     @Test public function makeWithComponentsDoesNotSetFlagsForComponentsNotSet()
     {
-        var id = TypeIndex.getClassID(MockComponentB);
+        var id = TypeIndex.getClassID(MockComponentB, 'BitfieldFactoryTest.makeWithComponentsDoesNotSetFlagsForComponentsNotSet');
         var bitfield = factory.make([MockComponentA]);
         Assert.isFalse(bitfield.get(id));
     }
