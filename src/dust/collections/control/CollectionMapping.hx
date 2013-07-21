@@ -3,12 +3,9 @@ package dust.collections.control;
 import dust.collections.data.CollectionList;
 import dust.collections.api.Collection;
 import dust.collections.api.CollectionListeners;
-import dust.commands.Command;
 import dust.bitfield.Bitfield;
 import dust.entities.Entity;
-import dust.entities.Entities;
 import dust.entities.EntityList;
-import dust.lists.LinkedList;
 import dust.lists.SimpleList;
 
 import dust.Injector;

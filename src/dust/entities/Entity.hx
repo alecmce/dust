@@ -44,7 +44,7 @@ class Entity
         var id = macro dust.type.TypeIndex.getClassID($type, '${self.pos}');
         return macro (untyped $self.addComponent)($id, $component);
     }
-        
+
         inline function addComponent(componentID:Int, component:Dynamic)
         {
             components[componentID] = component;
@@ -114,14 +114,20 @@ class Entity
     macro public function get(self:ExprOf<Entity>, component:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
-		return macro (untyped $self.components)[$id];
+		return macro (untyped $self.getComponent)($id);
     }
+
+        inline function getComponent<T>(index:Int):T
+            return cast components[index];
 
     macro public function has(self:ExprOf<Entity>, component:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
-        return macro (untyped $self.bitfield).get($id);
+        return macro (untyped $self.hasComponent)($id);
     }
+
+        inline function hasComponent(index:Int):Bool
+            return bitfield.get(index);
 
 	inline public function iterator():Iterator<Dynamic>
 		return components.iterator();

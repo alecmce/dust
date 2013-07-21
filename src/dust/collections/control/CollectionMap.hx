@@ -1,14 +1,11 @@
 package dust.collections.control;
 
-import dust.collections.data.CollectionList;
-import dust.collections.api.Collection;
-import dust.Injector;
-import dust.bitfield.BitfieldFactory;
-import dust.entities.EntityList;
 import dust.bitfield.Bitfield;
+import dust.bitfield.BitfieldFactory;
+import dust.collections.api.Collection;
+import dust.collections.data.CollectionList;
 import dust.entities.Entities;
-import dust.lists.LinkedList;
-import dust.lists.SimpleList;
+import dust.Injector;
 
 #if macro
 import haxe.macro.Expr;
@@ -44,10 +41,7 @@ class CollectionMap
         }
 
     public function mapBitfield(bitfield:Bitfield):CollectionMapping
-    {
-        var key = bitfield.toString();
-        return getOrMakeMapping(key, bitfield);
-    }
+        return getOrMakeMapping(bitfield.toString(), bitfield);
 
         function getOrMakeMapping(key:String, bitfield:Bitfield):CollectionMapping
         {

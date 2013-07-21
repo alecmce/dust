@@ -7,7 +7,6 @@ import dust.gui.control.UISliderFactory;
 import dust.gui.control.UILabelledSliderFactory;
 import dust.gui.control.UILabelFactory;
 import dust.text.SmallWhiteHelveticaFontConfig;
-import dust.text.BitmapTextConfig;
 import dust.gui.systems.UIRootManager;
 import dust.collections.control.CollectionMap;
 import dust.entities.EntitiesConfig;
