@@ -1,5 +1,7 @@
 package dust.gui.data;
 
+import flash.geom.ColorTransform;
+
 class Color
 {
     public var rgb:Int;
@@ -10,10 +12,11 @@ class Color
         set(rgb, alpha);
     }
 
-    inline public function set(rgb:Int = 0, alpha:Float = 1.0)
+    inline public function set(rgb:Int = 0, alpha:Float = 1.0):Color
     {
         this.rgb = rgb;
         this.alpha = alpha;
+        return this;
     }
 
     inline public function getRed():Int
@@ -21,9 +24,10 @@ class Color
         return rgb >> 16;
     }
 
-    inline public function setRed(red:Int)
+    inline public function setRed(red:Int):Color
     {
         rgb = (rgb & 0x00FFFF) | (red << 16);
+        return this;
     }
 
     inline public function getGreen():Int
@@ -31,9 +35,10 @@ class Color
         return (rgb >>  8) & 0xFF;
     }
 
-    inline public function setGreen(green:Int)
+    inline public function setGreen(green:Int):Color
     {
         rgb = (rgb & 0xFF00FF) | (green << 8);
+        return this;
     }
 
     inline public function getBlue():Int
@@ -41,9 +46,34 @@ class Color
         return rgb & 0xFF;
     }
 
-    inline public function setBlue(blue:Int)
+    inline public function setBlue(blue:Int):Color
     {
         rgb = (rgb & 0xFFFF00) | blue;
+        return this;
+    }
+
+    inline public function getAlpha():Float
+    {
+        return alpha;
+    }
+
+    inline public function setAlpha(alpha:Float):Color
+    {
+        this.alpha = alpha;
+        return this;
+    }
+
+    public function getWhiteTransform():ColorTransform
+    {
+        var r = getRed() / 0xFF;
+        var g = getGreen() / 0xFF;
+        var b = getBlue() / 0xFF;
+        return new ColorTransform(r, g, b, 1);
+    }
+
+    public function getBlackTransform():ColorTransform
+    {
+        return new ColorTransform(1, 1, 1, 1, getRed(), getGreen(), getBlue());
     }
 
     public function toString():String
