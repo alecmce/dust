@@ -30,10 +30,10 @@ class CollectionMap
     macro public function map(self:ExprOf<CollectionMap>, components:Expr):Expr
     {
         var ids = macro dust.type.TypeIndex.getClassIDList($components, '${self.pos}');
-        return macro (untyped $self.mapDefined)($ids);
+        return macro ($self.mapDefined)($ids);
     }
 
-        function mapDefined(ids:Array<Int>):CollectionMapping
+        public function mapDefined(ids:Array<Int>):CollectionMapping
         {
             var bitfield = bitfieldFactory.makeDefined(ids);
             var key = bitfield.toString();
