@@ -1,6 +1,6 @@
 package dust.tween.systems;
 
-import dust.tween.data.Tween;
+import dust.tween.data.Tweens;
 import dust.entities.Entity;
 import dust.systems.System;
 import dust.collections.api.Collection;
@@ -20,13 +20,19 @@ class TweenSystem implements System
 
         inline function updateEntity(entity:Entity, deltaTime:Float)
         {
-            var tween:Tween = entity.get(Tween);
-            tween.update(entity, deltaTime);
+            var tweens:Tweens = entity.get(Tweens);
 
-            if (tween.isComplete())
+            for (tween in tweens)
             {
-                entity.remove(Tween);
-                tween.onComplete(entity);
+                tween.update(entity, deltaTime);
+                if (tween.isComplete())
+                {
+                    tweens.remove(tween);
+                    tween.onComplete(entity);
+                }
             }
+
+            if (tweens.getCount() == 0)
+                entity.remove(Tweens);
         }
 }

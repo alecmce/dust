@@ -1,6 +1,6 @@
 package dust.tween;
 
-import dust.tween.data.Tween;
+import dust.tween.data.Tweens;
 import dust.tween.systems.TweenSystem;
 import dust.context.Config;
 import dust.context.DependentConfig;
@@ -17,7 +17,7 @@ class TweenConfig implements DependentConfig
     public function configure()
     {
         systems.map(TweenSystem)
-            .toCollection([Tween])
+            .toCollection([Tweens])
             .withName("Tween");
     }
 }
