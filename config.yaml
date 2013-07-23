@@ -11,19 +11,19 @@ default:
   bin: bin
   preloader: nil
   src: src
-  width: 800
-  height: 600
   fps: 60
   background: 000000
   libs: openfl minject
   assets: assets
-  orientation: portrait
+  orientation: landscape
   resizable: false
   ndll:
   icon: assets/icon.svg
   debug: true
 
 flash:
+  width: 1024
+  height: 768
   swf_version: 11.4
 
 js:

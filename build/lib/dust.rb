@@ -42,8 +42,7 @@ class Dust
       when 'flash'
         openfl.make 'flash', flags
       when 'html5', flags
-        openfl.build 'html5', flags
-        openfl.update 'html5', flags
+        openfl.make 'html5', flags
         launch_html5 File.join(@root, 'bin', 'html5', 'bin', 'index.html')
       when 'iphone', flags
         openfl.make 'ios', flags

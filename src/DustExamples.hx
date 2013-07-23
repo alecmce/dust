@@ -1,5 +1,7 @@
 package;
 
+import flash.display.StageScaleMode;
+import flash.display.StageAlign;
 import dust.physics.eg.PhysicsExample;
 import dust.systems.SystemMetricsConfig;
 import dust.systems.eg.FastInsertionSortAlgorithmExample;
@@ -28,6 +30,9 @@ class DustExamples implements DependentConfig
 
     public static function main()
     {
+        flash.Lib.current.stage.align = StageAlign.TOP_LEFT;
+        flash.Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
+
         app = new Context()
             .configure(DustExamples)
             .start(new Sprite());
