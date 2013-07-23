@@ -12,6 +12,8 @@ default:
   preloader: nil
   src: src
   fps: 60
+  width: 1024
+  height: 768
   background: 000000
   libs: openfl minject
   assets: assets
@@ -22,8 +24,6 @@ default:
   debug: true
 
 flash:
-  width: 1024
-  height: 768
   swf_version: 11.4
 
 js:
