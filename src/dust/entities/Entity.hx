@@ -36,13 +36,13 @@ class Entity
     macro public function add(self:ExprOf<Entity>, component:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getInstanceID($component, '${self.pos}');
-        return macro (untyped $self.addComponent)($id, $component);
+        return macro @:privateAccess $self.addComponent($id, $component);
     }
 
     macro public function addAsType(self:ExprOf<Entity>, component:Expr, type:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getClassID($type, '${self.pos}');
-        return macro (untyped $self.addComponent)($id, $component);
+        return macro @:privateAccess $self.addComponent($id, $component);
     }
 
         inline function addComponent(componentID:Int, component:Dynamic)
@@ -55,7 +55,7 @@ class Entity
     macro public function remove(self:ExprOf<Entity>, component:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
-        return macro (untyped $self.removeComponentWithID)($id);
+        return macro @:privateAccess $self.removeComponentWithID($id);
     }
 
         inline function removeComponentWithID(componentID:Int):Bool
@@ -114,7 +114,7 @@ class Entity
     macro public function get(self:ExprOf<Entity>, component:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
-		return macro (untyped $self.getComponent)($id);
+		return macro @:privateAccess $self.getComponent($id);
     }
 
         inline function getComponent<T>(index:Int):T
@@ -123,7 +123,7 @@ class Entity
     macro public function has(self:ExprOf<Entity>, component:Expr):Expr
     {
         var id = macro dust.type.TypeIndex.getClassID($component, '${self.pos}');
-        return macro (untyped $self.hasComponent)($id);
+        return macro @:privateAccess $self.hasComponent($id);
     }
 
         inline function hasComponent(index:Int):Bool

@@ -48,10 +48,10 @@ class SystemMapping
     macro public function toCollection(self:ExprOf<SystemMapping>, collection:Expr, ?sorter:ExprOf<Entity->Entity->Int>, ?name:ExprOf<String>):Expr
     {
         var ids = macro dust.type.TypeIndex.getClassIDList($collection, '${self.pos}');
-        return macro ($self.defineCollection)($ids, $sorter, $name);
+        return macro @:privateAccess $self.defineCollection($ids, $sorter, $name);
     }
 
-        public function defineCollection(components:Array<Int>, sorter:Entity->Entity->Int, name:String):SystemMapping
+        function defineCollection(components:Array<Int>, sorter:Entity->Entity->Int, name:String):SystemMapping
         {
             var factory:BitfieldFactory = injector.getInstance(BitfieldFactory);
             var bitfield = factory.makeDefined(components);
