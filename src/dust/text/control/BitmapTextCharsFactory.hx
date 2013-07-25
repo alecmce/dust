@@ -28,7 +28,7 @@ class BitmapTextCharsFactory
             if (bounds.top > top)
                 bounds.top = top;
 
-            var right = x + fontChar.dx + fontChar.data.width;
+            var right = x + fontChar.dx;
             if (bounds.right < right)
                 bounds.right = right;
 
