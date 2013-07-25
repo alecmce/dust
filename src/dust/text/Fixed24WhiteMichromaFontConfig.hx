@@ -1,6 +1,5 @@
 package dust.text;
 
-import flash.errors.Error;
 import flash.display.BitmapData;
 import openfl.Assets;
 import dust.text.data.BitmapFont;

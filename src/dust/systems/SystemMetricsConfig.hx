@@ -25,6 +25,8 @@ import dust.context.Config;
 
 import dust.Injector;
 
+using dust.gui.GUIUtil;
+
 class SystemMetricsConfig implements DependentConfig
 {
     inline static var MEAN_DATA_POINTS = 25;
@@ -62,7 +64,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeSystemMetricsViewEntity()
         {
             var entity = entities.require();
-            entity.add(new UIContainer().add(new SystemMetricsView(labelFactory, metrics, OUTPUT_PRECISION)));
+            entity.addView(new SystemMetricsView(labelFactory, metrics, OUTPUT_PRECISION));
             entity.add(new Alignment(HAlign.RIGHT, VAlign.BOTTOM));
             entity.add(new Position(app.stageWidth, app.stageHeight));
             return entity;
@@ -71,7 +73,7 @@ class SystemMetricsConfig implements DependentConfig
         function makeFrameRateViewEntity()
         {
             var entity = entities.require();
-            entity.add(new UIContainer().add(new FrameRateView(labelFactory)));
+            entity.addView(new FrameRateView(labelFactory));
             entity.add(new Alignment(HAlign.RIGHT, VAlign.TOP));
             entity.add(new Position(app.stageWidth, 0));
             return entity;

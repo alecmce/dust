@@ -63,17 +63,17 @@ class Color
         return this;
     }
 
-    public function getWhiteTransform():ColorTransform
+    public function getWhiteTransform(alpha:Float = 1.0):ColorTransform
     {
         var r = getRed() / 0xFF;
         var g = getGreen() / 0xFF;
         var b = getBlue() / 0xFF;
-        return new ColorTransform(r, g, b, 1);
+        return new ColorTransform(r, g, b, alpha);
     }
 
-    public function getBlackTransform():ColorTransform
+    public function getBlackTransform(alpha:Float = 1.0):ColorTransform
     {
-        return new ColorTransform(1, 1, 1, 1, getRed(), getGreen(), getBlue());
+        return new ColorTransform(1, 1, 1, alpha, getRed(), getGreen(), getBlue());
     }
 
     public function toString():String
