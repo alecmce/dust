@@ -8,10 +8,7 @@ import dust.multitouch.data.DragZoomGesture;
 import dust.multitouch.control.DragZoomFactory;
 import dust.multitouch.systems.MultiTouchSystem;
 import dust.multitouch.control.Touches;
-import dust.systems.System;
 import dust.collections.control.CollectionMap;
-import dust.entities.Entity;
-import dust.geom.data.Position;
 import dust.camera.CameraConfig;
 import dust.app.data.App;
 import dust.math.MathConfig;
@@ -19,9 +16,6 @@ import dust.systems.SystemsConfig;
 import dust.systems.impl.Systems;
 import dust.Injector;
 import dust.context.Config;
-import flash.events.TouchEvent;
-import flash.ui.MultitouchInputMode;
-import flash.ui.Multitouch;
 import dust.context.DependentConfig;
 
 class MultiTouchConfig implements DependentConfig

@@ -42,7 +42,7 @@ class SystemsTest
 
     @Test public function mappedSystemsStartOnSystemsStart()
     {
-        systems.map(TrackStartSystem);
+        systems.map(TrackStartSystem, 0);
         systems.start();
 
         Assert.isTrue(TrackStartSystem.isStarted);

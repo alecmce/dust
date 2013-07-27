@@ -16,7 +16,7 @@ class TweenConfig implements DependentConfig
 
     public function configure()
     {
-        systems.map(TweenSystem)
+        systems.map(TweenSystem, 0)
             .toCollection([Tweens])
             .withName("Tween");
     }

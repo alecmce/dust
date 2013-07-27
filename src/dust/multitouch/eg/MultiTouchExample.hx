@@ -19,7 +19,7 @@ class MultiTouchExample implements DependentConfig
     public function configure()
     {
         systems
-            .map(PaintTouchesSystem)
+            .map(PaintTouchesSystem, 0)
             .withName('Paint Touches');
     }
 }

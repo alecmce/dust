@@ -28,7 +28,7 @@ class CollectionSortsTestConfig implements Config
     public function configure()
     {
         systems
-            .map(CollectionSortsSystem)
+            .map(CollectionSortsSystem, 0)
             .toCollection([Position], sorter);
     }
 
