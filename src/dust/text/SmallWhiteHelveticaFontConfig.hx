@@ -49,13 +49,5 @@ class SmallWhiteHelveticaFontConfig implements DependentConfig
                 return Assets.getBitmapData('assets/' + getFontTarget() + '.png');
 
             function getFontTarget()
-            {
-                return switch(app.target)
-                {
-                    case AppTarget.IPAD_RETINA:
-                        FONT_20;
-                    default:
-                        FONT_10;
-                }
-            }
+                return app.isRetina() ? FONT_20 : FONT_10;
 }

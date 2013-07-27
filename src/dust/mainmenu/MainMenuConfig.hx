@@ -1,6 +1,5 @@
 package dust.mainmenu;
 
-import dust.app.data.AppTarget;
 import flash.display.DisplayObjectContainer;
 import dust.app.data.App;
 import dust.app.AppConfig;
@@ -43,12 +42,9 @@ class MainMenuConfig implements DependentConfig
                 .setFill(0x1E90FF)
                 .setLine(1, 0xFFFFFF);
 
-            return switch (app.target)
-            {
-                case AppTarget.IPAD_RETINA:
-                    new MainMenuButtonConfig(app, font, paint, 320, 80, 40);
-                default:
-                    new MainMenuButtonConfig(app, font, paint, 160, 40, 20);
-            }
+            return if (app.isRetina())
+                new MainMenuButtonConfig(app, font, paint, 320, 80, 40);
+            else
+                new MainMenuButtonConfig(app, font, paint, 160, 40, 20);
         }
 }

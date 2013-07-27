@@ -20,7 +20,7 @@ class Systems
     public function setMetrics(metrics:SystemMetrics)
         systemMap.setMetrics(metrics);
 
-    public function map(type:Class<System>, priority:Int = 0):SystemMapping
+    public function map(type:Class<System>, priority:Int):SystemMapping
         return systemMap.map(type, priority);
 
     public function hasMapping(type:Class<System>):Bool

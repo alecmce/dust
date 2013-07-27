@@ -34,7 +34,7 @@ class KeysConfig implements DependentConfig
         injector.mapValue(KeyControls, controls);
 
         systems
-            .map(KeyControllerSystem)
+            .map(KeyControllerSystem, 0)
             .withName("KeyController");
     }
 }

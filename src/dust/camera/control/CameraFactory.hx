@@ -1,7 +1,6 @@
 package dust.camera.control;
 
 import dust.app.data.App;
-import dust.app.data.AppTarget;
 import dust.camera.data.Camera;
 
 class CameraFactory
@@ -15,12 +14,9 @@ class CameraFactory
         var screenCenterX = Std.int(app.stageWidth * 0.5);
         var screenCenterY = Std.int(app.stageHeight * 0.5);
 
-        return switch (app.target)
-        {
-            case AppTarget.IPAD_RETINA:
-                new Camera(screenCenterX, screenCenterY, 1);
-            default:
-                new Camera(screenCenterX, screenCenterY, 0.5);
-        }
+        return if (app.isRetina())
+            new Camera(screenCenterX, screenCenterY, 1);
+        else
+            new Camera(screenCenterX, screenCenterY, 0.5);
     }
 }

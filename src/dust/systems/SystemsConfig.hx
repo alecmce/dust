@@ -10,25 +10,22 @@ import dust.systems.impl.SystemMap;
 import dust.systems.impl.Systems;
 import dust.systems.control.StopSystemsSignal;
 import dust.systems.control.StartSystemsSignal;
-import dust.commands.CommandMapConfig;
-import dust.commands.CommandMap;
 import dust.systems.impl.Systems;
 import dust.context.Context;
 import dust.signals.SignalMapConfig;
-import dust.entities.EntitiesConfig;
 import dust.signals.SignalMap;
 import dust.signals.SignalVoid;
 import dust.context.DependentConfig;
 import dust.context.Config;
 import dust.systems.impl.Systems;
 import dust.collections.control.CollectionMap;
-import dust.entities.Entities;
-import dust.bitfield.BitfieldFactory;
 
 import dust.Injector;
 
 class SystemsConfig implements DependentConfig
 {
+    inline static var MAX_INT = 0x3FFFFFFF;
+
     @inject public var context:Context;
     @inject public var injector:Injector;
     @inject public var signals:SignalMap;
@@ -52,11 +49,11 @@ class SystemsConfig implements DependentConfig
         function configureSystems(systems:Systems)
         {
             systems
-                .map(UpdateCollectionsSystem)
+                .map(UpdateCollectionsSystem, MAX_INT)
                 .withName("Update Collections");
 
             systems
-                .map(SortCollectionsSystem)
+                .map(SortCollectionsSystem, MAX_INT - 1)
                 .withName("Sort Collections");
 
             signals.mapVoid(StartSystemsSignal, systems.start);
