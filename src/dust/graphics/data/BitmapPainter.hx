@@ -15,7 +15,6 @@ class BitmapPainter implements Painter
 
     public var bitmap:BitmapData;
     public var scale:Float;
-    public var alpha:Float;
 
     public function new(bitmap:BitmapData)
     {

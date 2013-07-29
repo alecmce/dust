@@ -11,12 +11,9 @@ import dust.collections.control.CollectionMap;
 import dust.entities.Entity;
 import dust.systems.impl.Systems;
 import dust.systems.SystemsConfig;
-import dust.graphics.data.Paint;
 
 import dust.Injector;
-import flash.display.Graphics;
 import flash.display.Sprite;
-import flash.display.DisplayObjectContainer;
 
 class PaintersConfig implements DependentConfig
 {

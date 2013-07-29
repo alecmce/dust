@@ -1,6 +1,5 @@
 package dust.interactive.control;
 
-import dust.app.data.App;
 import dust.camera.data.Camera;
 import dust.camera.data.Camera;
 import dust.geom.data.Position;
@@ -11,16 +10,9 @@ class TouchInteractiveFactory
 {
     @inject public var camera:Camera;
 
-    var scalar:Float;
-
-    @inject public function new(app:App)
-    {
-        scalar = app.isMultiTouch ? 2.5 : 1;
-    }
-
     public function makeCircular(radius:Float):TouchInteractive
     {
-        var algorithm = new CircularTouchAlgorithm(camera, radius * scalar);
+        var algorithm = new CircularTouchAlgorithm(camera, radius);
         return new TouchInteractive(algorithm.isWithinRadius);
     }
 
@@ -31,7 +23,7 @@ class TouchInteractiveFactory
 
     public function makeRectangular(horizontal:Float, vertical:Float):TouchInteractive
     {
-        var algorithm = new RectangularTouchAlgorithm(camera, horizontal * scalar, vertical * scalar);
+        var algorithm = new RectangularTouchAlgorithm(camera, horizontal, vertical);
         return new TouchInteractive(algorithm.isWithinRectangle);
     }
 }
@@ -57,7 +49,9 @@ class CircularTouchAlgorithm
         var dx = mouse.x - screen.x;
         var dy = mouse.y - screen.y;
         var dd = dx * dx + dy * dy;
-        return {isAtPosition:dd < value, distance:dd};
+        var v = value * camera.scalar;
+
+        return {isAtPosition:dd < v, distance:dd};
     }
 }
 
@@ -84,7 +78,10 @@ class RectangularTouchAlgorithm
         var dx = mouse.x - screen.x;
         var dy = mouse.y - screen.y;
         var dd = dx * dx + dy * dy;
-        var isAtPosition = dx >= -horizontal && dx <= horizontal && dy >= -vertical && dy <= vertical;
+        var h = horizontal * camera.scalar;
+        var v = vertical * camera.scalar;
+
+        var isAtPosition = dx >= -h && dx <= h && dy >= -v && dy <= v;
         return {isAtPosition:isAtPosition , distance:dd};
     }
 }
