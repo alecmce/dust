@@ -1,11 +1,9 @@
 package dust.context;
 
 import dust.signals.SignalVoid;
-import dust.signals.Signal;
 import dust.Injector;
 
 import flash.display.Stage;
-import flash.events.Event;
 import flash.display.DisplayObjectContainer;
 
 class Context
@@ -21,7 +19,7 @@ class Context
     public function new(parent:Context = null)
     {
         injector = new Injector(parent != null ? parent.injector : null);
-        configs = new ContextConfigs(injector, parent != null ? parent.configs : null);
+        configs = new ContextConfigs(injector);
         started = new SignalVoid();
         stopped = new SignalVoid();
         mapDefaultInjections();

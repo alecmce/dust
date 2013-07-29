@@ -74,8 +74,5 @@ class Camera
     }
 
     public function toString():String
-    {
-        var world = "[x=" + worldX + ", y=" + worldY + ", scalar=" + scalar + "]";
-        return "[Camera x=" + screenCenterX + ", y=" + screenCenterY + ", world=" + world + "]";
-    }
+        return '[Camera x=$screenCenterX, y=$screenCenterY, world=[x=$worldX, y=$worldY, scalar=$scalar]]';
 }

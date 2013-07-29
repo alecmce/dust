@@ -35,9 +35,9 @@ class ChildContextTest
         makeChild();
     }
 
-    @Test public function configurationOnChildIsNotDuplicatedInParent()
+    @Test public function configurationOnChildIsDuplicatedInParent()
     {
-        Assert.areEqual(1, ChildContextExampleConfig.COUNT);
+        Assert.areEqual(2, ChildContextExampleConfig.COUNT);
     }
 
     @Test public function bothRootsAreOnStage()

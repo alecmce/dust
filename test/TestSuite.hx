@@ -54,7 +54,6 @@ import dust.quadtree.data.QuadTreeRangeTest;
 import dust.quadtree.data.QuadTreeTest;
 import dust.signals.SignalMapConfigTest;
 import dust.signals.SignalMapTest;
-import dust.state.StateMachineTest;
 import dust.stats.RollingMeanTest;
 import dust.systems.impl.CollectionSortsTest;
 import dust.systems.impl.SystemMappingTest;
@@ -139,7 +138,6 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.quadtree.data.QuadTreeTest);
 		add(dust.signals.SignalMapConfigTest);
 		add(dust.signals.SignalMapTest);
-		add(dust.state.StateMachineTest);
 		add(dust.stats.RollingMeanTest);
 		add(dust.systems.impl.CollectionSortsTest);
 		add(dust.systems.impl.SystemMappingTest);
