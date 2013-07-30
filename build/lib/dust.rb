@@ -115,8 +115,8 @@ class Dust
     end
 
     def launch_html5(path)
-        system "open -a firefox http://localhost:8080"
-        system "pushd #{File.dirname(path)}; python -m SimpleHTTPServer 8080; popd;"
+        system "open -a firefox http://localhost:8000"
+        system "http-server #{File.dirname(path)} -p 8000"
     end
 
     def system(command)
