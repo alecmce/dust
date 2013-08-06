@@ -1,13 +1,13 @@
 package dust.signals;
 
-import dust.context.Context;
 import flash.display.Sprite;
+import dust.context.Context;
 import dust.Injector;
 
-class SignalMapTest
+class PromiseMapTest
 {
     var injector:Injector;
-    var signalMap:SignalMap;
+    var promiseMap:PromiseMap;
     var methodData:MockData;
     var secondMethodData:MockData;
 
@@ -18,16 +18,16 @@ class SignalMapTest
             .start(new Sprite());
 
         injector = context.injector;
-        signalMap = injector.getInstance(SignalMap);
+        promiseMap = injector.getInstance(PromiseMap);
     }
 
-    @Test public function mappedSignalTriggersMappedMethod()
+    @Test @TestDebug public function mappedPromiseTriggersMappedMethod()
     {
-        signalMap.map(MockSignal, method);
-        var signal:MockSignal = injector.getInstance(MockSignal);
+        promiseMap.map(MockPromise, method);
+        var promise:MockPromise = injector.getInstance(MockPromise);
 
         var data = new MockData();
-        signal.dispatch(data);
+        promise.dispatch(data);
         Assert.areSame(data, methodData);
     }
 
@@ -36,14 +36,14 @@ class SignalMapTest
             methodData = data;
         }
 
-    @Test public function multipleMethodsCanBeMappedToTheSameSignal()
+    @Test @TestDebug public function multipleMethodsCanBeMappedToTheSamePromise()
     {
-        signalMap.map(MockSignal, method);
-        signalMap.map(MockSignal, secondMethod);
-        var signal:MockSignal = injector.getInstance(MockSignal);
+        promiseMap.map(MockPromise, method);
+        promiseMap.map(MockPromise, secondMethod);
+        var promise:MockPromise = injector.getInstance(MockPromise);
 
         var data = new MockData();
-        signal.dispatch(data);
+        promise.dispatch(data);
         Assert.areSame(data, methodData);
         Assert.areSame(data, secondMethodData);
     }

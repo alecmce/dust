@@ -1,7 +1,5 @@
 package dust.signals;
 
-import haxe.PosInfos;
-
 using Lambda;
 
 class Signal<T>

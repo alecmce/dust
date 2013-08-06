@@ -52,6 +52,7 @@ import dust.quadtree.data.QuadTreeAtomTest;
 import dust.quadtree.data.QuadTreeDivisionsTest;
 import dust.quadtree.data.QuadTreeRangeTest;
 import dust.quadtree.data.QuadTreeTest;
+import dust.signals.PromiseMapTest;
 import dust.signals.SignalMapConfigTest;
 import dust.signals.SignalMapTest;
 import dust.stats.RollingMeanTest;
@@ -136,6 +137,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.quadtree.data.QuadTreeDivisionsTest);
 		add(dust.quadtree.data.QuadTreeRangeTest);
 		add(dust.quadtree.data.QuadTreeTest);
+		add(dust.signals.PromiseMapTest);
 		add(dust.signals.SignalMapConfigTest);
 		add(dust.signals.SignalMapTest);
 		add(dust.stats.RollingMeanTest);

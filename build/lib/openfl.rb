@@ -20,7 +20,11 @@ class OpenFL
   def make(target, flags)
     @target = target
     write_nmml
-    test target, flags
+    if target == 'html5'
+        build target, flags
+    else
+        test target, flags
+    end
   end
 
   def clean(target)
@@ -28,6 +32,9 @@ class OpenFL
   end
 
   def test(target, flags)
+    if is_defined('debug')
+        flags << '-debug'
+    end
     command = "openfl test #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
@@ -100,8 +107,16 @@ class OpenFL
         xml.ndll :name => ndll
       end
 
+      list_of('swf_lib').each do |swf|
+        xml.compilerflag :name => "-swf-lib #{swf}"
+      end
+
       list_of('assets').each do |path|
         xml.assets :path => path, :rename => File.basename(path)
+      end
+
+      if @target == 'flash' && is_defined('debug')
+        xml.haxedef :name => 'fdb'
       end
     }
   end

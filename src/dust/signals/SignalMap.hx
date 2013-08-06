@@ -6,8 +6,7 @@ class SignalMap
 {
     var injector:Injector;
 
-    @inject
-    public function new(injector:Injector)
+    @inject public function new(injector:Injector)
     {
         this.injector = injector;
     }
