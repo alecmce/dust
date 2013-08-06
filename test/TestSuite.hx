@@ -16,6 +16,7 @@ import dust.collections.control.CollectionSubscriberTest;
 import dust.collections.control.CollectionUpdateTest;
 import dust.commands.CommandMapConfigTest;
 import dust.commands.CommandMapTest;
+import dust.commands.PromiseCommandMapTest;
 import dust.console.ConsoleConfigTest;
 import dust.console.impl.ConsoleInputTest;
 import dust.console.impl.ConsoleLogTest;
@@ -101,6 +102,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.collections.control.CollectionUpdateTest);
 		add(dust.commands.CommandMapConfigTest);
 		add(dust.commands.CommandMapTest);
+		add(dust.commands.PromiseCommandMapTest);
 		add(dust.console.ConsoleConfigTest);
 		add(dust.console.impl.ConsoleInputTest);
 		add(dust.console.impl.ConsoleLogTest);

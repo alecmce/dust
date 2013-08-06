@@ -1,9 +1,9 @@
 package dust.commands;
 
+import dust.signals.MockSignal;
+import dust.signals.MockData;
 import dust.Injector;
 import dust.signals.SignalMap;
-import dust.signals.SignalVoid;
-import dust.signals.Signal;
 import dust.Injector;
 
 class CommandMapTest
@@ -25,25 +25,5 @@ class CommandMapTest
         var data:MockData = new MockData();
         signal.dispatch(data);
         Assert.areSame(data, MockCommand.data);
-    }
-}
-
-class MockData
-{
-    public function new() {}
-}
-
-class MockSignal extends Signal<MockData>
-{
-
-}
-
-class MockCommand implements Command<MockData>
-{
-    public static var data:MockData;
-
-    public function execute(data:MockData)
-    {
-        MockCommand.data = data;
     }
 }

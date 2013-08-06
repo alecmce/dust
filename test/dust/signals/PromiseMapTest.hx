@@ -14,7 +14,7 @@ class PromiseMapTest
     @Before public function before()
     {
         var context = new Context()
-            .configure(SignalMapConfig)
+            .configure(PromiseMapConfig)
             .start(new Sprite());
 
         injector = context.injector;
