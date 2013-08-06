@@ -10,8 +10,7 @@ class PromiseCommandMap
     var injector:Injector;
     var promiseMap:PromiseMap;
 
-    @inject
-    public function new(injector:Injector, promiseMap:PromiseMap)
+    @inject public function new(injector:Injector, promiseMap:PromiseMap)
     {
         this.injector = injector;
         this.promiseMap = promiseMap;

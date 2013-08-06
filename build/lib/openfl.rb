@@ -21,9 +21,9 @@ class OpenFL
     @target = target
     write_nmml
     if target == 'html5'
-        build target, flags
+      build target, flags
     else
-        test target, flags
+      test target, flags
     end
   end
 
@@ -33,23 +33,32 @@ class OpenFL
 
   def test(target, flags)
     if is_defined('debug')
-        flags << '-debug'
+      flags << '-debug'
     end
     command = "openfl test #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
 
   def update(target, flags)
+    if is_defined('debug')
+      flags << '-debug'
+    end
     command = "openfl update #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
 
   def build(target, flags)
+    if is_defined('debug')
+      flags << '-debug'
+    end
     command = "openfl build #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
 
   def run(target, flags)
+    if is_defined('debug')
+      flags << '-debug'
+    end
     command = "openfl run #{target}.nmml #{target} #{flags.empty? ? '' : flags.join(" ")}"
     execute command
   end
