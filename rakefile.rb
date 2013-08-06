@@ -143,6 +143,8 @@ namespace :haxelib do
   end
 
   task :local => :package do
+    puts "installing local version of dust to haxelib. If this command hangs"
+    puts "break and run 'haxelib upgrade' as some dependencies are out of date."
     command = "haxelib remove dust"
     puts command
     `#{command}`

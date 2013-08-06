@@ -115,7 +115,7 @@ class Dust
     end
 
     def launch_html5(path)
-        system "open -a firefox http://localhost:8000"
+        system "open -a #{@config.get('html5', 'browser')} http://localhost:8000"
         system "http-server #{File.dirname(path)} -p 8000"
     end
 
