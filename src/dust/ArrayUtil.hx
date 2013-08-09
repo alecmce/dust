@@ -31,6 +31,14 @@ class ArrayUtil
         return areAny;
     }
 
+    public static function convert<T,K>(list:Array<T>, converter:T->K):Array<K>
+    {
+        var output = new Array<K>();
+        for (item in list)
+            output.push(converter(item));
+        return output;
+    }
+
     public static function flatten<T>(list:Array<Dynamic>):Array<T>
     {
         var flattened = new Array<T>();
