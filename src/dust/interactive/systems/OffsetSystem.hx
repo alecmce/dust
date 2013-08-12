@@ -32,6 +32,6 @@ class OffsetSystem implements System
             current.setTo(position);
 
             for (offset in offsets.offsets)
-                offset.offset(dx, dy);
+                offset.offset(dx, dy, 0);
         }
 }

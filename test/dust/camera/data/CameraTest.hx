@@ -25,7 +25,7 @@ class CameraTest
     {
         camera.set(20, 60);
 
-        world.set(100, 100);
+        world.set(100, 100, 0);
         camera.toScreen(world, screen);
 
         Assert.areEqual(screenCenterX + 80, screen.x);
@@ -37,7 +37,7 @@ class CameraTest
         camera.set(20, 60);
         camera.scalar = 0.5;
 
-        world.set(100, 100);
+        world.set(100, 100, 0);
         camera.toScreen(world, screen);
 
         Assert.areEqual(screenCenterX + 40, screen.x);
@@ -48,7 +48,7 @@ class CameraTest
     {
         camera.set(20, 60);
 
-        screen.set(screenCenterX + 80, screenCenterY + 40);
+        screen.set(screenCenterX + 80, screenCenterY + 40, 0);
         camera.toWorld(screen, world);
 
         Assert.areEqual(100, world.x);
@@ -60,7 +60,7 @@ class CameraTest
         camera.set(20, 60);
         camera.scalar = 0.5;
 
-        screen.set(screenCenterX + 40, screenCenterY + 20);
+        screen.set(screenCenterX + 40, screenCenterY + 20, 0);
         camera.toWorld(screen, world);
 
         Assert.areEqual(100, world.x);

@@ -2,6 +2,7 @@ package dust.gui.data;
 
 import flash.geom.ColorTransform;
 
+// FIXME for OpenGL rendering, makes more sense it's stored internally as floats
 class Color
 {
     public var rgb:Int;
@@ -61,6 +62,21 @@ class Color
     {
         this.alpha = alpha;
         return this;
+    }
+
+    inline public function getR():Float
+    {
+        return getRed() / 0xFF;
+    }
+
+    inline public function getG():Float
+    {
+        return getGreen() / 0xFF;
+    }
+
+    inline public function getB():Float
+    {
+        return getBlue() / 0xFF;
     }
 
     public function getWhiteTransform(alpha:Float = 1.0):ColorTransform

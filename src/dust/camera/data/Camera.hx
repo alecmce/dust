@@ -13,7 +13,10 @@ class Camera
     public var worldY:Float;
     public var scalar:Float;
 
-    public function new(screenCenterX:Int, screenCenterY:Int, scalar:Float = 1)
+    public var isPerspective:Bool;
+    public var fieldOfView:Float;
+
+    public function new(screenCenterX:Int, screenCenterY:Int, scalar:Float = 1.0)
     {
         this.screenCenterX = screenCenterX;
         this.screenCenterY = screenCenterY;
@@ -21,6 +24,9 @@ class Camera
 
         worldX = 0;
         worldY = 0;
+
+        isPerspective = false;
+        fieldOfView = 110.0;
     }
 
     public function set(worldX:Float, worldY:Float)

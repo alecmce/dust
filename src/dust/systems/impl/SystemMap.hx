@@ -48,8 +48,7 @@ class SystemMap
     public function unmap(type:Class<System>)
     {
         var mapping = getMapping(type);
-        if (mapping != null)
-            mappings.remove(mapping);
+        return mapping != null ? mappings.remove(mapping) : null;
     }
 
         function getMapping(type:Class<System>):SystemMapping

@@ -21,13 +21,22 @@ class Systems
         systemMap.setMetrics(metrics);
 
     public function map(type:Class<System>, priority:Int):SystemMapping
-        return systemMap.map(type, priority);
+    {
+        var mapping = systemMap.map(type, priority);
+        if (areRunning)
+            mapping.apply(loop);
+        return mapping;
+    }
 
     public function hasMapping(type:Class<System>):Bool
         return systemMap.hasMapping(type);
 
     public function unmap(type:Class<System>)
-        systemMap.unmap(type);
+    {
+        var mapping = systemMap.unmap(type);
+        if (mapping != null)
+            mapping.clear(loop);
+    }
 
     public function setRate(millisecondsBetweenUpdates:Int)
         loop.setRate(millisecondsBetweenUpdates);

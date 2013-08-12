@@ -30,10 +30,10 @@ class Touch
     public function init(id:Int, x:Float, y:Float, time:Float):Touch
     {
         this.id = id;
-        this.start.set(x, y);
+        this.start.set(x, y, 0);
         this.startTime = time;
 
-        this.current.set(x, y);
+        this.current.set(x, y, 0);
         this.currentTime = time;
 
         this.isCurrent = true;
@@ -51,7 +51,7 @@ class Touch
 
     public function update(x:Float, y:Float, time:Float):Touch
     {
-        this.current.set(x, y);
+        this.current.set(x, y, 0);
         this.currentTime = time;
         return this;
     }

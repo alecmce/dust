@@ -9,8 +9,7 @@ class CollectionListenersMap
     var injector:Injector;
     var types:Array<Class<CollectionListeners>>;
 
-    @inject
-    public function new(injector:Injector)
+    @inject public function new(injector:Injector)
     {
         this.injector = injector;
     }

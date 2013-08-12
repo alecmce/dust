@@ -38,9 +38,10 @@ class SortedList<T>
                 list.head = item.prev;
         }
 
-    public function remove(data:T)
+    public function remove(data:T):T
     {
         list.remove(data);
+        return data;
     }
 
     public function iterator():Iterator<T>

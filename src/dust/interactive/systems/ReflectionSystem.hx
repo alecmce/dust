@@ -40,7 +40,7 @@ class ReflectionSystem implements System
 
             var x = center.x + (center.x - position.x) * scale;
             var y = center.y + (center.y - position.y) * scale;
-            target.set(x, y);
+            target.set(x, y, 0);
         }
     }
 }
