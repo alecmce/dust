@@ -11,6 +11,7 @@ import dust.camera.eg.MoveCameraExampleTest;
 import dust.camera.systems.KeysMoveCameraSystemTest;
 import dust.collections.api.CollectionTest;
 import dust.collections.CollectionsConfigTest;
+import dust.collections.control.CollectionMappingTest;
 import dust.collections.control.CollectionMapTest;
 import dust.collections.control.CollectionSubscriberTest;
 import dust.collections.control.CollectionUpdateTest;
@@ -97,6 +98,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(dust.camera.systems.KeysMoveCameraSystemTest);
 		add(dust.collections.api.CollectionTest);
 		add(dust.collections.CollectionsConfigTest);
+		add(dust.collections.control.CollectionMappingTest);
 		add(dust.collections.control.CollectionMapTest);
 		add(dust.collections.control.CollectionSubscriberTest);
 		add(dust.collections.control.CollectionUpdateTest);

@@ -1,5 +1,6 @@
 package dust.collections.control;
 
+import dust.collections.data.CollectionListenersList;
 import dust.collections.data.CollectionList;
 import dust.collections.api.Collection;
 import dust.collections.api.CollectionListeners;
@@ -21,6 +22,7 @@ class CollectionMapping
     var listenersMap:CollectionListenersMap;
 
     var instance:Collection;
+    var listeners:CollectionListenersList;
     var components:Array<Class<Dynamic>>;
 
     public function new(parent:Injector, bitfield:Bitfield, collectionList:CollectionList, subscriber:CollectionSubscriber)
@@ -44,6 +46,8 @@ class CollectionMapping
     public function toListeners(listener:Class<CollectionListeners>):CollectionMapping
     {
         listenersMap.addListener(listener);
+        if (instance != null)
+            listeners.add(injector.instantiate(listener));
         return this;
     }
 
@@ -65,7 +69,7 @@ class CollectionMapping
             function makeCollection():Collection
             {
                 var list = new EntityList(new SimpleList<Entity>());
-                var listeners = listenersMap.make();
+                listeners = listenersMap.make();
                 return new Collection(bitfield, list, listeners.onEntityAdded, listeners.onEntityRemoved);
             }
 

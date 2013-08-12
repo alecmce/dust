@@ -1,6 +1,6 @@
 package dust.collections.control;
 
-import dust.collections.data.SimpleCollectionListeners;
+import dust.collections.data.CollectionListenersList;
 import dust.collections.api.CollectionListeners;
 import dust.Injector;
 
@@ -21,9 +21,9 @@ class CollectionListenersMap
         types.push(type);
     }
 
-    public function make():SimpleCollectionListeners
+    public function make():CollectionListenersList
     {
-        return new SimpleCollectionListeners(makeListeners());
+        return new CollectionListenersList(makeListeners());
     }
 
         function makeListeners():Array<CollectionListeners>

@@ -4,10 +4,6 @@ import dust.entities.Entities;
 import dust.entities.Entity;
 import dust.bitfield.BitfieldFactory;
 import dust.bitfield.Bitfield;
-import dust.collections.api.CollectionListeners;
-import dust.collections.data.EmptyCollectionListeners;
-import dust.collections.api.CollectionListeners;
-import dust.collections.data.SimpleCollectionListeners;
 import dust.entities.Entity;
 import dust.entities.Entities;
 import dust.collections.api.Collection;
@@ -46,10 +42,14 @@ class CollectionTest
     }
 
         function onEntityAdded(entity:Entity)
+        {
             added = entity;
+        }
 
         function onEntityRemoved(entity:Entity)
+        {
             removed = entity;
+        }
 
     @Test public function canDetectWhenEntityMeetsRequirements()
     {
