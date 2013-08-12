@@ -28,5 +28,5 @@ class CollectionsConfig implements DependentConfig
     }
 
     function onContextStarted()
-        injector.getInstance(CollectionMap).instantiateAll();
+        injector.getInstance(CollectionMap).start();
 }

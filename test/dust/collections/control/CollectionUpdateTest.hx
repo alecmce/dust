@@ -37,7 +37,7 @@ class CollectionUpdateTest
         function mapListeners(listeners:Class<CollectionListeners>)
         {
             collectionMap.map([MockComponentA]).toListeners(listeners);
-            collectionMap.instantiateAll();
+            collectionMap.start();
         }
 
         function addComponent()

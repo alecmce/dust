@@ -1,12 +1,9 @@
 package dust.collections.control;
 
-import dust.collections.api.CollectionListeners;
 import flash.display.Sprite;
 import dust.context.Context;
 import dust.collections.control.CollectionMap;
 import dust.collections.control.CollectionMapping;
-import dust.collections.data.CollectionList;
-import dust.bitfield.BitfieldFactory;
 import dust.bitfield.MockComponentA;
 import dust.bitfield.MockComponentB;
 import dust.entities.Entity;

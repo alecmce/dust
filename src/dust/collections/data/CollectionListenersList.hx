@@ -22,6 +22,11 @@ class CollectionListenersList
         list.remove(listeners);
     }
 
+    public function clear()
+    {
+        untyped list.length = 0;
+    }
+
     public function onEntityAdded(entity:Entity)
     {
         for (listener in list)

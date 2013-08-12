@@ -60,7 +60,9 @@ class SystemsConfig implements DependentConfig
             signals.mapVoid(StopSystemsSignal, systems.stop);
 
             context.started.bind(systems.start);
-            context.started.bind(collections.instantiateAll);
+            context.started.bind(collections.start);
+            
             context.stopped.bind(systems.stop);
+            context.stopped.bind(collections.stop);
         }
 }

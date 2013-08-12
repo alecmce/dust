@@ -15,7 +15,7 @@ class CollectionMapping
 {
     function emptyMethod(entity:Entity) {}
 
-    public var injector:Injector;
+    var injector:Injector;
     var bitfield:Bitfield;
     var collectionList:CollectionList;
     var subscriber:CollectionSubscriber;
@@ -74,5 +74,16 @@ class CollectionMapping
             }
 
         function populateCollection(collection:Collection)
+        {
             subscriber.updateCollection(collection);
+        }
+
+    public function dispose()
+    {
+        if (instance != null)
+        {
+            listeners.clear();
+            instance = null;
+        }
+    }
 }

@@ -23,9 +23,13 @@ class CollectionMap
     @inject public var subscriber:CollectionSubscriber;
 
     var configMap:Map<String, CollectionMapping>;
+    var isStarted:Bool;
 
     public function new()
+    {
         configMap = new Map<String, CollectionMapping>();
+        isStarted = false;
+    }
 
     macro public function map(self:ExprOf<CollectionMap>, components:Expr):Expr
     {
@@ -55,6 +59,8 @@ class CollectionMap
         {
             var config = new CollectionMapping(injector, bitfield, collectionList, subscriber);
             configMap.set(key, config);
+            if (isStarted)
+                config.getCollection();
             return config;
         }
 
@@ -71,9 +77,17 @@ class CollectionMap
             return getOrMakeMapping(key, bitfield).getCollection();
         }
 
-    public function instantiateAll()
+    public function start()
     {
+        isStarted = true;
         for (config in configMap)
             config.getCollection();
+    }
+
+    public function stop()
+    {
+        isStarted = false;
+        for (config in configMap)
+            config.dispose();
     }
 }
