@@ -21,6 +21,8 @@ class SystemsTest
 
     @Before public function before()
     {
+        TrackStartSystem.isStarted = false;
+
         injector = new Injector();
         collectionMap = makeCollectionMap();
         collectionSorts = new CollectionSorts();
@@ -44,6 +46,15 @@ class SystemsTest
     {
         systems.map(TrackStartSystem, 0);
         systems.start();
+
+        Assert.isTrue(TrackStartSystem.isStarted);
+    }
+
+    @Test public function systemMappedAfterSystemsStartedIsStartedNextIteration()
+    {
+        systems.start();
+        systems.map(TrackStartSystem, 0);
+        systems.update();
 
         Assert.isTrue(TrackStartSystem.isStarted);
     }

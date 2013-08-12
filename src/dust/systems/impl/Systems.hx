@@ -9,8 +9,7 @@ class Systems
     var systemMap:SystemMap;
     var loop:SystemsLoop;
 
-    @inject
-    public function new(systemMap:SystemMap, loop:SystemsLoop)
+    @inject public function new(systemMap:SystemMap, loop:SystemsLoop)
     {
         areRunning = false;
         this.systemMap = systemMap;
@@ -18,40 +17,45 @@ class Systems
     }
 
     public function setMetrics(metrics:SystemMetrics)
+    {
         systemMap.setMetrics(metrics);
+    }
 
     public function map(type:Class<System>, priority:Int):SystemMapping
     {
         var mapping = systemMap.map(type, priority);
         if (areRunning)
-            mapping.apply(loop);
+            loop.addPending(mapping);
         return mapping;
     }
 
     public function hasMapping(type:Class<System>):Bool
+    {
         return systemMap.hasMapping(type);
+    }
 
     public function unmap(type:Class<System>)
     {
-        var mapping = systemMap.unmap(type);
-        if (mapping != null)
-            mapping.clear(loop);
+        systemMap.unmap(type);
     }
 
     public function setRate(millisecondsBetweenUpdates:Int)
+    {
         loop.setRate(millisecondsBetweenUpdates);
+    }
 
     public function start()
     {
         areRunning = true;
         for (mapping in systemMap)
             mapping.apply(loop);
-
         loop.start();
     }
 
     public function update()
+    {
         loop.update();
+    }
 
     public function stop()
     {

@@ -24,12 +24,15 @@ class SystemsLoop
     #end
 
     var time:Float;
+    var pendingSystems:PendingSystems;
 
     @inject public function new(systems:SystemsList)
     {
         this.systems = systems;
         millisecondsBetweenUpdates = DEFAULT_MILLISECONDS_BETWEEN_UPDATES;
         isStarted = false;
+
+        pendingSystems = new PendingSystems(this);
     }
 
     public function setRate(millisecondsBetweenUpdates:Int)
@@ -38,10 +41,19 @@ class SystemsLoop
     }
 
     public function add(system:System)
+    {
         systems.add(system);
+    }
 
     public function remove(system:System)
+    {
         systems.remove(system);
+    }
+
+    public function addPending(mapping:SystemMapping)
+    {
+        pendingSystems.add(mapping);
+    }
 
     public function start()
     {
@@ -71,6 +83,7 @@ class SystemsLoop
         var deltaTime = newTime - time;
         time = newTime;
         systems.update(deltaTime);
+        pendingSystems.update();
         #end
     }
 
