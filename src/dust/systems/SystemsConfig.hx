@@ -61,7 +61,7 @@ class SystemsConfig implements DependentConfig
 
             context.started.bind(systems.start);
             context.started.bind(collections.start);
-            
+
             context.stopped.bind(systems.stop);
             context.stopped.bind(collections.stop);
         }

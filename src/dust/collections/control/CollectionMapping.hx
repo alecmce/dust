@@ -47,9 +47,17 @@ class CollectionMapping
     {
         listenersMap.addListener(listener);
         if (instance != null)
-            listeners.add(injector.instantiate(listener));
+            lazilyAddListeners(listener);
         return this;
     }
+
+        function lazilyAddListeners(listener:Class<CollectionListeners>)
+        {
+            var listener:CollectionListeners = cast injector.instantiate(listener);
+            listeners.add(listener);
+            for (entity in instance)
+                listener.onEntityAdded(entity);
+        }
 
     public function getCollection():Collection
     {
