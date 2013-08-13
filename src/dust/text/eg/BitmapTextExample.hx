@@ -1,5 +1,6 @@
 package dust.text.eg;
 
+import dust.graphics.PaintersUtil;
 import dust.text.data.BitmapTextData;
 import dust.text.control.BitmapFonts;
 import dust.graphics.data.Painters;
@@ -13,6 +14,8 @@ import dust.entities.Entities;
 import dust.graphics.PaintersConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
+
+using dust.graphics.PaintersUtil;
 
 class BitmapTextExample implements DependentConfig
 {
@@ -33,7 +36,7 @@ class BitmapTextExample implements DependentConfig
 
         var entity = entities.require();
         entity.add(new Position(0, 0));
-        entity.add(new Painters().add(painter));
+        entity.addPainter(painter);
         entity.add(camera);
     }
 }
