@@ -2,7 +2,6 @@ package dust.systems;
 
 import flash.display.Sprite;
 import dust.context.Context;
-import dust.Injector;
 
 class SystemMetricsConfigTest
 {

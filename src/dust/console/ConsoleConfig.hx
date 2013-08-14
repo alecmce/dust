@@ -52,7 +52,7 @@ class ConsoleConfig
         mapCommands();
         enableListener();
 
-        context.started.bindOnce(onStarted);
+        context.started.bind(onStarted);
     }
 
         function injectConsole()

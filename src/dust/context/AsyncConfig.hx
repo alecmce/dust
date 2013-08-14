@@ -1,7 +1,8 @@
 package dust.context;
-class AsyncConfig
+
+import dust.signals.PromiseVoid;
+
+interface AsyncConfig extends Config
 {
-    public function new()
-    {
-    }
+    var ready:PromiseVoid;
 }

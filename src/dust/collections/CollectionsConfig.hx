@@ -1,6 +1,5 @@
 package dust.collections;
 
-import dust.collections.api.CollectionListeners;
 import dust.collections.control.CollectionSubscriber;
 import dust.collections.data.CollectionList;
 import dust.collections.control.CollectionMap;
@@ -16,7 +15,9 @@ class CollectionsConfig implements DependentConfig
     @inject public var context:Context;
 
     public function dependencies():Array<Class<Config>>
+    {
         return [EntitiesConfig];
+    }
 
     public function configure()
     {
@@ -24,9 +25,6 @@ class CollectionsConfig implements DependentConfig
         injector.mapSingleton(CollectionSubscriber);
         injector.mapSingleton(CollectionMap);
 
-        context.started.bind(onContextStarted);
+        context.started.bind(injector.getInstance(CollectionMap).start);
     }
-
-    function onContextStarted()
-        injector.getInstance(CollectionMap).start();
 }

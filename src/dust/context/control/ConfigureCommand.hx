@@ -1,57 +1,56 @@
 package dust.context.control;
 
-import dust.signals.PromiseVoid;
+import dust.commands.CommandVoid;
 
-class ConfigureCommand
+class ConfigureCommand implements CommandVoid
 {
-    var injector:Injector;
-    var configs:Map<Class<Config>, Config>;
-    var pending:Array<Config>;
-    var ready:PromiseVoid;
+    @inject public var injector:Injector;
+    @inject public var configs:Configs;
+    @inject public var started:ContextStartedPromise;
 
+    var index:Int;
     var isWaiting:Bool;
-
-    public function new(injector:Injector, configs:Map<Class<Config>, Config>, pending:Array<Config>, ready:PromiseVoid)
-    {
-        this.injector = injector;
-        this.configs = configs;
-        this.pending = pending;
-        this.ready = ready;
-    }
 
     public function execute()
     {
         isWaiting = false;
-        while (!isWaiting && pending.length > 0)
-            configureNextPending();
-
-        if (!isWaiting && pending.length == 0)
-            ready.dispatch();
+        index = 0;
+        configure();
     }
 
-        function configureNextPending()
+        function configure()
         {
-            var config = pending.pop();
-            if (isAsync(config))
-                handleAsync(cast config);
+            while (!isWaiting && index < configs.pending.length)
+                configureNextPending();
 
-            configureInstance(config);
+            if (!isWaiting && index == configs.pending.length)
+                started.dispatch();
         }
 
-            function isAsync(config:Config):Bool
+            function configureNextPending()
             {
-                return Std.is(config, AsyncConfig);
+                var config = configs.pending[index++];
+                var instance = configureInstance(config);
+                if (isAsync(instance))
+                    waitUntilAsyncIsReady(cast instance);
             }
 
-            function handleAsync(config:AsyncConfig)
-            {
-                isWaiting = true;
-                config.ready.bind(configure);
-            }
+                function configureInstance(config:Class<Config>):Config
+                {
+                    var instance = injector.instantiate(config);
+                    configs.configured.push(instance);
+                    instance.configure();
+                    return instance;
+                }
 
-            function configureInstance(config:Config)
-            {
-                injector.injectInto(instance);
-                config.configure();
-            }
+                function isAsync(config:Config):Bool
+                {
+                    return Std.is(config, AsyncConfig);
+                }
+
+                function waitUntilAsyncIsReady(config:AsyncConfig)
+                {
+                    isWaiting = true;
+                    config.ready.bind(configure);
+                }
 }

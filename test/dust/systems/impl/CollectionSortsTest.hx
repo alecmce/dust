@@ -1,5 +1,6 @@
 package dust.systems.impl;
 
+import dust.context.DependentConfig;
 import dust.entities.Entity;
 import dust.geom.data.Position;
 import dust.context.Config;
@@ -21,9 +22,14 @@ class CollectionSortsTest
     }
 }
 
-class CollectionSortsTestConfig implements Config
+class CollectionSortsTestConfig implements DependentConfig
 {
     @inject public var systems:Systems;
+
+    public function dependencies():Array<Class<Config>>
+    {
+        return [SystemsConfig];
+    }
 
     public function configure()
     {

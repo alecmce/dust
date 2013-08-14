@@ -1,5 +1,7 @@
 package dust.context;
 
+import flash.display.Sprite;
+import dust.signals.PromiseVoid;
 import dust.context.DependentConfig;
 import dust.context.UnconfigConfig;
 import dust.Injector;
@@ -10,75 +12,108 @@ class ContextConfigsTest
     public static var UNCONFIG_ID:Int;
 
     var injector:Injector;
-    var configs:ContextConfigs;
+    var context:Context;
 
     @Before public function before()
     {
-        injector = new Injector();
-        configs = new ContextConfigs(injector);
+        context = new Context();
+        injector = context.injector;
         CONFIG_ID = 0;
         UNCONFIG_ID = 0;
     }
 
     @Test public function configsConfiguredOnConfigure()
     {
-        configs.add(ExampleConfig);
-        configs.configure();
-        Assert.areEqual(ConfigStatus.CONFIGURED, ExampleConfig.status);
+        context
+            .configure(ExampleDependentConfig)
+            .start(new Sprite());
+
+        Assert.areEqual(ConfigStatus.CONFIGURED, ExampleDependentConfig.status);
     }
 
     @Test public function dependentsConfiguredOnConfigure()
     {
-        configs.add(ExampleConfig);
-        configs.configure();
-        Assert.areEqual(ConfigStatus.CONFIGURED, ExampleDependentConfig.status);
+        context
+            .configure(ExampleDependentConfig)
+            .start(new Sprite());
+
+        Assert.areEqual(ConfigStatus.CONFIGURED, ExampleUnconfigConfig.status);
     }
 
     @Test public function unconfigsUnconfiguredOnUnconfigure()
     {
-        configs.add(ExampleConfig);
-        configs.configure();
-        configs.unconfigure();
-        Assert.areEqual(ConfigStatus.UNCONFIGURED, ExampleConfig.status);
+        context
+            .configure(ExampleDependentConfig)
+            .start(new Sprite())
+            .stop();
+
+        Assert.areEqual(ConfigStatus.UNCONFIGURED, ExampleDependentConfig.status);
     }
 
     @Test public function dependentUnconfigsUnconfiguredOnUnconfigure()
     {
-        configs.add(ExampleConfig);
-        configs.configure();
-        configs.unconfigure();
-        Assert.areEqual(ConfigStatus.UNCONFIGURED, ExampleDependentConfig.status);
+        context
+            .configure(ExampleDependentConfig)
+            .start(new Sprite())
+            .stop();
+
+        Assert.areEqual(ConfigStatus.UNCONFIGURED, ExampleUnconfigConfig.status);
     }
 
     @Test public function dependentsAreConfiguredBeforeDependees()
     {
-        configs.add(ExampleConfig);
-        configs.configure();
-        Assert.isTrue(ExampleDependentConfig.configIndex < ExampleConfig.configIndex);
+        context
+            .configure(ExampleDependentConfig)
+            .start(new Sprite());
+
+        Assert.isTrue(ExampleUnconfigConfig.configIndex < ExampleDependentConfig.configIndex);
     }
 
     @Test public function dependeesAreUnconfiguredBeforeDependents()
     {
-        configs.add(ExampleConfig);
-        configs.configure();
-        configs.unconfigure();
-        Assert.isTrue(ExampleDependentConfig.unconfigIndex > ExampleConfig.unconfigIndex);
+        context
+            .configure(ExampleDependentConfig)
+            .start(new Sprite())
+            .stop();
+
+        Assert.isTrue(ExampleUnconfigConfig.unconfigIndex > ExampleDependentConfig.unconfigIndex);
+    }
+
+    @Test public function asyncConfigsDelayConfiguration()
+    {
+        context
+            .configure(ExampleAsyncDependencyConfig)
+            .start(new Sprite());
+
+        Assert.areNotEqual(ConfigStatus.CONFIGURED, ExampleAsyncDependencyConfig.status);
+    }
+
+    @Test public function ifADependencyIsConfiguredExplicitlyBeforeItsDependeeItIsStillConfiguredAfterwards()
+    {
+        context
+            .configure(ExampleUnconfigConfig)
+            .configure(ExampleDependentConfig)
+            .start(new Sprite());
+
+        Assert.isTrue(ExampleUnconfigConfig.configIndex < ExampleDependentConfig.configIndex);
     }
 }
 
-class ExampleConfig
-    implements DependentConfig
-    implements UnconfigConfig
+class ExampleDependentConfig implements DependentConfig implements UnconfigConfig
 {
     public static var status:ConfigStatus;
     public static var configIndex:Int;
     public static var unconfigIndex:Int;
 
     public function new()
+    {
         status = ConfigStatus.INSTANTIATED;
+    }
 
     public function dependencies():Array<Class<Config>>
-        return [ExampleDependentConfig];
+    {
+        return [ExampleUnconfigConfig];
+    }
 
     public function configure()
     {
@@ -93,15 +128,16 @@ class ExampleConfig
     }
 }
 
-class ExampleDependentConfig
-    implements UnconfigConfig
+class ExampleUnconfigConfig implements UnconfigConfig
 {
     public static var status:ConfigStatus;
     public static var configIndex:Int;
     public static var unconfigIndex:Int;
 
     public function new()
+    {
         status = ConfigStatus.INSTANTIATED;
+    }
 
     public function configure()
     {
@@ -113,6 +149,46 @@ class ExampleDependentConfig
     {
         status = ConfigStatus.UNCONFIGURED;
         unconfigIndex = ++ContextConfigsTest.UNCONFIG_ID;
+    }
+}
+
+class ExampleAsyncDependencyConfig implements DependentConfig
+{
+    public static var status:ConfigStatus;
+
+    public function new()
+    {
+        status = ConfigStatus.INSTANTIATED;
+    }
+
+    public function dependencies():Array<Class<Config>>
+    {
+        return [ExampleAsyncConfig];
+    }
+
+    public function configure()
+    {
+        status = ConfigStatus.CONFIGURED;
+    }
+}
+
+class ExampleAsyncConfig implements AsyncConfig
+{
+    public var ready:PromiseVoid;
+
+    public function new()
+    {
+        ready = new PromiseVoid();
+    }
+
+    public function configure()
+    {
+        haxe.Timer.delay(onConfigured, 100);
+    }
+
+    public function onConfigured()
+    {
+        ready.dispatch();
     }
 }
 

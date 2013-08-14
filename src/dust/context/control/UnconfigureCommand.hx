@@ -1,41 +1,35 @@
 package dust.context.control;
 
-class UnconfigureCommand
+import dust.commands.CommandVoid;
+
+class UnconfigureCommand implements CommandVoid
 {
-    var configs:Map<Class<Config>, Config>;
-    var pending:Array<Config>;
+    @inject public var configs:Configs;
 
-    public function new(configs:Map<Class<Config>, Config>, pending:Array<Config>)
+    var index:Int;
+
+    public function execute()
     {
-        this.configs = configs;
-        this.pending = pending;
+        index = configs.configured.length;
+        while (index-- > 0)
+            unconfigure(configs.configured[index]);
+
+        untyped configs.configured.length = 0;
     }
 
-    public function unconfigure()
-    {
-        for (key in configs.keys())
+        function unconfigure(config:Config)
         {
-            unconfigureConfig(key);
+            if (isUnconfig(config))
+                unconfigureInstance(cast config);
         }
-    }
 
-    function unconfigureConfig(config:Class<Config>)
-    {
-        var config = configs.get(key);
-        if (isUnconfig(config))
-            unconfigureInstance(cast config);
+            function isUnconfig(config:Config):Bool
+            {
+                return Std.is(config, UnconfigConfig);
+            }
 
-        configs.remove(key);
-    }
-
-    function isUnconfig(config:Config):Bool
-    {
-        return Std.is(config, UnconfigConfig);
-    }
-
-    function unconfigureInstance(config:UnconfigConfig)
-    {
-        pending.remove(config);
-        config.unconfigure();
-    }
+            function unconfigureInstance(config:UnconfigConfig)
+            {
+                config.unconfigure();
+            }
 }

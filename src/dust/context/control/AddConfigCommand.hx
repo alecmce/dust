@@ -1,50 +1,45 @@
 package dust.context.control;
 
-class AddConfigCommand
+import dust.commands.Command;
+
+using Lambda;
+
+class AddConfigCommand implements Command<Class<Config>>
 {
-    var configs:Map<Class<Config>, Config>;
-    var pending:Array<Config>;
+    @inject public var configs:Configs;
 
-    public function new(configs:Map<Class<Config>, Config>, pending:Array<Config>)
-    {
-        this.configs = configs;
-        this.pending = pending;
-    }
-
-    public function add(config:Class<Config>)
+    public function execute(config:Class<Config>)
     {
         if (!isConfigured(config))
             addConfig(config);
     }
 
-    function isConfigured(config:Class<Config>):Bool
-    {
-        return configs.exists(config);
-    }
+        function isConfigured(config:Class<Config>):Bool
+        {
+            return configs.pending.has(config);
+        }
 
-    function addConfig(config:Class<Config>)
-    {
-        var instance = makeInstance(config);
-        if (hasDependencies(instance))
-            addDependencies(cast instance)
-    }
+        function addConfig(config:Class<Config>)
+        {
+            configureDependencies(config);
+            configs.pending.push(config);
+        }
 
-    function makeInstance(config:Class<Config>)
-    {
-        var instance = Type.createEmptyInstance(config);
-        configs.set(config, instance);
-        pending.push(config);
-        return instance;
-    }
+            function configureDependencies(config:Class<Config>)
+            {
+                var instance = Type.createEmptyInstance(config);
+                if (hasDependencies(instance))
+                    addDependencies(cast instance);
+            }
 
-    function hasDependencies(config:Config):Bool
-    {
-        return Std.is(config, DependentConfig);
-    }
+                function hasDependencies(config:Config):Bool
+                {
+                    return Std.is(config, DependentConfig);
+                }
 
-    function addDependencies(config:DependentConfig)
-    {
-        for (dependency in config.dependencies())
-            add(dependency);
-    }
+                function addDependencies(config:DependentConfig)
+                {
+                    for (dependency in config.dependencies())
+                        execute(dependency);
+                }
 }
