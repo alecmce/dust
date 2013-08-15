@@ -5,7 +5,9 @@ import flash.geom.ColorTransform;
 // FIXME for OpenGL rendering, makes more sense it's stored internally as floats
 class Color
 {
-    public var rgb:Int;
+    var red:Float;
+    var green:Float;
+    var blue:Float;
     public var alpha:Float;
 
     public function new(rgb:Int = 0, alpha:Float = 1.0)
@@ -15,41 +17,43 @@ class Color
 
     inline public function set(rgb:Int = 0, alpha:Float = 1.0):Color
     {
-        this.rgb = rgb;
+        this.red =   ((rgb >> 16) & 0xFF) / 0xFF;
+        this.green = ((rgb >> 8) & 0xFF)  / 0xFF;
+        this.blue =  ((rgb >> 0) & 0xFF)  / 0xFF;
         this.alpha = alpha;
         return this;
     }
 
-    inline public function getRed():Int
+    inline public function getRed():Float
     {
-        return rgb >> 16;
+        return red;
     }
 
-    inline public function setRed(red:Int):Color
+    inline public function setRed(red:Float):Color
     {
-        rgb = (rgb & 0x00FFFF) | (red << 16);
+        this.red = red;
         return this;
     }
 
-    inline public function getGreen():Int
+    inline public function getGreen():Float
     {
-        return (rgb >>  8) & 0xFF;
+        return green;
     }
 
-    inline public function setGreen(green:Int):Color
+    inline public function setGreen(green:Float):Color
     {
-        rgb = (rgb & 0xFF00FF) | (green << 8);
+        this.green = green;
         return this;
     }
 
-    inline public function getBlue():Int
+    inline public function getBlue():Float
     {
-        return rgb & 0xFF;
+        return blue;
     }
 
-    inline public function setBlue(blue:Int):Color
+    inline public function setBlue(blue:Float):Color
     {
-        rgb = (rgb & 0xFFFF00) | blue;
+        this.blue = blue;
         return this;
     }
 
@@ -64,19 +68,12 @@ class Color
         return this;
     }
 
-    inline public function getR():Float
+    public function getRGB():Int
     {
-        return getRed() / 0xFF;
-    }
-
-    inline public function getG():Float
-    {
-        return getGreen() / 0xFF;
-    }
-
-    inline public function getB():Float
-    {
-        return getBlue() / 0xFF;
+        var R = Std.int(red * 0xFF);
+        var G = Std.int(green * 0xFF);
+        var B = Std.int(blue * 0xFF);
+        return (R << 16) | (G << 8) | B;
     }
 
     public function getWhiteTransform(alpha:Float = 1.0):ColorTransform
@@ -84,16 +81,22 @@ class Color
         var r = getRed() / 0xFF;
         var g = getGreen() / 0xFF;
         var b = getBlue() / 0xFF;
-        return new ColorTransform(r, g, b, alpha);
+        return new ColorTransform(red, green, blue, alpha);
     }
 
     public function getBlackTransform(alpha:Float = 1.0):ColorTransform
     {
-        return new ColorTransform(1, 1, 1, alpha, getRed(), getGreen(), getBlue());
+        var A = Std.int(alpha * 0xFF);
+        var R = Std.int(red * 0xFF);
+        var G = Std.int(green * 0xFF);
+        var B = Std.int(blue * 0xFF);
+
+        return new ColorTransform(1, 1, 1, A, R, G, B);
     }
 
     public function toString():String
     {
-        return "[rgb=#" + StringTools.hex(rgb) + ", alpha=" + alpha + "]";
+        var rgb = StringTools.hex(getRGB());
+        return '[rgb=#$rgb, alpha=$alpha]';
     }
 }

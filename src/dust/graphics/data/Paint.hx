@@ -41,7 +41,7 @@ class Paint
     inline public function setupLine(graphics:Graphics)
     {
         if (lineWidth >= 0)
-            graphics.lineStyle(lineWidth, line.rgb, line.alpha);
+            graphics.lineStyle(lineWidth, line.getRGB(), line.alpha);
         else
             graphics.lineStyle();
     }
@@ -50,7 +50,7 @@ class Paint
     {
         var alpha = fill.alpha;
         if (alpha > 0)
-            graphics.beginFill(fill.rgb, alpha);
+            graphics.beginFill(fill.getRGB(), alpha);
     }
 
 	inline public function endFill(graphics:Graphics)

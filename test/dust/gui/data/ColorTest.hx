@@ -11,16 +11,16 @@ class ColorTest
 
     @Test public function redChannel()
     {
-        Assert.areEqual(color.getRed(), 0x99);
+        Assert.areEqual(color.getRed(), 0x99 / 0xFF);
     }
 
     @Test public function greenChannel()
     {
-        Assert.areEqual(color.getGreen(), 0x66);
+        Assert.areEqual(color.getGreen(), 0x66 / 0xFF);
     }
 
     @Test public function blueChannel()
     {
-        Assert.areEqual(color.getBlue(), 0x33);
+        Assert.areEqual(color.getBlue(), 0x33 / 0xFF);
     }
 }
