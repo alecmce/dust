@@ -94,6 +94,16 @@ class Color
         return new ColorTransform(1, 1, 1, A, R, G, B);
     }
 
+    public function clone():Color
+    {
+        var other = new Color();
+        other.red = red;
+        other.green = green;
+        other.blue = blue;
+        other.alpha = alpha;
+        return other;
+    }
+
     public function toString():String
     {
         var rgb = StringTools.hex(getRGB());

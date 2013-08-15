@@ -82,7 +82,6 @@ class RectangularTouchAlgorithm
         var v = vertical * camera.scalar;
 
         var isAtPosition = dx >= -h && dx <= h && dy >= -v && dy <= v;
-        trace('isAtPosition: $isAtPosition, distance $dd');
         return {isAtPosition:isAtPosition , distance:dd};
     }
 }
