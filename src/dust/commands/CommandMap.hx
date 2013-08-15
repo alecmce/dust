@@ -36,5 +36,13 @@ class CommandMap
         else
             injector.instantiate(command);
     }
+
+    public function getInstanceVoid(command:Class<CommandVoid>):CommandVoid
+    {
+        return if (injector.hasMapping(command))
+            injector.getInstance(command);
+        else
+            injector.instantiate(command);
+    }
 }
 
