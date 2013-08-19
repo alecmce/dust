@@ -1,14 +1,13 @@
 package dust.interactive.data;
 
+import flash.display.Graphics;
 import dust.geom.data.Position;
 import dust.entities.Entity;
 
 typedef TouchInteractiveResponse = {isAtPosition:Bool, distance:Float};
 
-class TouchInteractive
+interface TouchInteractive
 {
-    public var isAtPosition:Entity->Position->TouchInteractiveResponse;
-
-    public function new(isAtPosition:Entity->Position->TouchInteractiveResponse)
-        this.isAtPosition = isAtPosition;
+    function isAtPosition(entity:Entity, mouse:Position):TouchInteractiveResponse;
+    function draw(entity:Entity, graphics:Graphics):Void;
 }

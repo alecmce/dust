@@ -14,9 +14,6 @@ class CameraFactory
         var screenCenterX = Std.int(app.stageWidth * 0.5);
         var screenCenterY = Std.int(app.stageHeight * 0.5);
 
-        return if (app.isRetina())
-            new Camera(screenCenterX, screenCenterY, 1);
-        else
-            new Camera(screenCenterX, screenCenterY, 0.5);
+        return new Camera(screenCenterX, screenCenterY, 1);
     }
 }

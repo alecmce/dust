@@ -26,7 +26,11 @@ class Tween
         this.onUpdate = nullUpdate;
         this.onComplete = nullComplete;
         this.delay = 0.0;
+        reset();
+    }
 
+    inline public function reset()
+    {
         this.progress = 0;
         this.value = initial;
         this.inverseDuration = 1 / (delay + duration);

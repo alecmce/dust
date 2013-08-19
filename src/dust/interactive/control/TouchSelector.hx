@@ -9,7 +9,7 @@ import dust.collections.api.Collection;
 
 class TouchSelector
 {
-    inline static var BIG_VALUE = 100000000000;
+    inline static var BIG_VALUE = 65535;
 
     @inject public var touches:Touches;
     @inject public var camera:Camera;
