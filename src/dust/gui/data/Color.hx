@@ -24,6 +24,16 @@ class Color
         return this;
     }
 
+    inline public function setTo(color:Color, useAlpha:Bool):Color
+    {
+        this.red = color.red;
+        this.green = color.green;
+        this.blue = color.blue;
+        if (useAlpha)
+            this.alpha = color.alpha;
+        return this;
+    }
+
     inline public function getRed():Float
     {
         return red;
@@ -102,6 +112,15 @@ class Color
         other.blue = blue;
         other.alpha = alpha;
         return other;
+    }
+
+    public function offset(dr:Float, dg:Float, db:Float, da:Float):Color
+    {
+        red += dr;
+        green += dg;
+        blue += db;
+        alpha += da;
+        return this;
     }
 
     public function toString():String

@@ -27,7 +27,7 @@ class MovingPositionsSystem implements System
         var position:Position = entity.get(Position);
         var delta:Delta = entity.get(Delta);
 
-        position.offset(delta.dx, delta.dy);
+        position.offset(delta.dx, delta.dy, 0.0);
 
         if (position.x > EXTENT)
             position.x -= 2 * EXTENT;

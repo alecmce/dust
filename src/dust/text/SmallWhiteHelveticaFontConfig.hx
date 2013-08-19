@@ -27,7 +27,9 @@ class SmallWhiteHelveticaFontConfig implements DependentConfig
         return [AppConfig, BitmapTextConfig];
 
     public function configure()
+    {
         fonts.add(FONT, makeFont());
+    }
 
         function makeFont():BitmapFont
         {

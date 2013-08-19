@@ -18,7 +18,6 @@ import dust.interactive.data.Offsets;
 import dust.geom.data.Position;
 import dust.interactive.systems.DragSystem;
 import dust.camera.CameraConfig;
-import dust.graphics.GraphicsConfig;
 import dust.context.Config;
 import dust.context.DependentConfig;
 import dust.collections.control.CollectionMap;
@@ -38,7 +37,7 @@ class InteractiveConfig implements DependentConfig
     @inject public var systems:Systems;
 
     public function dependencies():Array<Class<Config>>
-        return [MultiTouchConfig, GraphicsConfig, SystemsConfig, CameraConfig];
+        return [MultiTouchConfig, SystemsConfig, CameraConfig];
 
     public function configure()
     {
