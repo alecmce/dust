@@ -82,6 +82,12 @@ class Delta
         dx = 0.0;
         dy = 0.0;
         dz = 0.0;
+        dr = 0.0;
+    }
+
+    public function isInvalid():Bool
+    {
+        return dx != dx || dy != dy;
     }
 
     inline public function getMagnitude():Float
