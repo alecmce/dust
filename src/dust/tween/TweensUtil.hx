@@ -14,6 +14,11 @@ class TweensUtil
             entity.add(new Tweens().add(tween));
     }
 
+    public static function removeTweens(entity:Entity)
+    {
+        entity.remove(Tweens);
+    }
+
     public static function removeTween(entity:Entity, tween:Tween)
     {
         if (entity.has(Tweens))

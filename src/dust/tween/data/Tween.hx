@@ -15,9 +15,10 @@ class Tween
     public var value:Float;
 
     var progress:Float;
+    var total:Float;
     var inverseDuration:Float;
 
-    public function new(initial:Float, target:Float, duration:Float)
+    public function new(initial:Float, target:Float, duration:Float, delay:Float = 0.0)
     {
         this.initial = initial;
         this.delta = target - initial;
@@ -25,7 +26,7 @@ class Tween
         this.ease = nullEase;
         this.onUpdate = nullUpdate;
         this.onComplete = nullComplete;
-        this.delay = 0.0;
+        this.delay = delay;
         reset();
     }
 
@@ -33,7 +34,8 @@ class Tween
     {
         this.progress = 0;
         this.value = initial;
-        this.inverseDuration = 1 / (delay + duration);
+        this.total = delay + duration;
+        this.inverseDuration = 1 / duration;
     }
 
         function nullEase(proportion:Float):Float
@@ -63,14 +65,19 @@ class Tween
     inline public function update(entity:Entity, deltaTime:Float)
     {
         progress += deltaTime;
-        if (progress > duration)
-            progress = duration;
+        if (progress > delay)
+        {
+            if (progress > total)
+                progress = total;
 
-        var proportion = ease((progress - delay) * inverseDuration);
-        value = initial + delta * proportion;
-        onUpdate(entity, value);
+            var proportion = ease((progress - delay) * inverseDuration);
+            value = initial + delta * proportion;
+            onUpdate(entity, value);
+        }
     }
 
     inline public function isComplete():Bool
-        return progress >= duration;
+    {
+        return progress >= total;
+    }
 }

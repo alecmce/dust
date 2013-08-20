@@ -90,6 +90,11 @@ class Delta
         return dx != dx || dy != dy;
     }
 
+    public function isZero():Bool
+    {
+        return dx == 0 && dy == 0 && dz == 0;
+    }
+
     inline public function getMagnitude():Float
     {
         return Math.sqrt(dx * dx + dy * dy + dz * dz);
