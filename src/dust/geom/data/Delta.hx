@@ -115,6 +115,6 @@ class Delta
 
     public function toString():String
     {
-        return "[Delta dx: $dx, dy: $dy, dz: $dz]";
+        return '[Delta dx: $dx, dy: $dy, dz: $dz]';
     }
 }
