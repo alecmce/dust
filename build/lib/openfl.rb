@@ -98,6 +98,7 @@ class OpenFL
     window['vsync'] = value_of('vsync') if is_defined('vsync')
     window['fullscreen'] = value_of('fullscreen') if is_defined('fullscreen')
     window['antialiasing'] = value_of('antialiasing') if is_defined('antialiasing')
+    window['depth-buffer'] = value_of('depth-buffer') if is_defined('depth-buffer')
 
     xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct! :xml, :version => '1.0', :encoding => 'utf-8'
