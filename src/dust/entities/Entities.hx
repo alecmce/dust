@@ -14,8 +14,7 @@ class Entities
     var pool:Pool<Entity>;
     var list:PooledList<Entity>;
 
-    @inject
-    public function new(bitfieldFactory:BitfieldFactory)
+    @inject public function new(bitfieldFactory:BitfieldFactory)
     {
         this.bitfieldFactory = bitfieldFactory;
 

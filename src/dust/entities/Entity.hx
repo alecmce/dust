@@ -17,6 +17,8 @@ class Entity
     public var isChanged:Bool;
     public var isReleased:Bool;
 
+    public var onReleased:Entity->Void;
+
     var components:Array<Dynamic>;
     var deleted:Array<Int>;
     var cached:Array<Int>;

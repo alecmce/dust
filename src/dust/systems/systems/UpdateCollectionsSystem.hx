@@ -33,6 +33,8 @@ class UpdateCollectionsSystem implements System
             {
                 entity.cacheDeletions();
                 subscriber.updateEntity(entity);
+                if (entity.isReleased && entity.onReleased != null)
+                    entity.onReleased(entity);
                 entity.removeCachedDeletions();
                 if (entity.isReleased)
                     releaseEntity(entity);
@@ -41,6 +43,7 @@ class UpdateCollectionsSystem implements System
                 inline function releaseEntity(entity:Entity)
                 {
                     entity.isReleased = false;
+                    entity.onReleased = null;
                     entities.release(entity);
                 }
 }
