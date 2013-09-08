@@ -19,7 +19,7 @@ class InspectorPopulator
         }
     }
 
-    function getType(entity:Entity, component:Component)
+    function getType(entity:Entity, component:Dynamic)
     {
         var type = Type.getClass(component);
         if (entity.has(type))

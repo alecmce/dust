@@ -48,5 +48,7 @@ class Inspector
     }
 
     public function iterator():Iterator<InspectedField>
-        return new InspectorIterator(typeHash)
+    {
+        return new InspectorIterator(typeHash);
+    }
 }

@@ -34,5 +34,7 @@ class InspectedField
     }
 
     public function toString():String
-        return name
+    {
+        return name;
+    }
 }
