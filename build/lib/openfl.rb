@@ -128,6 +128,10 @@ class OpenFL
       if @target == 'flash' && is_defined('debug')
         xml.haxedef :name => 'fdb'
       end
+
+      if @target == 'flash' && is_defined('telemetry')
+        xml.haxedef :name => 'advanced-telemetry'
+      end
     }
   end
 

@@ -1,5 +1,6 @@
 package dust.lists;
 
+import dust.pooling.data.Pool;
 import dust.lists.LinkedListItem;
 import dust.lists.LinkedList;
 

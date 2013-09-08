@@ -1,3 +1,3 @@
 package dust.inspector.data;
 
-typedef FieldHash = Hash<InspectedField>;
+typedef FieldHash = Map<String, InspectedField>;

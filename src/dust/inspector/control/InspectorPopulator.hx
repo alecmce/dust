@@ -19,20 +19,10 @@ class InspectorPopulator
         }
     }
 
-    function getType(entity:Entity, component:Component)
+    function getType<T>(entity:Entity, component:Dynamic):Class<T>
     {
         var type = Type.getClass(component);
-        if (entity.has(type))
-            return type;
-
-        while (type != Component)
-        {
-            type = cast Type.getSuperClass(type);
-            if (entity.has(type) && entity.get(type) == component)
-                return type;
-        }
-
-        return null;
+        return entity.has(type) ? type : null;
     }
 
     function addField(inspector:Inspector, component:Class<Dynamic>, field:String)

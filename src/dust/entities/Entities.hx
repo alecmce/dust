@@ -3,7 +3,7 @@ package dust.entities;
 import dust.entities.Entity;
 import dust.entities.Entities;
 import dust.lists.PooledList;
-import dust.lists.Pool;
+import dust.pooling.data.Pool;
 import dust.bitfield.BitfieldFactory;
 
 class Entities

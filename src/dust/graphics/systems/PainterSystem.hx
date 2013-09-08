@@ -3,7 +3,7 @@ package dust.graphics.systems;
 import dust.camera.data.Camera;
 import dust.graphics.data.Painters;
 import dust.collections.api.Collection;
-import dust.lists.Pool;
+import dust.pooling.data.Pool;
 import dust.lists.SortedList;
 import dust.systems.System;
 

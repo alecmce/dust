@@ -1,6 +1,7 @@
-package dust.lists;
+package dust.pooling.data;
 
-import dust.lists.Pool;
+import dust.lists.MockData;
+import dust.pooling.data.Pool;
 import massive.munit.async.AsyncFactory;
 
 class PoolTest

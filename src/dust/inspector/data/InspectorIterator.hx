@@ -22,7 +22,9 @@ class InspectorIterator
     }
 
     public function hasNext():Bool
-        return fieldIterator.hasNext() || typeIterator.hasNext()
+    {
+        return fieldIterator.hasNext() || typeIterator.hasNext();
+    }
 
     public function next():InspectedField
     {
@@ -37,14 +39,28 @@ class NullTypeIterator
 {
     public function new() {}
 
-    public function hasNext():Bool return false
-    public function next():FieldHash return null
+    public function hasNext():Bool
+    {
+        return false;
+    }
+
+    public function next():FieldHash
+    {
+        return null;
+    }
 }
 
 class NullFieldIterator
 {
     public function new() {}
 
-    public function hasNext():Bool return false
-    public function next():InspectedField return null
+    public function hasNext():Bool
+    {
+        return false;
+    }
+
+    public function next():InspectedField
+    {
+        return null;
+    }
 }

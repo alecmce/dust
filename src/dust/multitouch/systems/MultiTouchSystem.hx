@@ -4,7 +4,7 @@ import dust.multitouch.data.DragZoomGesture;
 import dust.multitouch.data.Touch;
 import flash.display.Sprite;
 import flash.display.Stage;
-import dust.lists.Pool;
+import dust.pooling.data.Pool;
 import dust.lists.LinkedList;
 import dust.lists.PooledList;
 import dust.multitouch.control.Touches;

@@ -1,5 +1,6 @@
 package dust.entities;
 
+import dust.pooling.data.Pooled;
 import dust.entities.Entity;
 import dust.bitfield.Bitfield;
 
@@ -76,7 +77,9 @@ class Entity
             }
 
     inline public function satisfies(collectionBitfield:Bitfield):Bool
+    {
         return bitfield.isSubset(collectionBitfield);
+    }
 
     inline public function dispose()
     {
@@ -108,7 +111,13 @@ class Entity
         for (componentID in cached)
         {
             if (!bitfield.get(componentID))
+            {
+                var component = components[componentID];
                 components[componentID] = null;
+
+                if (Std.is(component, Pooled))
+                    cast(component, Pooled).release();
+            }
         }
         untyped cached.length = 0;
     }
@@ -120,7 +129,9 @@ class Entity
     }
 
         inline function getComponent<T>(index:Int):T
+        {
             return cast components[index];
+        }
 
     macro public function has(self:ExprOf<Entity>, component:Expr):Expr
     {
@@ -129,11 +140,17 @@ class Entity
     }
 
         inline function hasComponent(index:Int):Bool
+        {
             return bitfield.get(index);
+        }
 
 	inline public function iterator():Iterator<Dynamic>
-		return components.iterator();
+    {
+        return components.iterator();
+    }
 
     public function toString():String
+    {
         return '[Entity $id (${bitfield.toString()})]';
+    }
 }

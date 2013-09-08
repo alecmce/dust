@@ -4,7 +4,7 @@ import flash.display.DisplayObjectContainer;
 import dust.multitouch.data.Touch;
 import dust.math.Random;
 import flash.display.Sprite;
-import dust.lists.Pool;
+import dust.pooling.data.Pool;
 import dust.lists.LinkedList;
 import dust.lists.PooledList;
 import dust.multitouch.control.Touches;
