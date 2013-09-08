@@ -1,7 +1,7 @@
 package dust.multitouch.systems;
 
 import dust.app.data.App;
-import dust.lists.Pool;
+import dust.pooling.data.Pool;
 import dust.lists.LinkedList;
 import dust.lists.PooledList;
 import dust.systems.System;

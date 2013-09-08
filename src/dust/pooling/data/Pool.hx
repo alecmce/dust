@@ -1,4 +1,4 @@
-package dust.lists;
+package dust.pooling.data;
 
 using Lambda;
 

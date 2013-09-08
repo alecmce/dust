@@ -4,7 +4,7 @@ import dust.bitfield.MockComponentB;
 import dust.bitfield.MockComponentA;
 import dust.bitfield.BitfieldFactory;
 import dust.entities.Entities;
-import dust.lists.Pool;
+import dust.pooling.data.Pool;
 import dust.bitfield.Bitfield;
 import dust.entities.Entity;
 import massive.munit.async.AsyncFactory;
