@@ -51,6 +51,12 @@ class ConfigureCommand implements CommandVoid
                 function waitUntilAsyncIsReady(config:AsyncConfig)
                 {
                     isWaiting = true;
-                    config.ready.bind(configure);
+                    config.ready.bind(onAsyncReady);
+                }
+
+                function onAsyncReady()
+                {
+                    isWaiting = false;
+                    configure();
                 }
 }
