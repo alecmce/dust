@@ -13,11 +13,11 @@ class Inspector
         this.typeHash = new TypeHash();
     }
 
-    public function add(type:Class<Dynamic>, field:String)
+    macro public function add(type:Class<Dynamic>, field:String)
     {
-        var componentID = (cast type).ID;
-        var fieldHash = getTypeHash(componentID);
-        fieldHash.set(field, new InspectedField(type, field));
+        var typeID = macro dust.type.TypeIndex.getClassID(type);
+        var fieldHash = getTypeHash(typeID);
+        fieldHash.set(field, new InspectedField(type, typeID, field));
     }
 
         function getTypeHash(componentID:Int):FieldHash

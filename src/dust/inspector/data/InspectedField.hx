@@ -8,15 +8,17 @@ class InspectedField
     public var id:Int;
 
     public var type:Class<Dynamic>;
+    public var typeID:Int;
     public var field:String;
     public var value:Dynamic;
 
     var name:String;
 
-    public function new(type:Class<Dynamic>, field:String)
+    public function new(type:Class<Dynamic>, typeID:Int field:String)
     {
         id = ++ID;
         this.type = type;
+        this.typeID = typeID;
         this.field = field;
         this.name = getName();
     }
@@ -29,7 +31,7 @@ class InspectedField
 
     public function update(entity:Entity)
     {
-        var property = entity.get(type);
+        var property = entity.getComponent(typeID);
         value = Reflect.field(property, field);
     }
 
